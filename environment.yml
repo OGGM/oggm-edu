@@ -1,0 +1,7 @@
+name: oggm-env
+channels:
+  - oggm
+  - conda-forge
+dependencies:
+  - oggm
+
