@@ -4,6 +4,6 @@ channels:
   - conda-forge
 dependencies:
   - oggm-deps
-  pip:
-  - git+git:https://github.com/OGGM/oggm
+  - pip:
+    - git+git:https://github.com/OGGM/oggm
 
