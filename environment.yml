@@ -4,6 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - oggm-deps
+  - numpy>=1.15.1
   - pip:
     - git+https://github.com/OGGM/oggm.git
 
