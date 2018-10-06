@@ -1,2 +1,7 @@
 python download_cache.py
 
+mkdir ~/.fonts
+wget http://antiyawn.com/uploads/Humor-Sans-1.0.ttf
+mv Humor-Sans-1.0.ttf ~/.fonts/
+fc-cache -fv
+
