@@ -1,0 +1,16 @@
+name: oggm-edu-docs
+channels:
+  - pyviz/label/dev
+  - oggm
+  - conda-forge
+dependencies:
+  - oggm-deps
+  - numpy>=1.15.1
+  - appmode
+  - param=1.8.1
+  - panel=0.1.2
+  - holoviews=1.11.0a8
+  - geoviews=1.5.4a13
+  - pip:
+    - git+https://github.com/OGGM/oggm.git
+
