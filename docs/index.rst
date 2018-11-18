@@ -28,3 +28,17 @@ Interactive Notebooks
     :caption: Interactive Notebooks
 
     notebooks_howto.rst
+
+Graphics
+^^^^^^^^
+
+* :doc:`glacier_basics`
+* :doc:`glacier_lowpass`
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Graphics
+
+    glacier_basics.rst
+    glacier_lowpass.rst
