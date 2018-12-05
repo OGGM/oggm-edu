@@ -17,10 +17,13 @@ Interactive apps
 
     explorer.rst
 
+.. _notebooks_list:
+
 Interactive Notebooks
 ^^^^^^^^^^^^^^^^^^^^^
 
 * :doc:`notebooks_howto`
+* :doc:`notebooks_flowline_intro`
 
 .. toctree::
     :maxdepth: 1
@@ -28,6 +31,7 @@ Interactive Notebooks
     :caption: Interactive Notebooks
 
     notebooks_howto.rst
+    notebooks_flowline_intro.rst
 
 Graphics
 ^^^^^^^^
