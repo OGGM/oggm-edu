@@ -9,5 +9,11 @@ dependencies:
   - rasterio>=1.0
   - ipython
   - ipympl
+  - pyviz::param
+  - pyviz::pyviz_comms
+  - pyviz::datashader
+  - bokeh::bokeh
+  - pyviz::holoviews
+  - pyviz::panel
   - pip:
     - git+https://github.com/OGGM/oggm.git
