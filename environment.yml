@@ -15,5 +15,6 @@ dependencies:
   - bokeh::bokeh
   - pyviz::holoviews
   - pyviz::panel
+  - pyviz::parambokeh
   - pip:
     - git+https://github.com/OGGM/oggm.git
