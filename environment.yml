@@ -1,9 +1,13 @@
-name: oggm-env
+name: oggm_env
 channels:
   - oggm
   - conda-forge
 dependencies:
+  - python=3.6
   - oggm-deps
   - numpy>=1.15.1
+  - rasterio>=1.0
+  - ipython
+  - ipympl
   - pip:
     - git+https://github.com/OGGM/oggm.git
