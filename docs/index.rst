@@ -24,6 +24,7 @@ Interactive Notebooks
 
 * :doc:`notebooks_howto`
 * :doc:`notebooks_flowline_intro`
+* :doc:`notebooks_ice_flow_parameters`
 
 .. toctree::
     :maxdepth: 1
@@ -32,6 +33,7 @@ Interactive Notebooks
 
     notebooks_howto.rst
     notebooks_flowline_intro.rst
+    notebooks_ice_flow_parameters.rst
 
 Graphics
 ^^^^^^^^
