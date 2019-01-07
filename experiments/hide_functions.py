@@ -12,6 +12,7 @@ from oggm.core.flowline import FluxBasedModel, RectangularBedFlowline, Trapezoid
 # There are several solvers in OGGM core. We use the default one for this experiment
 FlowlineModel = FluxBasedModel
 import numpy as np
+from oggm import cfg
 
 
 def plot_xz_bed(x, bed):
@@ -47,11 +48,17 @@ def glacier(runtime, x, bed, model, mb_model, init_flowline):
     plt.ylabel('Altitude (m)')
     plt.legend(loc='best')
     
-def init_model(init_flowline, mb_model, years, glen_a):
+def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
     
-    model = FlowlineModel(init_flowline, mb_model=mb_model, y0=0., glen_a=glen_a)
+    if glen_a is None:
+        glen_a = cfg.PARAMS['glen_a']
+        
+    if fs is None:
+        fs = 0
+    
+    model = FlowlineModel(init_flowline, mb_model=mb_model, y0=0., glen_a=glen_a, fs=fs)
     # Year 0 to 600 in 5 years step
-    yrs = np.arange(0, years + 1, 5) 
+    yrs = np.arange(0, years, 5) 
     # Array to fill with data
     nsteps = len(yrs)
     length = np.zeros(nsteps)
@@ -62,5 +69,41 @@ def init_model(init_flowline, mb_model, years, glen_a):
         length[i] = model.length_m
         vol[i] = model.volume_km3
     
-    return model
+    return model#, length, vol
         
+    
+def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a, fs, fs_surge, model):
+    # Array to fill with data
+    nsteps = len(yrs)
+    length_s3 = np.zeros(nsteps)
+    vol_s3 = np.zeros(nsteps)
+    surging_glacier_h = []
+
+    # Loop & glacier evolution
+    for i, yr in enumerate(yrs):
+        model.run_until(yr)
+        length_s3[i] = model.length_m
+        vol_s3[i] = model.volume_km3    
+    
+        if i == 0 or i == (nsteps-1):
+            continue
+    
+        elif (yr-yrs[i-1]) == 10 and (yrs[i+1]-yr) == 1:
+            # Save glacier geometry before the surge
+            surging_glacier_h.append(model.fls[-1].surface_h)
+        
+            # Glacier evolution
+            surging_glacier_h_ts = model.fls[-1].surface_h
+            init_flowline = RectangularBedFlowline(surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths, map_dx=map_dx)
+            model = FlowlineModel(init_flowline, mb_model=mb_model, y0=yr, glen_a=glen_a, fs=fs_surge)
+    
+        elif (yr-yrs[i-1]) == 1 and (yrs[i+1]-yr) == 10:
+            # Save glacier geometry after the surge
+            surging_glacier_h.append(model.fls[-1].surface_h)
+        
+            # Glacier evolution        
+            surging_glacier_h_ts = model.fls[-1].surface_h
+            init_flowline = RectangularBedFlowline(surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths, map_dx=map_dx)
+            model = FlowlineModel(init_flowline, mb_model=mb_model, y0=yr, glen_a=glen_a, fs=fs)
+        
+    return model, surging_glacier_h, length_s3, vol_s3
