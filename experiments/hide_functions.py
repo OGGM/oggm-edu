@@ -33,7 +33,8 @@ def plot_xz_bed(x, bed):
     plt.legend(loc='best')
     
 def glacier(runtime, x, bed, model, mb_model, init_flowline):
-    """"This function plots the glacier after a defined runtime"""
+    """"This function plots the glacier after a defined runtime with labeled 
+    axes and a legend."""
     model.run_until(runtime)
     # Plot the initial glacier first:
     plt.plot(x, init_flowline.surface_h, label='Initial glacier')
@@ -49,7 +50,11 @@ def glacier(runtime, x, bed, model, mb_model, init_flowline):
     plt.legend(loc='best')
     
 def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
-    
+    """This function uses FlowlineModel and returns the model. 
+    TODO: return also length and volume.
+    Parameters
+    ----------
+    ..."""
     if glen_a is None:
         glen_a = cfg.PARAMS['glen_a']
         
@@ -73,6 +78,11 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
         
     
 def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a, fs, fs_surge, model):
+    """Function for surging experiments. 2 different sliding parameters can be 
+    used.
+    TODO: Parameters
+    """    
+
     # Array to fill with data
     nsteps = len(yrs)
     length_s3 = np.zeros(nsteps)
