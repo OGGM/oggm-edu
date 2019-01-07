@@ -3,7 +3,7 @@
 Ice flow parameters
 ===================
 
-In this notebook we will have a closer look at the parameters that describe ice flow: Glen's creep parameter and the sliding parameter. We will implement them in our model and see their nfluence on glacier flow.  
+In this notebook we will have a closer look at the parameters that describe ice flow: Glen's creep parameter and the sliding parameter. We will implement them in our model and see their influence on glacier flow.  
 
 Open this experiment in your browser with the button below: (**ACHTUNG FALSCHER BINDER**)
 
