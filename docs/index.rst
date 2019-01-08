@@ -26,6 +26,7 @@ Interactive Notebooks
 * :doc:`notebooks_flowline_intro`
 * :doc:`notebooks_ice_flow_parameters`
 * :doc:`notebooks_surging_glaciers`
+* :doc:`notebooks_mass_balance_gradient`
 
 .. toctree::
     :maxdepth: 1
@@ -36,6 +37,7 @@ Interactive Notebooks
     notebooks_flowline_intro.rst
     notebooks_ice_flow_parameters.rst
     notebooks_surging_glaciers.rst
+    notebooks_mass_balance_gradient.rst
 
 Graphics
 ^^^^^^^^
