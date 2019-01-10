@@ -3,10 +3,10 @@
 Surging glaciers
 ================
 
-This notebook treats surging glaciers. You will learn how to implement surging in a glacier model and and execute a few experiments with it. To open the notebook in your browser use the button below: **(ACHTUNG: falscher Binder)**
+This notebook treats surging glaciers. You will learn how to implement surging in a glacier model and and execute a few experiments with it. To open the notebook in your browser use the button below: 
 
 .. image:: https://mybinder.org/badge_logo.svg 
-    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master?filepath=experiments%2Fflowline_model.ipynb
+    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master
 
 
 *Prerequisites:* 

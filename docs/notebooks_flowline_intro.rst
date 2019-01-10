@@ -6,7 +6,7 @@ Glacier flowline modelling
 This notebook is an introduction to flowline modelling with OGGM. To open the notebook in your browser use the button below:
 
 .. image:: https://mybinder.org/badge_logo.svg 
-    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master?filepath=experiments%2Fflowline_model.ipynb
+    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master
 
 In this notebook we will set-up a simple model run and visualize it afterwards. Therefore we will learn how to define an easy glacier bed and a suitable grid. The learner will implement mass balance in the form of equilibrium line altitude (ELA) and see how his glacier develops in length, volume and area over certain years.
 
