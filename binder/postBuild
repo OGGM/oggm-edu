@@ -3,6 +3,7 @@
 # Add packages
 pip install gdal=="$(gdal-config --version)" --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
 pip install fiona --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
+pip install pyproj
 pip install geopandas
 pip install rasterio
 pip install pyviz_comms
@@ -13,6 +14,7 @@ pip install pyct
 pip install panel
 pip install parambokeh
 pip install datashader
+pip install descartes
 pip install salem
 pip install git+https://github.com/OGGM/oggm.git
 
