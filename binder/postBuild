@@ -15,4 +15,4 @@ python -c "import matplotlib as mpl; mpl.use('Agg'); import pylab as plt; fig, a
 test -e test.png && rm test.png
 
 # Get the OGGM data
-python download_cache.py
+python binder/download_cache.py
