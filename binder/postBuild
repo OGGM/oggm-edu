@@ -1,4 +1,5 @@
 #!/bin/bash
+pip install datashader
 
 mkdir ~/.fonts
 wget http://antiyawn.com/uploads/Humor-Sans-1.0.ttf

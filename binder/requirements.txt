@@ -21,7 +21,6 @@ bottleneck
 ipython
 ipympl
 pyviz_comms
-datashader
 bokeh
 holoviews
 panel
