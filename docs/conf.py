@@ -97,12 +97,6 @@ try:
 except ImportError:
     pass
 
-# If we are on a proper oggm install, we should be able to import all modules
-import oggm  # noqa: E402
-import oggm.utils  # noqa: E402
-import oggm.tasks  # noqa: E402
-print("oggm: %s, %s" % (oggm.__version__, oggm.__file__))
-
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
