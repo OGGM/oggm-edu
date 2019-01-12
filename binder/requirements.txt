@@ -20,12 +20,6 @@ dask
 bottleneck
 ipython
 ipympl
-pyviz_comms
-bokeh
-holoviews
-pyct
-panel
-parambokeh
 salem
 git+https://github.com/ioam/param
 git+https://github.com/OGGM/oggm.git

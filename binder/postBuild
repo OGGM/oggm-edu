@@ -1,4 +1,11 @@
 #!/bin/bash
+pip install pyviz_comms
+pip install bokeh
+pip install param
+pip install holoviews
+pip install pyct
+pip install panel
+pip install parambokeh
 pip install datashader
 
 mkdir ~/.fonts
