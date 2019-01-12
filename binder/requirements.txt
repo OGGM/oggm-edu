@@ -2,10 +2,7 @@ numpy
 scipy
 pandas
 shapely
-gdal==2.2.3 --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
-fiona --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
 matplotlib
-geopandas
 Pillow
 netcdf4
 scikit-image
@@ -20,6 +17,3 @@ dask
 bottleneck
 ipython
 ipympl
-salem
-git+https://github.com/ioam/param
-git+https://github.com/OGGM/oggm.git

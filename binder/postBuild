@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Add packages
+pip install gdal=="$(gdal-config --version)" --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
+pip install fiona --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
+pip install geopandas
+pip install rasterio
 pip install pyviz_comms
 pip install bokeh
 pip install param
@@ -7,7 +13,10 @@ pip install pyct
 pip install panel
 pip install parambokeh
 pip install datashader
+pip install salem
+pip install git+https://github.com/OGGM/oggm.git
 
+# Add funny fint
 mkdir ~/.fonts
 wget http://antiyawn.com/uploads/Humor-Sans-1.0.ttf
 mv Humor-Sans-1.0.ttf ~/.fonts/Humor-Sans-1.0.ttf
@@ -19,7 +28,6 @@ cd ~
 
 # run matplotlib once to generate the font cache
 python -c "import matplotlib as mpl; mpl.use('Agg'); import pylab as plt; fig, ax = plt.subplots(); fig.savefig('test.png')"
-
 test -e test.png && rm test.png
 
 # Get the OGGM data
