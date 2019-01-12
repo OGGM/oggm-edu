@@ -1,0 +1,15 @@
+build-essential
+python-pip
+liblapack-dev
+gfortran
+libproj-dev
+python-setuptools
+tk-dev
+python3-tk
+python3-dev
+gdal-bin
+libgdal-dev
+python-gdal
+netcdf-bin
+ncview
+python-netcdf4
