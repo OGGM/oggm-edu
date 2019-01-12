@@ -1,15 +1,8 @@
-name: oggmedudocs
+name: edudocs
 channels:
-  - oggm
   - conda-forge
 dependencies:
   - python=3.6
-  - oggm-deps
-  - numpy>=1.15.1
-  - rasterio>=1.0
   - numpydoc
   - ipython
   - sphinx
-  - pip:
-    - git+https://github.com/fmaussion/salem.git
-    - git+https://github.com/OGGM/oggm.git
