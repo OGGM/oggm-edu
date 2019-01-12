@@ -5,7 +5,6 @@ shapely
 gdal==2.2.3 --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
 fiona --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
 matplotlib
-rasterio
 geopandas
 Pillow
 netcdf4
