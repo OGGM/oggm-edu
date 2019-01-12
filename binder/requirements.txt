@@ -23,6 +23,7 @@ ipympl
 pyviz_comms
 bokeh
 holoviews
+pyct
 panel
 parambokeh
 salem
