@@ -2,6 +2,8 @@ numpy
 scipy
 pandas
 shapely
+gdal=="$(gdal-config --version)" --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
+fiona --install-option="build_ext" --install-option="$(gdal-config --cflags | sed 's/-I/--include-dirs=/')"
 matplotlib
 rasterio
 geopandas
