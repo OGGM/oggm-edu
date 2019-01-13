@@ -22,8 +22,9 @@ pip install git+https://github.com/OGGM/oggm.git
 pip install ipympl
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyter-matplotlib
+jupyter labextension install @pyviz/jupyterlab_holoviews
 
-# Add funny fint
+# Add funny font
 mkdir ~/.fonts
 wget http://antiyawn.com/uploads/Humor-Sans-1.0.ttf
 mv Humor-Sans-1.0.ttf ~/.fonts/Humor-Sans-1.0.ttf
