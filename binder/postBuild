@@ -19,7 +19,7 @@ pip install salem
 pip install git+https://github.com/OGGM/oggm.git
 
 # Jupyterlab
-pip install jupyterlab>=0.35
+pip install jupyterlab==0.35.4
 pip install ipympl
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyter-matplotlib
