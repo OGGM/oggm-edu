@@ -24,7 +24,6 @@ pip install ipympl
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyter-matplotlib
 jupyter labextension install jupyterlab_bokeh
-jupyter labextension install @pyviz/jupyterlab_holoviews
 jupyter labextension install @pyviz/jupyterlab_pyviz
 
 # Add funny font
