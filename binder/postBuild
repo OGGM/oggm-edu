@@ -18,6 +18,11 @@ pip install descartes
 pip install salem
 pip install git+https://github.com/OGGM/oggm.git
 
+# Jupyterlab
+pip install ipympl
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install jupyter-matplotlib
+
 # Add funny fint
 mkdir ~/.fonts
 wget http://antiyawn.com/uploads/Humor-Sans-1.0.ttf
