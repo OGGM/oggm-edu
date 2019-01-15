@@ -28,8 +28,8 @@ def plot_xz_bed(x, bed):
     """
     
     plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
-    plt.xlabel('Distance along glacier (km)')
-    plt.ylabel('Altitude (m)')
+    plt.xlabel('Distance along glacier [km]')
+    plt.ylabel('Altitude [m]')
     plt.legend(loc='best')
     
 def glacier(runtime, x, bed, model, mb_model, init_flowline):
@@ -45,8 +45,8 @@ def glacier(runtime, x, bed, model, mb_model, init_flowline):
     # Add the bedrock and axes lables:
     #hf.plot_xz_bed(x=distance_along_glacier, bed = bed_h)
     plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
-    plt.xlabel('Distance along glacier (km)')
-    plt.ylabel('Altitude (m)')
+    plt.xlabel('Distance along glacier [km]')
+    plt.ylabel('Altitude [m]')
     plt.legend(loc='best')
     
 def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
