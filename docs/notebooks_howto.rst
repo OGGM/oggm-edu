@@ -10,6 +10,8 @@ If you are new to Jupyter Notebooks, we have prepared a tutorial! Open it in you
 .. image:: https://mybinder.org/badge_logo.svg 
     :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master?filepath=experiments%2Fgetting_started_with_notebooks.ipynb
 
+Then choose the folder experiments. There the first notebook is getting_started_with_notebooks.
+
 If you are also new to python, be patient! We will provide an introduction to python for OGGM-Edu users here soon.
 
 Once you feel comfortable with Jupyter Notebooks, visit our :ref:`notebooks_list` list!

@@ -8,6 +8,7 @@ This notebook treats surging glaciers. You will learn how to implement surging i
 .. image:: https://mybinder.org/badge_logo.svg 
     :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master
 
+Then choose the folder experiments. There you find the notebook surging_experiment.
 
 *Prerequisites:* 
 
