@@ -117,3 +117,82 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a, f
             model = FlowlineModel(init_flowline, mb_model=mb_model, y0=yr, glen_a=glen_a, fs=fs)
         
     return model, surging_glacier_h, length_s3, vol_s3
+
+def response_time_vol(model, perturbed_mb):
+    """Calculation of the volume response time after Oerlemans(1997).
+    Parameters
+    ----------
+    model : model in equilibrium state 
+    perturbed_mb : new mb-model, which expresses the changes in climate"""
+    # to be sure that the model state is in equilibrium (maybe not necessary)
+    #model.run_until_equilibrium()
+    try:
+        model.run_until_equilibrium()
+    except RunTimeError:
+        model.run_until(model.yr + 1000)
+        try:
+            model.run_until_equilibrium()
+        except RunTimeError:
+            model.run_until(model.yr + 1000)
+            try:
+                model.run_until_equilibrium()
+            except RunTimeError:
+                model.run_until(model.yr + 1000)
+                try:
+                    model.run_until_equilibrium()
+                except RunTimeError:
+                    model.run_until(model.yr + 1000)
+                    try:
+                        model.run_until_equilibrium()
+                    except RunTimeError:
+                        raise RunTimeError('There is a problem with the function because it cannot handle the gradient. Probably it is too small to handle.')
+    # set up new model, whith outlines of first model, but new mb_model
+    pert_model = FlowlineModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
+    try:
+        pert_model.run_until_equilibrium()
+    except RunTimeError:
+        pert_model.run_until(pert_model.yr + 1000)
+        try:
+            pert_model.run_until_equilibrium()
+        except RunTimeError:
+            pert_model.run_until(pert_model.yr + 1000)
+            try:
+                pert_model.run_until_equilibrium()
+            except RunTimeError:
+                pert_model.run_until(pert_model.yr + 1000)
+                try:
+                    pert_model.run_until_equilibrium()
+                except RunTimeError:
+                    pert_model.run_until(pert_model.yr + 1000)
+                    try:
+                        pert_model.run_until_equilibrium()
+                    except RunTimeError:
+                        raise RunTimeError('There is a problem with the function because it cannot handle the gradient. Probably it is too small to handle.')
+    #pert_model.run_until(2000)
+    #pert_model.run_until_equilibrium()
+    # save outline of model in equilibrium state
+    eq_pert_model = pert_model.fls[-1].surface_h
+    # recalculate the perturbed model to be able to save intermediate steps
+    yrs = np.arange(0, pert_model.yr, 5)
+    nsteps = len(yrs)
+    length_w = np.zeros(nsteps)
+    vol_w = np.zeros(nsteps)
+    year = np.zeros(nsteps)
+    recalc_pert_model = FlowlineModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
+    for i, yer in enumerate(yrs):
+        recalc_pert_model.run_until(yer)
+        year[i] = recalc_pert_model.yr
+        length_w[i] = recalc_pert_model.length_m
+        vol_w[i] = recalc_pert_model.volume_km3
+    # to get response time: calculate volume difference between model and pert. model in eq. state
+    vol_dif = recalc_pert_model.volume_km3 - ((recalc_pert_model.volume_km3 - model.volume_km3) / np.e)
+    # search for the appropriate time by determining the year with the closest volume to vol_dif:
+        # difference between volumes of dif time steps and vol_dif
+    all_dif_vol = abs(vol_w - vol_dif).tolist()
+    # find index of smallest difference between
+    index = all_dif_vol.index(min(all_dif_vol))
+    response_time = year[index]
+    
+    return response_time, pert_model
+    
+     
