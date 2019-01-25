@@ -17,12 +17,12 @@ from oggm import cfg
 
 def plot_xz_bed(x, bed):
     """This function implements a glacier bed, prepared axes and a legend in 
-    altitude vs. distance along glacier plot.
+    altitude vs. distance along a glacier plot.
     
     Parameters
     ----------
     x : ndarray
-        distance along glacier
+        distance along glacier (all steps in km)
     bed : ndarray
         bed rock     
     """
@@ -78,9 +78,32 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
         
     
 def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a, fs, fs_surge, model):
-    """Function for surging experiments. 2 different sliding parameters can be 
+    """Function implements surging events in evolution of glacier. 2 different sliding parameters can be 
     used.
-    TODO: Parameters
+    Parameters
+    ----------
+    yrs : int
+        years in which glacier evolutionshould be calculated
+    init_flowline :
+    
+    mb_model : 
+    
+    bed : 
+    
+    widths : 
+    
+    map_dx :
+    
+    glen_a :
+    
+    fs : float
+        Glen's parameter for slow motion years
+        
+    fs_surge : float
+        Glen's parameter for the surging period
+    
+    Returns
+    -------
     """    
 
     # Array to fill with data
