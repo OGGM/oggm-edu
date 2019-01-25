@@ -47,7 +47,6 @@ def glacier_plot(x, bed, model, mb_model, init_flowline):
     bed : ndarray
         bed rock
     model : oggm-model
-    
     mb_model : mass balance model
     init_flowline : flowline
     
@@ -125,27 +124,19 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
     yrs : int
         years in which glacier evolution should be calculated
     init_flowline : flowline
-    
     mb_model : mass balance model
-    
     bed : ndarray
         bed rock
-        
     widths : ndarray
         width grid
-    
     map_dx : int
         grid spacing (e.g. 100 m)
-    
     glen_a : float
         Glen's parameter
-        
     fs : float
-        Glen's parameter for slow motion years
-        
+        sliding parameter for slow motion years
     fs_surge : float
-        Glen's parameter for the surging period
-    
+        sliding parameter for the surging period
     model : oggm-model
     
     Returns
