@@ -3,7 +3,7 @@
 Mass balance gradient
 =====================
 
-In this notebook you will run experiments with a focus on the mass balance gradient. You will see how different mass balance gradients influence the growth of a glacier. Therefore, we calculate our glacier models until they reach an equilibrium state and compare length, area and volume. 
+In this notebook you will run experiments with a focus on the mass balance gradient. You will see how different mass balance gradients influence the growth of a glacier. Therefore, we calculate our glacier models until they reach an equilibrium state and compare length, area and volume. In addition, we will calculate the volume response times of the glacier models to small climatic changes.
 
 Open this experiment in your browser with the button below:
 
