@@ -1,3 +1,6 @@
+.. figure:: _static/oggm.gif
+    
+
 Welcome to OGGM-Edu!
 ====================
 
