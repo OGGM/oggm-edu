@@ -1,9 +1,13 @@
 @import url("theme.css");
 
+.wy-nav-content a,
+.wy-nav-content a:visited {
+  color: #0071BC;
+}
+
 .wy-side-nav-search {
   background-color: #9b9b9b;
 }
-
 
 .wy-nav-top {
   background-color: #9b9b9b;
@@ -41,4 +45,12 @@ a {
 
 a:hover {
     color: #85a9c1;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+    color: #326a86;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    color: #326a86;
 }
