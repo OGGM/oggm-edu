@@ -1,13 +1,44 @@
 @import url("theme.css");
 
 .wy-side-nav-search {
-  background-color: #e1a7e0;
+  background-color: #9b9b9b;
+}
+
+
+.wy-nav-top {
+  background-color: #9b9b9b;
 }
 
 .wy-side-nav-search>div.version {
   display: none;
 }
 
-.wy-nav-top {
-  background-color: #e1a7e0;
+.wy-nav-side {
+    color: #cc514c;
+}
+
+.wy-menu-vertical a {
+    display: inline-block;
+    line-height: 18px;
+    padding: .4045em 1.618em;
+    display: block;
+    position: relative;
+    font-size: 90%;
+    color: #f4d34e;
+}
+
+.wy-side-nav-search input[type="text"] {
+    width: 100%;
+    border-radius: 50px;
+    padding: 6px 12px;
+    border-color: #343131;
+}
+
+a {
+    color: #326a86;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #85a9c1;
 }
