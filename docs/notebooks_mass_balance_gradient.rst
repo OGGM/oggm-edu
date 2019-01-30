@@ -7,11 +7,9 @@ In this notebook you will run experiments with a focus on the mass balance gradi
 
 Open this experiment in your browser with the button below:
 
-.. image:: https://mybinder.org/badge_logo.svg 
-    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master
+.. image:: https://mybinder.org/badge_logo.svg
+    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master?urlpath=lab/tree/notebooks/oggm-edu/welcome.ipynb
 
-Then choose the folder experiments. There you find the notebook mass_balance_gradients.
-
-*Prerequisits:* You went through the notebook about `glacier flowline modelling`_, so that you understand the concept of building a simple glacier model with OGGM.
+*Prerequisites:* You went through the notebook about `glacier flowline modelling`_, so that you understand the concept of building a simple glacier model with OGGM.
 
 .. _glacier flowline modelling: http://edu.oggm.org/en/latest/notebooks_flowline_intro.html#glacier-flowline-modelling
