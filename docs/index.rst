@@ -1,12 +1,12 @@
 .. figure:: _static/oggm.gif
-    
+
 
 Welcome to OGGM-Edu!
 ====================
 
 This platform will become an educational website about glaciers.
 
-It is currently in construction, but you can still try a couple of cool things:
+It is currently in construction, but you can still try a couple of things:
 
 Interactive apps
 ^^^^^^^^^^^^^^^^

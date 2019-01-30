@@ -6,11 +6,11 @@
 }
 
 .wy-side-nav-search {
-  background-color: #9b9b9b;
+  background-color: #3e3e3e;
 }
 
 .wy-nav-top {
-  background-color: #9b9b9b;
+  background-color: #3e3e3e;
 }
 
 .wy-side-nav-search>div.version {
@@ -19,6 +19,7 @@
 
 .wy-nav-side {
     color: #cc514c;
+    background: #3e3e3e;
 }
 
 .wy-menu-vertical a {
