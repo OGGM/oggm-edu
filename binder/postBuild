@@ -17,6 +17,7 @@ pip install datashader
 pip install descartes
 pip install salem
 pip install git+https://github.com/OGGM/oggm.git
+pip install git+https://github.com/OGGM/oggm-edu.git
 pip install git+https://github.com/retostauffer/python-colorspace
 
 # Jupyterlab
