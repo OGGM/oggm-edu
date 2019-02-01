@@ -15,7 +15,7 @@ You can learn about them and try them out on the `Jupyter website <https://jupyt
 We also have prepared a tutorial for you on OGGM-Edu. Open it in your browser with:
 
 .. image:: https://mybinder.org/badge_logo.svg
-    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master?filepath=experiments%2Fgetting_started_with_notebooks.ipynb
+    :target: https://mybinder.org/v2/gh/OGGM/oggm-edu/master?filepath=notebooks/oggm-edu/getting_started_with_notebooks.ipynb
 
 If you are also new to python, be patient! We will provide an introduction to python for OGGM-Edu users here soon.
 
