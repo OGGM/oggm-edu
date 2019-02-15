@@ -15,6 +15,7 @@ pip install panel
 pip install parambokeh
 pip install datashader
 pip install descartes
+pip install seaborn
 pip install salem
 pip install git+https://github.com/OGGM/oggm.git
 pip install git+https://github.com/OGGM/oggm-edu.git
