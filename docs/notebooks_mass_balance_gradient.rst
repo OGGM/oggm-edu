@@ -3,7 +3,7 @@
 Mass balance gradient
 =====================
 
-.. figure:: _static/intro_pic_MBG.png
+.. figure:: _static/intro_fig_MBG.png
     
     Left figure: Behaviour of different mass balance gradients. Right figure: Geometry of glaciers with different mass balance gradients after 300 years.
 

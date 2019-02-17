@@ -3,7 +3,7 @@
 Ice flow parameters
 ===================
 
-.. figure::  _static/intro_pic_iceflow_parameters.png
+.. figure::  _static/intro_fig_iceflow_parameters.png
     :width: 70%
 
     Figure: Geometry of glacier models after 1500 years.  Blue graph: glacier moves by deformation, orange graph: glacier that slides also. 

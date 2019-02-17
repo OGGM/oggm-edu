@@ -3,7 +3,7 @@
 Surging glaciers
 ================
 
-.. figure:: _static/intro_pic_surging_glaciers.png
+.. figure:: _static/intro_fig_surging_glaciers.png
 
     Figure: Development of two surging glaciers. Upper graph: length, lower graph: volume. 
 
