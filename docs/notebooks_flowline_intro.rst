@@ -3,6 +3,10 @@
 Glacier flowline modelling
 ==========================
 
+.. figure:: _static/intro_pic_flowline.png
+
+    Figure: Geometry of a glacier model after 500 yeras, that moves only by deformation processes.
+
 This notebook is an introduction to flowline modelling with OGGM. To open the notebook in your browser use the button below:
 
 .. image:: https://mybinder.org/badge_logo.svg

@@ -3,6 +3,11 @@
 Ice flow parameters
 ===================
 
+.. figure::  _static/intro_pic_iceflow_parameters.png
+    :width: 70%
+
+    Figure: Geometry of glacier models after 1500 years.  Blue graph: glacier moves by deformation, orange graph: glacier that slides also. 
+
 In this notebook we will have a closer look at the parameters that describe ice flow: Glen's creep parameter and the sliding parameter. We will implement them in our model and see their influence on glacier flow.
 
 Open this experiment in your browser with the button below:
