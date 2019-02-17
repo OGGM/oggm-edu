@@ -210,55 +210,39 @@ def response_time_vol(model, perturbed_mb):
         model in equilibrium adapted to new ELA
     """
     # to be sure that the model state is in equilibrium (maybe not necessary)
-    #model.run_until_equilibrium()
-    try:
-        model.run_until_equilibrium()
-    except RunTimeError:
-        model.run_until(model.yr + 1000)
+    count = 0
+    while True:
         try:
-            model.run_until_equilibrium()
-        except RunTimeError:
-            model.run_until(model.yr + 1000)
-            try:
-                model.run_until_equilibrium()
-            except RunTimeError:
-                model.run_until(model.yr + 1000)
-                try:
-                    model.run_until_equilibrium()
-                except RunTimeError:
-                    model.run_until(model.yr + 1000)
-                    try:
-                        model.run_until_equilibrium()
-                    except RunTimeError:
-                        raise RunTimeError('There is a problem with the '
-                                           'function because it cannot handle '
-                                           'the gradient. Probably it is too '
-                                           'small to handle.')
+            model.run_until_equilibrium(rate=0.006)
+            break
+        except RuntimeError:
+            count += 1
+            # if equilibrium not reached yet, add 1000 years. Then try again.
+            model.run_until(models[0].yr + 1000)
+            if count == 6:
+                raise RuntimeError('Because the gradient is be very small, '
+                                   'the equilibrium will be reached only '
+                                   'after many years. Run this cell '
+                                   'again, then it should work.')    
+    
     # set up new model, whith outlines of first model, but new mb_model
     pert_model = FlowlineModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
-    try:
-        pert_model.run_until_equilibrium()
-    except RunTimeError:
-        pert_model.run_until(pert_model.yr + 1000)
+    # run it until in reaches equilibrium state
+    count = 0
+    while True:
         try:
-            pert_model.run_until_equilibrium()
-        except RunTimeError:
-            pert_model.run_until(pert_model.yr + 1000)
-            try:
-                pert_model.run_until_equilibrium()
-            except RunTimeError:
-                pert_model.run_until(pert_model.yr + 1000)
-                try:
-                    pert_model.run_until_equilibrium()
-                except RunTimeError:
-                    pert_model.run_until(pert_model.yr + 1000)
-                    try:
-                        pert_model.run_until_equilibrium()
-                    except RunTimeError:
-                        raise RunTimeError('There is a problem with the '
-                                           'function because it cannot handle '
-                                           'the gradient. Probably it is too '
-                                           'small to handle.')
+            pert_model.run_until_equilibrium()#(rate=0.006)
+            break
+        except RuntimeError:
+            count += 1
+            # if equilibrium not reached yet, add 1000 years. Then try again.
+            pert_model.run_until(models[0].yr + 1000)
+            if count == 6:
+                raise RuntimeError('Because the gradient is be very small, '
+                                   'the equilibrium will be reached only '
+                                   'after many years. Run this cell '
+                                   'again, then it should work.')
+
     # save outline of model in equilibrium state
     eq_pert_model = pert_model.fls[-1].surface_h
     # recalculate the perturbed model to be able to save intermediate steps
@@ -280,7 +264,7 @@ def response_time_vol(model, perturbed_mb):
     vol_dif -= (recalc_pert_model.volume_km3 - model.volume_km3) / np.e
     # search for the appropriate time by determining the year with the closest
     # volume to vol_dif:
-        # difference between volumes of dif time steps and vol_dif
+        # difference between volumes of different time steps and vol_dif
     all_dif_vol = abs(vol_w - vol_dif).tolist()
     # find index of smallest difference between
     index = all_dif_vol.index(min(all_dif_vol))
