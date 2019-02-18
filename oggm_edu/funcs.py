@@ -231,7 +231,7 @@ def response_time_vol(model, perturbed_mb):
     count = 0
     while True:
         try:
-            pert_model.run_until_equilibrium()#(rate=0.006)
+            pert_model.run_until_equilibrium(rate=0.006)
             break
         except RuntimeError:
             count += 1
