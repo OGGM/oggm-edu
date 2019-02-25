@@ -3,6 +3,10 @@
 Mass balance gradient
 =====================
 
+.. figure:: _static/intro_fig_MBG.png
+    
+    Left figure: Behaviour of different mass balance gradients. Right figure: Geometry of glaciers with different mass balance gradients after 300 years.
+
 In this notebook you will run experiments with a focus on the mass balance gradient. You will see how different mass balance gradients influence the growth of a glacier. Therefore, we calculate our glacier models until they reach an equilibrium state and compare length, area and volume. In addition, we will calculate the volume response times of the glacier models to small climatic changes.
 
 Open this experiment in your browser with the button below:
