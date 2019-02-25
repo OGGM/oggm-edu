@@ -4,9 +4,11 @@
 Welcome to OGGM-Edu!
 ====================
 
-This platform will become an educational website about glaciers.
+This platform will become an educational website about glaciers. It is
+currently in construction, but we already have several things for you to
+explore!
 
-It is currently in construction, but you can still try a couple of things:
+:ref:`contact` with us if you want to know more and if you want to help us out!
 
 Interactive apps
 ^^^^^^^^^^^^^^^^
@@ -55,3 +57,22 @@ Graphics
 
     glacier_basics.rst
     glacier_lowpass.rst
+
+.. _contact:
+
+Get in touch
+^^^^^^^^^^^^
+
+Interested in OGGM-Edu? We would love to hear from you!
+
+- All of this website and notebooks are located `on GitHub`_.
+- Report bugs or share your ideas on the `issue tracker`_.
+- Improve the website by submitting a `pull request`_.
+- Follow us on `Twitter`_.
+- Or you can always send us an `e-mail`_ the good old way.
+
+.. _e-mail: https://mailman.zfn.uni-bremen.de/cgi-bin/mailman/listinfo/oggm-users
+.. _on GitHub: https://github.com/OGGM/oggm-edu
+.. _issue tracker: https://github.com/OGGM/oggm-edu/issues
+.. _pull request: https://github.com/OGGM/oggm-edu/pulls
+.. _Twitter: https://twitter.com/OGGM1

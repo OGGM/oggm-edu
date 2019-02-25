@@ -22,6 +22,8 @@ and do not sell them.
 
 **Code**: `OGGM-edu <https://github.com/OGGM/oggm-edu/blob/master/gen_plots/ela_changes_response_time.ipynb>`_
 
+**Interactive notebook**: `on Binder <https://mybinder.org/v2/gh/OGGM/oggm-edu/master?filepath=gen_plots/ela_changes_response_time.ipynb>`_
+
 **Download**: `zip file <https://github.com/OGGM/glacier-graphics/blob/master/glacier_response/glacier_response.zip>`_
 
 This series of graphics was used right after the graphics above to explain
