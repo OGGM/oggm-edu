@@ -97,12 +97,26 @@ OGGM-Edu is an affiliated project of the larger OGGM consortium
 (`oggm.org <https://oggm.org>`_). It is mainly the work of volunteers, but we
 also had support from various sources:
 
+- The project is supported for a one year period (starting May 2019) by
+  the University of Innsbruck, Förderkreis **1669** – **Wissen** schafft
+  Gesell **schaft**.
+- The project is supported by the German BMBF (FKZ 01LS1602A).
 - Zora Schirmeister (student helper from Oct 2018 to March 2019) was supported
   by the department of
   `Digital Sciences <https://www.uibk.ac.at/zid/abteilungen/lt/>`_ at the
   University of Innsbruck (Neue Medien Projekte - Call 18.03).
 - The OGGM e.V. organisation supported the creation of the OGGM-Edu logo
   and of the glacier graphics.
+
+.. raw:: html
+
+    <a href="https://www.uibk.ac.at/foerderkreis1669/" >
+    <img src="_static/logo_1669_uibk.jpg" alt="Image missing" width="49%" />
+    </a>
+    <a href="https://www.bmbf.de/en/index.html" >
+    <img src="_static/logo_bmbf.jpg" alt="Image missing" width="49%" />
+    </a>
+
 
 Thanks to all OGGM-Edu friends and contributors! For a full list of contributors,
 see our `github repository <https://github.com/OGGM/oggm-edu/graphs/contributors>`_.
