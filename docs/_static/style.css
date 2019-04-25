@@ -18,7 +18,6 @@
 }
 
 .wy-nav-side {
-    color: #cc514c;
     background: #3e3e3e;
 }
 
@@ -30,6 +29,10 @@
     position: relative;
     font-size: 90%;
     color: #f4d34e;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: #cc514c;
 }
 
 .wy-side-nav-search input[type="text"] {
