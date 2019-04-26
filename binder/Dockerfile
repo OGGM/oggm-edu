@@ -1,2 +1,2 @@
-FROM jupyter/all-spark-notebook:17aba6048f44
+FROM fmaussion/oggm-edu-r2d-pip:e268070
 
