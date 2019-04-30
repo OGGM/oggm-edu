@@ -6,6 +6,7 @@ matplotlib
 Pillow
 netcdf4
 scikit-image
+scikit-learn
 configobj
 joblib
 xarray
