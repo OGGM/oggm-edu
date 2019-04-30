@@ -17,6 +17,7 @@ pip install datashader
 pip install descartes
 pip install seaborn
 pip install salem
+pip install nbgitpuller
 pip install git+https://github.com/OGGM/oggm.git
 pip install git+https://github.com/OGGM/oggm-edu.git
 pip install git+https://github.com/retostauffer/python-colorspace
@@ -28,6 +29,7 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyter-matplotlib
 jupyter labextension install jupyterlab_bokeh
 jupyter labextension install @pyviz/jupyterlab_pyviz
+jupyter serverextension enable --py nbgitpuller --sys-prefix
 
 # Add funny font
 mkdir ~/.fonts
