@@ -17,6 +17,23 @@ import numpy as np
 from oggm import cfg
 
 
+def define_linear_bed(top, bottom, steps):
+    
+    # linear bed profile
+    bed_h = np.linspace(top, bottom, steps)
+    
+    # At the beginning, there is no glacier
+    # the glacier surface is at the bed altitude
+    surface_h = bed_h
+    
+    return bed_h, surface_h
+
+
+def distance_along_glacier(nx, map_dx):
+    """Calculates the distance along the glacier in km"""
+    return np.linspace(0, nx, nx) * map_dx * 1e-3
+    
+
 def plot_xz_bed(x, bed):
     """This function implements a glacier bed, prepared axes and a legend in
     altitude vs. distance along a glacier plot.
@@ -32,11 +49,11 @@ def plot_xz_bed(x, bed):
     plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
     plt.xlabel('Distance along glacier [km]')
     plt.ylabel('Altitude [m]')
-    plt.legend(loc='best')
+    plt.legend(loc='best', frameon=False)
 
 
 def glacier_plot(x, bed, model, mb_model, init_flowline):
-    """"This function plots the glacier outline of a model. The bedrock, the
+    """This function plots the glacier outline of a model. The bedrock, the
     equilibrium line altitude, labeled axes and a legend are added.
 
     Parameters
