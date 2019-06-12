@@ -17,4 +17,4 @@ This notebook treats surging glaciers. You will learn how to implement surging i
 - You went through the notebook about glacier flowline modelling, so that you understand the concept of building a simple glacier model with OGGM.
 - It is helpful to work through the notebook about ice flow parameters first.
 
-You find these notebooks here: :ref:`notebooks_list`
+You find these notebooks here: :ref:`title_notebooks`

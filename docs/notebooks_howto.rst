@@ -19,4 +19,4 @@ We also have prepared a tutorial for you on OGGM-Edu. Open it in your browser wi
 
 If you are also new to python, be patient! We will provide an introduction to python for OGGM-Edu users here soon.
 
-Once you feel comfortable with Jupyter Notebooks, visit our :ref:`notebooks_list` list!
+Once you feel comfortable with Jupyter Notebooks, visit our :ref:`title_notebooks` list!

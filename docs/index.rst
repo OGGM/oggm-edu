@@ -5,10 +5,19 @@ Welcome to OGGM-Edu!
 ====================
 
 This platform is an educational website about glaciers. It is
-currently in construction, but we already have several things for you to
-explore!
+currently in construction, but it is growing fast! We already have
+some content for you to explore.
 
-:ref:`contact` with us if you want to know more and if you want to help us out!
+:ref:`title_contact` with us if you want to know more and if you want to help us out!
+
+This platform has four main components:
+
+1. :ref:`title_apps`, to illustrate glaciological processes with the
+   help of interactive graphics on the web.
+2. :ref
+
+
+.. _title_apps:
 
 Interactive apps
 ^^^^^^^^^^^^^^^^
@@ -22,7 +31,7 @@ Interactive apps
 
     explorer.rst
 
-.. _notebooks_list:
+.. _title_notebooks:
 
 Interactive Notebooks
 ^^^^^^^^^^^^^^^^^^^^^
@@ -46,6 +55,9 @@ Interactive Notebooks
     notebooks_mass_balance_gradient.rst
     notebooks_temperature_index_models.rst
 
+
+.. _title_graphics:
+
 Graphics
 ^^^^^^^^
 
@@ -60,6 +72,7 @@ Graphics
     glacier_basics.rst
     glacier_lowpass.rst
 
+.. _title_tuto:
 
 OGGM tutorials
 ^^^^^^^^^^^^^^
@@ -73,7 +86,7 @@ OGGM tutorials
 
     oggm_tuto.rst
 
-.. _contact:
+.. _title_contact:
 
 Get in touch
 ^^^^^^^^^^^^
@@ -102,7 +115,9 @@ also had support from various sources:
 - The project is supported for a one year period (starting May 2019) by
   the University of Innsbruck, Förderkreis **1669** – **Wissen** schafft
   Gesell **schaft**.
-- The project is supported by the German BMBF (FKZ 01LS1602A).
+- The project is supported by the German BMBF (project FKZ 01LS1602A).
+- We are happy to be supported by `Google Cloud | Data Solutions for Change`_
+  who provided us cloud computing and hosting credits.
 - Zora Schirmeister (student helper from Oct 2018 to March 2019) was supported
   by the department of
   `Digital Sciences <https://www.uibk.ac.at/zid/abteilungen/lt/>`_ at the
@@ -119,6 +134,16 @@ also had support from various sources:
     <img src="_static/logo_bmbf.jpg" alt="Image missing" width="49%" />
     </a>
 
+We rely on the most awesome open source tools ever to run OGGM Edu! Most
+notably:
 
-Thanks to all OGGM-Edu friends and contributors! For a full list of contributors,
-see our `github repository <https://github.com/OGGM/oggm-edu/graphs/contributors>`_.
+- `Jupyter <https://jupyter.org>`_
+- `MyBinder <https://gke.mybinder.org>`_
+- `ReadTheDocs <https://readthedocs.org>`_
+- Many (many) packages of the scientific python ecosytem
+
+Last but not least: thanks to all OGGM-Edu friends and contributors!
+For a full list, see our
+`github repository <https://github.com/OGGM/oggm-edu/graphs/contributors>`_.
+
+.. _Google Cloud | Data Solutions for Change: https://cloud.google.com/data-solutions-for-change
