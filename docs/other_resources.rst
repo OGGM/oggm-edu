@@ -4,7 +4,7 @@ Other glacier resources
 =======================
 
 There is plenty of other educational material online! OGGM Edu tries to find
-it's niche by providing interactive and modelling content, but it doesn't
+its niche by providing interactive and modelling content, but it doesn't
 provide theoretical lecture materials for example. If you are interested in
 more, check out these great resources:
 

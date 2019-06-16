@@ -19,7 +19,7 @@ currently in construction, but it is growing fast.
    their own experiments. The targeted audience are students at the undergrad
    or graduate level with some programming experience or a tutor to show them
    how to run them.
-4. :ref:`title_tuto`, for scientists and users of the Open Global Glacie Model,
+4. :ref:`title_tuto`, for scientists and users of the Open Global Glacier Model,
    on which most of this website is based.
 
 
