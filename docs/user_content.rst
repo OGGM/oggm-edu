@@ -11,7 +11,7 @@ for a very specific class.
 Fortunately, this is very easy to do! All you need to do is to provide the
 notebooks you would like to run on MyBinder in an online git repository
 (e.g. GitHub, Gitlab, Bitbucket). For example, we have created an
-`oggm-ed-contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single
+`oggm-edu-contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single
 notebook to get you started.
 
 Once your notebooks are online, you simply have to provide the correct
