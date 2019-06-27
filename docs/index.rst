@@ -17,10 +17,9 @@ currently in construction, but it is growing fast.
    for lectures or presentations.
 3. :ref:`title_notebooks`, for students willing to run and develop
    their own experiments. The targeted audience are students at the undergrad
-   or graduate level with some programming experience or a tutor to show them
-   how to run them.
-4. :ref:`title_tuto`, for scientists and users of the Open Global Glacier Model,
-   on which most of this website is based.
+   or graduate level with some programming experience, or under the supervision
+   of a tutor who can show them how to run the experiments.
+4. :ref:`title_tuto`, for scientists and users of the Open Global Glacier Model.
 
 
 .. _title_apps:
@@ -29,7 +28,7 @@ Interactive apps
 ^^^^^^^^^^^^^^^^
 
 These interactive apps can be run on any computer with an internet connection.
-We currently only have one, but we have plenty of ideas - so stay tuned!
+We currently only have one app, but we have plenty of ideas - stay tuned!
 
 * :doc:`explorer`
 
@@ -66,9 +65,9 @@ Interactive Notebooks
 ^^^^^^^^^^^^^^^^^^^^^
 
 Collection of notebooks with simple experiments explaining one or more
-glaciological concepts. They are easier to follow with some background in
-programming, but we are working to make them as accessible as possible.
-Read our :ref:`notebooks_howto` first if you are new to these things.
+glaciological concepts. They are easier to follow and adapt with some
+background in programming, but we are working to make them as accessible as
+possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 
 * :doc:`notebooks_howto`
 * :doc:`notebooks_flowline_intro`
@@ -109,21 +108,23 @@ OGGM model.
 For instructors and teachers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Thanks for considering OGGM Edu for your classes! We've gathered some
-recommendations and guidelines here. They will be extended soon!
+Thanks for considering OGGM-Edu for your classes! We've gathered some
+recommendations and guidelines here.
 
-* :doc:`other_resources`
+* :doc:`classes_howto`
 * :doc:`user_content`
 * :doc:`technical_details`
+* :doc:`other_resources`
 
 .. toctree::
     :maxdepth: 1
     :hidden:
     :caption: For instructors and teachers
 
-    other_resources.rst
+    classes_howto.rst
     user_content.rst
     technical_details.rst
+    other_resources.rst
 
 .. _title_contact:
 
@@ -173,13 +174,13 @@ also had support from various sources:
     <img src="_static/logo_bmbf.jpg" alt="Image missing" width="49%" />
     </a>
 
-We rely on the most awesome open source tools ever to run OGGM Edu! Most
+We rely on the most awesome open source tools to run OGGM-Edu! Most
 notably:
 
 - `Jupyter <https://jupyter.org>`_
 - `MyBinder <https://mybinder.org>`_
 - `ReadTheDocs <https://readthedocs.org>`_
-- Many (many) packages of the scientific python ecosytem
+- and many (many) other packages of the scientific python ecosytem
 
 Last but not least: thanks to all OGGM-Edu friends and contributors!
 For a full list, see our

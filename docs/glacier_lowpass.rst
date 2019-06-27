@@ -20,11 +20,11 @@ and do not sell them.
 
 **Author**: Fabien Maussion with the `OGGM <http://oggm.org>`_ model.
 
-**Code**: `OGGM-edu <https://github.com/OGGM/oggm-edu/blob/master/gen_plots/ela_changes_response_time.ipynb>`_
+**Code**: *has been moved, should be re-uploaded soon*
 
-**Interactive notebook**: `on Binder <https://mybinder.org/v2/gh/OGGM/oggm-edu-r2d/master?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-contrib%26amp%3Bbranch=master%26amp%3Burlpath=oggm-edu/gen_plots/ela_changes_response_time.ipynb>`_
+**Interactive notebook**: *has been moved, should be re-uploaded soon*
 
-**Download**: `zip file <https://github.com/OGGM/glacier-graphics/blob/master/glacier_response/glacier_response.zip>`_
+**Image download**: `zip file <https://github.com/OGGM/glacier-graphics/blob/master/glacier_response/glacier_response.zip>`_
 
 This series of graphics was used right after the graphics above to explain
 the concepts of **response time** (or time constant) and **low-pass filter**.
