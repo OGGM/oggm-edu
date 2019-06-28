@@ -18,8 +18,8 @@ currently in construction, but it is growing fast.
 3. :ref:`title_notebooks`, for students willing to run and develop
    their own experiments. The targeted audience are students at the undergrad
    or graduate level with some programming experience, or under the supervision
-   of a tutor who can show them how to run the experiments.
-4. :ref:`title_tuto`, for scientists and users of the Open Global Glacier Model.
+   of an instructor who can show them how to run the experiments.
+4. :ref:`title_tuto`, for users of the Open Global Glacier Model.
 
 
 .. _title_apps:
@@ -152,17 +152,15 @@ OGGM-Edu is an affiliated project of the larger OGGM consortium
 (`oggm.org <https://oggm.org>`_). It is mainly the work of volunteers, but we
 also had support from various sources:
 
-- The project is supported for a one year period (starting May 2019) by
-  the University of Innsbruck, Förderkreis **1669** – **Wissen** schafft
-  Gesell **schaft**.
-- The project is supported by the German BMBF (project FKZ 01LS1602A).
-- We are happy to be supported by `Google Cloud | Data Solutions for Change`_
-  who provided us cloud computing and hosting credits.
-- Zora Schirmeister (student helper from Oct 2018 to March 2019) was supported
-  by the department of
-  `Digital Sciences <https://www.uibk.ac.at/zid/abteilungen/lt/>`_ at the
-  University of Innsbruck (Neue Medien Projekte - Call 18.03).
-- The OGGM e.V. organisation supported the creation of the OGGM-Edu logo
+- the University of Innsbruck, Förderkreis **1669** – **Wissen** schafft
+  Gesell **schaft** (2019-2020).
+- the German BMBF (project FKZ 01LS1602A, 2017-2019).
+- `Google Cloud | Data Solutions for Change`_ who provided cloud computing
+  and hosting credits (2019-2020).
+- the University of Innsbruck, department of
+  `Digital Sciences <https://www.uibk.ac.at/zid/abteilungen/lt/>`_
+  (Neue Medien Projekte, 2018).
+- the OGGM e.V. organisation, who supported the creation of the OGGM-Edu logo
   and of the glacier graphics.
 
 .. raw:: html
@@ -174,8 +172,7 @@ also had support from various sources:
     <img src="_static/logo_bmbf.jpg" alt="Image missing" width="49%" />
     </a>
 
-We rely on the most awesome open source tools to run OGGM-Edu! Most
-notably:
+We rely on awesome open source tools to run OGGM-Edu! Most notably:
 
 - `Jupyter <https://jupyter.org>`_
 - `MyBinder <https://mybinder.org>`_
