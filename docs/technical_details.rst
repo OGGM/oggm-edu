@@ -43,16 +43,23 @@ framework and is hosted on `ReadTheDocs <https://readthedocs.org>`_.
 
 .. _oggm_hub:
 
-OGGM's own jupyterhub (experimental)
-------------------------------------
+OGGM-Hub (experimental)
+-----------------------
 
-We are currently working on getting our own service to serve jupyter notebooks
-to our users: this is called a `JupyterHub <https://jupyter.org/hub>`_ and
-we run it in an experimental phase. The advantages over Binder are:
+Thanks to a grant from Google's
+`Data Solutions for Change <https://cloud.google.com/data-solutions-for-change/>`_,
+we are able to provide free resources to instructors for a specific class or
+workshop.
 
-- more resources, faster launches
-- user management
-- persistent sessions (work can be saved between sessions and log-ins)
+You can try OGGM-Hub yourself `here <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_.
+The advantages of OGGM-Hub over Binder are:
 
-If you have a specific need for an OGGM hub service (e.g. for a class or a
-workshop), :ref:`title_contact` and we'll see what we can do.
+- more resources for your students, faster launches
+- user management: you can set passwords and user names at wish
+- persistent sessions: work can be saved between sessions and log-ins (this is
+  probably the main advantage of OGGM-Hub)
+
+`<hub.oggm.org>`_ is only available to registered users (registration is free),
+but it won't work for an entire class. If you have a specific need for an
+OGGM-hub service (e.g. for a one-week class or a workshop), please
+:ref:`title_contact` and we'll try to arrange a specific set-up for you!
