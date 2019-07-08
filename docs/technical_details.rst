@@ -51,7 +51,8 @@ Thanks to a grant from Google's
 we are able to provide free resources to instructors for a specific class or
 workshop.
 
-You can try OGGM-Hub yourself `here <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_.
+You can `try OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_
+if you have a GitHub account (free!).
 The advantages of OGGM-Hub over Binder are:
 
 - more resources for your students, faster launches
