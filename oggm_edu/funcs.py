@@ -5,22 +5,39 @@ oggm-edu - plots
 
 @author: Zora
 """
+import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import axes3d
 from oggm.core.flowline import (FluxBasedModel,
                                 RectangularBedFlowline,
                                 TrapezoidalBedFlowline,
-                                ParabolicBedFlowline)
-# There are several solvers in OGGM core. We use the default one for this
-# experiment
-FlowlineModel = FluxBasedModel
-import numpy as np
+                                ParabolicBedFlowline)						
+from oggm.core.massbalance import LinearMassBalance							
 from oggm import cfg
 
 
-def define_linear_bed(top, bottom, steps):
+def define_linear_bed(top, bottom, nx):
+    """Creates a linear bedrock profile.
+    
+	Parameters
+    ----------
+    top : int, float
+        top boundary of the domain
+    bottom : int, float
+        bottom boundary of the domain
+    nx : int
+        number of grid points
+    
+	Returns
+    -------
+    bed_h : ndarray
+        bedrock profile
+    surface_h : ndarray
+        the glacier surface, i.e. the bedrock profile in case of no glacier
+    """
     
     # linear bed profile
-    bed_h = np.linspace(top, bottom, steps)
+    bed_h = np.linspace(top, bottom, nx)
     
     # At the beginning, there is no glacier
     # the glacier surface is at the bed altitude
@@ -30,7 +47,20 @@ def define_linear_bed(top, bottom, steps):
 
 
 def distance_along_glacier(nx, map_dx):
-    """Calculates the distance along the glacier in km"""
+    """Calculates the distance along the glacier in km.
+    
+	Parameters
+    ----------
+    nx : int
+        number of grid points
+    map_dx : int
+        grid point spacing
+    
+	Returns
+    -------
+    ndarray
+        distance along the glacier in km.
+    """
     return np.linspace(0, nx, nx) * map_dx * 1e-3
     
 
@@ -86,7 +116,7 @@ def glacier_plot(x, bed, model, mb_model, init_flowline):
 
 
 def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
-    """This function initializes a new model, therefore it uses FlowlineModel.
+    """This function initializes a new model, therefore it uses FluxBasedModel.
     The outline of the glacier is calculated for a chosen amount of years.
 
     TODO: return also length and volume.
@@ -115,8 +145,8 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
     if fs is None:
         fs = 0
 
-    model = FlowlineModel(init_flowline, mb_model=mb_model, y0=0.,
-                          glen_a=glen_a, fs=fs)
+    model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=0.,
+                           glen_a=glen_a, fs=fs)
     # Year 0 to 600 in 5 years step
     yrs = np.arange(0, years, 5)
     # Array to fill with data
@@ -192,8 +222,8 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
             init_flowline = RectangularBedFlowline(
                     surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths,
                     map_dx=map_dx)
-            model = FlowlineModel(init_flowline, mb_model=mb_model, y0=yr,
-                                  glen_a=glen_a, fs=fs_surge)
+            model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=yr,
+                                   glen_a=glen_a, fs=fs_surge)
 
         elif (yr-yrs[i-1]) == 1 and (yrs[i+1]-yr) == 10:
             # Save glacier geometry after the surge
@@ -204,8 +234,8 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
             init_flowline = RectangularBedFlowline(
                     surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths,
                     map_dx=map_dx)
-            model = FlowlineModel(init_flowline, mb_model=mb_model, y0=yr,
-                                  glen_a=glen_a, fs=fs)
+            model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=yr,
+                                   glen_a=glen_a, fs=fs)
 
     return model, surging_glacier_h, length_s3, vol_s3
 
@@ -215,16 +245,17 @@ def response_time_vol(model, perturbed_mb):
 
     Parameters
     ----------
-    model : oggm-model
-        model in equilibrium state
-    perturbed_mb : oggm-model
-        new mb-model, which expresses the changes in climate
+    model : oggm.core.flowline.FluxBasedModel
+        OGGM model class of the glacier in equilibrium
+    perturbed_mb : oggm.core.massbalance.LinearMassBalance
+        Perturbed mass balance model
 
     Returns
     -------
     response_time : numpy.float64
-    pert_model : flowline.FluxBasedModel
-        model in equilibrium adapted to new ELA
+        the response time of the glacier
+    pert_model : oggm.core.flowline.FluxBasedModel
+        OGGM model class of the glacier in equilibrium adapted to the new ELA
     """
     # to be sure that the model state is in equilibrium (maybe not necessary)
     count = 0
@@ -243,7 +274,7 @@ def response_time_vol(model, perturbed_mb):
                                    'again, then it should work.')    
     
     # set up new model, whith outlines of first model, but new mb_model
-    pert_model = FlowlineModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
+    pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
     # run it until in reaches equilibrium state
     count = 0
     while True:
@@ -268,8 +299,8 @@ def response_time_vol(model, perturbed_mb):
     length_w = np.zeros(nsteps)
     vol_w = np.zeros(nsteps)
     year = np.zeros(nsteps)
-    recalc_pert_model = FlowlineModel(model.fls[-1], mb_model=perturbed_mb,
-                                      y0=0.)
+    recalc_pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb,
+                                       y0=0.)
     for i, yer in enumerate(yrs):
         recalc_pert_model.run_until(yer)
         year[i] = recalc_pert_model.yr
@@ -288,3 +319,117 @@ def response_time_vol(model, perturbed_mb):
     response_time = year[index]
 
     return response_time, pert_model
+
+
+
+def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
+    """Plots the glacier geometry in pseudo-3d.
+    
+	Parameters
+    ----------
+    dis : ndarray
+        the distance along the flowline
+    bed : ndarray
+        the glacier bed
+    widths: ndarray
+        the glacier widths
+    nx : int
+        number of grid points
+    elev : int
+        elevation viewing angle for 3D plot
+    azim : int
+        azimuth viewing angle for 3D plot
+    
+	Returns
+    -------
+    fig : matplotlib.figure.Figure
+        the 3D plot
+    """
+
+    # arrays for 3D plot
+    X = np.tile(dis, (nx, 1)).T
+    Z = np.tile(bed, (nx, 1)).T
+    Y = []
+    for w in widths:
+        Y.append(np.linspace(-w/2, w/2, nx))
+    Y = np.array(Y)
+
+    # plot glacier geometry in 3D
+    fig = plt.figure(figsize=(16, 9))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.view_init(elev, azim)
+    ax.plot_surface(X, Y, Z)
+    ax.set_xlabel('Distance along flowline / (km)')
+    ax.set_ylabel('Glacier width across flowline / (m)')
+    ax.set_zlabel('Elevation / (m)')
+
+    return fig
+
+
+def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
+                          plot=True):
+    """Runs the OGGM FluxBasedModel with a linear mass balance
+    gradient until the glacier reaches equilibrium.
+    
+	Parameters
+    ----------
+    bed : ndarray
+        the glacier bed
+    surface : ndarray
+        the initial glacier surface
+    accw : int
+        the width of the glacier at the top of the accumulation area
+    elaw : int
+        the width of the glacier at the equilibrium line altitude
+    nz : float
+        fraction of vertical grid points occupied by accumulation area
+    mb_grad : int, float
+        the mass balance altitude gradient in mm w.e. m^-1 yr^-1
+    nx : int
+        number of grid points
+    map_dx : int
+        grid point spacing
+    plot : bool
+        show a pseudo-3d plot of the glacier geometry
+    
+	Returns
+    -------
+    model : oggm.core.flowline.FluxBasedModel
+        OGGM model class of the glacier in equilibrium
+    """
+
+    # accumulation area occupies a fraction NZ of the total glacier extent
+    acc_width = np.linspace(accw, elaw, int(nx * nz))
+
+    # ablation area occupies a fraction 1 - NZ of the total glacier extent
+    abl_width = np.tile(elaw, nx - len(acc_width))
+
+    # glacier widths profile
+    widths = np.hstack([acc_width, abl_width])
+
+    # model widths
+    mwidths = np.zeros(nx) + widths / map_dx
+
+    # define the glacier bed
+    init_flowline = RectangularBedFlowline(surface_h=surface, bed_h=bed,
+                                           widths=mwidths, map_dx=map_dx)
+
+    # equilibrium line altitude
+    ela = bed[np.where(widths == elaw)[0][0]]
+
+    # linear mass balance model
+    mb_model = LinearMassBalance(ela, grad=mb_grad)
+
+    # flowline model
+    model = FluxBasedModel(init_flowline, mb_model=mb_model,
+                           y0=0., min_dt=0, cfl_number=0.01)
+
+    # run until the glacier reaches an equilibrium
+    model.run_until_equilibrium()
+
+    # show a pseudo-3d plot of the glacier geometry
+    if plot:
+        dis = distance_along_glacier(nx, map_dx)
+        plot_glacier_3d(dis, bed, widths, nx)
+
+    return model
