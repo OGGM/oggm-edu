@@ -370,7 +370,7 @@ def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
 
 
 def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
-                          plot=True):
+                          idx, plot=True):
     """Runs the OGGM FluxBasedModel with a linear mass balance
     gradient until the glacier reaches equilibrium.
 
@@ -392,6 +392,8 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
         number of grid points
     map_dx : int
         grid point spacing
+    idx : int
+        index to select ela position
     plot : bool, optional
         show a pseudo-3d plot of the glacier (default: True)
 
@@ -418,7 +420,7 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
                                            widths=mwidths, map_dx=map_dx)
 
     # equilibrium line altitude
-    ela = bed[np.where(widths == elaw)[0][0]]
+    ela = bed[np.where(widths == elaw)[0][idx]]
 
     # linear mass balance model
     mb_model = LinearMassBalance(ela, grad=mb_grad)
@@ -569,8 +571,10 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
         a list of ndarrays containing the perturbed glacier surfaces
     labels: list
         a list of strings describing the perturbed glacier surfaces
-    ela : int, float, optional
-        the equilibrium line altitude, (default: None)
+    ela : list, optional
+        list of equilibrium line altitudes, (default: None). If specified,
+        the first element of this list should be the ELA of the unperturbed
+        glacier surface.
     plot_ela : bool, optional
         flag to plot ela, (default: False)
     """
@@ -617,13 +621,29 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
         # advance counter
         counter += 1
 
-    # plot the ela
+    # check if ELA's should be plotted or not
     if plot_ela and ela:
-        ax.hlines(ela, dis[0], dis[-1],
-                  linestyle='--', color='grey')
-        ax.text(dis[-1], ela + 10,
-                'Equilibrium line altitude', horizontalalignment='right',
-                verticalalignment='bottom', color='grey')
+
+        # add a label for the initial ELA to the labels list
+        labels.insert(0, 'Initial')
+
+        # plot the ela's
+        for e, l in zip(ela, labels):
+
+            # check which ELA it is
+            if e > ela[0]:
+                color = 'red'
+            elif e < ela[0]:
+                color = 'lightblue'
+            else:
+                color = 'grey'
+
+            # add horizontal line at the current ELA
+            ax.hlines(e, dis[0], dis[-1],
+                      linestyle='--', color=color)
+            ax.text(dis[-1], e + 10,
+                    'ELA: {}'.format(l), horizontalalignment='right',
+                    verticalalignment='bottom', color=color)
 
     # axes labels and legend
     ax.legend(frameon=False)
