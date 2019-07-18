@@ -14,7 +14,7 @@ from oggm import cfg
 
 
 def define_linear_bed(top, bottom, nx):
-    """Creates a linear bedrock profile.
+    """Creates a linear glacier bed.
 
     Parameters
     ----------
@@ -28,9 +28,9 @@ def define_linear_bed(top, bottom, nx):
     Returns
     -------
     bed_h : ndarray
-        bedrock profile
+        the glacier bed
     surface_h : ndarray
-        the glacier surface, i.e. the bedrock profile in case of no glacier
+        the glacier surface, i.e. the glacier bed in case of no glacier
     """
 
     # linear bed profile
@@ -62,14 +62,14 @@ def distance_along_glacier(nx, map_dx):
 
 
 def plot_xz_bed(x, bed):
-    """This function plot the glacier bed as a function of altitude.
+    """This function plots the glacier bed as a function of altitude.
 
     Parameters
     ----------
     x : ndarray
         distance along glacier
     bed : ndarray
-        bedrock profile
+        the glacier bed
     """
 
     plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
@@ -87,7 +87,7 @@ def glacier_plot(x, bed, model, mb_model, init_flowline):
     x : ndarray
         distance along glacier
     bed : ndarray
-        bedrock profile
+        the glacier bed
     model : oggm.core.flowline.FluxBasedModel
         OGGM model class
     mb_model : oggm.core.massbalance.LinearMassBalance
@@ -126,10 +126,10 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
         the glacier mass balance model
     years : int
         year until which glacier evolution is calculated
-    glen_a : float
-        Glen's parameter (default = 2.4e-24)
-    fs : float
-        sliding parameter (default = 0)
+    glen_a : float, optional
+        Glen's parameter, (default: 2.4e-24 s^-1 Pa^-3)
+    fs : float, optional
+        sliding parameter, (default: 0)
 
    Returns
    -------
@@ -139,10 +139,10 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
    TODO: return also length and volume steps (they are calculated for every
          time step)
    """
-    if glen_a is None:
+    if not glen_a:
         glen_a = cfg.PARAMS['glen_a']
 
-    if fs is None:
+    if not fs:
         fs = 0
 
     model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=0.,
@@ -176,7 +176,7 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
     mb_model : oggm.core.massbalance.LinearMassBalance
         the glacier mass balance model
     bed : ndarray
-        bedrock profile
+        the glacier bed
     widths : ndarray
         the glacier widths
     map_dx : int
@@ -338,10 +338,10 @@ def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
         the glacier widths
     nx : int
         number of grid points
-    elev : int
-        elevation viewing angle for 3D plot
-    azim : int
-        azimuth viewing angle for 3D plot
+    elev : int, optional
+        elevation viewing angle for 3D plot, (default: 30)
+    azim : int, optional
+        azimuth viewing angle for 3D plot, (default: 40)
 
     Returns
     -------
@@ -392,8 +392,8 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
         number of grid points
     map_dx : int
         grid point spacing
-    plot : bool
-        show a pseudo-3d plot of the glacier geometry
+    plot : bool, optional
+        show a pseudo-3d plot of the glacier (default: True)
 
     Returns
     -------
@@ -436,3 +436,196 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
         plot_glacier_3d(dis, bed, widths, nx)
 
     return model
+
+
+def linear_accumulation(mb_grad, ela, gsurface, bed, widths, acc_0=None):
+    """Creates accumulation as a linear function of elevation.
+
+    Parameters
+    ----------
+    mb_grad : int, float
+        the mass balance altitude gradient in mm w.e. m^-1 yr^-1
+    ela : int, float
+        the equilibrium line altitude
+    gsurface : ndarray
+        the glacier elevation surface
+    bed : ndarray
+        the glacier bed
+    widhts : ndarray
+        the glacier widths
+    acc_0 : int, float, optional
+        the accumulation at the ELA in m w.e. yr^-1, (the default is None,
+        which implies it is calculated so that the accumulation at the glacier
+        terminus is exactly 0)
+
+    Returns
+    -------
+    acc_d : ndarray
+        the linear accumulation profile
+    acc_0 : int, float
+        the accumulation at the ELA in m w.e. yr^-1
+    """
+
+    # glacier terminus
+    terminus = gsurface[gsurface <= bed][0]
+
+    # get the closest value to the ELA in the glacier surface array
+    ela_closest = gsurface[np.abs(gsurface - ela).argmin()]
+
+    # check if the accumulation at the ELA, acc_0, is specified
+    if not acc_0:
+        # if not specified, the accumulation at the ELA is calculated to
+        # produce an accumulation of exactly 0 at the glacier terminus
+        acc_0 = (- mb_grad * (terminus - ela_closest) *
+                 widths[gsurface == terminus] * 1e-3)
+
+    # accumulation as a function of altitude in one year: m w.e. yr^-1
+    # scaled by the model glacier widths
+    acc = (acc_0 + mb_grad * (gsurface[gsurface >= terminus] - ela_closest) *
+           1e-3 * widths[gsurface >= terminus])
+
+    # append 0 accumulation downstream of glacier terminus
+    acc_d = np.hstack([acc, np.zeros(len(gsurface[gsurface < terminus]))])
+
+    return acc_d, acc_0
+
+
+def linear_ablation(mb_grad, ela, gsurface, bed, widths, abl_0=None):
+    """Creates ablation as a linear function of elevation.
+
+    Parameters
+    ----------
+    mb_grad : int, float
+        the mass balance altitude gradient in mm w.e. m^-1 yr^-1
+    ela : int, float
+        the equilibrium line altitude
+    gsurface : ndarray
+        the glacier elevation surface
+    bed : ndarray
+        the glacier bed
+    widhts : ndarray
+        the glacier widths
+    abl_0 : int, float, optional
+        the ablation at the ELA in m w.e. yr^-1, (the default is None,
+        which implies it is calculated so that the ablation at the glacier top
+        goes to 0). To balance accumulation and ablation at the ELA, pass the
+        keyword argument ``acc_0`` from the ``linear_accumulation`` function
+        to the keyword argument ``abl_0``.
+
+    Returns
+    -------
+    acc_d : ndarray
+        the linear ablation profile
+    abl_0 : int, float
+        the ablation at the ELA in m w.e. yr^-1
+    """
+    # glacier terminus
+    terminus = gsurface[gsurface <= bed][0]
+
+    # get the closest value to the ELA in the glacier surface array
+    ela_closest = gsurface[np.abs(gsurface - ela).argmin()]
+
+    # glacier top
+    top = gsurface[0]
+
+    # check if the ablation at the ela, abl_0, is specified
+    if not abl_0:
+        # if not specified, the ablation at the ELA is calculated to
+        # produce an ablation of exactly 0 at the glacier top
+        abl_0 = (- mb_grad * (top - ela_closest) *
+                 widths[gsurface == top] * 1e-3)
+
+    # ablation as a function of altitude in one year: m w.e. yr^-1
+    # scaled by the model glacier widths
+    abl = (- abl_0 + mb_grad * (gsurface[gsurface >= terminus] - ela_closest) *
+           1e-3 * widths[gsurface >= terminus])
+
+    # append 0 ablation downstream of glacier terminus
+    abl_d = np.hstack([abl, np.zeros(len(gsurface[gsurface < terminus]))])
+
+    # correct ablation > 0 to 0
+    abl_d[abl_d > 0] = 0
+
+    return abl_d, abl_0
+
+
+def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
+                       plot_ela=False):
+    """Plots the glacier bed together with the actual glacier surface and
+    perturbed glacier surfaces, e.g. the glacier surface after accumulation or
+    ablation.
+
+    Parameters
+    ----------
+    ax : matplotlib.axes.Axes
+        a matplotlib axes instance
+    dis : ndarray
+        the distance along the glacier
+    bed_h : ndarray
+        the glacier bed
+    initial : ndarray
+        the actual glacier surface
+    ref_sfc : list
+        a list of ndarrays containing the perturbed glacier surfaces
+    labels: list
+        a list of strings describing the perturbed glacier surfaces
+    ela : int, float, optional
+        the equilibrium line altitude, (default: None)
+    plot_ela : bool, optional
+        flag to plot ela, (default: False)
+    """
+
+    # plot the glacier bed and the initial glacier surface
+    ax.plot(dis, bed_h, '--k', label='bed')
+    ax.plot(dis, initial, '--r', label='initial')
+
+    # check which surface is passed to the function
+    counter = 0
+    for sfc, l in zip(ref_sfc, labels):
+
+        # fill area between bed/initial surface or bed/reference surface
+        if counter < 1:
+            ax.fill_between(dis, bed_h, sfc, sfc <= initial,
+                            color='grey', alpha=0.3)
+            if any(sfc - initial > 0):
+                ax.fill_between(dis, bed_h, initial,
+                                sfc >= initial, color='grey', alpha=0.3)
+            else:
+                ax.fill_between(dis, bed_h, initial,
+                                sfc > initial, color='grey', alpha=0.3)
+
+        # accumulation surface
+        if all(sfc - initial >= 0):
+            ax.plot(dis, sfc, color='lightblue',
+                    linewidth=2, label=l)
+            ax.fill_between(dis, initial, sfc,
+                            sfc >= initial, color='lightblue', alpha=0.5)
+
+        # ablation surface
+        elif not any(sfc - initial > 0):
+            ax.plot(dis, sfc, '-r', linewidth=2, label=l)
+            ax.fill_between(dis, initial, sfc,
+                            sfc <= initial, color='red', alpha=0.3)
+
+        # mass balance surface
+        else:
+            ax.plot(dis, sfc, '-k', linewidth=2, label=l)
+            ax.fill_between(dis, initial, sfc,
+                            sfc > initial, color='lightblue', alpha=0.5)
+            ax.fill_between(dis, initial, sfc,
+                            sfc <= initial, color='red', alpha=0.3)
+        # advance counter
+        counter += 1
+
+    # plot the ela
+    if plot_ela and ela:
+        ax.hlines(ela, dis[0], dis[-1],
+                  linestyle='--', color='grey')
+        ax.text(dis[-1], ela + 10,
+                'Equilibrium line altitude', horizontalalignment='right',
+                verticalalignment='bottom', color='grey')
+
+    # axes labels and legend
+    ax.legend(frameon=False)
+    ax.set_xlabel('Distance along flowline / (km)')
+    ax.set_ylabel('Elevation / (m)')
