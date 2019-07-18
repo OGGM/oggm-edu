@@ -7,19 +7,16 @@ oggm-edu - plots
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import axes3d
 from oggm.core.flowline import (FluxBasedModel,
-                                RectangularBedFlowline,
-                                TrapezoidalBedFlowline,
-                                ParabolicBedFlowline)						
-from oggm.core.massbalance import LinearMassBalance							
+                                RectangularBedFlowline)
+from oggm.core.massbalance import LinearMassBalance
 from oggm import cfg
 
 
 def define_linear_bed(top, bottom, nx):
     """Creates a linear bedrock profile.
-    
-	Parameters
+
+    Parameters
     ----------
     top : int, float
         top boundary of the domain
@@ -27,53 +24,52 @@ def define_linear_bed(top, bottom, nx):
         bottom boundary of the domain
     nx : int
         number of grid points
-    
-	Returns
+
+    Returns
     -------
     bed_h : ndarray
         bedrock profile
     surface_h : ndarray
         the glacier surface, i.e. the bedrock profile in case of no glacier
     """
-    
+
     # linear bed profile
     bed_h = np.linspace(top, bottom, nx)
-    
-    # At the beginning, there is no glacier
+
+    # at the beginning, there is no glacier
     # the glacier surface is at the bed altitude
     surface_h = bed_h
-    
+
     return bed_h, surface_h
 
 
 def distance_along_glacier(nx, map_dx):
     """Calculates the distance along the glacier in km.
-    
-	Parameters
+
+    Parameters
     ----------
     nx : int
         number of grid points
     map_dx : int
         grid point spacing
-    
-	Returns
+
+    Returns
     -------
     ndarray
         distance along the glacier in km.
     """
     return np.linspace(0, nx, nx) * map_dx * 1e-3
-    
+
 
 def plot_xz_bed(x, bed):
-    """This function implements a glacier bed, prepared axes and a legend in
-    altitude vs. distance along a glacier plot.
+    """This function plot the glacier bed as a function of altitude.
 
     Parameters
     ----------
     x : ndarray
-        distance along glacier (all steps in km)
+        distance along glacier
     bed : ndarray
-        bed rock
+        bedrock profile
     """
 
     plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
@@ -89,16 +85,19 @@ def glacier_plot(x, bed, model, mb_model, init_flowline):
     Parameters
     ----------
     x : ndarray
-        distance along glacier (all steps in km)
+        distance along glacier
     bed : ndarray
-        bed rock
-    model : oggm-model
-    mb_model : mass balance model
-    init_flowline : flowline
+        bedrock profile
+    model : oggm.core.flowline.FluxBasedModel
+        OGGM model class
+    mb_model : oggm.core.massbalance.LinearMassBalance
+        the glacier mass balance model
+    init_flowline : oggm.core.flowline.RectangularBedFlowline
+        the glacier flowline
 
     Returns
     -------
-    a labeled glacier plot (x,z)
+        a labeled glacier plot (x,z)
     """
 
     # Plot the initial glacier:
@@ -119,14 +118,14 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
     """This function initializes a new model, therefore it uses FluxBasedModel.
     The outline of the glacier is calculated for a chosen amount of years.
 
-    TODO: return also length and volume.
-
     Parameters
     ----------
-    init_flowline : flowline
-    mb_model : mass balance model
+    init_flowline : oggm.core.flowline.RectangularBedFlowline
+        the glacier flowline
+    mb_model : oggm.core.massbalance.LinearMassBalance
+        the glacier mass balance model
     years : int
-        glacier will be calculated for the chosen amount of years
+        year until which glacier evolution is calculated
     glen_a : float
         Glen's parameter (default = 2.4e-24)
     fs : float
@@ -134,11 +133,12 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
 
    Returns
    -------
-   model : flowline.FluxbasedModel
+   model : oggm.core.flowline.FluxBasedModel
+       the initialized model
 
-   TODO: return also length and volume steps (they are for every time step
-   calculated)
-    """
+   TODO: return also length and volume steps (they are calculated for every
+         time step)
+   """
     if glen_a is None:
         glen_a = cfg.PARAMS['glen_a']
 
@@ -159,7 +159,7 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
         length[i] = model.length_m
         vol[i] = model.volume_km3
 
-    return model#, length, vol
+    return model  # , length, vol
 
 
 def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
@@ -171,25 +171,29 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
     ----------
     yrs : int
         years in which glacier evolution should be calculated
-    init_flowline : flowline
-    mb_model : mass balance model
+    init_flowline : oggm.core.flowline.RectangularBedFlowline
+        the glacier flowline
+    mb_model : oggm.core.massbalance.LinearMassBalance
+        the glacier mass balance model
     bed : ndarray
-        bed rock
+        bedrock profile
     widths : ndarray
-        width grid
+        the glacier widths
     map_dx : int
-        grid spacing (e.g. 100 m)
+        grid point spacing
     glen_a : float
         Glen's parameter
     fs : float
         sliding parameter for slow motion years
     fs_surge : float
         sliding parameter for the surging period
-    model : oggm-model
+    model : oggm.core.flowline.FluxBasedModel
+       OGGM model class
 
     Returns
     -------
-    model
+    model : oggm.core.flowline.FluxBasedModel
+        OGGM model class
     surging_glacier_h : list
         outline of glacier
     length_s3 : ndarray
@@ -271,8 +275,8 @@ def response_time_vol(model, perturbed_mb):
                 raise RuntimeError('Because the gradient is be very small, '
                                    'the equilibrium will be reached only '
                                    'after many years. Run this cell '
-                                   'again, then it should work.')    
-    
+                                   'again, then it should work.')
+
     # set up new model, whith outlines of first model, but new mb_model
     pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
     # run it until in reaches equilibrium state
@@ -312,7 +316,7 @@ def response_time_vol(model, perturbed_mb):
     vol_dif -= (recalc_pert_model.volume_km3 - model.volume_km3) / np.e
     # search for the appropriate time by determining the year with the closest
     # volume to vol_dif:
-        # difference between volumes of different time steps and vol_dif
+    # difference between volumes of different time steps and vol_dif
     all_dif_vol = abs(vol_w - vol_dif).tolist()
     # find index of smallest difference between
     index = all_dif_vol.index(min(all_dif_vol))
@@ -321,11 +325,10 @@ def response_time_vol(model, perturbed_mb):
     return response_time, pert_model
 
 
-
 def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
     """Plots the glacier geometry in pseudo-3d.
-    
-	Parameters
+
+    Parameters
     ----------
     dis : ndarray
         the distance along the flowline
@@ -339,8 +342,8 @@ def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
         elevation viewing angle for 3D plot
     azim : int
         azimuth viewing angle for 3D plot
-    
-	Returns
+
+    Returns
     -------
     fig : matplotlib.figure.Figure
         the 3D plot
@@ -370,8 +373,8 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
                           plot=True):
     """Runs the OGGM FluxBasedModel with a linear mass balance
     gradient until the glacier reaches equilibrium.
-    
-	Parameters
+
+    Parameters
     ----------
     bed : ndarray
         the glacier bed
@@ -391,8 +394,8 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
         grid point spacing
     plot : bool
         show a pseudo-3d plot of the glacier geometry
-    
-	Returns
+
+    Returns
     -------
     model : oggm.core.flowline.FluxBasedModel
         OGGM model class of the glacier in equilibrium
