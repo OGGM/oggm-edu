@@ -370,7 +370,7 @@ def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
 
 
 def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
-                          idx, plot=True):
+                          idx=None, advance=None, retreat=None, plot=True):
     """Runs the OGGM FluxBasedModel with a linear mass balance
     gradient until the glacier reaches equilibrium.
 
@@ -392,8 +392,14 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
         number of grid points
     map_dx : int
         grid point spacing
-    idx : int
-        index to select ela position
+    idx : int, optional
+        number of vertical grid points to shift ELA down/upglacier
+    advance : bool, optional
+        move the ELA downglacier by idx grid points to simulate
+        a glacier advance
+    retreat : bool, optional
+        move the ELA upglacier by idx grid points to simulate
+        a glacier retreat
     plot : bool, optional
         show a pseudo-3d plot of the glacier (default: True)
 
@@ -420,7 +426,21 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
                                            widths=mwidths, map_dx=map_dx)
 
     # equilibrium line altitude
-    ela = bed[np.where(widths == elaw)[0][idx]]
+
+    # in case of an advance scenario, move the ELA downglacier by a number of
+    # vertical grid points idx
+    if advance and idx:
+        ela = bed[np.where(widths == elaw)[0][idx]]
+
+    # in case of a retreat scenario, move the ELA upglacier by a number of
+    # vertical grid points idx
+    elif retreat and idx:
+        ela = bed[np.where(widths == acc_width[-idx])[0][0]]
+
+    # in case of no scenario, the ela is the height where the width of the ela
+    # is first reached
+    else:
+        ela = bed[np.where(widths == elaw)[0][0]]
 
     # linear mass balance model
     mb_model = LinearMassBalance(ela, grad=mb_grad)
@@ -649,3 +669,29 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
     ax.legend(frameon=False)
     ax.set_xlabel('Distance along flowline / (km)')
     ax.set_ylabel('Elevation / (m)')
+
+
+def correct_to_bed(bed, ref_sfc):
+    """Corrects a reference surface to the glacier bed in case of negative
+    ice thickness.
+
+    Parameters
+    ----------
+    bed : ndarray
+        the glacier bed
+    ref_sfc : ndarray
+        the (perturbed) glacier surface
+
+    Returns
+    -------
+    ref_sfc : ndarray
+        the corrected glacier surface
+    """
+
+    # check where the ice thickness is negative
+    no_ice = np.where(ref_sfc < bed)
+
+    # correct the reference surface to the bed surface where there is no ice
+    ref_sfc[no_ice] = bed[no_ice]
+
+    return ref_sfc
