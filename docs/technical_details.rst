@@ -19,7 +19,7 @@ These configurations files are found in this repository:
 
 Binder uses `repo2docker <https://repo2docker.readthedocs.io>`_ to build these
 environments and stores them in a hidden database. Once built, they won't
-be built again unless a new change is made to the ``OGGN/binder``
+be built again unless a new change is made to the ``OGGM/binder``
 repository.
 
 We use the same principle to build images that can be used by your own
