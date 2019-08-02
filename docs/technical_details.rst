@@ -15,16 +15,18 @@ or "software capsules" that can be created, pushed and pulled online. We create
 these containers using a few simple configuration files specifying the
 software packages and python libraries we would like to used in OGGM-Edu.
 These configurations files are found in this repository:
-`<https://github.com/OGGM/oggm-edu-r2d>`_
+`<https://github.com/OGGM/binder>`_
 
 Binder uses `repo2docker <https://repo2docker.readthedocs.io>`_ to build these
 environments and stores them in a hidden database. Once built, they won't
-be built again unless a new change is made to the ``oggm-edu-r2d``
+be built again unless a new change is made to the ``OGGN/binder``
 repository.
 
 We use the same principle to build images that can be used by your own
 JupyterHub deployment, if you have one.
-These images are available `here <https://hub.docker.com/r/oggm/oggm-edu-r2d>`_.
+These images are available `here <https://hub.docker.com/r/oggm/r2d>`_ and
+form the base of the Binder environments. Their configuration files are found
+in this repository: `<https://github.com/OGGM/r2d>`_.
 We use these in :ref:`oggm_hub`.
 
 The notebooks
