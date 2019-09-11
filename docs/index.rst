@@ -75,6 +75,9 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 * :doc:`notebooks_surging_glaciers`
 * :doc:`notebooks_mass_balance_gradient`
 * :doc:`notebooks_temperature_index_models`
+* :doc:`notebooks_accumulation_and_ablation`
+* :doc:`notebooks_advance_and_retreat`
+
 
 .. toctree::
     :maxdepth: 1
@@ -87,7 +90,9 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     notebooks_surging_glaciers.rst
     notebooks_mass_balance_gradient.rst
     notebooks_temperature_index_models.rst
-
+    notebooks_accumulation_and_ablation.rst
+    notebooks_advance_and_retreat.rst
+	
 .. _title_tuto:
 
 OGGM tutorials
