@@ -92,7 +92,7 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     notebooks_temperature_index_models.rst
     notebooks_accumulation_and_ablation.rst
     notebooks_advance_and_retreat.rst
-	
+
 .. _title_tuto:
 
 OGGM tutorials
@@ -120,6 +120,7 @@ recommendations and guidelines here.
 * :doc:`user_content`
 * :doc:`technical_details`
 * :doc:`other_resources`
+* :doc:`roadmap`
 
 .. toctree::
     :maxdepth: 1
@@ -130,6 +131,7 @@ recommendations and guidelines here.
     user_content.rst
     technical_details.rst
     other_resources.rst
+    roadmap.rst
 
 .. _title_contact:
 
