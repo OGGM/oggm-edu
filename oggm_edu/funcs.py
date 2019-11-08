@@ -6,11 +6,13 @@ oggm-edu - plots
 @author: Zora
 """
 import numpy as np
+import xarray as xr
+import pandas as pd
 import matplotlib.pyplot as plt
 from oggm.core.flowline import (FluxBasedModel,
                                 RectangularBedFlowline)
 from oggm.core.massbalance import LinearMassBalance
-from oggm import cfg
+from oggm import cfg, utils
 
 
 def define_linear_bed(top, bottom, nx):
@@ -695,3 +697,90 @@ def correct_to_bed(bed, ref_sfc):
     ref_sfc[no_ice] = bed[no_ice]
 
     return ref_sfc
+
+
+def read_run_results(gdir, window=36, filesuffix=None):
+    """Reads the output diagnostics of a simulation
+    and puts the data in a pandas dataframe.
+    
+    Parameters
+    ----------
+    gdir : oggm.GlacierDirectory
+        the glacier directory defined by oggm
+    window : int
+        size of the moving window: number of observations used
+        to smooth the glacier length timeseries
+    filesuffix : str
+        the file identifier
+    
+    Returns
+    -------
+    odf : pd.DataFrame
+        dataframe containing glacier length, volume and water storage
+    """
+    
+    # read model output
+    with xr.open_dataset(gdir.get_filepath('model_diagnostics',
+                                           filesuffix=filesuffix)) as ds:
+        ds = ds.load()
+
+    # length needs filtering
+    ts = ds.length_m.to_series()
+    ts = ts.rolling(window).min()
+    ts.iloc[0:window] = ts.iloc[window]
+    
+    # volume change
+    delta_vol = np.append(ds.volume_m3.data[1:] - ds.volume_m3.data[0:-1], [0])
+    
+    if ds.calendar_month[0] == 10 and gdir.cenlat < 0:
+        # this is to cover up a bug in OGGM
+        _, m = utils.hydrodate_to_calendardate(ds.hydro_year.data, ds.hydro_month.data, start_month=4)
+        ds.calendar_month[:] = m
+    
+    odf = pd.DataFrame()
+    odf['length_m'] = ts
+    odf['volume_m3'] = ds.volume_m3
+    odf['delta_water_m3'] = delta_vol * 0.9
+    odf['month'] = ds.calendar_month
+    
+    return odf
+
+
+def compute_climate_statistics(gdir, tmin='1985', tmax='2015', lapse_rate=0.0065):
+    """Computes monthly average temperature and precipitation
+    during the climate period defined by tmin and tmax.
+    
+    Temperatures are reduced to the terminus elevation assuming
+    a constant lapse rate.
+    
+    Parameters
+    ----------
+    gdir : oggm.GlacierDirectory
+        the glacier directory defined by oggm
+    tmin : int
+        the beginning of the period of interest
+    tmax : int
+        the end of the period of interest
+    
+    Returns
+    -------
+    odf : pd.DataFrame
+        dataframe containing monthly average temperature and precipitation
+        during tmin-tmax
+    """
+    
+    with xr.open_dataset(gdir.get_filepath('climate_monthly')) as ds:
+        ds = ds.load()
+        
+    ds = ds.sel(time=slice(str(tmin), str(tmax)))
+        
+    dsm = ds.groupby('time.month').mean(dim='time')
+    odf = pd.DataFrame()
+    odf['temp_celcius'] = dsm.temp.to_series()
+    odf['prcp_mm_mth'] = dsm.prcp.to_series()
+    
+    # We correct for altitude difference
+    d = utils.glacier_statistics(gdir)
+    odf['temp_celcius'] += (ds.ref_hgt - d['flowline_min_elev']) * lapse_rate
+    
+    return odf
