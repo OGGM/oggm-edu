@@ -77,6 +77,7 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 * :doc:`notebooks_temperature_index_models`
 * :doc:`notebooks_accumulation_and_ablation`
 * :doc:`notebooks_advance_and_retreat`
+* :doc:`notebooks_real_glacier_simulations`
 
 
 .. toctree::
@@ -92,6 +93,7 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     notebooks_temperature_index_models.rst
     notebooks_accumulation_and_ablation.rst
     notebooks_advance_and_retreat.rst
+    notebooks_real_glacier_simulations.rst
 
 .. _title_tuto:
 
