@@ -3,9 +3,9 @@
 World Glaciers Explorer
 =======================
 
-.. figure:: _static/explorer.png
+.. figure:: _static/explorer_thumbnail.png
     :width: 100%
-    :target: https://dash.klima.uni-bremen.de/bokeh/app
+    :target: https://bokeh.oggm.org/explorer/app
 
 The world glacier explorer is an interactive application allowing to explore
 the location of the world's glaciers, their climate, and their volume.
