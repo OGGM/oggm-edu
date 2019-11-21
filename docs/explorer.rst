@@ -107,6 +107,12 @@ The climate data (temperature, precipitation, trends) is extracted from
 provided by the `ECMWF <https://www.ecmwf.int/>`_.
 The glacier volume was provided by `Farinotti et al., (2019) <https://www.nature.com/articles/s41561-019-0300-3>`_
 
+
+Source code
+-----------
+
+The code of the app is on `GitHub <https://github.com/OGGM/world-glacier-explorer>`_, MIT licensed.
+
 .. _docker-launch:
 
 Launching from Docker
