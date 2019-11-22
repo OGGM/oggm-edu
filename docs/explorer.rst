@@ -7,8 +7,10 @@ World Glaciers Explorer
     :width: 100%
     :target: https://bokeh.oggm.org/explorer/app
 
-The world glacier explorer is an interactive application allowing to explore
-the location of the world's glaciers, their climate, and their volume.
+The world glacier explorer is an **interactive web application** with which
+you can learn (and teach) about the world's glaciers, their location,
+their climate, and the ice they store. By "glaciers", we mean all glaciers
+outside of the two continental ice sheets (Greenland and Antarctica).
 
 You can start the app by clicking on this link: |badgelink|_
 
@@ -16,37 +18,37 @@ You can start the app by clicking on this link: |badgelink|_
 .. _badgelink: https://bokeh.oggm.org/explorer/app
 
 Alternatively, you can start the app `on mybinder <https://mybinder.org/v2/gh/OGGM/world-glacier-explorer/master?urlpath=panel/app>`_
-(slightly slower in general, but possibly better if our server is saturated).
-If you want to run the app locally, see :ref:`docker-launch` below.
+(slightly slower in general, but a good alternative if our server is saturated).
+If you want to run the app on your own computer, see :ref:`docker-launch` below.
 
 **The app contains five elements**:
 
-- the **world map** (upper right) displaying thg glacier locations, the color
-  indicating the total area of each pixel. Moving the mouse over a glacier
-  pixel indicates its glaciated area in a box. When selecting a box on the map,
+- the **world map** (upper right) displays thg glaciers' location, with the color shading
+  indicating the total glacier area in each pixel. Moving the mouse over a glacier
+  pixel displays its exact glaciated area. When selecting a box on the map,
   the other elements in the app will update accordingly. Above the map, there is
   a toolbar: with the "Box Zoom" button, you can also zoom into a specific
-  region. Click on "Reset" to set the map back to defaults (see video below
+  region. Click on "Reset" to set the map back to defaults (see the video below
   for a demo). *Be aware that
   the map projection is slightly misleading: high latitudes appear much
   bigger on the map than they really are.*
-- the **clear selection button** on the left below the logos resets the
-  current glacier selection.
-- the **bar plots** (center) indicate various statistics about the current
-  glacier selection (default: all glaciers). The upper blue bar (and text)
+- the **clear selection button** on the left resets the current glacier selection.
+- the **bar plots** (left of the map) indicate various statistics about the current
+  glacier selection (default selection: all glaciers). The upper blue bar
   indicates the number of glaciers selected, the middle blue bar their total
   area, and the lower blue bar their estimated volume. This volume can be
   converted to its *sea-level rise equivalent* (in mm), which is the global
-  sea-level rise to be expected if all glacier melted. Only glaciers *above*
-  sea-level are contributing to this number, therefore there are two bars:
+  sea-level rise to be expected if all glacier vanished. Only glaciers *above*
+  sea-level are contributing to this figure, therefore there are two vertical
+  orange bars:
   *asl* (above sea-level) and *bsl* (below sea-level). See the demo and
   explanations below on how to use this information.
 - the three **climate histograms plots** (lower row) display the distribution
   of the selected glaciers' climate conditions. The y-axis is given in number
   of glaciers per bin, and the x-axis in the unit of the target variable
   (temperature trend, average temperature, average precipitation at the glacier
-  location). Selecting a range of data in these plots also actualises the map
-  and the rest of the plot (see demo below).
+  location). Selecting a range of values in these plots also actualizes the map
+  and the rest of the plots (see demo below).
 - the **glacier elevation/altitude scatter plot** (lower right) displays the
   average elevation of the glaciers on the map as a function of latitude (y-axis).
 
@@ -63,29 +65,33 @@ Demo
 
 *In this video, we start by selecting all glaciers in Antarctica and show that
 although these are few glaciers in number, they represent a large portion of
-the total volume, but mostly below sea-level. Then, we reset the selection
-and try to find out where the glaciers with the warmest
-climate are located. Then, we show that the wettest glacier climates tend to be
-among the warmests. Then, we select the glaciers with the most dramatic
+the total volume. This volume is mostly below sea-level. Then, we reset the
+current selection (left button) and try to find out where the glaciers with the
+warmest climate are located. After that, we show that the wettest glacier climates
+also tend to be among the warmests. Then, we select the glaciers with the most dramatic
 warming trend, and show that these are located in the arctic. Finally, we
 illustrate that we can zoom into the map and do multiple selections from
-there. To reset the map view, click on the reset button above the map.*
+there. To reset the map view, we click on the reset button above the map.*
 
-The questions to explore
-------------------------
+Questions to explore with this app
+----------------------------------
 
 With this app, you can address many questions, by yourself or in class! For example:
 
-- where are the wettest glaciers located? And the driests?
-- is there a relationship between temperature and precipitation?
-- how much glacier area is found on Greenland? In the European Alps?
-- does the number of glaciers always correlate with their volume?
-- what regions are most likely to contribute to sea-level rise? Where do we
+- How many glaciers are there on Earth? How much volume do they represent?
+- How much would the sea-level rise if all glaciers melted? All glaciers in the
+  Alps? In the Himalayas? etc.
+- What is the relationship between latitude and glacier elevation? Why?
+- Where are the locations with highest precipitation? And the driests?
+- Is there a relationship between average temperature and average precipitation?
+- How much glacier area is found on Greenland? In the European Alps? How does
+  these number compare to, say, the area of Berlin, France, Mexico?
+- Does the number of glaciers in a region always correlate with their total volume?
+- What regions are most likely to contribute to sea-level rise? Where do we
   find glaciers with ice below sea-level?
-- what is the relationship between latitude and glacier elevation? Why?
-- where are the glaciers which are warming the fastest?
+- Where are the glaciers which are warming the fastest?
   `why <https://fabienmaussion.info/2019/08/29/era5/>`_?
-- and many more!
+- And many more!
 
 Authors
 -------
@@ -94,8 +100,8 @@ Authors
 `James Bednar <https://github.com/jbednar>`_ from
 `HoloViz <http://holoviz.org//>`_ and Anaconda Inc., based on an original
 Dash application by `Fabien Maussion <https://fabienmaussion.info/>`_.
-`Zora Schirmeister <https://github.com/zschirmeister>`_ improved the app greatly
-with new data and new plots.
+`Zora Schirmeister <https://github.com/zschirmeister>`_ improved the app
+significantly with new data, plots, and an improved layout.
 
 Data sources
 ------------
@@ -111,7 +117,7 @@ The glacier volume was provided by `Farinotti et al., (2019) <https://www.nature
 Source code
 -----------
 
-The code of the app is on `GitHub <https://github.com/OGGM/world-glacier-explorer>`_, MIT licensed.
+Code and data are on `GitHub <https://github.com/OGGM/world-glacier-explorer>`_, MIT licensed.
 
 .. _docker-launch:
 
@@ -137,3 +143,5 @@ Possible future improvements
 
 - With a category choice bar, it would be possible to differentiate glaciers
   from ice-caps or marine terminating glaciers from land-terminating ones.
+- We could also simplify the app for younger target audiences, with less
+  panels and less distraction.
