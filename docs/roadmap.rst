@@ -6,8 +6,9 @@ Roadmap
 :Authors: Fabien Maussion
 :Status: Draft
 :Created: 04.10.2019
+:Updated: 06.12.2019
 
-The OGGM-Edu platform is now about one year old (first commit on Sep 21, 2018!).
+The OGGM-Edu platform is about one year old (first commit on Sep 21, 2018!).
 We have made tremendous progress in one year: we created this website,
 added new content, enabled interactivity via MyBinder and hub.oggm.org,
 supported the creation of a workshop for a class in Peru, secured
@@ -19,16 +20,16 @@ brainstorm about what we want to realize in the future.
 Intro
 -----
 
-As of Oct. 4th 2019, we have on the platform:
+As of December 2019, we have on the platform:
 
 - an interactive app (World Glacier Explorer)
-- 7 jupyter notebooks templates in various complexity levels
+- 8 jupyter notebooks templates in various complexity levels
 - a series of glacier graphics
 - bits of documentation for teachers about how to use the notebooks and MyBinder
 
 So far, our biggest achievements are (subjective opinion):
 
-- our notebooks and workflow were used for a class in Peru (`repository <https://github.com/ehultee/CdeC-glaciologia>`_)
+- our notebooks were used for a class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_)
 - we use MyBinder and hub.oggm.org as viable platforms to run
   workshops and tutorials
 - securing of funding for the platform, indicating that other people
@@ -77,8 +78,8 @@ More docs and clearer goal for "the platform"
 What is OGGM-Edu? We should answer this first, then write it down.
 
 
-Hosting of the Bokeh Apps
--------------------------
+Hosting of the Bokeh Apps (accomplished)
+----------------------------------------
 
 It's nice to write apps, but we need a way to serve them. Our current
 solution is slow an not very sustainable, we need more options.
