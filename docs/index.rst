@@ -155,7 +155,7 @@ Interested in OGGM-Edu? We would love to hear from you!
 - Follow us on `Twitter`_.
 - Or you can always send us an `e-mail`_ the good old way.
 
-.. _e-mail: https://mailman.zfn.uni-bremen.de/cgi-bin/mailman/listinfo/oggm-users
+.. _e-mail: info@oggm.org
 .. _on GitHub: https://github.com/OGGM/oggm-edu
 .. _issue tracker: https://github.com/OGGM/oggm-edu/issues
 .. _pull request: https://github.com/OGGM/oggm-edu/pulls
