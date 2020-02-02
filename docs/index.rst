@@ -33,9 +33,10 @@ Interactive apps
 ^^^^^^^^^^^^^^^^
 
 These interactive apps can be run on any computer with an internet connection.
-We currently have one app, but three more are in the making - stay tuned!
 
 * :doc:`explorer`
+* :doc:`gallery`
+* :doc:`simulator`
 
 .. toctree::
     :maxdepth: 1
@@ -43,6 +44,8 @@ We currently have one app, but three more are in the making - stay tuned!
     :caption: Interactive apps
 
     explorer.rst
+    gallery.rst
+    simulator.rst
 
 
 .. _title_graphics:
