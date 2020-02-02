@@ -91,6 +91,9 @@ With this app, you can address many questions, by yourself or in class! For exam
   find glaciers with ice below sea-level?
 - Where are the glaciers which are warming the fastest?
   `why <https://fabienmaussion.info/2019/08/29/era5/>`_?
+- Where are the wettest glaciers in the Himalayas? (select all Himalayan glaciers
+  first, then the wettest). Can you explain why?
+- Repeat the excercise above with other regions: Greenland, the Alps, etc.
 - And many more!
 
 Authors
