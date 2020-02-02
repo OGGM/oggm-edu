@@ -1,7 +1,7 @@
 .. _classes_howto:
 
-OGGM-Edu notebooks in classes and workshops
-===========================================
+OGGM-Edu in classes and workshops
+=================================
 
 OGGM-Edu can readily be used in your classes and workshops - we encourage you to
 try it out! Depending on your own knowledge about glaciers, this can require
