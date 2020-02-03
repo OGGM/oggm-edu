@@ -61,6 +61,9 @@ How does glacier volume change with ELA? Can you explain why?
 What about glacier length and thickness? Are these changes linear, or more
 complex?
 
+An example graphic that students could come up with by varying the ELA
+with different shapes can be found `here <_static/simulator_ela_example.png>`_.
+
 Glacier shape
 ~~~~~~~~~~~~~
 
