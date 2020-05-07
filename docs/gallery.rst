@@ -8,7 +8,7 @@ Glacier Gallery (beta)
     :target: gallery-app.html
 
 The glacier gallery is an **interactive web application** with which
-you can learn (and teach) about the different glaciers of the world.
+you can learn (and teach) about the diverse glaciers of the world. It introduces different glacier types with pictures and explanations. It includes typical glaciers from nearly all glaciated regions of the world.
 
 The application is still in beta version, which means that we are working on
 the last details before release.
@@ -19,15 +19,31 @@ You can start the app by clicking on this link: |badgelink|_
 .. _badgelink: gallery-app.html
 
 
+How to use it
+-------------
+
+The app contains an interactive **map** with marked glaciers. The markers are color-coded according to the glacier’s type. When the mouse hovers above one, information on that glacier and a picture of it appears. When you click on the marker information about the glaciertype pop up in **infobox** on the right. The box has a second tap that shows information about glaciers in general. If you want to choose a different glacier click into the map to delete your selection and choose a new marker.
+
+
 Authors
 -------
 
 `Zora Schirmeister <https://github.com/zschirmeister>`_.
 
-See the app for links to the data sources and pictures.
+
+Data sources
+------------
+
+Glacier information are obtained from the `Randolph Glacier Inventory version 6 <https://www.glims.org/RGI/>`_. See the app for links to the data sources and pictures.
 
 
 Source code
 -----------
 
 Code and data are on `GitHub <https://github.com/OGGM/glacier-gallery>`_, BSD licensed.
+
+
+Possible future improvements
+----------------------------
+
+The application would profit from additional glaciers in regions that are not covered yet.
