@@ -1,7 +1,7 @@
 .. _gallery:
 
-Glacier Gallery (beta)
-======================
+Glacier Gallery
+===============
 
 .. figure:: _static/gallery_thumbnail.png
     :width: 100%
@@ -9,9 +9,6 @@ Glacier Gallery (beta)
 
 The glacier gallery is an **interactive web application** with which
 you can learn (and teach) about the diverse glaciers of the world. It introduces different glacier types with pictures and explanations. It includes typical glaciers from nearly all glaciated regions of the world.
-
-The application is still in beta version, which means that we are working on
-the last details before release.
 
 You can start the app by clicking on this link: |badgelink|_
 
