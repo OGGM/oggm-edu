@@ -37,11 +37,6 @@ try:
 except ImportError:
     print("no scipy")
 try:
-    import PIL
-    print("PIL (Pillow): %s, %s" % (PIL.PILLOW_VERSION, PIL.__file__))
-except ImportError:
-    print("no PIL (Pillow)")
-try:
     import pandas
     print("pandas: %s, %s" % (pandas.__version__, pandas.__file__))
 except ImportError:
@@ -241,7 +236,7 @@ html_static_path = ['_static']
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-# html_extra_path = []
+html_extra_path = ['gallery-app.html']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -384,4 +379,4 @@ texinfo_documents = [
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {}

@@ -4,23 +4,28 @@
 Welcome to OGGM-Edu!
 ====================
 
-This platform is an educational website about glaciers. It is
-currently in construction, but it is growing fast.
-:ref:`title_contact` with us if you want to help us out!
+This platform is an educational website about glaciers.
 
-**This platform has four independent components**:
+Our main goal is to **provide tools and materials for instructors** who
+want to teach about glaciers at school, in workshops or at the university
+level. For example, OGGM-Edu was used to conduct
+a `weeklong workshop <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_
+on glaciology and glacial water resources for Peruvian students.
+
+**OGGM-Edu has four independent components**, serving complementary purposes:
 
 1. :ref:`title_apps`, to illustrate glaciological processes with the
    help of interactive graphics on the web. The targeted audience is very
-   broad, from school children to adults and scientists.
+   broad, from school children to adults, with or without scientific background.
 2. :ref:`title_graphics`, open access images and graphics that can be used
    for lectures or presentations.
 3. :ref:`title_notebooks`, for students willing to run and develop
    their own experiments. The targeted audience are students at the undergrad
    or graduate level with some programming experience, or under the supervision
    of an instructor who can show them how to run the experiments.
-4. :ref:`title_tuto`, for users of the Open Global Glacier Model.
-
+4. :ref:`title_tuto`, for current and future users of the Open Global Glacier
+   Model. These notebooks are targetting graduate students or scientists aiming
+   to learn how the model works.
 
 .. _title_apps:
 
@@ -28,9 +33,10 @@ Interactive apps
 ^^^^^^^^^^^^^^^^
 
 These interactive apps can be run on any computer with an internet connection.
-We currently only have one app, but we have plenty of ideas - stay tuned!
 
 * :doc:`explorer`
+* :doc:`gallery`
+* :doc:`simulator`
 
 .. toctree::
     :maxdepth: 1
@@ -38,6 +44,8 @@ We currently only have one app, but we have plenty of ideas - stay tuned!
     :caption: Interactive apps
 
     explorer.rst
+    gallery.rst
+    simulator.rst
 
 
 .. _title_graphics:
@@ -45,7 +53,7 @@ We currently only have one app, but we have plenty of ideas - stay tuned!
 Graphics
 ^^^^^^^^
 
-Some open-access images that are free to use for presentations or websites.
+Open access images and graphics that can be used for lectures or presentations.
 
 * :doc:`glacier_basics`
 * :doc:`glacier_lowpass`
@@ -65,8 +73,8 @@ Interactive Notebooks
 ^^^^^^^^^^^^^^^^^^^^^
 
 Collection of notebooks with simple experiments explaining one or more
-glaciological concepts. They are easier to follow and adapt with some
-background in programming, but we are working to make them as accessible as
+glaciological concepts. They are relatively easy to follow and adapt with some
+background in programming, and we are working to make them as accessible as
 possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 
 * :doc:`notebooks_howto`
@@ -75,6 +83,10 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 * :doc:`notebooks_surging_glaciers`
 * :doc:`notebooks_mass_balance_gradient`
 * :doc:`notebooks_temperature_index_models`
+* :doc:`notebooks_accumulation_and_ablation`
+* :doc:`notebooks_advance_and_retreat`
+* :doc:`notebooks_real_glacier_simulations`
+
 
 .. toctree::
     :maxdepth: 1
@@ -87,6 +99,9 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     notebooks_surging_glaciers.rst
     notebooks_mass_balance_gradient.rst
     notebooks_temperature_index_models.rst
+    notebooks_accumulation_and_ablation.rst
+    notebooks_advance_and_retreat.rst
+    notebooks_real_glacier_simulations.rst
 
 .. _title_tuto:
 
@@ -115,6 +130,8 @@ recommendations and guidelines here.
 * :doc:`user_content`
 * :doc:`technical_details`
 * :doc:`other_resources`
+* :doc:`charter`
+* :doc:`roadmap`
 
 .. toctree::
     :maxdepth: 1
@@ -125,6 +142,8 @@ recommendations and guidelines here.
     user_content.rst
     technical_details.rst
     other_resources.rst
+    charter.rst
+    roadmap.rst
 
 .. _title_contact:
 
@@ -139,7 +158,7 @@ Interested in OGGM-Edu? We would love to hear from you!
 - Follow us on `Twitter`_.
 - Or you can always send us an `e-mail`_ the good old way.
 
-.. _e-mail: https://mailman.zfn.uni-bremen.de/cgi-bin/mailman/listinfo/oggm-users
+.. _e-mail: info@oggm.org
 .. _on GitHub: https://github.com/OGGM/oggm-edu
 .. _issue tracker: https://github.com/OGGM/oggm-edu/issues
 .. _pull request: https://github.com/OGGM/oggm-edu/pulls
