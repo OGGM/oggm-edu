@@ -18,7 +18,7 @@ Find out about the future evolution of glaciers in the European Alps! The graphi
 Authors
 -------
 
-`Fabien Maussion <https://fabienmaussion.info/>`_
+`Fabien Maussion <https://fabienmaussion.info/>`_ and co-author: `Zora Schirmeister <https://github.com/zschirmeister>`_
 
 Data sources
 ------------
@@ -28,7 +28,7 @@ Data: `Zekollari et al. (2019) <https://www.the-cryosphere.net/13/1125/2019/>`_
 Source code
 -----------
 
-Code and data are on `GitHub <https://github.com/zschirmeister/alps-future>`_, BSD3 licensed.
+Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, BSD3 licensed.
 
 
 Possible future improvements
@@ -40,4 +40,4 @@ Possible future improvements
 - implement tick-boxes for choosing the displayed RCP-scenarios
 - two dropdown menus to give the opportunity that every region can be compared to every other region/country
 
-If you are interested to contribute you can send us the edited `file <https://github.com/zschirmeister/alps_future/blob/master/app.ipynb>`_ per mail or with a pull-request. Thanks!
+If you are interested to contribute you can send us the edited `file <https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or with a pull-request. Thanks!
