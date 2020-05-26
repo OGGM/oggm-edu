@@ -35,7 +35,6 @@ right. The box has a second tap that shows information about glaciers in general
 If you want to choose a different glacier click into the map to delete your
 selection and choose a new marker.
 
-
 Authors
 -------
 
