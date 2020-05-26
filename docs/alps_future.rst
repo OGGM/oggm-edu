@@ -18,7 +18,7 @@ Find out about the future evolution of glaciers in the European Alps! The graphi
 Authors
 -------
 
-`Fabien Maussion <https://fabienmaussion.info/>`_ and co-author: `Zora Schirmeister <https://github.com/zschirmeister>`_
+`Fabien Maussion <https://fabienmaussion.info/>`_ and `Zora Schirmeister <https://github.com/zschirmeister>`_
 
 Data sources
 ------------
