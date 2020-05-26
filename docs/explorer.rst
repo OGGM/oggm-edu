@@ -53,25 +53,13 @@ If you want to run the app on your own computer, see :ref:`docker-launch` below.
   average elevation of the glaciers on the map as a function of latitude (y-axis).
 
 
-Demo
-----
+Video tutorial
+--------------
 
 .. raw:: html
 
-  <video width="700" height="360" controls>
-   <source src="_static/explorer_demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-  </video>
-
-*In this video, we start by selecting all glaciers in Antarctica and show that
-although these are few glaciers in number, they represent a large portion of
-the total volume. This volume is mostly below sea-level. Then, we reset the
-current selection (left button) and try to find out where the glaciers with the
-warmest climate are located. After that, we show that the wettest glacier climates
-also tend to be among the warmests. Then, we select the glaciers with the most dramatic
-warming trend, and show that these are located in the arctic. Finally, we
-illustrate that we can zoom into the map and do multiple selections from
-there. To reset the map view, we click on the reset button above the map.*
+  <iframe src="https://player.vimeo.com/video/422776970" width="640" height="357" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <p><a href="https://vimeo.com/422776970">OGGM-Edu app: World Glaciers Explorer tutorial on Vimeo</a></p>
 
 Questions to explore with this app
 ----------------------------------
