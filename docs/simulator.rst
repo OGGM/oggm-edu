@@ -76,7 +76,25 @@ and run the model again. Is the new glacier larger or smaller than before? Why?
 Glacier slope
 ~~~~~~~~~~~~~
 
-(in construction)
+**Intro:**
+
+The slope of a glacier bed is one key ingredient which determine the flow of a glacier. For a introduction on glacier flow see `antarcticglaciers.org <http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/glacier-flow/>`_. In short glaciers flow downslope driven by the gravitational force. The slope determines how the gravitational force is devided into a part along the slope and a part perpenticular to the slope (see `wikipedia <https://en.wikipedia.org/wiki/Inclined_plane#/media/File:Free_body1.3.svg>`_). The slope parallel force "pulls" the glacier downwards and the perpendicular force wants to "flatten" the glacier.
+
+**Experiments:**
+
+- *Beginners*: Use beginner mode with standard settings (constant width, mass balance gradient of 4 and ELA of 3000) and run the model with all different settings for the slope and use the geometry plot for inspection. Take notes on a piece of paper of the ice thickness, volume, area and length at the end of each model run.
+- *Advanced*: Conduct the same experiment as for beginners, but additionally switch on the timeseries plot. Also take notes of the velocity and look how the parameters change with time (in the timeseries plot).
+
+**Questions to answer:**
+
+- *Beginners*: Are steep or flat glaciers thicker? Why do you think?
+- *Advanced*: Are steep of flat glaciers faster? How and why those the velocity change with time?
+
+**Take Home Messages:**
+
+- Glaciers flow downslope
+- the steeper the slope the thinner the glacier (larger slope parallel gravitational force)
+- the flatter the slope the larger the velocity in the end (in equilibrium): when the glacier is thin (has not much mass) the slope parallel part is more important, when the glacier is getting thicker the perpendicular part is getting more weight. This partly explains slower velocities for flatter slopes at the start of the model run which getting larger when the glacier is getting thicker. For steeper slopes the velocities at the start are larger and so more ice is transported downwards and the glacier stays relative thin.
 
 Mass-balance gradient
 ~~~~~~~~~~~~~~~~~~~~~
