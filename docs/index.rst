@@ -27,6 +27,11 @@ on glaciology and glacial water resources for Peruvian students.
    Model. These notebooks are targetting graduate students or scientists aiming
    to learn how the model works.
 
+OGGM-Edu focuses on interactive content and numerical glacier experiments.
+We do not provide much resources about fundamentals in glaciology or
+climate science: for auch textbook material, refer to the excellent
+:ref:`other_resources`, which OGGM-Edu intends to complement.
+
 .. _title_apps:
 
 Interactive apps
@@ -111,7 +116,7 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 OGGM tutorials
 ^^^^^^^^^^^^^^
 
-These are more advanced notebooks, for potential and current users of the
+These are more advanced notebooks, for current and future users of the
 OGGM model.
 
 * :doc:`oggm_tuto`

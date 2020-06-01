@@ -3,10 +3,11 @@
 Other educational resources
 ===========================
 
-There is plenty of great educational material online! OGGM-Edu tries to find
+OGGM-Edu tries to find
 its "niche" by providing interactive content focusing on numerical glacier
 models. However, OGGM-Edu does not provide much theoretical background or
-lecture materials. For more of this, check out these great resources:
+lecture materials. For more information about fundamentals,
+check out these great online resources:
 
 - `Antarctic Glaciers <http://www.antarcticglaciers.org/>`_: excellent resource
   to learn about glaciers (and not only those in Antarctica)

@@ -11,14 +11,14 @@ A collection of free glacier graphics that can be used for education and
 outreach.
 
 
-**License**: `Creative Commons Attribution-NonCommercial 4.0 International License <http://creativecommons.org/licenses/by-nc/4.0/>`_
+**License**: `Creative Commons Attribution-ShareAlike 4.0 International License <https://creativecommons.org/licenses/by-sa/4.0/>`_
 
-.. figure:: https://i.creativecommons.org/l/by-nc/4.0/88x31.png
-    :target: http://creativecommons.org/licenses/by-nc/4.0/
+.. figure:: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+    :target: https://creativecommons.org/licenses/by-sa/4.0/
 
 
 Feel free to use / adapt the graphics, but always refer to the original author
-and do not sell them.
+and share them with a compatible license.
 
 **Author**: Anne Maussion, `Atelier les Gros yeux <http://atelierlesgrosyeux.com>`_
 

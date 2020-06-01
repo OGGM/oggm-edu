@@ -6,9 +6,9 @@ Roadmap
 :Authors: Fabien Maussion
 :Status: Draft
 :Created: 04.10.2019
-:Updated: 06.12.2019
+:Updated: 01.06.2020
 
-The OGGM-Edu platform is about one year old (first commit on Sep 21, 2018!).
+The OGGM-Edu platform will soon be 2 years old (first commit on Sep 21, 2018!).
 We have made tremendous progress in one year: we created this website,
 added new content, enabled interactivity via MyBinder and hub.oggm.org,
 supported the creation of a workshop for a class in Peru, secured
@@ -20,9 +20,9 @@ brainstorm about what we want to realize in the future.
 Intro
 -----
 
-As of December 2019, we have on the platform:
+As of June 2020, we have on the platform:
 
-- an interactive app (World Glacier Explorer)
+- 4 interactive web apps
 - 8 jupyter notebooks templates in various complexity levels
 - a series of glacier graphics
 - bits of documentation for teachers about how to use the notebooks and MyBinder
@@ -30,7 +30,8 @@ As of December 2019, we have on the platform:
 So far, our biggest achievements are (subjective opinion):
 
 - our notebooks were used for a class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_)
-- we use MyBinder and hub.oggm.org as viable platforms to run
+- the uprecedented web applications
+- the use of MyBinder and hub.oggm.org as viable platforms to run
   workshops and tutorials
 - securing of funding for the platform, indicating that other people
   see potential in the project as well.
@@ -70,24 +71,6 @@ The vision is that people have a centralized place (the OGGM-Edu documentation)
 to learn about the flowline models and what they can do with them. The models
 will be more expressive, use rich output in the notebooks, with the goal to
 make using the models more fun, intuitive and quantitative.
-
-
-More docs and clearer goal for "the platform"
----------------------------------------------
-
-What is OGGM-Edu? We should answer this first, then write it down.
-
-
-Hosting of the Bokeh Apps (accomplished)
-----------------------------------------
-
-It's nice to write apps, but we need a way to serve them. Our current
-solution is slow an not very sustainable, we need more options.
-
-1. have a bokeh server running multiple apps in human-readable URLs (e.g. edu.oggm.org/apps/explorer)
-2. provide a container where the app can run so that people just have to download docker and "that's it"
-3. document how to run and develop the app locally
-
 
 Website design
 --------------
