@@ -165,7 +165,7 @@ Interested in OGGM-Edu? We would love to hear from you!
 .. _on GitHub: https://github.com/OGGM/oggm-edu
 .. _issue tracker: https://github.com/OGGM/oggm-edu/issues
 .. _pull request: https://github.com/OGGM/oggm-edu/pulls
-.. _Twitter: https://twitter.com/OGGM1
+.. _Twitter: https://twitter.com/OGGM_org
 
 Acknowledgements
 ^^^^^^^^^^^^^^^^
@@ -193,11 +193,25 @@ also had support from various sources:
     <a href="https://www.bmbf.de/en/index.html" >
     <img src="_static/logo_bmbf.jpg" alt="Image missing" width="49%" />
     </a>
+    <a href="https://cloud.google.com/data-solutions-for-change" >
+    <img src="_static/feature-google-for-nonprofits-logo.svg" alt="Image missing" width="49%" />
+    </a>
+    <a href="http://holoviz.org/" >
+    <img src="https://discourse.holoviz.org/uploads/default/original/1X/59aba5e11167d6b8742e01fc9d6bb60ddd4df55e.png" alt="Image missing" width="49%" />
+    </a>
+    <a href="https://jupyter.org" >
+    <img src="https://jupyter.org/assets/hublogo.svg" alt="Jupyter logo" width="49%" />
+    </a>
+    <a href="https://mybinder.org" >
+    <img src="https://mybinder.org/static/logo.svg" alt="MyBinder logo" width="49%" />
+    </a>
+
 
 We rely on awesome open source tools to run OGGM-Edu! Most notably:
 
 - `Jupyter <https://jupyter.org>`_
 - `MyBinder <https://mybinder.org>`_
+- `HoloViz <http://holoviz.org/>`_
 - `ReadTheDocs <https://readthedocs.org>`_
 - and many (many) other packages of the scientific python ecosytem
 
