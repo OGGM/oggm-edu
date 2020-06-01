@@ -3,7 +3,7 @@
 Use your own content in OGGM-Edu
 ================================
 
-Ideally, we would like all the educational content to be bundled here, on this
+Ideally, we would like all OGGM-Edu related content to be bundled here, on this
 open platform. However, you might be interested in running your own notebooks
 in an OGGM-Edu environment, for example during the development phase, or
 for a very specific class.

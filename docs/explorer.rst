@@ -92,7 +92,7 @@ Authors
 `HoloViz <http://holoviz.org//>`_ and Anaconda Inc., based on an original
 Dash application by `Fabien Maussion <https://fabienmaussion.info/>`_.
 `Zora Schirmeister <https://github.com/zschirmeister>`_ improved the app
-significantly with new data, plots, and an improved layout.
+with new data, plots, and an improved layout.
 
 Data sources
 ------------

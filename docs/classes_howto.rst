@@ -5,7 +5,8 @@ OGGM-Edu in classes and workshops
 
 OGGM-Edu can readily be used in your classes and workshops - we encourage you to
 try it out! Depending on your own knowledge about glaciers, this can require
-little or some preparation.
+some preparation. Check out :ref:`other_resources` if you are interested in
+the fundamentals and online textbook materials.
 
 Currently, we are working on making OGGM-Edu suitable for classes at the
 highschool level (using the web applications) and at the university level
@@ -18,7 +19,7 @@ Using the OGGM-Edu web apps at the highschool level
 
 OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even
 longer. Note that it will require teachers to gain some knowledge about glaciers
-first, either from these :ref:`other_resources` or from us.
+first, either from :ref:`other_resources` or from us.
 
 A 2 to 4 hours class could be organized as such:
 
