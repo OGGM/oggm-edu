@@ -53,13 +53,25 @@ If you want to run the app on your own computer, see :ref:`docker-launch` below.
   average elevation of the glaciers on the map as a function of latitude (y-axis).
 
 
-Video tutorial
---------------
+Video tutorials
+---------------
+
+Part 1: app functionalities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
   <iframe src="https://player.vimeo.com/video/422776970" width="640" height="357" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  <p><a href="https://vimeo.com/422776970">OGGM-Edu app: World Glaciers Explorer tutorial on Vimeo</a></p>
+  <p><a href="https://vimeo.com/422776970">OGGM-Edu app: World Glaciers Explorer tutorial (part 2) on Vimeo</a></p>
+
+Part 2: example questions
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. raw:: html
+
+  <iframe src="https://player.vimeo.com/video/425084908" width="640" height="357" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <p><a href="https://vimeo.com/425084908">OGGM-Edu app: World Glaciers Explorer tutorial (part 2) on Vimeo</a></p>
+
 
 Questions to explore with this app
 ----------------------------------
@@ -77,12 +89,20 @@ With this app, you can address many questions, by yourself or in class! For exam
 - Does the number of glaciers in a region always correlate with their total volume?
 - What regions are most likely to contribute to sea-level rise? Where do we
   find glaciers with ice below sea-level?
-- Where are the glaciers which are warming the fastest?
-  `why <https://fabienmaussion.info/2019/08/29/era5/>`_?
+- Where are the glaciers which are warming the fastest? Why?
 - Where are the wettest glaciers in the Himalayas? (select all Himalayan glaciers
   first, then the wettest). Can you explain why?
 - Repeat the excercise above with other regions: Greenland, the Alps, etc.
 - And many more!
+
+Resources
+---------
+
+- `Glaciers and Climate <http://www.antarcticglaciers.org/glaciers-and-climate/>`_? from `antarcticglaciers.org`_
+- `Warming trends at glaciers locations <https://fabienmaussion.info/2019/08/29/era5/>`_
+
+.. _antarcticglaciers.org: http://www.antarcticglaciers.org/
+
 
 Authors
 -------

@@ -21,23 +21,23 @@ You can start the app by clicking on this link: |badgelink|_
   The glacier simulator app runs a numerical glacier model in the background,
   using computer resources on the cloud. If several people are using the app at
   the same time, the server might become slow or unresponsive. In this case,
-  we recommend to use the app on MyBinder or (even better) locally on your
-  own computer (see below).
+  we recommend to use the app
+  `on MyBinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/master?urlpath=panel/app>`_
+  or even locally on your own computer (see :ref:`docker-launch-simulator` below).
 
-You can also start the app `on mybinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/master?urlpath=panel/app>`_
-(slightly slower in general, but a good alternative if our server is saturated).
-If you want to run the app on your own computer, see :ref:`docker-launch-simulator` below.
+Getting started with the app
+----------------------------
 
-Demo
-----
+The upper panel in the app is a guided tutorial about the app's functionalities.
+You can navigate it with the "Next" and "Previous" buttons, or use the
+"Find help here" overview.
 
-(in construction)
 
 Questions to explore with this app
 ----------------------------------
 
 With this app, you can address many questions, by yourself or in class!
-
+This list will grow in the future (documentation takes time!).
 
 Glacier shape
 ~~~~~~~~~~~~~
@@ -90,7 +90,7 @@ complex?
 
     **The lower the ELA, the larger the equilibrium glacier**. The length,
     volume or maximal thickness are not necessarily linear functions of the
-    ELA. 
+    ELA.
 
 Glacier slope
 ~~~~~~~~~~~~~
@@ -137,16 +137,11 @@ The along-slope component "pulls" the glacier downwards and the perpendicular co
 .. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
 .. _antarcticglaciers.org (glacier-flow): http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/glacier-flow
 
-Mass-balance gradient
-~~~~~~~~~~~~~~~~~~~~~
-
-(in construction)
-
 
 Authors
 -------
 
-`Patrick Schmitt <https://github.com/pat-schmitt>`_ and
+`Patrick Schmitt <https://github.com/pat-schmitt>`_ (main author) and
 `Fabien Maussion <https://fabienmaussion.info/>`_.
 
 Source code
