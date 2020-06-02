@@ -28,8 +28,8 @@ on glaciology and glacial water resources for Peruvian students.
    to learn how the model works.
 
 OGGM-Edu focuses on interactive content and numerical glacier experiments.
-We do not provide much resources about fundamentals in glaciology or
-climate science: for auch textbook material, refer to the excellent
+We do not provide resources about fundamentals in glaciology or
+climate science: for good textbook material refer to
 :ref:`other_resources`, which OGGM-Edu intends to complement.
 
 .. _title_apps:
@@ -39,8 +39,8 @@ Interactive apps
 
 These interactive apps can be run on any computer with an internet connection.
 
-* :doc:`explorer`
 * :doc:`gallery`
+* :doc:`explorer`
 * :doc:`simulator`
 * :doc:`alps_future`
 
@@ -49,8 +49,8 @@ These interactive apps can be run on any computer with an internet connection.
     :hidden:
     :caption: Interactive apps
 
-    explorer.rst
     gallery.rst
+    explorer.rst
     simulator.rst
     alps_future.rst
 
