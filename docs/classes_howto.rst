@@ -18,20 +18,17 @@ Using the OGGM-Edu web apps at the highschool level
 ---------------------------------------------------
 
 OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even
-longer. Note that it will require teachers to gain some knowledge about glaciers
-first, either from :ref:`other_resources` or from us.
-
-A 2 to 4 hours class could be organized as such:
+longer. It could be organized as such:
 
 1. General introduction to glaciers: what is a glacier, where do we find them,
    why are they important?
-2. Learn about the glaciers location and their climate with the :ref:`explorer`
+2. Learn about different glacier types in the :ref:`gallery`.
+3. Learn about the glaciers location and their climate with the :ref:`explorer`
    app. Use the sample questions to encourage the students to explore the app
-   themselves.
-3. Learn about different glacier types in the :ref:`gallery`.
+   by themselves or in small groups.
 4. For more advanced classes, learn about glacier flow with the :ref:`simulator`.
-   This app can be used for a number of different experiments, some of them
-   can also be complemented with a `glacier goo <https://www.youtube.com/watch?v=DUdeN5CpsW0>`_
+   This app can be used for a number of different experiments, and can
+   be complemented with a `glacier goo <https://www.youtube.com/watch?v=DUdeN5CpsW0>`_
    experiment.
 
 

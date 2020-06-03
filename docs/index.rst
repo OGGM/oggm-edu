@@ -28,8 +28,8 @@ on glaciology and glacial water resources for Peruvian students.
    to learn how the model works.
 
 OGGM-Edu focuses on interactive content and numerical glacier experiments.
-We do not provide resources about fundamentals in glaciology or
-climate science: for good textbook material refer to
+We do not provide teaching resources about fundamentals in glaciology or
+climate science: for fundamental textbook material, refer to
 :ref:`other_resources`, which OGGM-Edu intends to complement.
 
 .. _title_apps:

@@ -3,10 +3,9 @@
 Use your own content in OGGM-Edu
 ================================
 
-Ideally, we would like all OGGM-Edu related content to be bundled here, on this
-open platform. However, you might be interested in running your own notebooks
-in an OGGM-Edu environment, for example during the development phase, or
-for a very specific class.
+You might be interested in running your own notebooks
+in an OGGM-Edu environment, for example during the development phase or
+for a specific class.
 
 Fortunately, this is very easy to do! All you need to do is to provide the
 notebooks you would like to run in an online git repository
@@ -15,6 +14,10 @@ notebooks you would like to run in an online git repository
 notebook to get you started. See also
 `Lizz' class (in spanish) <https://github.com/ehultee/CdeC-glaciologia>`_ for
 a real-world example.
+
+Ideally, we would like all OGGM-Edu related content to be bundled here on this
+open platform: if you feel comfortable sharing your content to others,
+please let us know!
 
 On MyBinder
 -----------
