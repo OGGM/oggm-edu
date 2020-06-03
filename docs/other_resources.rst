@@ -15,8 +15,12 @@ check out these great online resources:
   many disciplines
 - `All about glaciers <https://nsidc.org/cryosphere/glaciers>`_ from NSIDC
 - `GRANTISM <http://homepages.ulb.ac.be/~fpattyn/grantism/>`_, an ice-sheet
-  model written in excel
+  model written in excel (`online interactive version <http://www.martinoleary.com/jsism>`_)
 - Hans Oerlemans's `Minimal Glacier Models <http://www.staff.science.uu.nl/~oerle102/MM2011-all.pdf>`_
   book: a strong inspiration for this website
+- `SwissEduc Glaciers online <https://www.swisseduc.ch/glaciers/>`_: a collection
+  of glacier facts and photos.
+- `world glacier monitoring service <https://wgms.ch/>`_: the reference for
+  glacier observations and monitoring.
 
 :ref:`title_contact` if you'd like to add some more to this list!
