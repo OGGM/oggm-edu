@@ -18,9 +18,7 @@ Using the OGGM-Edu web apps at the highschool level
 ---------------------------------------------------
 
 OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even
-longer.
-
-A 2 to 4 hours class could be organized as such:
+longer. It could be organized as such:
 
 1. General introduction to glaciers: what is a glacier, where do we find them,
    why are they important?
