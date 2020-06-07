@@ -381,6 +381,10 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {}
 
+# Will be included at the beginning of every source file that is read.
+with open("prolog.txt", "r") as myfile:
+    rst_prolog = myfile.read()
+
 # Add toggle container https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
 def setup(app):
     app.add_stylesheet('custom.css')
