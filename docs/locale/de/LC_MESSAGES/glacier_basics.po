@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-07 15:35+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../glacier_basics.rst:4
+msgid "Introduction to glaciers"
+msgstr ""
+
+#: ../../glacier_basics.rst:10
+msgid ""
+"A collection of free glacier graphics that can be used for education and "
+"outreach."
+msgstr ""
+
+#: ../../glacier_basics.rst:14
+msgid ""
+"**License**: `Creative Commons Attribution-ShareAlike 4.0 International "
+"License <https://creativecommons.org/licenses/by-sa/4.0/>`_"
+msgstr ""
+
+#: ../../glacier_basics.rst:20
+msgid ""
+"Feel free to use / adapt the graphics, but always refer to the original "
+"author and share them with a compatible license."
+msgstr ""
+
+#: ../../glacier_basics.rst:23
+msgid ""
+"**Author**: Anne Maussion, `Atelier les Gros yeux "
+"<http://atelierlesgrosyeux.com>`_"
+msgstr ""
+
+#: ../../glacier_basics.rst:25
+msgid ""
+"This series of graphics was designed for a talk given by `Fabien Maussion"
+" <https://fabienmaussion.info/>`_ to a general audience. He used them to "
+"explain the concepts of accumulation, ablation, equilibrium line altitude"
+" and mass movements in a glacier."
+msgstr ""
+
+#: ../../glacier_basics.rst:30
+msgid ""
+"**Download**: `zip file <https://github.com/OGGM/glacier-"
+"graphics/blob/master/glacier_intro/glacier_intro.zip?raw=true>`_, `gif "
+"<https://raw.githubusercontent.com/OGGM/glacier-"
+"graphics/master/glacier_intro/gif/glacier.gif>`_"
+msgstr ""
+
+#: ../../glacier_basics.rst:33
+msgid "Single images with explanations"
+msgstr ""
+
+#: ../../glacier_basics.rst:38
+msgid ""
+"The first image just sets the scene and allows to explain that we are now"
+" looking at a typical mountain glacier from a cross-section along the "
+"main ice flow."
+msgstr ""
+
+#: ../../glacier_basics.rst:45
+msgid ""
+"We then announce that we are looking at the processes at the glacier "
+"surface first. This helps to bring the focus to it first."
+msgstr ""
+
+#: ../../glacier_basics.rst:51
+msgid ""
+"**Accumulation**: definition, which processes are at play, how you "
+"measure it, typical values... The time you want to spend on it is up to "
+"you. Note that some snow flakes now appears on the upper left corner!"
+msgstr ""
+
+#: ../../glacier_basics.rst:59
+msgid ""
+"**Ablation**: definition, which processes are at play, how you measure "
+"it, typical values... The time you want to spend on it is up to you. Note"
+" that a sun now appears on the upper right corner!"
+msgstr ""
+
+#: ../../glacier_basics.rst:67
+msgid ""
+"**Mass Balance**: definition, over which period you measure it, typical "
+"values... The time you want to spend on it is up to you. Note that the "
+"formula is now complete!"
+msgstr ""
+
+#: ../../glacier_basics.rst:75
+msgid ""
+"The imbalance between accumulation and ablation is compensated by a "
+"**movement of ice** from top to bottom. If this is where you want to "
+"bring your talk to, you can use the mass flux arrow to explain the "
+"principles of ice thickness inversion using mass conservation principles."
+msgstr ""
+
+#: ../../glacier_basics.rst:83
+msgid "Concept of **Equilibrium Line Altitude** (ELA)."
+msgstr ""
+
+#: ../../glacier_basics.rst:88
+msgid ""
+"More accumulation and/or less ablation leads to a **decrease** of the "
+"ELA. You might want to highlight the changes in surface mass budget as "
+"well as the increased solid precipitation and/or the shaded sun."
+msgstr ""
+
+#: ../../glacier_basics.rst:95
+msgid ""
+"This new imbalance increases the flux of ice through the glacier (hence "
+"the wider arrow) and results in a glacier advance. See the response time "
+"section below for a companion graphic."
+msgstr ""
+
+#: ../../glacier_basics.rst:103
+msgid ""
+"Less accumulation and/or more ablation leads to an **increase** of the "
+"ELA. You might want to highlight the changes in surface mass budget as "
+"well as the decreased solid precipitation and/or the stronger sun."
+msgstr ""
+
+#: ../../glacier_basics.rst:110
+msgid ""
+"This new imbalance decreases the flux of ice through the glacier (hence "
+"the thinner arrow) and results in a glacier retreat. See "
+":ref:`glacier_lowpass` for a companion graphic."
+msgstr ""
+
