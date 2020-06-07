@@ -340,6 +340,10 @@ latex_documents = [
 # If false, no module index is generated.
 # latex_domain_indices = True
 
+# -- Options for internationalization ---------------------------------------
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False     # optional.
+
 
 # -- Options for manual page output ---------------------------------------
 

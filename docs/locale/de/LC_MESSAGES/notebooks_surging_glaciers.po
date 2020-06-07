@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-07 15:35+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../notebooks_surging_glaciers.rst:4
+msgid "Surging glaciers"
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:8
+msgid ""
+"Figure: Development of two surging glaciers. Upper graph: length, lower "
+"graph: volume."
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:10
+msgid ""
+"This notebook treats surging glaciers. You will learn how to implement "
+"surging in a glacier model and execute a few experiments with it. To open"
+" the notebook in your browser use the button below:"
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:12
+msgid "|badge_edu_notebooks|"
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:14
+msgid "*Prerequisites:*"
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:16
+msgid ""
+"You went through the notebook about glacier flowline modelling, so that "
+"you understand the concept of building a simple glacier model with OGGM."
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:17
+msgid ""
+"It is helpful to work through the notebook about ice flow parameters "
+"first."
+msgstr ""
+
+#: ../../notebooks_surging_glaciers.rst:19
+msgid "You find these notebooks here: :ref:`title_notebooks`."
+msgstr ""
+
