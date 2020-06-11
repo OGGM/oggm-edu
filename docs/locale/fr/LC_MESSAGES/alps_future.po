@@ -2,7 +2,6 @@
 # Copyright (C) 2018, OGGM Developers
 # This file is distributed under the same license as the OGGM-Edu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
-# Fabien Maussion <fabien.maussion@uibk.ac.at>, 2020.
 #
 msgid ""
 msgstr ""
@@ -14,7 +13,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.5.3\n"
-"Last-Translator: Fabien Maussion <fabien.maussion@uibk.ac.at>\n"
 "Language-Team: German <>\n"
 "Language: fr\n"
 "X-Generator: Gtranslator 2.91.7\n"
