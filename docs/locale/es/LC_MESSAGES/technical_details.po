@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2018, OGGM Developers
+# Copyright (C) OGGM Developers
 # This file is distributed under the same license as the OGGM-Edu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
@@ -129,41 +129,4 @@ msgid ""
 "please :ref:`title_contact` and we'll try to arrange a specific set-up "
 "for you!"
 msgstr ""
-
-#~ msgid ""
-#~ "The computing environments available via "
-#~ "Binder are `Docker containers "
-#~ "<https://www.docker.com/resources/what-container>`_, or"
-#~ " \"software capsules\" that can be "
-#~ "created, pushed and pulled online. We"
-#~ " create these containers using a few"
-#~ " simple configuration files specifying the"
-#~ " software packages and python libraries "
-#~ "we would like to used in OGGM-"
-#~ "Edu. These configurations files are "
-#~ "found in this repository: "
-#~ "`<https://github.com/OGGM/binder>`_"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Binder uses `repo2docker "
-#~ "<https://repo2docker.readthedocs.io>`_ to build "
-#~ "these environments and stores them in"
-#~ " a hidden database. Once built, they"
-#~ " won't be built again unless a "
-#~ "new change is made to the "
-#~ "``OGGM/binder`` repository."
-#~ msgstr ""
-
-#~ msgid "OGGM-Hub (experimental)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Thanks to a grant from Google's "
-#~ "`Data Solutions for Change "
-#~ "<https://cloud.google.com/data-solutions-for-"
-#~ "change/>`_, we are able to provide "
-#~ "free resources to instructors for a "
-#~ "specific class or workshop."
-#~ msgstr ""
 

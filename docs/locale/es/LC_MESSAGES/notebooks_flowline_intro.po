@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 16:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../notebooks_flowline_intro.rst:4
+msgid "Glacier flowline modelling"
+msgstr ""
+
+#: ../../notebooks_flowline_intro.rst:8
+msgid ""
+"Figure: Geometry of a glacier model after 500 years, that moves only from"
+" deformation processes."
+msgstr ""
+
+#: ../../notebooks_flowline_intro.rst:10
+msgid ""
+"This notebook is an introduction to flowline modelling with OGGM. To open"
+" the notebook in your browser use the button below:"
+msgstr ""
+
+#: ../../notebooks_flowline_intro.rst:12
+msgid "|badge_edu_notebooks|"
+msgstr ""
+
+#: ../../notebooks_flowline_intro.rst:14
+msgid ""
+"In this notebook we will set-up a simple model run and visualize it "
+"afterwards. Therefore we will learn how to define an easy glacier bed and"
+" a suitable grid. The learner will implement mass balance in the form of "
+"equilibrium line altitude (ELA) and see how his glacier develops in "
+"length, volume and area over certain years."
+msgstr ""
+
+#: ../../notebooks_flowline_intro.rst:16
+msgid ""
+"*Prerequisites:* If you are new to jupyter-notebook, have a look at this "
+"short :ref:`notebooks_howto`. This notebook uses the Python programming "
+"language. If this is completely new for you, we recommend to go through "
+"an introductory tutorial first, or have a teacher or tutor help you out. "
+"No need to be a Python expert to be able to use it, though!"
+msgstr ""
+

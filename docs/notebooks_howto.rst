@@ -29,10 +29,10 @@ locally for them to work!
 
 .. _binder_simple:
 
-Binder
-------
+MyBinder
+--------
 
-`Binder <https://mybinder.org>`_ is a service that allows us to provide online
+`MyBinder <https://mybinder.org>`_ is a service that allows us to provide online
 computing environments in which OGGM-Edu notebooks can be read and executed.
 This is a fantastic service that runs on the cloud - each time a user clicks
 on an OGGM-Edu binder link, a so-called "virtual machine" is spun-up and made
@@ -59,10 +59,10 @@ run the OGGM-Edu notebooks at home or for a workshop. If needed, we also
 provide dedicated servers for instructors: see :ref:`technical_details`
 for more information.
 
-Starting a binder environment
------------------------------
+Starting a MyBinder environment
+-------------------------------
 
-After clicking on an OGGM-Edu binder link, you should see a loading page
+After clicking on an OGGM-Edu MyBinder link, you should see a loading page
 similar to the one below (here with the *show log* button activated):
 
 .. figure::  _static/docs_binder_launch.png
@@ -125,10 +125,10 @@ The three main areas highlighted above are:
   to the left, right, top, or bottom of the panel
 
 
-Download and upload files to Binder/JupyterLab
-----------------------------------------------
+Download and upload files to MyBinder/JupyterLab
+------------------------------------------------
 
-Since your Binder environment is temporary, you might find it useful to download
+Since your MyBinder environment is temporary, you might find it useful to download
 the notebooks you modified during your session, and/or upload notebooks or data
 that you store on your computer.
 

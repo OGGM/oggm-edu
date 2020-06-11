@@ -1,0 +1,108 @@
+#
+#  <>,�|(, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-11 10:17+0200\n"
+"PO-Revision-Date: 2020-06-11 12:41+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../../alps_future.rst:4
+msgid "Future evolution of glaciers in the European Alps"
+msgstr "Evolución futura de los glaciares en los Alpes europeos"
+
+#: ../../alps_future.rst:10
+msgid ""
+"Find out about the future evolution of glaciers in the European Alps! This "
+"interactive graphic displays the volume change of all alpine glaciers under "
+"three different `RCP-scenarios <https://www.skepticalscience.com/rcp.php>`_. "
+"In addition, the glacier evolution of the different alpine countries can be "
+"compared."
+msgstr ""
+"¡Descubre la evolución futura de los glaciares en los Alpes europeos! Este "
+"gráfico interactivo muestra el cambio de volumen de todos los glaciares "
+"alpinos bajo tres diferentes `RCP-escenarios <https://www.skepticalscience."
+"com/rcp.php>`_. Además, se puede comparar la evolución glaciar de los "
+"diferentes países alpinos."
+
+#: ../../alps_future.rst:16
+msgid "To start the app, click on this link: |badge_bokeh_en|_"
+msgstr "Para iniciar la aplicación, haga clic en este enlace: |badge_bokeh_en|_"
+
+#: ../../alps_future.rst:21
+msgid "Authors"
+msgstr "Autores"
+
+#: ../../alps_future.rst:23
+msgid ""
+"`Fabien Maussion <https://fabienmaussion.info/>`_ and `Zora Schirmeister "
+"<https://github.com/zschirmeister>`_"
+msgstr ""
+"`Fabien Maussion <https://fabienmaussion.info/>`_ y `Zora Schirmeister "
+"<https://github.com/zschirmeister>`_"
+
+#: ../../alps_future.rst:26
+msgid "Data sources"
+msgstr "Fuentes de datos"
+
+#: ../../alps_future.rst:28
+msgid ""
+"Data: `Zekollari et al. (2019) <https://www.the-cryosphere.net/13/1125/2019/"
+">`_"
+msgstr ""
+"Datos: `Zekollari et al. (2019) <https://www.the-cryosphere.net/13/1125/2019/"
+">`_"
+
+#: ../../alps_future.rst:31
+msgid "Source code"
+msgstr "Código"
+
+#: ../../alps_future.rst:33
+msgid ""
+"Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, BSD3 "
+"licensed."
+msgstr ""
+"El código y los datos se encuentran en `GitHub <https://github.com/OGGM/"
+"alps_future>`_, con licencia BSD3."
+
+#: ../../alps_future.rst:38
+msgid "Possible future app improvements"
+msgstr ""
+
+#: ../../alps_future.rst:40
+msgid "display of uncertainties into the graphic"
+msgstr ""
+
+#: ../../alps_future.rst:41
+msgid "possibility to choose between absolute and percentage change of volume"
+msgstr ""
+
+#: ../../alps_future.rst:42
+msgid "adding a map in which the user can select glaciers"
+msgstr ""
+
+#: ../../alps_future.rst:43
+msgid "implement tick-boxes for choosing the displayed RCP-scenarios"
+msgstr ""
+
+#: ../../alps_future.rst:44
+msgid ""
+"two dropdown menus to give the opportunity that every region can be compared "
+"to every other region/country"
+msgstr ""
+
+#: ../../alps_future.rst:46
+msgid ""
+"If you are interested to contribute you can send us the edited `file "
+"<https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or "
+"with a pull-request. Thanks!"
+msgstr ""

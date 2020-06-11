@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2018, OGGM Developers
+# Copyright (C) OGGM Developers
 # This file is distributed under the same license as the OGGM-Edu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
@@ -161,14 +161,4 @@ msgid ""
 "**organize peer-mentoring in groups of 2 or 3**. Students are often "
 "better in mentoring each other than we are."
 msgstr ""
-
-#~ msgid ""
-#~ "**On Binder: avoid bad surprises by "
-#~ "explaining to your class that the "
-#~ "sessions are temporary**. Show your "
-#~ "students how to download and upload "
-#~ "files to JupyterLab so that they "
-#~ "feel comfortable saving their work from"
-#~ " time to time."
-#~ msgstr ""
 

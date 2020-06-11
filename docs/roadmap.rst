@@ -1,52 +1,67 @@
 .. _roadmap:
 
-Roadmap
-=======
+Contribute to OGGM-Edu
+======================
 
-:Authors: Fabien Maussion
-:Status: Draft
-:Created: 04.10.2019
-:Updated: 01.06.2020
-
-The OGGM-Edu platform will soon be 2 years old (first commit on Sep 21, 2018!).
-We have made tremendous progress in one year: we created this website,
-added new content, enabled interactivity via MyBinder and hub.oggm.org,
-supported the creation of a workshop for a class in Peru, secured
-funding to continue the platform's development...
-
-It is now time to make a step back and have a look at what we achieved, and
-brainstorm about what we want to realize in the future.
-
-Intro
------
-
-As of June 2020, we have on the platform:
+As of June 2020, the OGGM-Edu platform features:
 
 - 4 interactive web apps
 - 8 jupyter notebooks templates in various complexity levels
 - a series of glacier graphics
 - bits of documentation for teachers about how to use the notebooks and MyBinder
 
-So far, our biggest achievements are (subjective opinion):
-
-- our notebooks were used for a class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_)
-- the uprecedented web applications
-- the use of MyBinder and hub.oggm.org as viable platforms to run
-  workshops and tutorials
-- securing of funding for the platform, indicating that other people
-  see potential in the project as well.
+We are proud of simple things, such as the the use of OGGM-Edu for a
+class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_),
+or the positive feedback about the web applications and the use of MyBinder
+as viable platforms to run workshops and tutorials online.
 
 This is great! But we also see that there is room for improvement, and we would
 like to use this roadmap as a "working document" to keep track of our
-goals for the year to come.
+goals for the years to come. OGGM-Edu is meant to be a collaborative platform,
+and we welcome any kind of contribution, from a typo correction to a new fully
+fledged web app!
 
-Feel to comment or edit this file on GitHub!
+**If you want to participate**, here are some pointers to get you started.
+Thanks so much for your help!
 
+Help with typos, text, content, etc.
+------------------------------------
+
+Everything on this website is written by volunteers and (often) non-native
+speakers. If you find mistakes or things you'd like to change, please do!
+You can edit each file by following the "Edit on GitHub" link at the top
+of wach page or just send us your modification suggestions!
+
+Create new content
+------------------
+
+We welcome any new idea you may have: a new graphic, a new notebook, a new app...
+You can decide to have it hosted here at edu.oggm.org, or you can
+decide to have it in your own namespace! Follow these instructions if you'd
+rather opt for the latter: :ref:`user_content`.
+
+Help translate OGGM-Edu
+-----------------------
+
+We are seeking to improve the usefulness of OGGM-Edu in non english speaking
+cultures. It is technically possible to do it at low cost (we already have
+template - dummy - pages for
+`german <https://edu.oggm.org/de/latest/>`_,
+`french <https://edu.oggm.org/fr/latest/>`_ and
+`spanish <https://edu.oggm.org/es/latest/>`_ and we can easily add any other
+language), but the hard part is to actually *translate* the content ;-).
+
+The translation files are located in the `docs/locale <https://github.com/OGGM/oggm-edu/tree/master/docs/locale>`_
+folder: these `.po` files are like a dictionary that can be edited with a
+simple text editor or dedicated tools (e.g. `poedit <https://poedit.net/>`_).
+If you would like to help, grab these file and help us were you can! The translation
+of even one single page would be very useful. We can help with the languages
+we can read (spanish, french, german).
 
 Refactoring of the oggm-edu python package
 ------------------------------------------
 
-This is probably the most involved and most important change.
+This is probably the most involved change.
 
 As it is now, oggm-edu relies mostly on the models and syntax provided by the
 core OGGM. They provides the functionality we need, but at the same time the
@@ -67,7 +82,7 @@ This will require some thinking, but at the core, we should think about (1)
 how to name things (very hard) and (2) how do we want the new objects
 to behave.
 
-The vision is that people have a centralized place (the OGGM-Edu documentation)
+The vision is that people have a one-stop shop (the OGGM-Edu documentation)
 to learn about the flowline models and what they can do with them. The models
 will be more expressive, use rich output in the notebooks, with the goal to
 make using the models more fun, intuitive and quantitative.
@@ -77,5 +92,5 @@ Website design
 
 (less important)
 
-I'm not a big fan of using sphinx and ReadTheDocs anymore. We could have a
-fancy Jekyll website hosted on Netlify instead!
+ReadTheDocs and Sphinx are great, but they have their limits. If you have
+web skills and would like to make OGGM-Edu more appealing, reach out!
