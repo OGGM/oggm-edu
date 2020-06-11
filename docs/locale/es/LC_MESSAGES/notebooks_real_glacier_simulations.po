@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 16:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../notebooks_real_glacier_simulations.rst:4
+msgid "Glaciers as water resources"
+msgstr ""
+
+#: ../../notebooks_real_glacier_simulations.rst:8
+msgid ""
+"Figure: Annual cycle of glacier water volume change during the glacier "
+"retreat phase (blue) and in equilibrium state (orange)."
+msgstr ""
+
+#: ../../notebooks_real_glacier_simulations.rst:10
+msgid ""
+"This notebook simulates the evolution of **real world glaciers** using "
+"different climate scenarios to explain their influence on water "
+"availability in a catchment. To open the notebook in your browser, click "
+"the button below."
+msgstr ""
+
+#: ../../notebooks_real_glacier_simulations.rst:13
+msgid "|badge_edu_notebooks|"
+msgstr ""
+

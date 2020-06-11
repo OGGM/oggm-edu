@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2018, OGGM Developers
+# Copyright (C) OGGM Developers
 # This file is distributed under the same license as the OGGM-Edu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
@@ -232,43 +232,4 @@ msgstr ""
 #: ../../notebooks_howto.rst:148
 msgid "The JupyterLab's upload button (red box)"
 msgstr ""
-
-#~ msgid "Binder"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`Binder <https://mybinder.org>`_ is a service"
-#~ " that allows us to provide online "
-#~ "computing environments in which OGGM-Edu"
-#~ " notebooks can be read and executed."
-#~ " This is a fantastic service that "
-#~ "runs on the cloud - each time "
-#~ "a user clicks on an OGGM-Edu "
-#~ "binder link, a so-called \"virtual "
-#~ "machine\" is spun-up and made "
-#~ "accessible via the web-browser."
-#~ msgstr ""
-
-#~ msgid "Starting a binder environment"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "After clicking on an OGGM-Edu "
-#~ "binder link, you should see a "
-#~ "loading page similar to the one "
-#~ "below (here with the *show log* "
-#~ "button activated):"
-#~ msgstr ""
-
-#~ msgid "Download and upload files to Binder/JupyterLab"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Since your Binder environment is "
-#~ "temporary, you might find it useful "
-#~ "to download the notebooks you modified"
-#~ " during your session, and/or upload "
-#~ "notebooks or data that you store "
-#~ "on your computer."
-#~ msgstr ""
 

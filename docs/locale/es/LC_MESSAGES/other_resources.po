@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 16:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../other_resources.rst:4
+msgid "Other educational resources"
+msgstr ""
+
+#: ../../other_resources.rst:6
+msgid ""
+"OGGM-Edu tries to find its \"niche\" by providing interactive content "
+"focusing on numerical glacier models. However, OGGM-Edu does not provide "
+"much theoretical background or lecture materials. For more information "
+"about fundamentals, check out these great online resources:"
+msgstr ""
+
+#: ../../other_resources.rst:12
+msgid ""
+"`Antarctic Glaciers <http://www.antarcticglaciers.org/>`_: excellent "
+"resource to learn about glaciers (and not only those in Antarctica)"
+msgstr ""
+
+#: ../../other_resources.rst:14
+msgid ""
+"`GlacierHub <https://glacierhub.org>`_: news and stories about glaciers "
+"from many disciplines"
+msgstr ""
+
+#: ../../other_resources.rst:16
+msgid "`All about glaciers <https://nsidc.org/cryosphere/glaciers>`_ from NSIDC"
+msgstr ""
+
+#: ../../other_resources.rst:17
+msgid ""
+"`GRANTISM <http://homepages.ulb.ac.be/~fpattyn/grantism/>`_, an ice-sheet"
+" model written in excel (`online interactive version "
+"<http://www.martinoleary.com/jsism>`_)"
+msgstr ""
+
+#: ../../other_resources.rst:19
+msgid ""
+"Hans Oerlemans's `Minimal Glacier Models "
+"<http://www.staff.science.uu.nl/~oerle102/MM2011-all.pdf>`_ book: a "
+"strong inspiration for this website"
+msgstr ""
+
+#: ../../other_resources.rst:21
+msgid ""
+"`SwissEduc Glaciers online <https://www.swisseduc.ch/glaciers/>`_: a "
+"collection of glacier facts and photos."
+msgstr ""
+
+#: ../../other_resources.rst:23
+msgid ""
+"`world glacier monitoring service <https://wgms.ch/>`_: the reference for"
+" glacier observations and monitoring."
+msgstr ""
+
+#: ../../other_resources.rst:26
+msgid ":ref:`title_contact` if you'd like to add some more to this list!"
+msgstr ""
+

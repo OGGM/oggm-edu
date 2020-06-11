@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 16:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../notebooks_mass_balance_gradient.rst:4
+msgid "Mass balance gradient"
+msgstr ""
+
+#: ../../notebooks_mass_balance_gradient.rst:8
+msgid ""
+"Left figure: Behaviour of different mass balance gradients. Right figure:"
+" Geometry of glaciers with different mass balance gradients after 300 "
+"years."
+msgstr ""
+
+#: ../../notebooks_mass_balance_gradient.rst:10
+msgid ""
+"In this notebook you will run experiments with a focus on the mass "
+"balance gradient. You will see how different mass balance gradients "
+"influence the growth of a glacier. Therefore, we calculate our glacier "
+"models until they reach an equilibrium state and compare length, area and"
+" volume. In addition, we will calculate the volume response times of the "
+"glacier models to small climatic changes."
+msgstr ""
+
+#: ../../notebooks_mass_balance_gradient.rst:12
+msgid "Open this experiment in your browser with the button below:"
+msgstr ""
+
+#: ../../notebooks_mass_balance_gradient.rst:14
+msgid "|badge_edu_notebooks|"
+msgstr ""
+
+#: ../../notebooks_mass_balance_gradient.rst:16
+msgid ""
+"*Prerequisites:* You went through the notebook about `glacier flowline "
+"modelling`_, so that you understand the concept of building a simple "
+"glacier model with OGGM."
+msgstr ""
+

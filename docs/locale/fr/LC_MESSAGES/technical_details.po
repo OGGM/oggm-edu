@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 15:35+0200\n"
+"POT-Creation-Date: 2020-06-11 12:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: ../../technical_details.rst:12
 msgid ""
-"The computing environments available via Binder are `Docker containers "
+"The computing environments available via MyBinder are `Docker containers "
 "<https://www.docker.com/resources/what-container>`_, or \"software "
 "capsules\" that can be created, pushed and pulled online. We create these"
 " containers using a few simple configuration files specifying the "
@@ -45,10 +45,10 @@ msgstr ""
 
 #: ../../technical_details.rst:20
 msgid ""
-"Binder uses `repo2docker <https://repo2docker.readthedocs.io>`_ to build "
-"these environments and stores them in a hidden database. Once built, they"
-" won't be built again unless a new change is made to the ``OGGM/binder`` "
-"repository."
+"MyBinder uses `repo2docker <https://repo2docker.readthedocs.io>`_ to "
+"build these environments and stores them in a hidden database. Once "
+"built, they won't be built again unless a new change is made to the "
+"``OGGM/binder`` repository."
 msgstr ""
 
 #: ../../technical_details.rst:25
@@ -84,38 +84,44 @@ msgid ""
 msgstr ""
 
 #: ../../technical_details.rst:49
-msgid "OGGM-Hub (experimental)"
+msgid "OGGM-Hub (discontinued)"
 msgstr ""
 
 #: ../../technical_details.rst:51
 msgid ""
 "Thanks to a grant from Google's `Data Solutions for Change "
-"<https://cloud.google.com/data-solutions-for-change/>`_, we are able to "
-"provide free resources to instructors for a specific class or workshop."
+"<https://cloud.google.com/data-solutions-for-change/>`_, we *were* able "
+"to provide free resources to instructors for a specific class or "
+"workshop. This service is now discontinued, we are working on ways to set"
+" this up again."
 msgstr ""
 
-#: ../../technical_details.rst:56
+#: ../../technical_details.rst:57
+msgid "OGGM-Hub"
+msgstr ""
+
+#: ../../technical_details.rst:60
 msgid ""
 "You can `try OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-"
 "hub>`_ if you have a GitHub account (free!). The advantages of OGGM-Hub "
 "over Binder are:"
 msgstr ""
 
-#: ../../technical_details.rst:60
+#: ../../technical_details.rst:64
 msgid "more resources for your students, faster launches"
 msgstr ""
 
-#: ../../technical_details.rst:61
+#: ../../technical_details.rst:65
 msgid "user management: you can set passwords and user names at wish"
 msgstr ""
 
-#: ../../technical_details.rst:62
+#: ../../technical_details.rst:66
 msgid ""
 "persistent sessions: work can be saved between sessions and log-ins (this"
 " is probably the main advantage of OGGM-Hub)"
 msgstr ""
 
-#: ../../technical_details.rst:65
+#: ../../technical_details.rst:69
 msgid ""
 "`<hub.oggm.org>`_ is only available to registered users (registration is "
 "free), but it won't work for an entire class. If you have a specific need"
@@ -123,4 +129,41 @@ msgid ""
 "please :ref:`title_contact` and we'll try to arrange a specific set-up "
 "for you!"
 msgstr ""
+
+#~ msgid ""
+#~ "The computing environments available via "
+#~ "Binder are `Docker containers "
+#~ "<https://www.docker.com/resources/what-container>`_, or"
+#~ " \"software capsules\" that can be "
+#~ "created, pushed and pulled online. We"
+#~ " create these containers using a few"
+#~ " simple configuration files specifying the"
+#~ " software packages and python libraries "
+#~ "we would like to used in OGGM-"
+#~ "Edu. These configurations files are "
+#~ "found in this repository: "
+#~ "`<https://github.com/OGGM/binder>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Binder uses `repo2docker "
+#~ "<https://repo2docker.readthedocs.io>`_ to build "
+#~ "these environments and stores them in"
+#~ " a hidden database. Once built, they"
+#~ " won't be built again unless a "
+#~ "new change is made to the "
+#~ "``OGGM/binder`` repository."
+#~ msgstr ""
+
+#~ msgid "OGGM-Hub (experimental)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Thanks to a grant from Google's "
+#~ "`Data Solutions for Change "
+#~ "<https://cloud.google.com/data-solutions-for-"
+#~ "change/>`_, we are able to provide "
+#~ "free resources to instructors for a "
+#~ "specific class or workshop."
+#~ msgstr ""
 

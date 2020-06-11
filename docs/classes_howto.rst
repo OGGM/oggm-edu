@@ -57,7 +57,7 @@ summarize the usual pitfalls:
 - encourage the use of keyboard shortcuts (such as `[shift+enter]` and
   `[ctrl+m] + key`)
 
-**On Binder: avoid bad surprises by explaining to your class that the sessions
+**On MyBinder: avoid bad surprises by explaining to your class that the sessions
 are temporary**. Show your students how to download and upload files to
 JupyterLab so that they feel comfortable saving their work from time to time.
 
