@@ -2,16 +2,18 @@
 # Copyright (C) 2018, OGGM Developers
 # This file is distributed under the same license as the OGGM-Edu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# Fabien Maussion <fabien.maussion@uibk.ac.at>, 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 15:35+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-06-11 10:17+0200\n"
+"PO-Revision-Date: 2020-06-11 10:00+0200\n"
+"Last-Translator: Fabien Maussion <fabien.maussion@uibk.ac.at>\n"
+"Language: de\n"
+"Language-Team: German <>\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,31 +21,31 @@ msgstr ""
 
 #: ../../alps_future.rst:4
 msgid "Future evolution of glaciers in the European Alps"
-msgstr "Zukünftige Evolution von Gletschern in den Alpen"
+msgstr "Zukünftige Evolution der Alpengletschern"
 
 #: ../../alps_future.rst:10
 msgid ""
-"Find out about the future evolution of glaciers in the European Alps! The"
-" graphic presents the volume change of the glaciers under three different"
-" `RCP-scenarios <https://www.skepticalscience.com/rcp.php>`_. In "
-"addition, the glacier evolution of the different alpine countries can be "
-"compared."
+"Find out about the future evolution of glaciers in the European Alps! "
+"This interactive graphic displays the volume change of all alpine "
+"glaciers under three different `RCP-scenarios "
+"<https://www.skepticalscience.com/rcp.php>`_. In addition, the glacier "
+"evolution of the different alpine countries can be compared."
 msgstr ""
-"Informieren Sie sich über die zukünftige Entwicklung der Gletscher in den europäischen Alpen! Das "
-"Grafik zeigt die Volumenänderung der Gletscher unter drei verschiedenen "
-"`RCP-Szenarien <https://www.skepticalscience.com/rcp.php>`_. "
-"Außerdem kann die Gletscherentwicklung in verschiedenen Alpenländer "
-"verglichen sein."
+"Informieren Sie sich über die zukünftige Entwicklung der Gletscher in den"
+" europäischen Alpen! Diese interaktive Grafik zeigt die Volumenänderung "
+"aller Alpengletscher unter drei verschiedenen 'RCP-Szenarien "
+"<https://www.skepticalscience.com/rcp.php>'_. Darüber hinaus kann die "
+"Gletscherentwicklung der verschiedenen Alpenländer verglichen werden."
 
-#: ../../alps_future.rst:13
-msgid "to start the app click on this link: |badge_bokeh_en|_"
-msgstr "um die App zu starten klicke auf folgendem Link: |badge_bokeh_en|_"
+#: ../../alps_future.rst:16
+msgid "To start the app, click on this link: |badge_bokeh_en|_"
+msgstr "Um die App zu starten klicke auf folgendem Link: |badge_bokeh_en|_"
 
-#: ../../alps_future.rst:18
+#: ../../alps_future.rst:21
 msgid "Authors"
-msgstr ""
+msgstr "Autoren"
 
-#: ../../alps_future.rst:20
+#: ../../alps_future.rst:23
 msgid ""
 "`Fabien Maussion <https://fabienmaussion.info/>`_ and `Zora Schirmeister "
 "<https://github.com/zschirmeister>`_"
@@ -51,56 +53,60 @@ msgstr ""
 "`Fabien Maussion <https://fabienmaussion.info/>`_ und `Zora Schirmeister "
 "<https://github.com/zschirmeister>`_"
 
-#: ../../alps_future.rst:23
+#: ../../alps_future.rst:26
 msgid "Data sources"
 msgstr "Datenquellen"
 
-#: ../../alps_future.rst:25
+#: ../../alps_future.rst:28
 msgid ""
 "Data: `Zekollari et al. (2019) <https://www.the-"
 "cryosphere.net/13/1125/2019/>`_"
 msgstr ""
+"Daten: `Zekollari et al. (2019) <https://www.the-"
+"cryosphere.net/13/1125/2019/>`_"
 
-#: ../../alps_future.rst:28
+#: ../../alps_future.rst:31
 msgid "Source code"
-msgstr ""
+msgstr "Quellcode"
 
-#: ../../alps_future.rst:30
+#: ../../alps_future.rst:33
 msgid ""
 "Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, "
 "BSD3 licensed."
 msgstr ""
+"Code und Daten befinden sich auf `GitHub "
+"<https://github.com/OGGM/alps_future>`_, BSD3 lizenziert."
 
-#: ../../alps_future.rst:34
-msgid "Possible future improvements"
-msgstr ""
-
-#: ../../alps_future.rst:36
-msgid "implementation of uncertainties into the graphic"
-msgstr ""
-
-#: ../../alps_future.rst:37
-msgid "possibility to choose between absolute and percentage change of volume"
-msgstr ""
-
+# No need to translate below that
 #: ../../alps_future.rst:38
-msgid "adding a map in which the user can select glaciers"
-msgstr ""
-
-#: ../../alps_future.rst:39
-msgid "implement tick-boxes for choosing the displayed RCP-scenarios"
+msgid "Possible future app improvements"
 msgstr ""
 
 #: ../../alps_future.rst:40
+msgid "display of uncertainties into the graphic"
+msgstr ""
+
+#: ../../alps_future.rst:41
+msgid "possibility to choose between absolute and percentage change of volume"
+msgstr ""
+
+#: ../../alps_future.rst:42
+msgid "adding a map in which the user can select glaciers"
+msgstr ""
+
+#: ../../alps_future.rst:43
+msgid "implement tick-boxes for choosing the displayed RCP-scenarios"
+msgstr ""
+
+#: ../../alps_future.rst:44
 msgid ""
 "two dropdown menus to give the opportunity that every region can be "
 "compared to every other region/country"
 msgstr ""
 
-#: ../../alps_future.rst:42
+#: ../../alps_future.rst:46
 msgid ""
 "If you are interested to contribute you can send us the edited `file "
 "<https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or"
 " with a pull-request. Thanks!"
 msgstr ""
-

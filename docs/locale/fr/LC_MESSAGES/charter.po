@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-07 15:35+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../charter.rst:4
+msgid "Logos and colors"
+msgstr ""
+
+#: ../../charter.rst:6
+msgid ""
+"The OGGM-Edu logos are free to use. They were realized by Anne Maussion, "
+"`Atelier les Gros yeux <http://atelierlesgrosyeux.com>`_."
+msgstr ""
+
+#: ../../charter.rst:10
+msgid "Official logo"
+msgstr ""
+
+#: ../../charter.rst:12
+msgid ""
+"If you want to use an OGGM-Edu logo for a poster or a website, we "
+"recommend to use the following:"
+msgstr ""
+
+#: ../../charter.rst:17
+msgid ""
+"**full logo**: `large (2364x1041) <_static/logos/oggm_edu_l.png>`_, "
+"`large (2364x1041) with alpha channel "
+"<_static/logos/oggm_edu_l_alpha.png>`_, `small (512x225) "
+"<_static/logos/oggm_edu_s.png>`_, `small (512x225) with alpha channel "
+"<_static/logos/oggm_edu_s_alpha.png>`_"
+msgstr ""
+
+#: ../../charter.rst:23
+msgid ""
+"**For darker backgrounds**, here is a version with other colors: `db "
+"large (2364x1041) with alpha channel "
+"<_static/logos/oggm_edu_l_alpha_db.png>`_, `db small (512x225) with alpha"
+" channel <_static/logos/oggm_edu_s_alpha_db.png>`_"
+msgstr ""
+
+#: ../../charter.rst:28
+msgid "Icons"
+msgstr ""
+
+#: ../../charter.rst:35
+msgid ""
+"**icon logo**: `large (790x790) <_static/logos/oggm_edu_icon.png>`_, "
+"`small (64x64) <_static/logos/oggm_edu_icon_64.png>`_, `very small "
+"(32x32) <_static/logos/oggm_edu_icon_32.png>`_ `large blue (790x790) "
+"<_static/logos/oggm_edu_icon_blue.png>`_, `small blue (64x64) "
+"<_static/logos/oggm_edu_icon_blue_64.png>`_, `very small blue (32x32) "
+"<_static/logos/oggm_edu_icon_blue_32.png>`_"
+msgstr ""
+
+#: ../../charter.rst:44
+msgid "Other logos"
+msgstr ""
+
+#: ../../charter.rst:46
+msgid ""
+"At OGGM-Edu we are in favor of diversity! Here are some alternative logos"
+" you can pick from:"
+msgstr ""
+
+#: ../../charter.rst:50
+msgid "Lightbulb"
+msgstr ""
+
+#: ../../charter.rst:55
+msgid ""
+"**full logo**: `lightbulb large (2364x1041) "
+"<_static/logos/oggm_edu_bulb_l.png>`_, `lightbulb large (2364x1041) with "
+"alpha channel <_static/logos/oggm_edu_bulb_l_alpha.png>`_, `lightbulb "
+"small (512x225) <_static/logos/oggm_edu_bulb_s.png>`_, `lightbulb small "
+"(512x225) with alpha channel <_static/logos/oggm_edu_bulb_s_alpha.png>`_"
+msgstr ""
+
+#: ../../charter.rst:61
+msgid ""
+"**darker background logo**: `db lightbulb large (2364x1041) with alpha "
+"channel <_static/logos/oggm_edu_bulb_l_alpha_db.png>`_, `db lightbulb "
+"small (512x225) with alpha channel "
+"<_static/logos/oggm_edu_bulb_s_alpha_db.png>`_"
+msgstr ""
+
+#: ../../charter.rst:67
+msgid "Globe"
+msgstr ""
+
+#: ../../charter.rst:72
+msgid ""
+"**full logo**: `globe large (2364x1041) "
+"<_static/logos/oggm_edu_globe_l.png>`_, `globe large (2364x1041) with "
+"alpha channel <_static/logos/oggm_edu_globe_l_alpha.png>`_, `globe small "
+"(512x225) <_static/logos/oggm_edu_globe_s.png>`_, `globe small (512x225) "
+"with alpha channel <_static/logos/oggm_edu_globe_s_alpha.png>`_"
+msgstr ""
+
+#: ../../charter.rst:78
+msgid ""
+"**darker background logo**: `db globe large (2364x1041) with alpha "
+"channel <_static/logos/oggm_edu_globe_l_alpha_db.png>`_, `db globe small "
+"(512x225) with alpha channel "
+"<_static/logos/oggm_edu_globe_s_alpha_db.png>`_"
+msgstr ""
+
+#: ../../charter.rst:83
+msgid "Face"
+msgstr ""
+
+#: ../../charter.rst:88
+msgid ""
+"**full logo**: `face large (2364x1041) "
+"<_static/logos/oggm_edu_face_l.png>`_, `face large (2364x1041) with alpha"
+" channel <_static/logos/oggm_edu_face_l_alpha.png>`_, `face small "
+"(512x225) <_static/logos/oggm_edu_face_s.png>`_, `face small (512x225) "
+"with alpha channel <_static/logos/oggm_edu_face_s_alpha.png>`_"
+msgstr ""
+
+#: ../../charter.rst:94
+msgid ""
+"**darker background logo**: `db face large (2364x1041) with alpha channel"
+" <_static/logos/oggm_edu_face_l_alpha_db.png>`_, `db face small (512x225)"
+" with alpha channel <_static/logos/oggm_edu_face_s_alpha_db.png>`_"
+msgstr ""
+
+#: ../../charter.rst:100
+msgid "Classic"
+msgstr ""
+
+#: ../../charter.rst:105
+msgid ""
+"**full logo**: `classic large (2364x1041) "
+"<_static/logos/oggm_edu_classic_l.png>`_, `classic large (2364x1041) with"
+" alpha channel <_static/logos/oggm_edu_classic_l_alpha.png>`_, `classic "
+"small (512x225) <_static/logos/oggm_edu_classic_s.png>`_, `classic small "
+"(512x225) with alpha channel "
+"<_static/logos/oggm_edu_classic_s_alpha.png>`_"
+msgstr ""
+
+#: ../../charter.rst:111
+msgid ""
+"**darker background logo**: `db classic large (2364x1041) with alpha "
+"channel <_static/logos/oggm_edu_classic_l_alpha_db.png>`_, `db classic "
+"small (512x225) with alpha channel "
+"<_static/logos/oggm_edu_classic_s_alpha_db.png>`_"
+msgstr ""
+
+#: ../../charter.rst:117
+msgid "Color specifications"
+msgstr ""
+
