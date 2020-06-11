@@ -7,10 +7,13 @@ Future evolution of glaciers in the European Alps
     :width: 100%
     :target: alps_future-app.html
 
-Find out about the future evolution of glaciers in the European Alps! The graphic presents the volume change of the glaciers under three different `RCP-scenarios <https://www.skepticalscience.com/rcp.php>`_. In addition, the glacier evolution of the different alpine countries can be compared.
+Find out about the future evolution of glaciers in the European Alps! This
+interactive graphic displays the volume change of all alpine glaciers
+under three different `RCP-scenarios <https://www.skepticalscience.com/rcp.php>`_.
+In addition, the glacier evolution of the different alpine countries can be compared.
 
 
-- to start the app click on this link: |badge_bokeh_en|_
+To start the app, click on this link: |badge_bokeh_en|_
 
 .. _badge_bokeh_en: alps_future-app.html
 
@@ -29,14 +32,17 @@ Source code
 
 Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, BSD3 licensed.
 
+.. ifconfig:: sphinxopt_lan in ('en')
 
-Possible future improvements
-----------------------------
+  Possible future app improvements
+  --------------------------------
 
-- implementation of uncertainties into the graphic
-- possibility to choose between absolute and percentage change of volume
-- adding a map in which the user can select glaciers
-- implement tick-boxes for choosing the displayed RCP-scenarios
-- two dropdown menus to give the opportunity that every region can be compared to every other region/country
+  - display of uncertainties into the graphic
+  - possibility to choose between absolute and percentage change of volume
+  - adding a map in which the user can select glaciers
+  - implement tick-boxes for choosing the displayed RCP-scenarios
+  - two dropdown menus to give the opportunity that every region can be compared to every other region/country
 
-If you are interested to contribute you can send us the edited `file <https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or with a pull-request. Thanks!
+  If you are interested to contribute you can send us the edited
+  `file <https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or
+  with a pull-request. Thanks!

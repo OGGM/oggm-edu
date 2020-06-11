@@ -61,7 +61,7 @@ Part 1: app functionalities
 .. raw:: html
 
   <iframe src="https://player.vimeo.com/video/422776970" width="640" height="357" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  <p><a href="https://vimeo.com/422776970">OGGM-Edu app: World Glaciers Explorer tutorial (part 2) on Vimeo</a></p>
+  <p><a href="https://vimeo.com/422776970">OGGM-Edu app: World Glaciers Explorer tutorial (part 1) on Vimeo</a></p>
 
 Part 2: example questions
 ~~~~~~~~~~~~~~~~~~~~~~~~~

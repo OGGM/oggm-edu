@@ -130,6 +130,7 @@ templates_path = ['_templates']
 # source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
 
+
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
 
@@ -138,7 +139,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OGGM-Edu'
-copyright = u'2018, OGGM Developers'
+copyright = u'OGGM Developers'
 author = u'OGGM Developers'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -156,6 +157,18 @@ release = u'0.1a'
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = None
+
+
+# Options for internationalization
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False     # optional.
+
+
+# There is probably a better way to do this - I just check in which lanuage
+# we are in these docs
+sphinxopt_lan = os.environ.get('SPHINXOPTS', 'en')
+if 'language=' in sphinxopt_lan:
+    sphinxopt_lan = sphinxopt_lan.split('language=')[-1]
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -340,11 +353,6 @@ latex_documents = [
 # If false, no module index is generated.
 # latex_domain_indices = True
 
-# -- Options for internationalization ---------------------------------------
-locale_dirs = ['locale/']   # path is example but recommended.
-gettext_compact = False     # optional.
-
-
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
@@ -392,3 +400,4 @@ with open("prolog.txt", "r") as myfile:
 # Add toggle container https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
 def setup(app):
     app.add_stylesheet('custom.css')
+    app.add_config_value('sphinxopt_lan', '', sphinxopt_lan)
