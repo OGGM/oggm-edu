@@ -32,7 +32,7 @@ Source code
 
 Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, BSD3 licensed.
 
-.. ifconfig:: sphinxopt_lan in ('en')
+.. ifconfig:: sphinxopt_lan in ('en') or rtd_language in ('en')
 
   Possible future app improvements
   --------------------------------

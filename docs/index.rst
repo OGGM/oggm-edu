@@ -7,10 +7,10 @@ Welcome to OGGM-Edu!
 This platform is an educational website about glaciers.
 
 Our main goal is to **provide tools and materials for instructors** who
-want to teach about glaciers at school, in workshops or at the university
-level. For example, OGGM-Edu was used to conduct
+want to teach about glaciers at school, in workshops or at the university.
+For example, OGGM-Edu was used to conduct
 a `weeklong workshop <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_
-on glaciology and glacial water resources for Peruvian students.
+on glaciology and glacial water resources for undergraduate Peruvian students.
 
 **OGGM-Edu has four independent components**, serving complementary purposes:
 
@@ -116,8 +116,7 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 OGGM tutorials
 ^^^^^^^^^^^^^^
 
-These are more advanced notebooks, for current and future users of the
-OGGM model.
+These are more advanced notebooks, for users of the OGGM model.
 
 * :doc:`oggm_tuto`
 
@@ -134,6 +133,7 @@ For instructors and teachers
 Thanks for considering OGGM-Edu for your classes! We've gathered some
 recommendations and guidelines here.
 
+* :doc:`why_oggmedu`
 * :doc:`classes_howto`
 * :doc:`user_content`
 * :doc:`technical_details`
@@ -147,6 +147,7 @@ recommendations and guidelines here.
     :caption: For instructors and teachers
 
     classes_howto.rst
+    why_oggmedu.rst
     user_content.rst
     technical_details.rst
     other_resources.rst
