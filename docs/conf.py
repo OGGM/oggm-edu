@@ -164,11 +164,11 @@ locale_dirs = ['locale/']   # path is example but recommended.
 gettext_compact = False     # optional.
 
 
-# There is probably a better way to do this - I just check in which lanuage
-# we are in these docs
-sphinxopt_lan = os.environ.get('SPHINXOPTS', 'en')
-if 'language=' in sphinxopt_lan:
-    sphinxopt_lan = sphinxopt_lan.split('language=')[-1]
+# For local builds we have to parse the current language
+READTHEDOCS_LANGUAGE = os.environ.get('READTHEDOCS_LANGUAGE', 'en')
+SPHINXOPTS = os.environ.get('SPHINXOPTS', None)
+if SPHINXOPTS is not None and 'language=' in SPHINXOPTS:
+    READTHEDOCS_LANGUAGE = SPHINXOPTS.split('language=')[-1]
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -400,4 +400,4 @@ with open("prolog.txt", "r") as myfile:
 # Add toggle container https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
 def setup(app):
     app.add_stylesheet('custom.css')
-    app.add_config_value('sphinxopt_lan', '', sphinxopt_lan)
+    app.add_config_value('READTHEDOCS_LANGUAGE', '', READTHEDOCS_LANGUAGE)

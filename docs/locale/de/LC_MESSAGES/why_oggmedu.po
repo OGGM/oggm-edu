@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-13 00:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../why_oggmedu.rst:4
+msgid "Why OGGM-Edu?"
+msgstr ""
+
+#: ../../why_oggmedu.rst:6
+msgid ""
+"OGGM-Edu was created as a \"side project\" of the larger `OGGM "
+"<http://oggm.org>`_ consortium. It is now a somewhat independent and, we "
+"hope, useful educational website. We are hoping to engage more content "
+"creators and users! Here is what motivates us:"
+msgstr ""
+
+#: ../../why_oggmedu.rst:11
+msgid ""
+"OGGM-Edu is an **interactive complement** to existing :ref:`online "
+"resources <other_resources>`: OGGM-Edu offers \"hands-on\" and practical "
+"activities, but only very little textbook content."
+msgstr ""
+
+#: ../../why_oggmedu.rst:14
+msgid ""
+"The main themes we are currently working on are **glacier models** and "
+"**global issues**: this has grown out of our own research interests and "
+"expertise, but it doesn't have to always stay that way. We are open for "
+"other topics as well!"
+msgstr ""
+
+#: ../../why_oggmedu.rst:18
+msgid "Our target groups are **instructors** and **independent learners**."
+msgstr ""
+
+#: ../../why_oggmedu.rst:19
+msgid ""
+"We rely on an **open-source**, **decentralized** and **collaborative** "
+"content creation system:"
+msgstr ""
+
+#: ../../why_oggmedu.rst:22
+msgid ""
+"*open-source*: everything is available on online repositories and with an"
+" open license allowing unrestrictive reuse."
+msgstr ""
+
+#: ../../why_oggmedu.rst:24
+msgid ""
+"*decentralized*: content using OGGM-Edu or that can be run on OGGM-Edu "
+"does not have to be stored on our repositories. For example, out `own "
+"notebooks <https://github.com/OGGM/oggm-edu-notebooks>`_ are stored in a "
+"separate repository, and so are `Lizz' notebooks "
+"<https://github.com/ehultee/CdeC-glaciologia>`_."
+msgstr ""
+
+#: ../../why_oggmedu.rst:29
+msgid ""
+"*collaborative*: thanks to the decentralized open-source model, any new "
+"modification and innovation can feed back to the original website, if the"
+" author of the new content decided to allow it (which we strongly "
+"encourage!)."
+msgstr ""
+
+#: ../../why_oggmedu.rst:33
+msgid ""
+"We use **tools familiar to scientists**, who are not web developpers: our"
+" apps and notebooks are written in the Python programming language, this "
+"website is written in rst format. These tools are much easier to learn "
+"and adapt for fellow scientists than, say, css or html. That way, we hope"
+" to engage more people to use and develop the website further."
+msgstr ""
+
+#: ../../why_oggmedu.rst:39
+msgid ""
+"If you want to know more, you can watch our recent seminar presentation "
+"explaining these points into more detail and demonstrating some of OGGM-"
+"Edu's applications:"
+msgstr ""
+
+#: ../../why_oggmedu.rst:48
+msgid ""
+"The slides are available `here (online version) <https://oggm.org/oggm-"
+"edu-talk>`_ or `here (pdf) <https://github.com/OGGM/oggm-edu-"
+"talk/raw/master/oggm-edu-talk.pdf>`_ ."
+msgstr ""
+

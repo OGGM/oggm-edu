@@ -146,8 +146,8 @@ recommendations and guidelines here.
     :hidden:
     :caption: For instructors and teachers
 
-    classes_howto.rst
     why_oggmedu.rst
+    classes_howto.rst
     user_content.rst
     technical_details.rst
     other_resources.rst
