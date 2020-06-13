@@ -40,6 +40,17 @@ You can decide to have it hosted here at edu.oggm.org (ref:`reach out! <title_co
 decide to have it in your own namespace! Follow :ref:`these instructions <user_content>` if you'd
 rather do the latter.
 
+Prepare activity sheets for schools
+-----------------------------------
+
+Let's face it: right now, OGGM-Edu is of limited use for teachers, who have only
+little time to prepare their class. It would be very useful to prepare concrete
+"activity sheets" which explain how to spend one, two, or four hours with
+OGGM-Edu, at various levels of difficulty and level of detail. Such
+documents could also live on the website and be updated as people report their
+experiences with the tool. 
+
+
 Help translate OGGM-Edu
 -----------------------
 

@@ -1,11 +1,11 @@
 .. _user_content:
 
-Use your own content in OGGM-Edu
-================================
+Use your own notebooks with OGGM-Edu
+====================================
 
 You might be interested in running your own notebooks
 in an OGGM-Edu environment, for example during the development phase or
-for a specific class.
+for a class you are giving.
 
 Fortunately, this is very easy to do! All you need to do is to provide the
 notebooks you would like to run in an online git repository
@@ -44,7 +44,7 @@ you want to start at an arbitrary location in the repository (for example
 within a folder), the syntax is::
 
 
-    https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>%26amp%3Burlpath=lab/tree/<YOUR_REPO_NAME>/<PATH/TO/FILE>%3Fautodecode
+    https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/<YOUR_REPO_NAME>/<PATH/TO/FILE>%3Fautodecode
 
 For example, we start the OGGM-Edu tutorials with this link:
 
@@ -54,11 +54,4 @@ It's getting quite long, I know! What's best therefore is to hide the links
 `behind a badge <https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_.
 
 If you are creating educational resources based on OGGM-Edu,
-please :ref:`title_contact` so that we can adverstise them!
-
-
-On JupyterHub
--------------
-
-If you are using `hub.oggm.org <https://hub.oggm.org>`_ or your own hub deployment, visit
-`the OGGM documentation <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_.
+please :ref:`get in touch <title_contact>` so that we can adverstise them!

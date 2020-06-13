@@ -54,7 +54,7 @@ we *were* able to provide free resources to instructors for a specific class or
 workshop. This service is now discontinued, we are working on ways to set
 this up again.
 
-..  admonition:: OGGM-Hub 
+..  admonition:: OGGM-Hub
     :class: toggle
 
     You can `try OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_

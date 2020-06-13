@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 11:55+0200\n"
+"POT-Creation-Date: 2020-06-13 18:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,10 +92,24 @@ msgid ""
 msgstr ""
 
 #: ../../roadmap.rst:44
-msgid "Help translate OGGM-Edu"
+msgid "Prepare activity sheets for schools"
 msgstr ""
 
 #: ../../roadmap.rst:46
+msgid ""
+"Let's face it: right now, OGGM-Edu is of limited use for teachers, who "
+"have only little time to prepare their class. It would be very useful to "
+"prepare concrete \"activity sheets\" which explain how to spend one, two,"
+" or four hours with OGGM-Edu, at various levels of difficulty and level "
+"of detail. Such documents could also live on the website and be updated "
+"as people report their experiences with the tool."
+msgstr ""
+
+#: ../../roadmap.rst:55
+msgid "Help translate OGGM-Edu"
+msgstr ""
+
+#: ../../roadmap.rst:57
 msgid ""
 "We are seeking to improve the usefulness of OGGM-Edu in non english "
 "speaking groups. It is technically easy to do it (we already have "
@@ -106,7 +120,7 @@ msgid ""
 "the translations up to date ;-)."
 msgstr ""
 
-#: ../../roadmap.rst:55
+#: ../../roadmap.rst:66
 msgid ""
 "The translation files are located in the `docs/locale "
 "<https://github.com/OGGM/oggm-edu/tree/master/docs/locale>`_ folder: "
@@ -117,7 +131,7 @@ msgid ""
 "example."
 msgstr ""
 
-#: ../../roadmap.rst:61
+#: ../../roadmap.rst:72
 msgid ""
 "If you would like to help, grab these files and translate were you can! "
 "The translation of even one single page would be very useful. We can "
@@ -125,15 +139,15 @@ msgid ""
 "french, german)."
 msgstr ""
 
-#: ../../roadmap.rst:66
+#: ../../roadmap.rst:77
 msgid "Refactoring of the oggm-edu python package"
 msgstr ""
 
-#: ../../roadmap.rst:68
+#: ../../roadmap.rst:79
 msgid "This is probably the most involved change."
 msgstr ""
 
-#: ../../roadmap.rst:70
+#: ../../roadmap.rst:81
 msgid ""
 "As it is now, oggm-edu relies mostly on the models and syntax provided by"
 " the core OGGM. They provides the functionality we need, but at the same "
@@ -141,39 +155,39 @@ msgid ""
 "context:"
 msgstr ""
 
-#: ../../roadmap.rst:74
+#: ../../roadmap.rst:85
 msgid ""
 "their functionality is tailored for modelers, not students. I.e. certain "
 "variables are not available and/or hidden, the syntax is clumsy, "
 "optimisations in code make it less readable"
 msgstr ""
 
-#: ../../roadmap.rst:77
+#: ../../roadmap.rst:88
 msgid ""
 "it is very difficult to change things in OGGM itself because of backwards"
 " compatibility"
 msgstr ""
 
-#: ../../roadmap.rst:79
+#: ../../roadmap.rst:90
 msgid ""
 "it is complex for new users to find the information in the cluttered OGGM"
 " namespace"
 msgstr ""
 
-#: ../../roadmap.rst:82
+#: ../../roadmap.rst:93
 msgid ""
 "For these reasons, we suggest to **redesign and refactor the OGGM objects"
 " in a more user-friendly, intuitive oggm-edu namespace**."
 msgstr ""
 
-#: ../../roadmap.rst:85
+#: ../../roadmap.rst:96
 msgid ""
 "This will require some thinking, but in short: we should think about (1) "
 "how to name things (very hard) and (2) how do we want the new objects to "
 "behave."
 msgstr ""
 
-#: ../../roadmap.rst:89
+#: ../../roadmap.rst:100
 msgid ""
 "The vision is that people have a one stop shop (the OGGM-Edu "
 "documentation) to learn about the flowline models and what they can do "
@@ -182,15 +196,15 @@ msgid ""
 "make using the models more fun, intuitive and quantitative."
 msgstr ""
 
-#: ../../roadmap.rst:96
+#: ../../roadmap.rst:107
 msgid "Website design"
 msgstr ""
 
-#: ../../roadmap.rst:98
+#: ../../roadmap.rst:109
 msgid "(less important)"
 msgstr ""
 
-#: ../../roadmap.rst:100
+#: ../../roadmap.rst:111
 msgid ""
 "ReadTheDocs and Sphinx are great, but they have their limits. If you have"
 " web skills and would like to make OGGM-Edu more appealing, ref:`reach "

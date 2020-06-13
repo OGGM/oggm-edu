@@ -16,15 +16,15 @@ content creators and users! Here is what motivates us:
   **independent learners**.
 - The main themes we are currently working on are the use of **glacier models
   to learn about glaciers and climate change**, with a focus on **global issues**
-  (see-level change, water availability, regional and global climate change):
-  these topices have grown out of our own research interests and expertises,
-  but it doesn't have to stay that way. We are open for other topics as
+  (see-level rise, water availability, regional and global climate change):
+  these topics have grown out of our own research interests and expertises,
+  but it doesn't have to stay that way. We are open for new ideas as
   well!
 - We rely on an **open-source**, **decentralized** and **collaborative**
   content creation system:
 
     - *open-source*: everything is available on our online repositories,
-      with an open license allowing unrestrictive reuse.
+      with an open license allowing nonrestrictive reuse.
     - *decentralized*: content using OGGM-Edu or that can be run on OGGM-Edu
       does not have to be stored on our repositories. For example,
       out `own notebooks <https://github.com/OGGM/oggm-edu-notebooks>`_ are
@@ -34,7 +34,7 @@ content creators and users! Here is what motivates us:
       modification and innovation can feed back into the original website,
       if the author of the new content chose a license allowing it (which we
       strongly encourage!).
-- We rely **tools familiar to scientists**, not web developpers: our apps and
+- We use **tools familiar to scientists**, not web developpers: our apps and
   notebooks are written in the Python programming language, this website is
   written in the `rst format <https://en.wikipedia.org/wiki/ReStructuredText>`_.
   These tools are much easier to learn and adopt for scientists than,
