@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-11 09:57+0200\n"
+"POT-Creation-Date: 2020-06-13 11:55+0200\n"
 "PO-Revision-Date: 2020-06-11 10:23+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: German <>\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.5.3\n"
-"Language-Team: German <>\n"
-"Language: fr\n"
-"X-Generator: Gtranslator 2.91.7\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../../alps_future.rst:4
 msgid "Future evolution of glaciers in the European Alps"
@@ -24,17 +24,18 @@ msgstr "Évolution future des glaciers dans les Alpes européennes"
 
 #: ../../alps_future.rst:10
 msgid ""
-"Find out about the future evolution of glaciers in the European Alps! This "
-"interactive graphic displays the volume change of all alpine glaciers under "
-"three different `RCP-scenarios <https://www.skepticalscience.com/rcp.php>`_. "
-"In addition, the glacier evolution of the different alpine countries can be "
-"compared."
+"Find out about the future evolution of glaciers in the European Alps! "
+"This interactive graphic displays the volume change of all alpine "
+"glaciers under three different `RCP-scenarios "
+"<https://www.skepticalscience.com/rcp.php>`_. In addition, the glacier "
+"evolution of the different alpine countries can be compared."
 msgstr ""
 "Découvrez l’évolution future des glaciers dans les Alpes européennes! Ce "
-"graphique interactif affiche le changement de volume de tous les glaciers "
-"alpins dans le cadre de trois différents `scénarios RCP <https://www."
-"skepticalscience.com/rcp.php>`_. En outre, l’évolution des glaciers des "
-"différents pays alpins peut être comparée."
+"graphique interactif affiche l'évolution du volume de tous les glaciers "
+"alpins dans le cadre de trois différents `scénarios RCP "
+"<https://fr.wikipedia.org/wiki/Sc%C3%A9nario_RCP>`_. En outre, "
+"l’évolution des glaciers dans les différents pays alpins peut être "
+"affichée et comparée."
 
 #: ../../alps_future.rst:16
 msgid "To start the app, click on this link: |badge_bokeh_en|_"
@@ -58,11 +59,11 @@ msgstr "Sources des données"
 
 #: ../../alps_future.rst:28
 msgid ""
-"Data: `Zekollari et al. (2019) <https://www.the-cryosphere.net/13/1125/2019/"
-">`_"
+"Data: `Zekollari et al. (2019) <https://www.the-"
+"cryosphere.net/13/1125/2019/>`_"
 msgstr ""
-"Données: `Zekollari et al. (2019) <https://www.the-cryosphere."
-"net/13/1125/2019/>`_"
+"Données: `Zekollari et al. (2019) <https://www.the-"
+"cryosphere.net/13/1125/2019/>`_"
 
 #: ../../alps_future.rst:31
 msgid "Source code"
@@ -70,41 +71,54 @@ msgstr "Code source"
 
 #: ../../alps_future.rst:33
 msgid ""
-"Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, BSD3 "
-"licensed."
+"Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, "
+"BSD3 licensed."
 msgstr ""
-"Le code et les données sont sur `GitHub <https://github.com/OGGM/"
-"alps_future>`_, sous une licence BSD3."
+"Le code et les données sont sur `GitHub "
+"<https://github.com/OGGM/alps_future>`_, sous une licence BSD3."
 
-#: ../../alps_future.rst:37
+#: ../../alps_future.rst:38
 msgid "Possible future app improvements"
 msgstr ""
 
-#: ../../alps_future.rst:39
+#: ../../alps_future.rst:40
 msgid "display of uncertainties into the graphic"
 msgstr ""
 
-#: ../../alps_future.rst:40
+#: ../../alps_future.rst:41
 msgid "possibility to choose between absolute and percentage change of volume"
 msgstr ""
 
-#: ../../alps_future.rst:41
+#: ../../alps_future.rst:42
 msgid "adding a map in which the user can select glaciers"
 msgstr ""
 
-#: ../../alps_future.rst:42
+#: ../../alps_future.rst:43
 msgid "implement tick-boxes for choosing the displayed RCP-scenarios"
 msgstr ""
 
-#: ../../alps_future.rst:43
+#: ../../alps_future.rst:44
 msgid ""
-"two dropdown menus to give the opportunity that every region can be compared "
-"to every other region/country"
+"two dropdown menus to give the opportunity that every region can be "
+"compared to every other region/country"
 msgstr ""
 
-#: ../../alps_future.rst:45
+#: ../../alps_future.rst:46
 msgid ""
 "If you are interested to contribute you can send us the edited `file "
-"<https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or "
-"with a pull-request. Thanks!"
+"<https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or"
+" with a pull-request. Thanks!"
 msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+

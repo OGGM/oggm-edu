@@ -13,7 +13,7 @@ As of June 2020, the OGGM-Edu platform features:
 We are proud of simple things, such as the the use of OGGM-Edu for a
 class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_),
 or the positive feedback about the web applications and the use of MyBinder
-as viable platforms to run workshops and tutorials online.
+as a viable platform to run workshops and tutorials online.
 
 This is great! But we also see that there is room for improvement, and we would
 like to use this roadmap as a "working document" to keep track of our
@@ -27,35 +27,39 @@ Thanks so much for your help!
 Help with typos, text, content, etc.
 ------------------------------------
 
-Everything on this website is written by volunteers and (often) non-native
+Everything on this website is written by volunteers and non-native english
 speakers. If you find mistakes or things you'd like to change, please do!
 You can edit each file by following the "Edit on GitHub" link at the top
-of wach page or just send us your modification suggestions!
+of each page, or send us your modification suggestions!
 
 Create new content
 ------------------
 
 We welcome any new idea you may have: a new graphic, a new notebook, a new app...
-You can decide to have it hosted here at edu.oggm.org, or you can
-decide to have it in your own namespace! Follow these instructions if you'd
-rather opt for the latter: :ref:`user_content`.
+You can decide to have it hosted here at edu.oggm.org (ref:`reach out! <title_contact>`), or you can
+decide to have it in your own namespace! Follow :ref:`these instructions <user_content>` if you'd
+rather do the latter.
 
 Help translate OGGM-Edu
 -----------------------
 
 We are seeking to improve the usefulness of OGGM-Edu in non english speaking
-cultures. It is technically possible to do it at low cost (we already have
+groups. It is technically easy to do it (we already have
 template - dummy - pages for
 `german <https://edu.oggm.org/de/latest/>`_,
 `french <https://edu.oggm.org/fr/latest/>`_ and
 `spanish <https://edu.oggm.org/es/latest/>`_ and we can easily add any other
-language), but the hard part is to actually *translate* the content ;-).
+language): the hard part is to actually *translate* the content and keep the
+translations up to date ;-).
 
 The translation files are located in the `docs/locale <https://github.com/OGGM/oggm-edu/tree/master/docs/locale>`_
 folder: these `.po` files are like a dictionary that can be edited with a
 simple text editor or dedicated tools (e.g. `poedit <https://poedit.net/>`_).
-If you would like to help, grab these file and help us were you can! The translation
-of even one single page would be very useful. We can help with the languages
+See `this file <https://github.com/OGGM/oggm-edu/blob/master/docs/locale/fr/LC_MESSAGES/alps_future.po>`_
+for an example.
+
+If you would like to help, grab these files and translate were you can! The translation
+of even one single page would be very useful. We can provide support and advice with the languages
 we can read (spanish, french, german).
 
 Refactoring of the oggm-edu python package
@@ -78,12 +82,13 @@ OGGM numerical models have several issues in the educational context:
 For these reasons, we suggest to **redesign and refactor the OGGM objects in a
 more user-friendly, intuitive oggm-edu namespace**.
 
-This will require some thinking, but at the core, we should think about (1)
+This will require some thinking, but in short: we should think about (1)
 how to name things (very hard) and (2) how do we want the new objects
 to behave.
 
-The vision is that people have a one-stop shop (the OGGM-Edu documentation)
-to learn about the flowline models and what they can do with them. The models
+The vision is that people have a one stop shop (the OGGM-Edu documentation)
+to learn about the flowline models and what they can do with them, without
+having to struggle with OGGM itself. The models
 will be more expressive, use rich output in the notebooks, with the goal to
 make using the models more fun, intuitive and quantitative.
 
@@ -93,4 +98,5 @@ Website design
 (less important)
 
 ReadTheDocs and Sphinx are great, but they have their limits. If you have
-web skills and would like to make OGGM-Edu more appealing, reach out!
+web skills and would like to make OGGM-Edu more appealing,
+ref:`reach out! <title_contact>`
