@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 11:55+0200\n"
+"POT-Creation-Date: 2020-08-07 23:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,44 +84,31 @@ msgid ""
 msgstr ""
 
 #: ../../technical_details.rst:49
-msgid "OGGM-Hub (discontinued)"
+msgid "OGGM-Hub"
 msgstr ""
 
 #: ../../technical_details.rst:51
 msgid ""
-"Thanks to a grant from Google's `Data Solutions for Change "
-"<https://cloud.google.com/data-solutions-for-change/>`_, we *were* able "
-"to provide free resources to instructors for a specific class or "
-"workshop. This service is now discontinued, we are working on ways to set"
-" this up again."
+"We also provide a dedicated OGGM JupyterLab running on our own server: "
+"`OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_. The "
+"advantages of OGGM-Hub over Binder are:"
 msgstr ""
 
-#: ../../technical_details.rst:57
-msgid "OGGM-Hub"
-msgstr ""
-
-#: ../../technical_details.rst:60
-msgid ""
-"You can `try OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-"
-"hub>`_ if you have a GitHub account (free!). The advantages of OGGM-Hub "
-"over Binder are:"
-msgstr ""
-
-#: ../../technical_details.rst:64
+#: ../../technical_details.rst:55
 msgid "more resources for your students, faster launches"
 msgstr ""
 
-#: ../../technical_details.rst:65
+#: ../../technical_details.rst:56
 msgid "user management: you can set passwords and user names at wish"
 msgstr ""
 
-#: ../../technical_details.rst:66
+#: ../../technical_details.rst:57
 msgid ""
 "persistent sessions: work can be saved between sessions and log-ins (this"
 " is probably the main advantage of OGGM-Hub)"
 msgstr ""
 
-#: ../../technical_details.rst:69
+#: ../../technical_details.rst:59
 msgid ""
 "`<hub.oggm.org>`_ is only available to registered users (registration is "
 "free), but it won't work for an entire class. If you have a specific need"
@@ -177,5 +164,58 @@ msgstr ""
 #~ "change/>`_, we are able to provide "
 #~ "free resources to instructors for a "
 #~ "specific class or workshop."
+#~ msgstr ""
+
+#~ msgid "OGGM-Hub (discontinued)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Thanks to a grant from Google's "
+#~ "`Data Solutions for Change "
+#~ "<https://cloud.google.com/data-solutions-for-"
+#~ "change/>`_, we *were* able to provide"
+#~ " free resources to instructors for a"
+#~ " specific class or workshop. This "
+#~ "service is now discontinued, we are "
+#~ "working on ways to set this up "
+#~ "again."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can `try OGGM-Hub "
+#~ "<https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_ if"
+#~ " you have a GitHub account (free!)."
+#~ " The advantages of OGGM-Hub over "
+#~ "Binder are:"
+#~ msgstr ""
+
+#~ msgid "more resources for your students, faster launches"
+#~ msgstr ""
+
+#~ msgid "user management: you can set passwords and user names at wish"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "persistent sessions: work can be saved"
+#~ " between sessions and log-ins (this"
+#~ " is probably the main advantage of"
+#~ " OGGM-Hub)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We also provide a dedicated OGGM "
+#~ "JupyterLab running on our own server:"
+#~ " `OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html"
+#~ "#oggm-hub>`_. The advantages of OGGM-"
+#~ "Hub over Binder are: - more "
+#~ "resources for your students, faster "
+#~ "launches - user management: you can "
+#~ "set passwords and user names at "
+#~ "wish - persistent sessions: work can "
+#~ "be saved between sessions and log-"
+#~ "ins (this is"
+#~ msgstr ""
+
+#~ msgid "probably the main advantage of OGGM-Hub)"
 #~ msgstr ""
 

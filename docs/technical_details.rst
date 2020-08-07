@@ -45,28 +45,18 @@ framework and is hosted on `ReadTheDocs <https://readthedocs.org>`_.
 
 .. _oggm_hub:
 
-OGGM-Hub (discontinued)
------------------------
+OGGM-Hub
+--------
 
-Thanks to a grant from Google's
-`Data Solutions for Change <https://cloud.google.com/data-solutions-for-change/>`_,
-we *were* able to provide free resources to instructors for a specific class or
-workshop. This service is now discontinued, we are working on ways to set
-this up again.
+We also provide a dedicated OGGM JupyterLab running on our own server:
+`OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_.
+The advantages of OGGM-Hub over Binder are:
 
-..  admonition:: OGGM-Hub
-    :class: toggle
+- more resources for your students, faster launches
+- user management: you can set passwords and user names at wish
+- persistent sessions: work can be saved between sessions and log-ins (this is probably the main advantage of OGGM-Hub)
 
-    You can `try OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_
-    if you have a GitHub account (free!).
-    The advantages of OGGM-Hub over Binder are:
-
-    - more resources for your students, faster launches
-    - user management: you can set passwords and user names at wish
-    - persistent sessions: work can be saved between sessions and log-ins (this is
-      probably the main advantage of OGGM-Hub)
-
-    `<hub.oggm.org>`_ is only available to registered users (registration is free),
-    but it won't work for an entire class. If you have a specific need for an
-    OGGM-hub service (e.g. for a one-week class or a workshop), please
-    :ref:`title_contact` and we'll try to arrange a specific set-up for you!
+`hub.oggm.org <https://hub.oggm.org>`_ is only available to registered users (registration is free!),
+but it won't work for an entire class. If you have a specific need for an
+OGGM-hub service (e.g. for a one-week class or a workshop), please
+:ref:`title_contact` and we'll try to arrange a specific set-up for you!
