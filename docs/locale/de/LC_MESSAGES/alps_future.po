@@ -32,8 +32,8 @@ msgid ""
 msgstr ""
 "Informieren Sie sich über die zukünftige Entwicklung der Gletscher in den"
 " europäischen Alpen! Diese interaktive Grafik zeigt die Volumenänderung "
-"aller Alpengletscher unter drei verschiedenen 'RCP-Szenarien "
-"<https://www.skepticalscience.com/rcp.php>'_. Darüber hinaus kann die "
+"aller Alpengletscher unter drei verschiedenen `RCP-Szenarien "
+"<https://www.skepticalscience.com/rcp.php>`_. Darüber hinaus kann die "
 "Gletscherentwicklung der verschiedenen Alpenländer verglichen werden."
 
 #: ../../alps_future.rst:16
