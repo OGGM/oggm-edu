@@ -54,7 +54,9 @@ These interactive apps can be run on any computer with an internet connection.
     simulator.rst
     alps_future.rst
 
+.. seealso::
 
+    Check out our new :ref:`activity_sheets` for high school teachers!
 
 .. _title_graphics:
 
@@ -135,6 +137,7 @@ recommendations and guidelines here.
 
 * :doc:`why_oggmedu`
 * :doc:`classes_howto`
+* :doc:`activity_sheets`
 * :doc:`user_content`
 * :doc:`technical_details`
 * :doc:`other_resources`
@@ -148,6 +151,7 @@ recommendations and guidelines here.
 
     why_oggmedu.rst
     classes_howto.rst
+    activity_sheets
     user_content.rst
     technical_details.rst
     other_resources.rst
