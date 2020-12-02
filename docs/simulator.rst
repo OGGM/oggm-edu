@@ -137,6 +137,66 @@ The along-slope component "pulls" the glacier downwards and the perpendicular co
 .. _antarcticglaciers.org (glacier-flow): http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/glacier-flow
 
 
+Surging glaciers
+~~~~~~~~~~~~~~~~
+
+Some of the world's glaciers experience "surges" during which they flow much faster than usual 
+and can advance dramatically. For an introduction see `antarcticglaciers.org (surging-glaciers)`_ ,
+or `this video`_ of surging Karakorum glaciers seen from space.
+ 
+We will use the simulator app to explore the characteristics of a surging glacier.
+
+**Experiment:**
+
+Use the "beginner mode" with standard settings (constant width, mass balance gradient of 4 and ELA of 3000) and run the 
+model to create a glacier in equilibrium.
+This glacier should now experience a surge which lasts for ten years:
+Switch into the "advanced mode". Turn on "sliding", i.e. the glacier will "slip" on the 
+bedrock, and let the model advance for 10 years. Between surge events long periods of 
+quiescence happen: simulate one by advancing your glacier without sliding for 100 years. 
+Repeat the surge event and the period of quiescence. Use the timeseries plots and the 
+timeseries options to show the maximum velocity as well as the maximum thickness.
+
+**Questions to answer:**
+
+*Beginners:*
+
+During a surge event:
+
+- How much faster is the glacier during a surge in comparison to a "normal" (quiescence) period?
+- How much gains the glacier in length? 
+
+After a surge event:
+
+- How can you explain the glacier retreat?
+
+*Advanced:*
+
+- Why is the glacier thinning during a surge?
+- How can you explain the opposing behaviours of length and volume during a surge?
+- Why is the glacier thickening after the surge?
+
+
+..  admonition:: Take home messages
+    :class: toggle
+
+    - during a surge event: The glacier flows faster and reaches lower in the valley. 
+      In the upper parts the accumulation of snow does change, but not much 
+      (accumulation is slightly less since the glacier is thinner: a process called mass-balance / elevation feedback).
+      At the same time, a much larger area than usual of the glacier is exposed to melt below 
+      the ELA. Therefore the glacier thins and looses volume, although it is still advancing.
+    - after a surge event: The glacier flow recovers its usual "slow" velocity. The glacier 
+      will retreat until it accumulated enough ice to advance again.
+
+**Going further:**
+
+In the Notebook :ref:`notebooks_surging_glaciers` you can use OGGM to simulate surging events in Python yourself.
+
+
+.. _`antarcticglaciers.org (surging-glaciers)`: http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/surging-glaciers/
+.. _`this video`: http://cdn.antarcticglaciers.org/wp-content/uploads/2012/10/Panmah_and_Choktoi_glaciers_large.gif
+
+
 Authors
 -------
 
