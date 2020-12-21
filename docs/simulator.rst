@@ -223,6 +223,42 @@ Velocity and Thickness along the glacier
         - additionaly to the effect explained in *Beginners* we see that a narrowing of the along glacier widths can also lead to an increase in the ice flux (velocity/thickness)
         - in this case the maximum velocity is no longer located around the ELA but further downwards at the narrowing of the valley
 
+Mass-Balance gradient
+~~~~~~~~~~~~~~~~~~~~~
+
+See `antarcticglaciers.org (mass-balance)`_
+for an introduction about glacier Mass-Balance and the Mass-Balance gradient.
+
+In short: The climatic regime determines the glacier Mass-Balance gradient. Discovering global glacier locations using the `World Glaciers Explorer`_ reveals that glaciers can be found in quite different places around the world. Here now discover how different Mass-Balance gradients are shaping glaciers.
+
+**Experiment:**
+
+- First simulate a glacier in a maritime climate in temperate latitudes (larger Mass-Balance gradient, e.g. 10). For this use the "Beginner mode" (*ELA* = 3000, *Width* = *Constant* and *Slope* = 11°) and let the glacier grow until it reaches equilibrium and note on a piece of paper: the equilibrium *Time*, *Length*, *Area*, *Volume*, *Max ice thickness* and *Max ice velocity* of the glacier.
+- Next simulate a glacier in a continental climate in polar latitudes (smaller Mass Balance gradient, e.g. 3) and again take some notes.
+
+**Questions to answer:**
+
+- *Beginners*:
+    - Which one is thicker (*Max ice thickness*)?
+    - Which one is flowing faster (*Max ice velocity*)?
+    - Which one reaches the equilibrium faster (*Time*)?
+- *Advanced*:
+    - How are *Length*, *Area* and *Volume* effected?
+
+..  admonition:: Take home messages
+    :class: toggle
+
+    - the larger the Mass-Balance gradient the larger the accumulation of mass (ice) at the top
+    - more accumulation leads to a thicker glacier and a larger downslope component of the gravitational force (see `Glacier slope`_ experiment)
+    - this larger force causes a larger ice flux and further a larger ice velocity
+    - the larger the ice velocity the faster ice is transported downwards and the faster the equilibrium is reached
+    - length and area are not much effected due to the unchanged **linear** Mass-Balance profile: no matter which gradient is selected the mass-balance at a certain height is only determined by the distance away from the ELA (e.g. the same amount of mass is accumulated 100 m above the ELA as there is mass ablated 100 m below the ELA, with a constant width)
+    - whereas the volume is increasing with a increasing Mass-Balance gradient due to a larger ice thickness
+
+.. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
+.. _World Glaciers Explorer: https://edu.oggm.org/en/latest/explorer.html
+.. _Glacier slope: https://edu.oggm.org/en/latest/simulator.html#glacier-slope
+
 Authors
 -------
 
