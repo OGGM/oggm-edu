@@ -196,6 +196,32 @@ In the Notebook :ref:`notebooks_surging_glaciers` you can use OGGM to simulate s
 .. _`antarcticglaciers.org (surging-glaciers)`: http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/surging-glaciers/
 .. _`this video`: http://cdn.antarcticglaciers.org/wp-content/uploads/2012/10/Panmah_and_Choktoi_glaciers_large.gif
 
+Velocity and Thickness along the glacier
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Experiment:**
+
+- *Beginners*: Use "Beginner mode" to simulate a glacier in equilibrium with *Width* = *Constant*, *ELA* = 3000, *Mass-Balance gradient* = 4 and *Slope* = 11°.
+- *Advanced*: Use "Beginner mode" to simulate a glacier with *Width* = *Wide top, narrow bottom*, *ELA* = 3500, *Mass-Balance gradient* = 4 and *Slope* = 11°.
+
+**Questions to answer:**
+
+- What do you think where the ice velocity/thickness along the glacier is the largest?
+- *Advanced*: How is the narrowing effecting the velocity?
+- When you made your guess go to "Geometry opt." and tick the box *Ice velocity (top left)* and *Ice thickness (bottom left)*. Now the red/blue colors are showing the velocity/thickness distribution along the glacier. Did you guess right?
+- Why is the velocity/thickness distribution as it is?
+
+..  admonition:: Take home messages
+    :class: toggle
+
+    - *Beginners*:
+        - starting at the top of the glacier and going downward to the ELA there is constantly mass accumulated (positive mass-balance)
+        - all this mass must be transported downwards and so the ice flux is largest at the ELA
+        - from the ELA going further downward mass is constantly ablated and the ice flux decreases
+        - larger ice flux means thicker and faster glacier flow
+    - *Advanced*:
+        - additionaly to the effect explained in *Beginners* we see that a narrowing of the along glacier widths can also lead to an increase in the ice flux (velocity/thickness)
+        - in this case the maximum velocity is no longer located around the ELA but further downwards at the narrowing of the valley
 
 Authors
 -------
