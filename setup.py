@@ -68,11 +68,11 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/fmaussion/scispack',  # Optional
+    url='https://edu.oggm.org',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='OGGM Developers',  # Optional
+    author='OGGM Contributors',  # Optional
 
     # This should be a valid email address corresponding to the author listed
     # above.
@@ -95,7 +95,7 @@ setup(
         'Topic :: Scientific/Engineering :: Visualization',
 
         # Pick your license as you wish
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: BSD License',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.

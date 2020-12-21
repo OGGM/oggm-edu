@@ -28,6 +28,7 @@ eggs
 # specific
 *.cache
 *.lock
+*.mo
 docs/_build
 docs/_build_html
 docs/generated

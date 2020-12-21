@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-07 23:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../why_oggmedu.rst:4
+msgid "Why OGGM-Edu?"
+msgstr ""
+
+#: ../../why_oggmedu.rst:6
+msgid ""
+"OGGM-Edu was created as an educational branch of the larger Open Global "
+"Glacier Model (`OGGM <http://oggm.org>`_) project. It is now largely "
+"independent and, we hope, can become a useful educational website as we "
+"engage more content creators and users! Here is what motivates us:"
+msgstr ""
+
+#: ../../why_oggmedu.rst:11
+msgid ""
+"OGGM-Edu offers **\"hands-on\" and practical activities**, but only very "
+"little textbook content: we see the platform as an **interactive "
+"complement** to existing :ref:`online resources <other_resources>`."
+msgstr ""
+
+#: ../../why_oggmedu.rst:14
+msgid ""
+"Therefore, OGGM-Edu does not attempt to be a \"one stop shop\" for all "
+"things related to glaciers: our target groups are **instructors** and "
+"**independent learners**."
+msgstr ""
+
+#: ../../why_oggmedu.rst:17
+msgid ""
+"The main themes we are currently working on are the use of **glacier "
+"models to learn about glaciers and climate change**, with a focus on "
+"**global issues** (see-level rise, water availability, regional and "
+"global climate change): these topics have grown out of our own research "
+"interests and expertises, but it doesn't have to stay that way. We are "
+"open for new ideas as well!"
+msgstr ""
+
+#: ../../why_oggmedu.rst:23
+msgid ""
+"We rely on an **open-source**, **decentralized** and **collaborative** "
+"content creation system:"
+msgstr ""
+
+#: ../../why_oggmedu.rst:26
+msgid ""
+"*open-source*: everything is available on our online repositories, with "
+"an open license allowing nonrestrictive reuse."
+msgstr ""
+
+#: ../../why_oggmedu.rst:28
+msgid ""
+"*decentralized*: content using OGGM-Edu or that can be run on OGGM-Edu "
+"does not have to be stored on our repositories. For example, out `own "
+"notebooks <https://github.com/OGGM/oggm-edu-notebooks>`_ are stored in a "
+"separate repository, and so are `Lizz' notebooks "
+"<https://github.com/ehultee/CdeC-glaciologia>`_."
+msgstr ""
+
+#: ../../why_oggmedu.rst:33
+msgid ""
+"*collaborative*: thanks to the decentralized open-source model, any new "
+"modification and innovation can feed back into the original website, if "
+"the author of the new content chose a license allowing it (which we "
+"strongly encourage!)."
+msgstr ""
+
+#: ../../why_oggmedu.rst:37
+msgid ""
+"We use **tools familiar to scientists**, not web developpers: our apps "
+"and notebooks are written in the Python programming language, this "
+"website is written in the `rst format "
+"<https://en.wikipedia.org/wiki/ReStructuredText>`_. These tools are much "
+"easier to learn and adopt for scientists than, css, javascript or html "
+"for example. That way, we hope to engage more people to use and develop "
+"the website further."
+msgstr ""
+
+#: ../../why_oggmedu.rst:44
+msgid ""
+"If you want to know more, you can watch our recent seminar presentation "
+"explaining these points into more detail and demonstrating some of OGGM-"
+"Edu's applications:"
+msgstr ""
+
+#: ../../why_oggmedu.rst:53
+msgid ""
+"The slides are available `here (online version) <https://oggm.org/oggm-"
+"edu-talk>`_ or `here (pdf) <https://github.com/OGGM/oggm-edu-"
+"talk/raw/master/oggm-edu-talk.pdf>`_ ."
+msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+
+#~ msgid ""
+#~ "OGGM-Edu was created as a \"side"
+#~ " project\" of the larger `OGGM "
+#~ "<http://oggm.org>`_ consortium. It is now "
+#~ "a somewhat independent and, we hope, "
+#~ "useful educational website. We are "
+#~ "hoping to engage more content creators"
+#~ " and users! Here is what motivates"
+#~ " us:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "OGGM-Edu is an **interactive "
+#~ "complement** to existing :ref:`online "
+#~ "resources <other_resources>`: OGGM-Edu offers"
+#~ " \"hands-on\" and practical activities, "
+#~ "but only very little textbook content."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The main themes we are currently "
+#~ "working on are **glacier models** and"
+#~ " **global issues**: this has grown "
+#~ "out of our own research interests "
+#~ "and expertise, but it doesn't have "
+#~ "to always stay that way. We are"
+#~ " open for other topics as well!"
+#~ msgstr ""
+
+#~ msgid "Our target groups are **instructors** and **independent learners**."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*open-source*: everything is available "
+#~ "on online repositories and with an "
+#~ "open license allowing unrestrictive reuse."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*collaborative*: thanks to the decentralized"
+#~ " open-source model, any new "
+#~ "modification and innovation can feed "
+#~ "back to the original website, if "
+#~ "the author of the new content "
+#~ "decided to allow it (which we "
+#~ "strongly encourage!)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We use **tools familiar to scientists**,"
+#~ " who are not web developpers: our "
+#~ "apps and notebooks are written in "
+#~ "the Python programming language, this "
+#~ "website is written in rst format. "
+#~ "These tools are much easier to "
+#~ "learn and adapt for fellow scientists"
+#~ " than, say, css or html. That "
+#~ "way, we hope to engage more people"
+#~ " to use and develop the website "
+#~ "further."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The main themes we are currently "
+#~ "working on are the use of "
+#~ "**glacier models to learn about glaciers"
+#~ " and climate change**, with a focus"
+#~ " on **global issues** (see-level "
+#~ "change, water availability, regional and "
+#~ "global climate change): these topices "
+#~ "have grown out of our own research"
+#~ " interests and expertises, but it "
+#~ "doesn't have to stay that way. We"
+#~ " are open for other topics as "
+#~ "well!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We rely **tools familiar to "
+#~ "scientists**, not web developpers: our "
+#~ "apps and notebooks are written in "
+#~ "the Python programming language, this "
+#~ "website is written in the `rst "
+#~ "format <https://en.wikipedia.org/wiki/ReStructuredText>`_. "
+#~ "These tools are much easier to "
+#~ "learn and adopt for scientists than, "
+#~ "css, javascript or html for example. "
+#~ "That way, we hope to engage more"
+#~ " people to use and develop the "
+#~ "website further."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*open-source*: everything is available "
+#~ "on our online repositories, with an "
+#~ "open license allowing unrestrictive reuse."
+#~ msgstr ""
+

@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-13 11:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../oggm_tuto.rst:4
+msgid "How to use OGGM"
+msgstr ""
+
+#: ../../oggm_tuto.rst:6
+msgid ""
+"If you plan to use the OGGM model for your research, we've prepared "
+"several tutorials for you. You can `download them from Github "
+"<https://github.com/OGGM/oggm-edu-notebooks>`_, or you can try them "
+"online!"
+msgstr ""
+
+#: ../../oggm_tuto.rst:11
+msgid ""
+"To try them on Binder (free, temporary environments, no registration "
+"required), follow this link:"
+msgstr ""
+
+#: ../../oggm_tuto.rst:14
+msgid "|badge_tutorial_notebooks|"
+msgstr ""
+
+#: ../../oggm_tuto.rst:16
+msgid ""
+"To try them on `OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html"
+"#oggm-hub>`_ (free, persistent environments after registration on "
+"GitHub), follow this link:"
+msgstr ""
+
+#: ../../oggm_tuto.rst:19
+msgid "|badge_hub|"
+msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+

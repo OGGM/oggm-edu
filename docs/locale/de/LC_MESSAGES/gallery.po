@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-13 11:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../gallery.rst:4
+msgid "Glacier Gallery"
+msgstr ""
+
+#: ../../gallery.rst:10
+msgid ""
+"The glacier gallery is an **interactive web application** with which you "
+"can learn (and teach) about the diverse glaciers of the world. It "
+"introduces different glacier types with pictures and explanations. It "
+"includes typical glaciers from nearly all glaciated regions of the world."
+msgstr ""
+
+#: ../../gallery.rst:15
+msgid ""
+"start the **english version** of the app by clicking on this link: "
+"|badge_bokeh_en|_"
+msgstr ""
+
+#: ../../gallery.rst:16
+msgid ""
+"um die **deutsche Version** der App zu starten, klicke auf den folgenden "
+"Link: |badge_bokeh_de|_"
+msgstr ""
+
+#: ../../gallery.rst:24
+msgid "How to use it"
+msgstr ""
+
+#: ../../gallery.rst:26
+msgid ""
+"The app contains an interactive **map** with marked glaciers. The markers"
+" are color-coded according to the glacier’s type. When the mouse hovers "
+"above one, information about that glacier and a picture of it appears. "
+"When you click on the marker information about the glaciertype pop up in "
+"the **infobox** on the right. The box has a second tap that shows "
+"information about glaciers in general. If you want to choose a different "
+"glacier click into the map to delete your selection and choose a new "
+"marker."
+msgstr ""
+
+#: ../../gallery.rst:35
+msgid "Authors"
+msgstr ""
+
+#: ../../gallery.rst:37
+msgid "`Zora Schirmeister <https://github.com/zschirmeister>`_"
+msgstr ""
+
+#: ../../gallery.rst:41
+msgid "Data sources"
+msgstr ""
+
+#: ../../gallery.rst:43
+msgid ""
+"Glacier location and sizes are obtained from the `Randolph Glacier "
+"Inventory version 6 <https://www.glims.org/RGI/>`_."
+msgstr ""
+
+#: ../../gallery.rst:45
+msgid "See the app for links to other data sources and pictures."
+msgstr ""
+
+#: ../../gallery.rst:49
+msgid "Source code"
+msgstr ""
+
+#: ../../gallery.rst:51
+msgid ""
+"Code and data are on `GitHub <https://github.com/OGGM/glacier-gallery>`_,"
+" BSD licensed."
+msgstr ""
+
+#: ../../gallery.rst:55
+msgid "Possible future improvements"
+msgstr ""
+
+#: ../../gallery.rst:57
+msgid ""
+"The application would profit from additional glaciers in regions that are"
+" not covered yet. If you are interested to contribute you can add a "
+"glacier and an image of it into this `list <https://github.com/OGGM"
+"/glacier-gallery/blob/master/glacier_data.py>`_. You can send us the "
+"edited file per mail or with a pull-request. Thanks!"
+msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+

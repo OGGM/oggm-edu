@@ -3,42 +3,105 @@
 World Glaciers Explorer
 =======================
 
-.. figure:: _static/explorer.png
+.. figure:: _static/explorer_thumbnail.png
     :width: 100%
-    :target: https://dash.klima.uni-bremen.de/bokeh/app
+    :target: https://bokeh.oggm.org/explorer/app
 
-The world glacier explorer is an interactive application allowing to explore
-the location of the glaciers and their climate.
+The world glacier explorer is an **interactive web application** with which
+you can learn (and teach) about the world's glaciers, their location,
+their climate, and the ice they store. By "glaciers", we mean all glaciers
+outside of the two continental ice sheets (Greenland and Antarctica).
+
+You can start the app by clicking on this link: |badge_bokeh_en|_
+
+.. _badge_bokeh_en: https://bokeh.oggm.org/explorer/app
+
+Alternatively, you can start the app `on mybinder <https://mybinder.org/v2/gh/OGGM/world-glacier-explorer/master?urlpath=panel/app>`_
+(slightly slower in general, but a good alternative if our server is saturated).
+If you want to run the app on your own computer, see :ref:`docker-launch` below.
+
+**The app contains five elements**:
+
+- the **world map** (upper right) displays thg glaciers' location, with the color shading
+  indicating the total glacier area in each pixel. Moving the mouse over a glacier
+  pixel displays its exact glaciated area. When selecting a box on the map,
+  the other elements in the app will update accordingly. Above the map, there is
+  a toolbar: with the "Box Zoom" button, you can also zoom into a specific
+  region. Click on "Reset" to set the map back to defaults (see the video below
+  for a demo). *Be aware that
+  the map projection is slightly misleading: high latitudes appear much
+  bigger on the map than they really are.*
+- the **clear selection button** on the left resets the current glacier selection.
+- the **bar plots** (left of the map) indicate various statistics about the current
+  glacier selection (default selection: all glaciers). The upper blue bar
+  indicates the number of glaciers selected, the middle blue bar their total
+  area, and the lower blue bar their estimated volume. This volume can be
+  converted to its *sea-level rise equivalent* (in mm), which is the global
+  sea-level rise to be expected if all glacier vanished. Only glaciers *above*
+  sea-level are contributing to this figure, therefore there are two vertical
+  orange bars:
+  *asl* (above sea-level) and *bsl* (below sea-level). See the demo and
+  explanations below on how to use this information.
+- the three **climate histograms plots** (lower row) display the distribution
+  of the selected glaciers' climate conditions. The y-axis is given in number
+  of glaciers per bin, and the x-axis in the unit of the target variable
+  (temperature trend, average temperature, average precipitation at the glacier
+  location). Selecting a range of values in these plots also actualizes the map
+  and the rest of the plots (see demo below).
+- the **glacier elevation/altitude scatter plot** (lower right) displays the
+  average elevation of the glaciers on the map as a function of latitude (y-axis).
 
 
-You can start the app by clicking on this link: |badgelink|_
+Video tutorials
+---------------
 
-.. |badgelink| image::  https://img.shields.io/badge/launch-bokeh%20app-579ACA.svg?style=popout&logo=     data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4wEeDC0U4ki9ZgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAQFSURBVFjD7ZddaBxVGIafc2Y22+1u0qSxyaZJbBMTxLapUseUIsWWWrRIFhYL9bfgjdirQgX1qhUUb7zwQnqhghZ7IYo4MKJoo1YUtcQxlTRpWkyWGEp+l+zmZ5vs7swcL9yENeruxhi9yXc358z5nvfM9853ZgT/X/gAyXqsx3r8W2FHI9jRyNpDll1X2dFIVbH7CoVYCdgwLexoZA/wDHA34M/lSAE9wNuGaX2/fM2qBCyDnwFOCKU2S9fxCaUAUEKgpHQ8qc0BJvC8YVqTpYjQS3kCOfgrwEnheRvnqrYwuHMv09V1eEISnE2wdahfDw9fr9SczFNKyDvsaOSYYVrDxcohiu0+Bz8CnBeeVz1y2y6utD+AEmIpgRDgIqkeH2aH/QWhZBwl5SfAE4ZpJRfzrMYDF4XnHUjUNtJ16BgqN66UIlxVjtFSzzd9Q0ylXcKjMXb+2MnG2SRKiCeB9wzTcv8utywBbgBNUnn07zmIAny6JBTwo3DZFMpyZ3MYo7Uezc0y1thKvK4JT2oAJ4CyQvlLOQ7bhPJCc5XVpCo2A3BPawOHdjdzIxHj3LdnSaQSNIcrqa0MQNYhXredrD8ASrUX81kpAiqFUr754CZQCp8uOdDWREt9JRv8ccaTE3THekllphhJ/oLrZkgHQniatmhyXyEjliIgpRBuWXoeIXXiswN0DXTj18t45N7DzMyn+CnWw+R0nK7YV8RTN/C5DsLzFterQslLeQ17lBSp8mS8SkyPcmHwQ77sf58zR0/RUL0Vv17G11d/YDw5yeDENbRAI/uSG9CzGRBiCEivqg8YpnXJjkauStdtaLjcyUJgBkcpXvroNVrDzWRdh9j4rwyMDZERkBnto2LMh8/J4sEHgPOPPbBUOyFedGGiZXyC44kgITTG5mf4bqAbD3AFpHVBrSrjyMgs4dk5FGoGOA9kCjG0EpqQnPn5cnzLQx1pJx4/uH1earendSrQUJpECMEtjmTfTT8PJwPctVCGD4GCU8Dnhml5djTCm9eul16CZa49Wb6r7bi/pubizWDwsDY9/fKOBX3/toxGSvrJCtAUBD1ByBMACwpeAM4ZpuUUOwtEkd13AK8D24TuQ7nOgyhlA3sFPAbsB27NOT2m4GPgXeDKIrxQG/5LAXnw3cBbQHtuqhe4zzCtKTsakbnvej3PRx6QBbKGaalS4H8SkAevAc4CR3NTidxu+4olXMm3wJKAfKV2NBIATvN7HRcbSQfwqWFaqpRdrSTkMuUSeDwPDvAscGEt4AAy77EL4H7g1bz5N4B3DNPKrgX8Dx6wo5Fm4DOgNTfUCTxtmNbQWsGXSpAzTSivL/QCp9caDqDnAXrsaORR4DnAMkzr0n/xP/Ebgv/Oed8KI9UAAAAASUVORK5CYII=
-.. _badgelink: https://dash.klima.uni-bremen.de/bokeh/app
+Part 1: app functionalities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The app contains five elements:
+.. raw:: html
 
-- the **header text** indicates how many glaciers are currently selected
-  (active), and how much of the total area they represent.
-- the **top left panel** is a map of the glacier locations and their area. Moving
-  the mouse over a glacier pixel gives you its glaciated area. Be aware that
-  the map projection is misleading: northern latitudes appear much bigger on
-  the map than they really are.
-- the **top right panel** displays the elevation of the glaciers with respect to
-  their latitude.
-- the **bottom left panel** shows the histogram of the glaciers' mean temperature
-  (at the glacier's mean elevation).
-- the **bottom right panel** shows the histogram of the glaciers' mean annual
-  precipitation (liquid and solid).
+  <iframe src="https://player.vimeo.com/video/422776970" width="640" height="357" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <p><a href="https://vimeo.com/422776970">OGGM-Edu app: World Glaciers Explorer tutorial (part 1) on Vimeo</a></p>
 
-When selecting data in each of these panels, the other panels are actualized
-automatically, allowing to ask questions such as:
+Part 2: example questions
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- where are the wettest glaciers located? And the driest?
-- is there a relationship between temperature and precipitation?
-- how much glacier area is found on Greenland? In the European Alps?
-- what is the relationship between latitude and glacier elevation?
-- ...
+.. raw:: html
+
+  <iframe src="https://player.vimeo.com/video/425084908" width="640" height="357" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <p><a href="https://vimeo.com/425084908">OGGM-Edu app: World Glaciers Explorer tutorial (part 2) on Vimeo</a></p>
+
+
+Questions to explore with this app
+----------------------------------
+
+With this app, you can address many questions, by yourself or in class! For example:
+
+- How many glaciers are there on Earth? How much volume do they represent?
+- How much would the sea-level rise if all glaciers melted? All glaciers in the
+  Alps? In the Himalayas? etc.
+- What is the relationship between latitude and glacier elevation? Why?
+- Where are the locations with highest precipitation? And the driests?
+- Is there a relationship between average temperature and average precipitation?
+- How much glacier area is found on Greenland? In the European Alps? How does
+  these number compare to, say, the area of Berlin, France, Mexico?
+- Does the number of glaciers in a region always correlate with their total volume?
+- What regions are most likely to contribute to sea-level rise? Where do we
+  find glaciers with ice below sea-level?
+- Where are the glaciers which are warming the fastest? Why?
+- Where are the wettest glaciers in the Himalayas? (select all Himalayan glaciers
+  first, then the wettest). Can you explain why?
+- Repeat the excercise above with other regions: Greenland, the Alps, etc.
+- And many more!
+
+Resources
+---------
+
+- Several pages from `Glaciers and Climate <http://www.antarcticglaciers.org/glaciers-and-climate/>`_ on `antarcticglaciers.org`_ are highly relevant here
+- `Warming trends at glaciers locations <https://fabienmaussion.info/2019/08/29/era5/>`_, a blog post by Fabien Maussion
+- `Glacial Census Reveals Ice Thicknesses Around the World <https://eos.org/articles/glacial-census-reveals-ice-thicknesses-around-the-world>`_, EOS
+
+.. _antarcticglaciers.org: http://www.antarcticglaciers.org/
 
 
 Authors
@@ -46,34 +109,50 @@ Authors
 
 `Philipp Rudiger <https://github.com/philippjfr>`_ and
 `James Bednar <https://github.com/jbednar>`_ from
-`PyViz <http://pyviz.org/>`_, based on an original
-`Dash application <https://dash.klima.uni-bremen.de/apps/explore>`_ by
-`Fabien Maussion <https://fabienmaussion.info/>`_.
-
+`HoloViz <http://holoviz.org//>`_ and Anaconda Inc., based on an original
+Dash application by `Fabien Maussion <https://fabienmaussion.info/>`_.
+`Zora Schirmeister <https://github.com/zschirmeister>`_ improved the app
+with new data, plots, and an improved layout.
 
 Data sources
 ------------
 
-The app displays all glaciers worldwide with the exception of Antarctica, where
-no climate data is available. Glacier location and area are obtained
+Glacier location, elevation and area are obtained
 from the `Randolph Glacier Inventory version 6 <https://www.glims.org/RGI/>`_.
+The climate data (temperature, precipitation, trends) is extracted from
+`ERA5 data <https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>`_
+provided by the `ECMWF <https://www.ecmwf.int/>`_.
+The glacier volume was provided by `Farinotti et al., (2019) <https://www.nature.com/articles/s41561-019-0300-3>`_
 
-The climate data (temperature and precipitation) is extracted from the
-CRU TS v4.01 data `provided <https://crudata.uea.ac.uk/cru/data/hrg/>`_
-by the Climatic Research Unit of the University of East Anglia.
 
-Topography data is obtained from
-`various data sources <https://docs.oggm.org/en/latest/input-data.html#topography-data>`_.
+Source code
+-----------
 
-The data processing was realized with the OGGM model for
-`this scientific paper <https://www.geosci-model-dev-discuss.net/gmd-2018-9/>`_.
+Code and data are on `GitHub <https://github.com/OGGM/world-glacier-explorer>`_, MIT licensed.
 
-Possible improvements
+.. _docker-launch:
+
+Launching from Docker
 ---------------------
 
-- By using other data sources (e.g. ERA-5), it would be possible to plot
-  the Antarctic glaciers as well.
+This application should work quite well online, either on our server or on
+mybinder. But you can also start the app locally, which will make it
+faster and less dependent on an internet connection (although you still
+need one to download the app, display the logos and the map).
+
+To start the app locally, all you'll need is to
+have `Docker <https://www.docker.com/>`_ installed on your computer.
+From there, run this command into a terminal:
+
+    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:80 oggm/bokeh:20191210 git+https://github.com/OGGM/world-glacier-explorer.git app.ipynb
+
+Once running, you should be able to start the app in your browser at this
+address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_.
+
+Possible future improvements
+----------------------------
+
 - With a category choice bar, it would be possible to differentiate glaciers
   from ice-caps or marine terminating glaciers from land-terminating ones.
-- By using the data from the global ITMIX experiment, it is possible to convert a
-  selection into sea-level rise equivalent.
+- We could also simplify the app for younger target audiences, with less
+  panels and less distraction.

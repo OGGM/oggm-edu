@@ -1,0 +1,277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-13 11:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../simulator.rst:4
+msgid "Glacier Simulator"
+msgstr ""
+
+#: ../../simulator.rst:10
+msgid ""
+"The glacier simulator is an **interactive web application** with which "
+"you can learn (and teach) about glacier flow, how glaciers grow and "
+"shrink, what parameters influence their size, and a lot more!"
+msgstr ""
+
+#: ../../simulator.rst:14
+msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
+msgstr ""
+
+#: ../../simulator.rst:20
+msgid ""
+"The glacier simulator app runs a numerical glacier model in the "
+"background, using computer resources on the cloud. If several people are "
+"using the app at the same time, the server might become slow or "
+"unresponsive. In this case, we recommend to use the app `on MyBinder "
+"<https://mybinder.org/v2/gh/OGGM/glacier_simulator/master?urlpath=panel/app>`_"
+" or even locally on your own computer (see :ref:`docker-launch-simulator`"
+" below)."
+msgstr ""
+
+#: ../../simulator.rst:28
+msgid "Getting started with the app"
+msgstr ""
+
+#: ../../simulator.rst:30
+msgid ""
+"The upper panel in the app is a guided tutorial about the app's "
+"functionalities. You can navigate it with the \"Next\" and \"Previous\" "
+"buttons, or use the \"Find help here\" overview."
+msgstr ""
+
+#: ../../simulator.rst:36
+msgid "Questions to explore with this app"
+msgstr ""
+
+#: ../../simulator.rst:38
+msgid ""
+"With this app, you can address many questions, by yourself or in class! "
+"This list will grow in the future (documentation takes time!)."
+msgstr ""
+
+#: ../../simulator.rst:42
+msgid "Glacier shape"
+msgstr ""
+
+#: ../../simulator.rst:44 ../../simulator.rst:63
+msgid ""
+"See `antarcticglaciers.org (mass-balance)`_ for an introduction about "
+"glacier mass-balance and the ELA, or our :ref:`glacier_basics` graphics "
+"for an illustration."
+msgstr ""
+
+#: ../../simulator.rst:48
+msgid ""
+"**In \"beginner mode\", start by setting the ELA to 3000m a.s.l**, and "
+"note on a piece of paper: the equilibrium volume of the glacier, its "
+"length and maximal thickness. **Now choose the \"wider top\" glacier "
+"shape** and run the model again. Is the new glacier larger or smaller "
+"than before? Why?"
+msgstr ""
+
+#: ../../simulator.rst:53 ../../simulator.rst:81 ../../simulator.rst:122
+msgid "Take home messages"
+msgstr ""
+
+#: ../../simulator.rst:56
+msgid ""
+"A glacier with a wider top has a larger `accumulation area "
+"<https://en.wikipedia.org/wiki/Accumulation_zone>`_. It can therefore "
+"accumulate more mass (more ice) and flow further down."
+msgstr ""
+
+#: ../../simulator.rst:61
+msgid "Equilibrium Line Altitude (ELA)"
+msgstr ""
+
+#: ../../simulator.rst:67
+msgid "We are going to show that the ELA is determinant in shaping glaciers."
+msgstr ""
+
+#: ../../simulator.rst:69
+msgid ""
+"**In \"beginner mode\", start by setting the ELA to 2500m a.s.l**, and "
+"note on a piece of paper: the equilibrium volume of the glacier, its "
+"length and maximal thickness."
+msgstr ""
+
+#: ../../simulator.rst:73
+msgid ""
+"**Now change the ELA up to 3500m a.s.l in 200m increments** and, at each "
+"step, note the equilibrium volume of the glacier, its length and maximal "
+"thickness."
+msgstr ""
+
+#: ../../simulator.rst:76
+msgid ""
+"**Now draw these variables on a graph, as a function of the ELA.** How "
+"does glacier volume change with ELA? Can you explain why? What about "
+"glacier length and thickness? Are these changes linear, or more complex?"
+msgstr ""
+
+#: ../../simulator.rst:84
+msgid ""
+"An example graphic that students could come up with by varying the ELA "
+"with different shapes:"
+msgstr ""
+
+#: ../../simulator.rst:90
+msgid ""
+"**The lower the ELA, the larger the equilibrium glacier**. The length, "
+"volume or maximal thickness are not necessarily linear functions of the "
+"ELA."
+msgstr ""
+
+#: ../../simulator.rst:95
+msgid "Glacier slope"
+msgstr ""
+
+#: ../../simulator.rst:97
+msgid ""
+"The slope of a glacier bed is one key ingredient which determines glacier"
+" flow. For a introduction, visit `antarcticglaciers.org (glacier-flow)`_."
+" In short: glaciers flow downslope driven by the gravitational force. "
+"This force can be decomposed into an along-slope component and "
+"perpenticular to the slope component (see `this illustration in wikipedia"
+" "
+"<https://en.wikipedia.org/wiki/Inclined_plane#/media/File:Free_body1.3.svg>`_)."
+" The along-slope component \"pulls\" the glacier downwards and the "
+"perpendicular component \"flattens\" the glacier."
+msgstr ""
+
+#: ../../simulator.rst:104
+msgid "**Experiments:**"
+msgstr ""
+
+#: ../../simulator.rst:106
+msgid ""
+"*Beginners*: Use beginner mode with standard settings (constant width, "
+"mass balance gradient of 4 and ELA of 3000) and run the model with all "
+"different settings for the slope and use the geometry plot for "
+"inspection. Take notes on a piece of paper of the ice thickness, volume, "
+"area and length at the end of each model run."
+msgstr ""
+
+#: ../../simulator.rst:111
+msgid ""
+"*Advanced*: Conduct the same experiment as for beginners, but "
+"additionally switch on the timeseries plot. Also take notes of the "
+"velocity and look how the parameters change with time in the timeseries "
+"plot."
+msgstr ""
+
+#: ../../simulator.rst:115
+msgid "**Questions to answer:**"
+msgstr ""
+
+#: ../../simulator.rst:117
+msgid "*Beginners*: which glaciers are thicker? Steep or flat ones? And why?"
+msgstr ""
+
+#: ../../simulator.rst:118
+msgid ""
+"*Advanced*: which glaciers are faster? Steep or flat ones? How and why "
+"does the velocity change with time?"
+msgstr ""
+
+#: ../../simulator.rst:125
+msgid "glaciers flow downslope"
+msgstr ""
+
+#: ../../simulator.rst:126
+msgid ""
+"the steeper the slope the thinner the glacier (larger along-slope "
+"gravitational force)"
+msgstr ""
+
+#: ../../simulator.rst:127
+msgid ""
+"the flatter the slope the larger the equilibrium velocity. When the "
+"glacier is thin (has not much mass) the along-slope component is more "
+"important. When the glacier is getting thicker the perpendicular "
+"component is getting more weight. This partly explains slower velocities "
+"for flatter slopes at the start of the model run, and higher velocities "
+"when the glacier is getting thicker. For steeper slopes the velocities at"
+" the start are large and so more ice is transported downwards, and the "
+"glacier stays relatively thin."
+msgstr ""
+
+#: ../../simulator.rst:141
+msgid "Authors"
+msgstr ""
+
+#: ../../simulator.rst:143
+msgid ""
+"`Patrick Schmitt <https://github.com/pat-schmitt>`_ (main author) and "
+"`Fabien Maussion <https://fabienmaussion.info/>`_."
+msgstr ""
+
+#: ../../simulator.rst:147
+msgid "Source code"
+msgstr ""
+
+#: ../../simulator.rst:149
+msgid ""
+"Code and data are on `GitHub "
+"<https://github.com/OGGM/glacier_simulator>`_, BSD licensed."
+msgstr ""
+
+#: ../../simulator.rst:154
+msgid "Launching from Docker"
+msgstr ""
+
+#: ../../simulator.rst:156
+msgid ""
+"This application can keep a single processor quite busy when running. "
+"Fortunately, you can also start the app locally, which will make it "
+"faster and less dependent on an internet connection (although you still "
+"need one to download the app and display the logos)."
+msgstr ""
+
+#: ../../simulator.rst:161
+msgid ""
+"To start the app locally, all you'll need is to have `Docker "
+"<https://www.docker.com/>`_ installed on your computer. From there, run "
+"this command into a terminal:"
+msgstr ""
+
+#: ../../simulator.rst:165
+msgid ""
+"docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:8080 "
+"oggm/bokeh:20200406 git+https://github.com/OGGM/glacier_simulator.git "
+"app.ipynb"
+msgstr ""
+
+#: ../../simulator.rst:167
+msgid ""
+"Once running, you should be able to start the app in your browser at this"
+" address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_."
+msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+

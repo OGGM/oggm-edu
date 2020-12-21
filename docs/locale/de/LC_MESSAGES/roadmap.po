@@ -1,0 +1,480 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-13 18:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../roadmap.rst:4
+msgid "Contribute to OGGM-Edu"
+msgstr ""
+
+#: ../../roadmap.rst:6
+msgid "As of June 2020, the OGGM-Edu platform features:"
+msgstr ""
+
+#: ../../roadmap.rst:8
+msgid "4 interactive web apps"
+msgstr ""
+
+#: ../../roadmap.rst:9
+msgid "8 jupyter notebooks templates in various complexity levels"
+msgstr ""
+
+#: ../../roadmap.rst:10
+msgid "a series of glacier graphics"
+msgstr ""
+
+#: ../../roadmap.rst:11
+msgid ""
+"bits of documentation for teachers about how to use the notebooks and "
+"MyBinder"
+msgstr ""
+
+#: ../../roadmap.rst:13
+msgid ""
+"We are proud of simple things, such as the the use of OGGM-Edu for a "
+"class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_),"
+" or the positive feedback about the web applications and the use of "
+"MyBinder as a viable platform to run workshops and tutorials online."
+msgstr ""
+
+#: ../../roadmap.rst:18
+msgid ""
+"This is great! But we also see that there is room for improvement, and we"
+" would like to use this roadmap as a \"working document\" to keep track "
+"of our goals for the years to come. OGGM-Edu is meant to be a "
+"collaborative platform, and we welcome any kind of contribution, from a "
+"typo correction to a new fully fledged web app!"
+msgstr ""
+
+#: ../../roadmap.rst:24
+msgid ""
+"**If you want to participate**, here are some pointers to get you "
+"started. Thanks so much for your help!"
+msgstr ""
+
+#: ../../roadmap.rst:28
+msgid "Help with typos, text, content, etc."
+msgstr ""
+
+#: ../../roadmap.rst:30
+msgid ""
+"Everything on this website is written by volunteers and non-native "
+"english speakers. If you find mistakes or things you'd like to change, "
+"please do! You can edit each file by following the \"Edit on GitHub\" "
+"link at the top of each page, or send us your modification suggestions!"
+msgstr ""
+
+#: ../../roadmap.rst:36
+msgid "Create new content"
+msgstr ""
+
+#: ../../roadmap.rst:38
+msgid ""
+"We welcome any new idea you may have: a new graphic, a new notebook, a "
+"new app... You can decide to have it hosted here at edu.oggm.org "
+"(ref:`reach out! <title_contact>`), or you can decide to have it in your "
+"own namespace! Follow :ref:`these instructions <user_content>` if you'd "
+"rather do the latter."
+msgstr ""
+
+#: ../../roadmap.rst:44
+msgid "Prepare activity sheets for schools"
+msgstr ""
+
+#: ../../roadmap.rst:46
+msgid ""
+"Let's face it: right now, OGGM-Edu is of limited use for teachers, who "
+"have only little time to prepare their class. It would be very useful to "
+"prepare concrete \"activity sheets\" which explain how to spend one, two,"
+" or four hours with OGGM-Edu, at various levels of difficulty and level "
+"of detail. Such documents could also live on the website and be updated "
+"as people report their experiences with the tool."
+msgstr ""
+
+#: ../../roadmap.rst:55
+msgid "Help translate OGGM-Edu"
+msgstr ""
+
+#: ../../roadmap.rst:57
+msgid ""
+"We are seeking to improve the usefulness of OGGM-Edu in non english "
+"speaking groups. It is technically easy to do it (we already have "
+"template - dummy - pages for `german <https://edu.oggm.org/de/latest/>`_,"
+" `french <https://edu.oggm.org/fr/latest/>`_ and `spanish "
+"<https://edu.oggm.org/es/latest/>`_ and we can easily add any other "
+"language): the hard part is to actually *translate* the content and keep "
+"the translations up to date ;-)."
+msgstr ""
+
+#: ../../roadmap.rst:66
+msgid ""
+"The translation files are located in the `docs/locale "
+"<https://github.com/OGGM/oggm-edu/tree/master/docs/locale>`_ folder: "
+"these `.po` files are like a dictionary that can be edited with a simple "
+"text editor or dedicated tools (e.g. `poedit <https://poedit.net/>`_). "
+"See `this file <https://github.com/OGGM/oggm-"
+"edu/blob/master/docs/locale/fr/LC_MESSAGES/alps_future.po>`_ for an "
+"example."
+msgstr ""
+
+#: ../../roadmap.rst:72
+msgid ""
+"If you would like to help, grab these files and translate were you can! "
+"The translation of even one single page would be very useful. We can "
+"provide support and advice with the languages we can read (spanish, "
+"french, german)."
+msgstr ""
+
+#: ../../roadmap.rst:77
+msgid "Refactoring of the oggm-edu python package"
+msgstr ""
+
+#: ../../roadmap.rst:79
+msgid "This is probably the most involved change."
+msgstr ""
+
+#: ../../roadmap.rst:81
+msgid ""
+"As it is now, oggm-edu relies mostly on the models and syntax provided by"
+" the core OGGM. They provides the functionality we need, but at the same "
+"time the OGGM numerical models have several issues in the educational "
+"context:"
+msgstr ""
+
+#: ../../roadmap.rst:85
+msgid ""
+"their functionality is tailored for modelers, not students. I.e. certain "
+"variables are not available and/or hidden, the syntax is clumsy, "
+"optimisations in code make it less readable"
+msgstr ""
+
+#: ../../roadmap.rst:88
+msgid ""
+"it is very difficult to change things in OGGM itself because of backwards"
+" compatibility"
+msgstr ""
+
+#: ../../roadmap.rst:90
+msgid ""
+"it is complex for new users to find the information in the cluttered OGGM"
+" namespace"
+msgstr ""
+
+#: ../../roadmap.rst:93
+msgid ""
+"For these reasons, we suggest to **redesign and refactor the OGGM objects"
+" in a more user-friendly, intuitive oggm-edu namespace**."
+msgstr ""
+
+#: ../../roadmap.rst:96
+msgid ""
+"This will require some thinking, but in short: we should think about (1) "
+"how to name things (very hard) and (2) how do we want the new objects to "
+"behave."
+msgstr ""
+
+#: ../../roadmap.rst:100
+msgid ""
+"The vision is that people have a one stop shop (the OGGM-Edu "
+"documentation) to learn about the flowline models and what they can do "
+"with them, without having to struggle with OGGM itself. The models will "
+"be more expressive, use rich output in the notebooks, with the goal to "
+"make using the models more fun, intuitive and quantitative."
+msgstr ""
+
+#: ../../roadmap.rst:107
+msgid "Website design"
+msgstr ""
+
+#: ../../roadmap.rst:109
+msgid "(less important)"
+msgstr ""
+
+#: ../../roadmap.rst:111
+msgid ""
+"ReadTheDocs and Sphinx are great, but they have their limits. If you have"
+" web skills and would like to make OGGM-Edu more appealing, ref:`reach "
+"out! <title_contact>`"
+msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+
+#~ msgid "Roadmap"
+#~ msgstr ""
+
+#~ msgid "Authors"
+#~ msgstr ""
+
+#~ msgid "Fabien Maussion"
+#~ msgstr ""
+
+#~ msgid "Status"
+#~ msgstr ""
+
+#~ msgid "Draft"
+#~ msgstr ""
+
+#~ msgid "Created"
+#~ msgstr ""
+
+#~ msgid "04.10.2019"
+#~ msgstr ""
+
+#~ msgid "Updated"
+#~ msgstr ""
+
+#~ msgid "01.06.2020"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The OGGM-Edu platform will soon be"
+#~ " 2 years old (first commit on "
+#~ "Sep 21, 2018!). We have made "
+#~ "tremendous progress in one year: we "
+#~ "created this website, added new content,"
+#~ " enabled interactivity via MyBinder and "
+#~ "hub.oggm.org, supported the creation of "
+#~ "a workshop for a class in Peru,"
+#~ " secured funding to continue the "
+#~ "platform's development..."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "It is now time to make a "
+#~ "step back and have a look at "
+#~ "what we achieved, and brainstorm about"
+#~ " what we want to realize in the"
+#~ " future."
+#~ msgstr ""
+
+#~ msgid "Intro"
+#~ msgstr ""
+
+#~ msgid "As of June 2020, we have on the platform:"
+#~ msgstr ""
+
+#~ msgid "So far, our biggest achievements are (subjective opinion):"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "our notebooks were used for a "
+#~ "class in Peru (`blog post "
+#~ "<https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_)"
+#~ msgstr ""
+
+#~ msgid "the uprecedented web applications"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "the use of MyBinder and hub.oggm.org "
+#~ "as viable platforms to run workshops "
+#~ "and tutorials"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "securing of funding for the platform,"
+#~ " indicating that other people see "
+#~ "potential in the project as well."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is great! But we also see "
+#~ "that there is room for improvement, "
+#~ "and we would like to use this "
+#~ "roadmap as a \"working document\" to "
+#~ "keep track of our goals for the"
+#~ " year to come."
+#~ msgstr ""
+
+#~ msgid "Feel to comment or edit this file on GitHub!"
+#~ msgstr ""
+
+#~ msgid "This is probably the most involved and most important change."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "I'm not a big fan of using "
+#~ "sphinx and ReadTheDocs anymore. We could"
+#~ " have a fancy Jekyll website hosted"
+#~ " on Netlify instead!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We welcome any new idea you may"
+#~ " have: a new graphic, a new "
+#~ "notebook, a new app... You can "
+#~ "decide to have it hosted here at"
+#~ " edu.oggm.org, or you can decide to"
+#~ " have it in your own namespace! "
+#~ "Follow these instructions if you'd "
+#~ "rather opt for the latter option: "
+#~ ":ref:`user_content`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We are seeking to improve the "
+#~ "usefulness of OGGM-Edu in non "
+#~ "english speaking cultures. It is "
+#~ "technically possible to do it at "
+#~ "low cost (we already have template "
+#~ "- dummy - translated pages for "
+#~ "`german <https://edu.oggm.org/de/latest/>`_ and "
+#~ "`french <https://edu.oggm.org/fr/latest/>`_ and can"
+#~ " easily add any other language), but"
+#~ " the hard part is to actually "
+#~ "*translate* the content ;-)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The translation files are located in "
+#~ "the `docs/locale <https://github.com/OGGM/oggm-"
+#~ "edu/tree/master/docs/locale>`_ folder: these `.po`"
+#~ " files are like a dictionary that "
+#~ "can be edited with a simple text"
+#~ " editor or dedicated tools (e.g. "
+#~ "`poedit <https://poedit.net/>`_). If you would"
+#~ " like to help, grab these file "
+#~ "and help us were you can! The "
+#~ "translation of even one single page "
+#~ "would be very useful. I can help"
+#~ " with the languages I can read "
+#~ "(spanish, french, german)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The vision is that people have a"
+#~ " centralized place (the OGGM-Edu "
+#~ "documentation) to learn about the "
+#~ "flowline models and what they can "
+#~ "do with them. The models will be"
+#~ " more expressive, use rich output in"
+#~ " the notebooks, with the goal to "
+#~ "make using the models more fun, "
+#~ "intuitive and quantitative."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "ReadTheDocs and Sphinx are great, but"
+#~ " they have their limits. We could "
+#~ "have a fancy Jekyll website hosted "
+#~ "on Netlify instead!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We are proud of simple things, "
+#~ "such as the the use of OGGM-"
+#~ "Edu for a class in Peru (`blog "
+#~ "post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_),"
+#~ " or the positive feedback about the"
+#~ " web applications and the use of "
+#~ "MyBinder as viable platforms to run "
+#~ "workshops and tutorials online."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Everything on this website is written"
+#~ " by volunteers and (often) non-native"
+#~ " speakers. If you find mistakes or"
+#~ " things you'd like to change, please"
+#~ " do! You can edit each file by"
+#~ " following the \"Edit on GitHub\" "
+#~ "link at the top of wach page "
+#~ "or just send us your modification "
+#~ "suggestions!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We welcome any new idea you may"
+#~ " have: a new graphic, a new "
+#~ "notebook, a new app... You can "
+#~ "decide to have it hosted here at"
+#~ " edu.oggm.org, or you can decide to"
+#~ " have it in your own namespace! "
+#~ "Follow these instructions if you'd "
+#~ "rather opt for the latter: "
+#~ ":ref:`user_content`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We are seeking to improve the "
+#~ "usefulness of OGGM-Edu in non "
+#~ "english speaking cultures. It is "
+#~ "technically possible to do it at "
+#~ "low cost (we already have template "
+#~ "- dummy - pages for `german "
+#~ "<https://edu.oggm.org/de/latest/>`_, `french "
+#~ "<https://edu.oggm.org/fr/latest/>`_ and `spanish "
+#~ "<https://edu.oggm.org/es/latest/>`_ and we can "
+#~ "easily add any other language), but "
+#~ "the hard part is to actually "
+#~ "*translate* the content ;-)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The translation files are located in "
+#~ "the `docs/locale <https://github.com/OGGM/oggm-"
+#~ "edu/tree/master/docs/locale>`_ folder: these `.po`"
+#~ " files are like a dictionary that "
+#~ "can be edited with a simple text"
+#~ " editor or dedicated tools (e.g. "
+#~ "`poedit <https://poedit.net/>`_). If you would"
+#~ " like to help, grab these file "
+#~ "and help us were you can! The "
+#~ "translation of even one single page "
+#~ "would be very useful. We can help"
+#~ " with the languages we can read "
+#~ "(spanish, french, german)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This will require some thinking, but "
+#~ "at the core, we should think about"
+#~ " (1) how to name things (very "
+#~ "hard) and (2) how do we want "
+#~ "the new objects to behave."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The vision is that people have a"
+#~ " one-stop shop (the OGGM-Edu "
+#~ "documentation) to learn about the "
+#~ "flowline models and what they can "
+#~ "do with them. The models will be"
+#~ " more expressive, use rich output in"
+#~ " the notebooks, with the goal to "
+#~ "make using the models more fun, "
+#~ "intuitive and quantitative."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "ReadTheDocs and Sphinx are great, but"
+#~ " they have their limits. If you "
+#~ "have web skills and would like to"
+#~ " make OGGM-Edu more appealing, reach"
+#~ " out!"
+#~ msgstr ""
+

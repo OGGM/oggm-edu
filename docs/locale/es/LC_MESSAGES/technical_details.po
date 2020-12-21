@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM Developers
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-14 13:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../technical_details.rst:4
+msgid "Technical details"
+msgstr ""
+
+#: ../../technical_details.rst:6
+msgid ""
+"We provide more information about the platform's internals for "
+"instructors and contributors. Make sure you read :ref:`notebooks_howto` "
+"before going on!"
+msgstr ""
+
+#: ../../technical_details.rst:10
+msgid "The computing environments"
+msgstr ""
+
+#: ../../technical_details.rst:12
+msgid ""
+"The computing environments available via MyBinder are `Docker containers "
+"<https://www.docker.com/resources/what-container>`_, or \"software "
+"capsules\" that can be created, pushed and pulled online. We create these"
+" containers using a few simple configuration files specifying the "
+"software packages and python libraries we would like to used in OGGM-Edu."
+" These configurations files are found in this repository: "
+"`<https://github.com/OGGM/binder>`_"
+msgstr ""
+
+#: ../../technical_details.rst:20
+msgid ""
+"MyBinder uses `repo2docker <https://repo2docker.readthedocs.io>`_ to "
+"build these environments and stores them in a hidden database. Once "
+"built, they won't be built again unless a new change is made to the "
+"``OGGM/binder`` repository."
+msgstr ""
+
+#: ../../technical_details.rst:25
+msgid ""
+"We use the same principle to build images that can be used by your own "
+"JupyterHub deployment, if you have one. These images are available `here "
+"<https://hub.docker.com/r/oggm/r2d>`_ and form the base of the Binder "
+"environments. Their configuration files are found in this repository: "
+"`<https://github.com/OGGM/r2d>`_. We use these in :ref:`oggm_hub`."
+msgstr ""
+
+#: ../../technical_details.rst:33
+msgid "The notebooks"
+msgstr ""
+
+#: ../../technical_details.rst:35
+msgid ""
+"The notebooks are developped collaboratively. We welcome your input and "
+"contributions! You will find the directory with all notebooks "
+"(educational and tutorials) on GitHub: `<https://github.com/OGGM/oggm-"
+"edu-notebooks>`_"
+msgstr ""
+
+#: ../../technical_details.rst:41
+msgid "This website"
+msgstr ""
+
+#: ../../technical_details.rst:43
+msgid ""
+"The content of this website is written within the `Sphinx <http://sphinx-"
+"doc.org/>`_ framework and is hosted on `ReadTheDocs "
+"<https://readthedocs.org>`_."
+msgstr ""
+
+#: ../../technical_details.rst:49
+msgid "OGGM-Hub"
+msgstr ""
+
+#: ../../technical_details.rst:51
+msgid ""
+"We also provide a dedicated OGGM JupyterLab running on our own server: "
+"`OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_. The "
+"advantages of OGGM-Hub over Binder are:"
+msgstr ""
+
+#: ../../technical_details.rst:55
+msgid "more resources for your students, faster launches"
+msgstr ""
+
+#: ../../technical_details.rst:56
+msgid "user management: you can set passwords and user names at wish"
+msgstr ""
+
+#: ../../technical_details.rst:57
+msgid ""
+"persistent sessions: work can be saved between sessions and log-ins (this"
+" is probably the main advantage of OGGM-Hub)"
+msgstr ""
+
+#: ../../technical_details.rst:59
+msgid ""
+"`hub.oggm.org <https://hub.oggm.org>`_ is only available to registered "
+"users (registration is free!), but it won't work for an entire class. If "
+"you have a specific need for an OGGM-hub service (e.g. for a one-week "
+"class or a workshop), please :ref:`title_contact` and we'll try to "
+"arrange a specific set-up for you!"
+msgstr ""
+
+#: ../../<rst_epilog>:3
+msgid "**License**"
+msgstr ""
+
+#: ../../<rst_epilog>:8
+msgid ""
+"*Unless specified otherwise (e.g. certain images, links...), the content "
+"of this page is shared under a* `Creative Commons Attribution 4.0 "
+"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
+"(CC BY 4.0).*"
+msgstr ""
+
+#~ msgid "OGGM-Hub (discontinued)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Thanks to a grant from Google's "
+#~ "`Data Solutions for Change "
+#~ "<https://cloud.google.com/data-solutions-for-"
+#~ "change/>`_, we *were* able to provide"
+#~ " free resources to instructors for a"
+#~ " specific class or workshop. This "
+#~ "service is now discontinued, we are "
+#~ "working on ways to set this up "
+#~ "again."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can `try OGGM-Hub "
+#~ "<https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_ if"
+#~ " you have a GitHub account (free!)."
+#~ " The advantages of OGGM-Hub over "
+#~ "Binder are:"
+#~ msgstr ""
+
+#~ msgid "more resources for your students, faster launches"
+#~ msgstr ""
+
+#~ msgid "user management: you can set passwords and user names at wish"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "persistent sessions: work can be saved"
+#~ " between sessions and log-ins (this"
+#~ " is probably the main advantage of"
+#~ " OGGM-Hub)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We also provide a dedicated OGGM "
+#~ "JupyterLab running on our own server:"
+#~ " `OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html"
+#~ "#oggm-hub>`_. The advantages of OGGM-"
+#~ "Hub over Binder are: - more "
+#~ "resources for your students, faster "
+#~ "launches - user management: you can "
+#~ "set passwords and user names at "
+#~ "wish - persistent sessions: work can "
+#~ "be saved between sessions and log-"
+#~ "ins (this is"
+#~ msgstr ""
+
+#~ msgid "probably the main advantage of OGGM-Hub)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`<hub.oggm.org>`_ is only available to "
+#~ "registered users (registration is free), "
+#~ "but it won't work for an entire"
+#~ " class. If you have a specific "
+#~ "need for an OGGM-hub service (e.g."
+#~ " for a one-week class or a "
+#~ "workshop), please :ref:`title_contact` and "
+#~ "we'll try to arrange a specific "
+#~ "set-up for you!"
+#~ msgstr ""
+
