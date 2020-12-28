@@ -133,10 +133,6 @@ The along-slope component "pulls" the glacier downwards and the perpendicular co
       large and so more ice is transported downwards, and the glacier stays
       relatively thin.
 
-.. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
-.. _antarcticglaciers.org (glacier-flow): http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/glacier-flow
-
-
 Surging glaciers
 ~~~~~~~~~~~~~~~~
 
@@ -192,14 +188,10 @@ After a surge event:
 
 In the Notebook :ref:`notebooks_surging_glaciers` you can use OGGM to simulate surging events in Python yourself.
 
-
-.. _`antarcticglaciers.org (surging-glaciers)`: http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/surging-glaciers/
-.. _`this video`: http://cdn.antarcticglaciers.org/wp-content/uploads/2012/10/Panmah_and_Choktoi_glaciers_large.gif
-
 Velocity and Thickness along the glacier
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Experiment:**
+**Experiments:**
 
 - *Beginners*: Use "Beginner mode" to simulate a glacier in equilibrium with *Width* = *Constant*, *ELA* = 3000, *Mass-Balance gradient* = 4 and *Slope* = 11°.
 - *Advanced*: Use "Beginner mode" to simulate a glacier with *Width* = *Wide top, narrow bottom*, *ELA* = 3500, *Mass-Balance gradient* = 4 and *Slope* = 11°.
@@ -231,7 +223,7 @@ for an introduction about glacier Mass-Balance and the Mass-Balance gradient.
 
 In short: The climatic regime determines the glacier Mass-Balance gradient. Discovering global glacier locations using the `World Glaciers Explorer`_ reveals that glaciers can be found in quite different places around the world. Here now discover how different Mass-Balance gradients are shaping glaciers.
 
-**Experiment:**
+**Experiments:**
 
 - First simulate a glacier in a maritime climate in temperate latitudes (larger Mass-Balance gradient, e.g. 10). For this use the "Beginner mode" (*ELA* = 3000, *Width* = *Constant* and *Slope* = 11°) and let the glacier grow until it reaches equilibrium and note on a piece of paper: the equilibrium *Time*, *Length*, *Area*, *Volume*, *Max ice thickness* and *Max ice velocity* of the glacier.
 - Next simulate a glacier in a continental climate in polar latitudes (smaller Mass Balance gradient, e.g. 3) and again take some notes.
@@ -252,7 +244,7 @@ In short: The climatic regime determines the glacier Mass-Balance gradient. Disc
     - more accumulation leads to a thicker glacier and a larger downslope component of the gravitational force (see `Glacier slope`_ experiment)
     - this larger force causes a larger ice flux and further a larger ice velocity
     - the larger the ice velocity the faster ice is transported downwards and the faster the equilibrium is reached
-    - length and area are not much effected due to the unchanged **linear** Mass-Balance profile: no matter which gradient is selected the mass-balance at a certain height is only determined by the distance away from the ELA (e.g. the same amount of mass is accumulated 100 m above the ELA as there is mass ablated 100 m below the ELA, with a constant width)
+    - length and area are not much effected due to the unchanged **linear** Mass-Balance profile: no matter which gradient is selected the total ice gain/loss at a certain height is only determined by the distance away from the ELA (e.g. the same amount of mass is accumulated 100 m above the ELA as there is mass ablated 100 m below the ELA, with a constant width)
     - whereas the volume is increasing with a increasing Mass-Balance gradient due to a larger ice thickness
 
 AAR (Accumulation Area Ratio)
@@ -260,7 +252,7 @@ AAR (Accumulation Area Ratio)
 
 The AAR is the ratio of the accumulation area (= area above ELA) to the total glacier area. Lets make some experiments to see what the AAR can tell us about glaciers. Note for the interpretation of the experiments that the total ice gain/loss at a certain height equals the Mass-Balance (black line in top right figure) times the area (resp. width) at the same height.
 
-**Experiment:**
+**Experiments:**
 
 - *Beginners*: Use "Beginner mode" and conduct runs with *Width* = *Constant* and *Width* = *Wide top, narrow bottom* and note down the different AARs (*ELA* = 3300, *Mass-Balance gradient* = 4, *Slope* = 11°).
 - *Advanced*: Conduct experiments with *Constant* width and different Mass-Balance gradients (e.g. *Mass-Balance gradient below ELA* = 4, *Mass-Balance gradient above ELA* = 2 and vice versa) in "Advanced mode". Note down the different AARs.
@@ -315,8 +307,11 @@ In short: the height of the ELA is determined among other things by the temperat
     - Additional information about the maximum thickness could help to find absolute gradient values.
 
 .. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
+.. _antarcticglaciers.org (glacier-flow): http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/glacier-flow
 .. _World Glaciers Explorer: https://edu.oggm.org/en/latest/explorer.html
 .. _Glacier slope: https://edu.oggm.org/en/latest/simulator.html#glacier-slope
+.. _`antarcticglaciers.org (surging-glaciers)`: http://www.antarcticglaciers.org/glacier-processes/glacier-flow-2/surging-glaciers/
+.. _`this video`: http://cdn.antarcticglaciers.org/wp-content/uploads/2012/10/Panmah_and_Choktoi_glaciers_large.gif
 
 Authors
 -------
