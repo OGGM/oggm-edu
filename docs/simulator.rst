@@ -255,6 +255,36 @@ In short: The climatic regime determines the glacier Mass-Balance gradient. Disc
     - length and area are not much effected due to the unchanged **linear** Mass-Balance profile: no matter which gradient is selected the mass-balance at a certain height is only determined by the distance away from the ELA (e.g. the same amount of mass is accumulated 100 m above the ELA as there is mass ablated 100 m below the ELA, with a constant width)
     - whereas the volume is increasing with a increasing Mass-Balance gradient due to a larger ice thickness
 
+AAR (Accumulation Area Ratio)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The AAR is the ratio of the accumulation area (= area above ELA) to the total glacier area. Lets make some experiments to see what the AAR can tell us about glaciers. Note for the interpretation of the experiments that the total ice gain/loss at a certain height equals the Mass-Balance (black line in top right figure) times the area (resp. width) at the same height.
+
+**Experiment:**
+
+- *Beginners*: Use "Beginner mode" and conduct runs with *Width* = *Constant* and *Width* = *Wide top, narrow bottom* and note down the different AARs (*ELA* = 3300, *Mass-Balance gradient* = 4, *Slope* = 11°).
+- *Advanced*: Conduct experiments with *Constant* width and different Mass-Balance gradients (e.g. *Mass-Balance gradient below ELA* = 4, *Mass-Balance gradient above ELA* = 2 and vice versa) in "Advanced mode". Note down the different AARs.
+
+**Questions to answer:**
+
+- *Beginners*:
+    - Explaine the observed AARs for *Constant* width and for *Wide top, narrow bottom*?
+    - For *Constant* width what values of AAR (below or above 0.5) do you expect for a advancing and a retreating glacier?
+- *Advanced*:
+    - How is the AAR changing with a different Mass-Balance gradients below and above the ELA?
+    - What can you conclulde from the experiments for real valley glaciers when assuming an AAR between 0.5 and 0.8 for a glacier in equilibrium (see for example `Hawkins 1985 <https://www.cambridge.org/core/journals/journal-of-glaciology/article/equilibriumline-altitudes-and-paleoenvironment-in-the-merchants-bay-area-baffin-island-nwt-canada/21991E0893BCCF88D611103F397D73D1>`_)?
+
+..  admonition:: Take home messages
+    :class: toggle
+
+    - *Beginners*:
+        - In the case with *Constant* width and a linear Mass-Balance the AAR is around 0.5. The total ice gain/loss at a certain height is only determined by the distance away from the ELA (e.g. the same amount of mass is accumulated 100 m above the ELA as there is mass ablated 100 m below the ELA) and so the glacier area above the ELA equals approx. the glacier area below.
+        - In the case with *Wide top, narrow bottom* and a linear Mass-Balance the AAR is around 0.6. In this case the total ice gain/loss at a certain height is not only determined by the distance away from the ELA but also from the width at a certain height (e.g. if the width 100 m above the ELA is double the width of 100 m below the ELA also the total ice gain is double of the total ice loss). In this case the glacier length is longer compared with the case of constant width and in the lower altitudes the more negative Mass-Balance lead to more melting ice. Overall the ablation area (area below ELA) stays smaller than the accumulation area, even with a longer glacier.
+        - For a advancing glacier with constant width the AAR is well above 0.5, and in the retreating case well below 0.5.
+    - *Advanced*:
+        - With a Mass-Balance gradient below ELA twice the gradient above the ELA also the total ice loss is twice the total ice gain going the same distance away from the ELA. With this the ablation area (area below ELA) only needs to be half of the accumulation area. For the AAR this means a value of approx. 0.6 (AAR = Ablation Area / Total Area = Ablation Area / (Accumulation Area + Ablation Area) = Ablation Area / (0.5 * Ablation Area + Ablation Area) = 1 / 1.5 = 2 / 3).
+        - For real glaciers in equilibrium with AAR between 0.5 and 0.8 we can assume wider tops and larger Mass-Balance gradients below the ELA
+
 .. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
 .. _World Glaciers Explorer: https://edu.oggm.org/en/latest/explorer.html
 .. _Glacier slope: https://edu.oggm.org/en/latest/simulator.html#glacier-slope
