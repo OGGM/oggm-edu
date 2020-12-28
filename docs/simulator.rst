@@ -285,6 +285,35 @@ The AAR is the ratio of the accumulation area (= area above ELA) to the total gl
         - With a Mass-Balance gradient below ELA twice the gradient above the ELA also the total ice loss is twice the total ice gain going the same distance away from the ELA. With this the ablation area (area below ELA) only needs to be half of the accumulation area. For the AAR this means a value of approx. 0.6 (AAR = Ablation Area / Total Area = Ablation Area / (Accumulation Area + Ablation Area) = Ablation Area / (0.5 * Ablation Area + Ablation Area) = 1 / 1.5 = 2 / 3).
         - For real glaciers in equilibrium with AAR between 0.5 and 0.8 we can assume wider tops and larger Mass-Balance gradients below the ELA
 
+Balance Ratio, in the footsteps of a paleoclimatologist
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this experiment we are using knowledge of Balance Ratios to estimate the height of the ELA (and past climate conditions). The Balance Ratio is defined as the ratio of the Mass-Balance gradient below the ELA to the Mass-Balance gradient above the ELA (e.g. *Mass-Balance gradient below the ELA* = 4 and *Mass-Balance gradient above the ELA* = 2 gives a Balance Ratio of 2). See `antarcticglaciers.org (mass-balance)`_ for an introduction about glacier mass-balance and the ELA, or our
+:ref:`glacier_basics` graphics for an illustration.
+
+In short: the height of the ELA is determined among other things by the temperature. In a warming climate the ELA is increasing in height.
+
+**Experiment:**
+
+    - You made expeditions to the European Alps and Kamchatka to find two glacier areas of the last glaciological maximum, by using landmarks (e.g. abrasive erosion, moraines, ...). You want to use this two past glacier areas to approximate the ELA height and compare the past climates (note that this experiment is only fictional).
+    - For the European Alps glacier you found an approximated past area of 3 km². The glacier geometry is a *Linear* bedrock profile with a slope of 11° and *wide top, narrow bottom* width along the glacier.
+    - For the Kamchatka glacier the past area was also approx. 3 km². This glacier is *getting flatter* (bedrock profile) and *getting narrower* (width along glacier).
+    - You know that a typical Balance Ratio for the European Alps is around 1.5 and for the Kamchatka around 3 (e.g. `Rea 2009 <https://www.sciencedirect.com/science/article/abs/pii/S0277379108002989?via%3Dihub>`_).
+
+**Questions:**
+    - Use the simulator to find the corresponding past ELAs.
+    - Which glacier do you think was located in a warmer environment?
+    - How do different absolute values of the Mass-Balance gradients change your result?
+    - What additional information would be usefull to find absolute values of the gradients?
+
+..  admonition:: Take home messages
+    :class: toggle
+
+    - Alps ELA = 3100 and Kamchatka ELA = 2000
+    - From the ELA heights one can conlculde that the past (fictional) climate in the Alps was warmer than in Kamchatka.
+    - Different magnitudes of the Mass-Balance gradients do not change the results a lot.
+    - Additional information about the maximum thickness could help to find absolute gradient values.
+
 .. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
 .. _World Glaciers Explorer: https://edu.oggm.org/en/latest/explorer.html
 .. _Glacier slope: https://edu.oggm.org/en/latest/simulator.html#glacier-slope
