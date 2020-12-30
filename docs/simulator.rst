@@ -66,10 +66,8 @@ and run the model again. Is the new glacier larger or smaller than before? Why?
     only true if the mass-balance gradient is also constant). In the "wider-top"
     case, the AAR at equilibrium is larger than 0.5: indeed, by flowing 
     further down valley, the glacier is loosing more mass at its terminus than 
-    at its head, albeit over a different area (width). You can extend this
-    observations by experimenting with the equilibrium states of the 
-    "getting wider" and "getting narrower" glacier shapes. See also our 
-    :ref:`glacier_aar` experiments for more about the AAR.
+    at its head, albeit over a different area (width). See our 
+    :ref:`glacier_aar` experiments to learn more about the AAR.
 
 
 
