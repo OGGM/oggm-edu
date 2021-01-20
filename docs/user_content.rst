@@ -54,4 +54,4 @@ It's getting quite long, I know! What's best therefore is to hide the links
 `behind a badge <https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_.
 
 If you are creating educational resources based on OGGM-Edu,
-please :ref:`get in touch <title_contact>` so that we can adverstise them!
+please :ref:`get in touch <title_contact>` so that we can advertise them!
