@@ -33,8 +33,8 @@ You can edit each file by following the "Edit on GitHub" link at the top
 of each page, or send us your modification suggestions!
 
 If you want to build the OGGM-Edu website locally to see your changes 
-before publishing them, see 
-`these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.md>`.
+before publishing them online, see 
+`these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst>`_.
 
 Create new content
 ------------------
@@ -78,8 +78,8 @@ of even one single page would be very useful. We can provide support and advice 
 we can read (spanish, french, german).
 
 If you want to build the OGGM-Edu website locally to see your changes 
-before publishing them, see 
-`these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.md>`.
+before publishing them online, see 
+`these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst>`_.
 
 Refactoring of the oggm-edu python package
 ------------------------------------------
