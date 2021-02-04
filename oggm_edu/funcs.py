@@ -769,8 +769,13 @@ def compute_climate_statistics(gdir, tmin='1985', tmax='2015', lapse_rate=0.0065
         during tmin-tmax
     """
     
-    with xr.open_dataset(gdir.get_filepath('climate_monthly')) as ds:
-        ds = ds.load()
+    try:
+        with xr.open_dataset(gdir.get_filepath('climate_monthly')) as ds:
+            ds = ds.load()
+    except FileNotFoundError:
+        with xr.open_dataset(gdir.get_filepath('climate_historical')) as ds:
+            ds = ds.load()
+
         
     ds = ds.sel(time=slice(str(tmin), str(tmax)))
         
