@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 18:51+0200\n"
+"POT-Creation-Date: 2021-01-20 18:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.8.0\n"
 
 #: ../../user_content.rst:4
 msgid "Use your own notebooks with OGGM-Edu"
@@ -106,7 +106,7 @@ msgstr ""
 #: ../../user_content.rst:56
 msgid ""
 "If you are creating educational resources based on OGGM-Edu, please "
-":ref:`get in touch <title_contact>` so that we can adverstise them!"
+":ref:`get in touch <title_contact>` so that we can advertise them!"
 msgstr ""
 
 #: ../../<rst_epilog>:3
@@ -147,5 +147,12 @@ msgstr ""
 #~ "<https://hub.oggm.org>`_ or your own hub "
 #~ "deployment, visit `the OGGM documentation "
 #~ "<https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are creating educational "
+#~ "resources based on OGGM-Edu, please "
+#~ ":ref:`get in touch <title_contact>` so "
+#~ "that we can adverstise them!"
 #~ msgstr ""
 

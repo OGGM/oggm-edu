@@ -3,7 +3,7 @@
 Contribute to OGGM-Edu
 ======================
 
-As of June 2020, the OGGM-Edu platform features:
+As of January 2021, the OGGM-Edu platform features:
 
 - 4 interactive web apps
 - 8 jupyter notebooks templates in various complexity levels
@@ -16,7 +16,7 @@ or the positive feedback about the web applications and the use of MyBinder
 as a viable platform to run workshops and tutorials online.
 
 This is great! But we also see that there is room for improvement, and we would
-like to use this roadmap as a "working document" to keep track of our
+like to use this page to keep track of our
 goals for the years to come. OGGM-Edu is meant to be a collaborative platform,
 and we welcome any kind of contribution, from a typo correction to a new fully
 fledged web app!
@@ -32,11 +32,15 @@ speakers. If you find mistakes or things you'd like to change, please do!
 You can edit each file by following the "Edit on GitHub" link at the top
 of each page, or send us your modification suggestions!
 
+If you want to build the OGGM-Edu website locally to see your changes 
+before publishing them online, see 
+`these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst>`_.
+
 Create new content
 ------------------
 
 We welcome any new idea you may have: a new graphic, a new notebook, a new app...
-You can decide to have it hosted here at edu.oggm.org (ref:`reach out! <title_contact>`), or you can
+You can decide to have it hosted here at edu.oggm.org (:ref:`reach out! <title_contact>`), or you can
 decide to have it in your own namespace! Follow :ref:`these instructions <user_content>` if you'd
 rather do the latter.
 
@@ -72,6 +76,10 @@ for an example.
 If you would like to help, grab these files and translate were you can! The translation
 of even one single page would be very useful. We can provide support and advice with the languages
 we can read (spanish, french, german).
+
+If you want to build the OGGM-Edu website locally to see your changes 
+before publishing them online, see 
+`these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst>`_.
 
 Refactoring of the oggm-edu python package
 ------------------------------------------
@@ -110,4 +118,4 @@ Website design
 
 ReadTheDocs and Sphinx are great, but they have their limits. If you have
 web skills and would like to make OGGM-Edu more appealing,
-ref:`reach out! <title_contact>`
+:ref:`reach out! <title_contact>`

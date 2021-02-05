@@ -8,21 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 18:51+0200\n"
+"POT-Creation-Date: 2021-01-20 18:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.8.0\n"
 
 #: ../../roadmap.rst:4
 msgid "Contribute to OGGM-Edu"
 msgstr ""
 
 #: ../../roadmap.rst:6
-msgid "As of June 2020, the OGGM-Edu platform features:"
+msgid "As of January 2021, the OGGM-Edu platform features:"
 msgstr ""
 
 #: ../../roadmap.rst:8
@@ -54,10 +54,10 @@ msgstr ""
 #: ../../roadmap.rst:18
 msgid ""
 "This is great! But we also see that there is room for improvement, and we"
-" would like to use this roadmap as a \"working document\" to keep track "
-"of our goals for the years to come. OGGM-Edu is meant to be a "
-"collaborative platform, and we welcome any kind of contribution, from a "
-"typo correction to a new fully fledged web app!"
+" would like to use this page to keep track of our goals for the years to "
+"come. OGGM-Edu is meant to be a collaborative platform, and we welcome "
+"any kind of contribution, from a typo correction to a new fully fledged "
+"web app!"
 msgstr ""
 
 #: ../../roadmap.rst:24
@@ -78,24 +78,31 @@ msgid ""
 "link at the top of each page, or send us your modification suggestions!"
 msgstr ""
 
-#: ../../roadmap.rst:36
+#: ../../roadmap.rst:35 ../../roadmap.rst:80
+msgid ""
+"If you want to build the OGGM-Edu website locally to see your changes "
+"before publishing them online, see `these instructions "
+"<https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst>`_."
+msgstr ""
+
+#: ../../roadmap.rst:40
 msgid "Create new content"
 msgstr ""
 
-#: ../../roadmap.rst:38
+#: ../../roadmap.rst:42
 msgid ""
 "We welcome any new idea you may have: a new graphic, a new notebook, a "
 "new app... You can decide to have it hosted here at edu.oggm.org "
-"(ref:`reach out! <title_contact>`), or you can decide to have it in your "
-"own namespace! Follow :ref:`these instructions <user_content>` if you'd "
+"(:ref:`reach out! <title_contact>`), or you can decide to have it in your"
+" own namespace! Follow :ref:`these instructions <user_content>` if you'd "
 "rather do the latter."
 msgstr ""
 
-#: ../../roadmap.rst:44
+#: ../../roadmap.rst:48
 msgid "Prepare activity sheets for schools"
 msgstr ""
 
-#: ../../roadmap.rst:46
+#: ../../roadmap.rst:50
 msgid ""
 "Let's face it: right now, OGGM-Edu is of limited use for teachers, who "
 "have only little time to prepare their class. It would be very useful to "
@@ -105,11 +112,11 @@ msgid ""
 "as people report their experiences with the tool."
 msgstr ""
 
-#: ../../roadmap.rst:55
+#: ../../roadmap.rst:59
 msgid "Help translate OGGM-Edu"
 msgstr ""
 
-#: ../../roadmap.rst:57
+#: ../../roadmap.rst:61
 msgid ""
 "We are seeking to improve the usefulness of OGGM-Edu in non english "
 "speaking groups. It is technically easy to do it (we already have "
@@ -120,7 +127,7 @@ msgid ""
 "the translations up to date ;-)."
 msgstr ""
 
-#: ../../roadmap.rst:66
+#: ../../roadmap.rst:70
 msgid ""
 "The translation files are located in the `docs/locale "
 "<https://github.com/OGGM/oggm-edu/tree/master/docs/locale>`_ folder: "
@@ -131,7 +138,7 @@ msgid ""
 "example."
 msgstr ""
 
-#: ../../roadmap.rst:72
+#: ../../roadmap.rst:76
 msgid ""
 "If you would like to help, grab these files and translate were you can! "
 "The translation of even one single page would be very useful. We can "
@@ -139,15 +146,15 @@ msgid ""
 "french, german)."
 msgstr ""
 
-#: ../../roadmap.rst:77
+#: ../../roadmap.rst:85
 msgid "Refactoring of the oggm-edu python package"
 msgstr ""
 
-#: ../../roadmap.rst:79
+#: ../../roadmap.rst:87
 msgid "This is probably the most involved change."
 msgstr ""
 
-#: ../../roadmap.rst:81
+#: ../../roadmap.rst:89
 msgid ""
 "As it is now, oggm-edu relies mostly on the models and syntax provided by"
 " the core OGGM. They provides the functionality we need, but at the same "
@@ -155,39 +162,39 @@ msgid ""
 "context:"
 msgstr ""
 
-#: ../../roadmap.rst:85
+#: ../../roadmap.rst:93
 msgid ""
 "their functionality is tailored for modelers, not students. I.e. certain "
 "variables are not available and/or hidden, the syntax is clumsy, "
 "optimisations in code make it less readable"
 msgstr ""
 
-#: ../../roadmap.rst:88
+#: ../../roadmap.rst:96
 msgid ""
 "it is very difficult to change things in OGGM itself because of backwards"
 " compatibility"
 msgstr ""
 
-#: ../../roadmap.rst:90
+#: ../../roadmap.rst:98
 msgid ""
 "it is complex for new users to find the information in the cluttered OGGM"
 " namespace"
 msgstr ""
 
-#: ../../roadmap.rst:93
+#: ../../roadmap.rst:101
 msgid ""
 "For these reasons, we suggest to **redesign and refactor the OGGM objects"
 " in a more user-friendly, intuitive oggm-edu namespace**."
 msgstr ""
 
-#: ../../roadmap.rst:96
+#: ../../roadmap.rst:104
 msgid ""
 "This will require some thinking, but in short: we should think about (1) "
 "how to name things (very hard) and (2) how do we want the new objects to "
 "behave."
 msgstr ""
 
-#: ../../roadmap.rst:100
+#: ../../roadmap.rst:108
 msgid ""
 "The vision is that people have a one stop shop (the OGGM-Edu "
 "documentation) to learn about the flowline models and what they can do "
@@ -196,18 +203,18 @@ msgid ""
 "make using the models more fun, intuitive and quantitative."
 msgstr ""
 
-#: ../../roadmap.rst:107
+#: ../../roadmap.rst:115
 msgid "Website design"
 msgstr ""
 
-#: ../../roadmap.rst:109
+#: ../../roadmap.rst:117
 msgid "(less important)"
 msgstr ""
 
-#: ../../roadmap.rst:111
+#: ../../roadmap.rst:119
 msgid ""
 "ReadTheDocs and Sphinx are great, but they have their limits. If you have"
-" web skills and would like to make OGGM-Edu more appealing, ref:`reach "
+" web skills and would like to make OGGM-Edu more appealing, :ref:`reach "
 "out! <title_contact>`"
 msgstr ""
 
@@ -376,5 +383,49 @@ msgstr ""
 #~ "have web skills and would like to"
 #~ " make OGGM-Edu more appealing, reach"
 #~ " out!"
+#~ msgstr ""
+
+#~ msgid "As of June 2020, the OGGM-Edu platform features:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is great! But we also see "
+#~ "that there is room for improvement, "
+#~ "and we would like to use this "
+#~ "roadmap as a \"working document\" to "
+#~ "keep track of our goals for the"
+#~ " years to come. OGGM-Edu is "
+#~ "meant to be a collaborative platform,"
+#~ " and we welcome any kind of "
+#~ "contribution, from a typo correction to"
+#~ " a new fully fledged web app!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We welcome any new idea you may"
+#~ " have: a new graphic, a new "
+#~ "notebook, a new app... You can "
+#~ "decide to have it hosted here at"
+#~ " edu.oggm.org (ref:`reach out! <title_contact>`),"
+#~ " or you can decide to have it"
+#~ " in your own namespace! Follow "
+#~ ":ref:`these instructions <user_content>` if "
+#~ "you'd rather do the latter."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "ReadTheDocs and Sphinx are great, but"
+#~ " they have their limits. If you "
+#~ "have web skills and would like to"
+#~ " make OGGM-Edu more appealing, "
+#~ "ref:`reach out! <title_contact>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you want to build the OGGM-"
+#~ "Edu website locally to see your "
+#~ "changes before publishing them, see "
+#~ "`these instructions <https://github.com/OGGM/oggm-"
+#~ "edu/blob/master/BUILD_HOWTO.md>`."
 #~ msgstr ""
 
