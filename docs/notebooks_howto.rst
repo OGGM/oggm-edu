@@ -24,7 +24,7 @@ This link will bring you to an interactive :ref:`binder_simple` environment.
 If you prefer to run the notebooks on your personal computer, you can always
 download them from our `repository <https://github.com/OGGM/oggm-edu-notebooks>`_
 or as a `zip-file <https://github.com/OGGM/oggm-edu-notebooks/archive/master.zip>`_.
-However, you will have to `install OGGM <https://docs.oggm.org/en/latest/installing-oggm.html>`_
+However, you will have to `install OGGM <https://docs.oggm.org/en/stable/installing-oggm.html>`_
 locally for them to work!
 
 .. _binder_simple:
