@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-20 18:30+0100\n"
+"POT-Creation-Date: 2021-02-17 23:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: ../../user_content.rst:33
 msgid ""
-"`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-"
+"`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
 "pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_"
 msgstr ""
 
@@ -70,12 +70,13 @@ msgstr ""
 msgid ""
 "What is happening here? The first part of the link (up to the question "
 "mark) is telling MyBinder to use the OGGM environment we are maintaining "
-"`here <https://github.com/OGGM/binder>`_. The second part of the link is "
-"using `nbgitpuller <https://jupyterhub.github.io/nbgitpuller/>`_ to fetch"
-" the provided online repository and it's content. That's all!"
+"`here <https://github.com/OGGM/binder>`_ (we use the stable branch here)."
+" The second part of the link is using `nbgitpuller "
+"<https://jupyterhub.github.io/nbgitpuller/>`_ to fetch the provided "
+"online repository and it's content. That's all!"
 msgstr ""
 
-#: ../../user_content.rst:41
+#: ../../user_content.rst:42
 msgid ""
 "This was the most basic example. If you want to use other features, like "
 "using the Jupyter Lab interface (instead of the simple notebooks "
@@ -83,27 +84,27 @@ msgid ""
 "repository (for example within a folder), the syntax is::"
 msgstr ""
 
-#: ../../user_content.rst:49
+#: ../../user_content.rst:50
 msgid "For example, we start the OGGM-Edu tutorials with this link:"
 msgstr ""
 
-#: ../../user_content.rst:51
+#: ../../user_content.rst:52
 #, python-format
 msgid ""
-"`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-"
+"`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
 "pull?repo=https://github.com/OGGM/oggm-edu-"
 "notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-edu-"
 "notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_"
 msgstr ""
 
-#: ../../user_content.rst:53
+#: ../../user_content.rst:54
 msgid ""
 "It's getting quite long, I know! What's best therefore is to hide the "
 "links `behind a badge "
 "<https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_."
 msgstr ""
 
-#: ../../user_content.rst:56
+#: ../../user_content.rst:57
 msgid ""
 "If you are creating educational resources based on OGGM-Edu, please "
 ":ref:`get in touch <title_contact>` so that we can advertise them!"
@@ -154,5 +155,30 @@ msgstr ""
 #~ "resources based on OGGM-Edu, please "
 #~ ":ref:`get in touch <title_contact>` so "
 #~ "that we can adverstise them!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-"
+#~ "pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "What is happening here? The first "
+#~ "part of the link (up to the "
+#~ "question mark) is telling MyBinder to"
+#~ " use the OGGM environment we are "
+#~ "maintaining `here <https://github.com/OGGM/binder>`_. "
+#~ "The second part of the link is "
+#~ "using `nbgitpuller "
+#~ "<https://jupyterhub.github.io/nbgitpuller/>`_ to fetch "
+#~ "the provided online repository and it's"
+#~ " content. That's all!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-"
+#~ "pull?repo=https://github.com/OGGM/oggm-edu-"
+#~ "notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-"
+#~ "edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_"
 #~ msgstr ""
 

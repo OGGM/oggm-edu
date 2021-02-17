@@ -49,7 +49,7 @@ OGGM-Hub
 --------
 
 We also provide a dedicated OGGM JupyterLab running on our own server:
-`OGGM-Hub <https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_.
+`OGGM-Hub <https://docs.oggm.org/en/stable/cloud.html#oggm-hub>`_.
 The advantages of OGGM-Hub over Binder are:
 
 - more resources for your students, faster launches

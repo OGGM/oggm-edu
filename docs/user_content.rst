@@ -26,15 +26,16 @@ Using your own notebooks in an OGGM-Edu Binder environment is super easy!
 Once your notebooks are online, you simply have to provide the correct
 link to your students. The syntax is following::
 
-    https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>
+    https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>
 
 For example, a link to our contrib repository looks like:
 
-`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_
+`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_
 
 What is happening here? The first part of the link (up to the question mark)
 is telling MyBinder to use the OGGM environment we are maintaining
-`here <https://github.com/OGGM/binder>`_. The second part of the link
+`here <https://github.com/OGGM/binder>`_ (we use the stable branch here).
+The second part of the link
 is using `nbgitpuller <https://jupyterhub.github.io/nbgitpuller/>`_ to fetch
 the provided online repository and it's content. That's all!
 
@@ -44,11 +45,11 @@ you want to start at an arbitrary location in the repository (for example
 within a folder), the syntax is::
 
 
-    https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/<YOUR_REPO_NAME>/<PATH/TO/FILE>%3Fautodecode
+    https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/<YOUR_REPO_NAME>/<PATH/TO/FILE>%3Fautodecode
 
 For example, we start the OGGM-Edu tutorials with this link:
 
-`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_
+`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_
 
 It's getting quite long, I know! What's best therefore is to hide the links
 `behind a badge <https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_.
