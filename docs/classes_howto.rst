@@ -9,10 +9,11 @@ some preparation. Check out :ref:`other_resources` if you are interested in
 the fundamentals and online textbook materials.
 
 Currently, we are working on making OGGM-Edu suitable for classes at the
-highschool level (using the web applications) and at the university level
+high school level (using the web applications) and at the university level
 (using the programmable notebooks). You will find some help to get you started
 below.
 
+See also :ref:`examples` for existing classes based on OGGM-Edu.
 
 Using the OGGM-Edu web apps at the highschool level
 ---------------------------------------------------
@@ -38,10 +39,6 @@ Using the OGGM-Edu notebooks at the university level
 We use notebooks frequently for our own `lectures <https://fabienmaussion.info/teaching/>`_,
 and we are big fans! They allow to convey knowledge in interactive,
 "try as you learn" practicals, and they encourage active learning.
-
-Our notebooks have been used for a one week workshop given to students
-in Peru. Read `this blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_
-for more details.
 
 Here are a few recommendations based on our own experience:
 

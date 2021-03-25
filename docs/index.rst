@@ -4,15 +4,15 @@
 Welcome to OGGM-Edu!
 ====================
 
-This platform is an educational website about glaciers.
+OGGM-Edu is an educational website about glaciers.
 
 Our main goal is to **provide tools and materials for instructors** who
 want to teach about glaciers at school, in workshops or at the university.
-For example, OGGM-Edu was used to conduct
-a `weeklong workshop <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_
-on glaciology and glacial water resources for undergraduate Peruvian students.
 
-**OGGM-Edu has four independent components**, serving complementary purposes:
+For a general introduction and an overview, visit this recent 
+`EGU cryoblog post <https://blogs.egu.eu/divisions/cr/2021/03/12/do-you-know-about-oggm-edu-an-open-source-educational-platform-about-glaciers-and-glacier-modelling/>`_!
+
+**OGGM-Edu has four independent and complementary components**:
 
 1. :ref:`title_apps`, to illustrate glaciological processes with the
    help of interactive graphics on the web. The targeted audience is very
@@ -53,10 +53,6 @@ These interactive apps can be run on any computer with an internet connection.
     explorer.rst
     simulator.rst
     alps_future.rst
-
-.. seealso::
-
-    Check out our new :ref:`activity_sheets` for high school teachers!
 
 .. _title_graphics:
 
@@ -137,7 +133,7 @@ recommendations and guidelines here.
 
 * :doc:`why_oggmedu`
 * :doc:`classes_howto`
-* :doc:`activity_sheets`
+* :doc:`examples`
 * :doc:`user_content`
 * :doc:`technical_details`
 * :doc:`other_resources`
@@ -151,7 +147,7 @@ recommendations and guidelines here.
 
     why_oggmedu.rst
     classes_howto.rst
-    activity_sheets
+    examples.rst
     user_content.rst
     technical_details.rst
     other_resources.rst
