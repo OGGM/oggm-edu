@@ -11,9 +11,8 @@ Fortunately, this is very easy to do! All you need to do is to provide the
 notebooks you would like to run in an online git repository
 (e.g. GitHub, Gitlab, Bitbucket). For example, we have created an
 `oggm-edu-contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single
-notebook to get you started. See also
-`Lizz' class (in spanish) <https://github.com/ehultee/CdeC-glaciologia>`_ for
-a real-world example.
+notebook to get you started. See also :ref:`examples` for existing classes
+making use of this system.
 
 Ideally, we would like all OGGM-Edu related content to be bundled here on this
 open platform: if you feel comfortable sharing your content to others,
@@ -37,7 +36,7 @@ is telling MyBinder to use the OGGM environment we are maintaining
 `here <https://github.com/OGGM/binder>`_ (we use the stable branch here).
 The second part of the link
 is using `nbgitpuller <https://jupyterhub.github.io/nbgitpuller/>`_ to fetch
-the provided online repository and it's content. That's all!
+the provided online repository and its content. That's all!
 
 This was the most basic example. If you want to use other features, like using
 the Jupyter Lab interface (instead of the simple notebooks interface), and if

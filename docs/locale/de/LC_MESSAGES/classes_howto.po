@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 11:55+0200\n"
+"POT-Creation-Date: 2021-03-25 21:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.8.0\n"
 
 #: ../../classes_howto.rst:4
 msgid "OGGM-Edu in classes and workshops"
@@ -32,39 +32,43 @@ msgstr ""
 #: ../../classes_howto.rst:11
 msgid ""
 "Currently, we are working on making OGGM-Edu suitable for classes at the "
-"highschool level (using the web applications) and at the university level"
-" (using the programmable notebooks). You will find some help to get you "
-"started below."
+"high school level (using the web applications) and at the university "
+"level (using the programmable notebooks). You will find some help to get "
+"you started below."
 msgstr ""
 
-#: ../../classes_howto.rst:18
+#: ../../classes_howto.rst:16
+msgid "See also :ref:`examples` for existing classes based on OGGM-Edu."
+msgstr ""
+
+#: ../../classes_howto.rst:19
 msgid "Using the OGGM-Edu web apps at the highschool level"
 msgstr ""
 
-#: ../../classes_howto.rst:20
+#: ../../classes_howto.rst:21
 msgid ""
 "OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even "
 "longer. It could be organized as such:"
 msgstr ""
 
-#: ../../classes_howto.rst:23
+#: ../../classes_howto.rst:24
 msgid ""
 "General introduction to glaciers: what is a glacier, where do we find "
 "them, why are they important?"
 msgstr ""
 
-#: ../../classes_howto.rst:25
+#: ../../classes_howto.rst:26
 msgid "Learn about different glacier types in the :ref:`gallery`."
 msgstr ""
 
-#: ../../classes_howto.rst:26
+#: ../../classes_howto.rst:27
 msgid ""
 "Learn about the glaciers location and their climate with the "
 ":ref:`explorer` app. Use the sample questions to encourage the students "
 "to explore the app by themselves or in small groups."
 msgstr ""
 
-#: ../../classes_howto.rst:29
+#: ../../classes_howto.rst:30
 msgid ""
 "For more advanced classes, learn about glacier flow with the "
 ":ref:`simulator`. This app can be used for a number of different "
@@ -72,11 +76,11 @@ msgid ""
 "<https://www.youtube.com/watch?v=DUdeN5CpsW0>`_ experiment."
 msgstr ""
 
-#: ../../classes_howto.rst:36
+#: ../../classes_howto.rst:37
 msgid "Using the OGGM-Edu notebooks at the university level"
 msgstr ""
 
-#: ../../classes_howto.rst:38
+#: ../../classes_howto.rst:39
 msgid ""
 "We use notebooks frequently for our own `lectures "
 "<https://fabienmaussion.info/teaching/>`_, and we are big fans! They "
@@ -84,18 +88,11 @@ msgid ""
 "practicals, and they encourage active learning."
 msgstr ""
 
-#: ../../classes_howto.rst:42
-msgid ""
-"Our notebooks have been used for a one week workshop given to students in"
-" Peru. Read `this blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_"
-" for more details."
-msgstr ""
-
-#: ../../classes_howto.rst:46
+#: ../../classes_howto.rst:43
 msgid "Here are a few recommendations based on our own experience:"
 msgstr ""
 
-#: ../../classes_howto.rst:48
+#: ../../classes_howto.rst:45
 msgid ""
 "**Spend at least two hours explaining the notebook and jupyterlab "
 "environments**. Showing their basic features first, then let the students"
@@ -103,31 +100,31 @@ msgid ""
 "hour or so), summarize the usual pitfalls:"
 msgstr ""
 
-#: ../../classes_howto.rst:53
+#: ../../classes_howto.rst:50
 msgid ""
 "recognize that notebooks are actual files (not something magical on "
 "browser)"
 msgstr ""
 
-#: ../../classes_howto.rst:54
+#: ../../classes_howto.rst:51
 msgid "aknowledge that the order of execution of cells matter"
 msgstr ""
 
-#: ../../classes_howto.rst:55
+#: ../../classes_howto.rst:52
 msgid "aknowledge that errors in cell execution are OK and can be recovered from"
 msgstr ""
 
-#: ../../classes_howto.rst:56
+#: ../../classes_howto.rst:53
 msgid "show how to restart with a fresh notebook"
 msgstr ""
 
-#: ../../classes_howto.rst:57
+#: ../../classes_howto.rst:54
 msgid ""
 "encourage the use of keyboard shortcuts (such as `[shift+enter]` and "
 "`[ctrl+m] + key`)"
 msgstr ""
 
-#: ../../classes_howto.rst:60
+#: ../../classes_howto.rst:57
 msgid ""
 "**On MyBinder: avoid bad surprises by explaining to your class that the "
 "sessions are temporary**. Show your students how to download and upload "
@@ -135,7 +132,7 @@ msgid ""
 "time to time."
 msgstr ""
 
-#: ../../classes_howto.rst:64
+#: ../../classes_howto.rst:61
 msgid ""
 "Whatever your learning goals are, **always plan less than that**. You "
 "might find `this blog <https://medium.com/@jasonjwilliamsny/4-practical-"
@@ -144,7 +141,7 @@ msgid ""
 "book/>`_ about teaching with jupyter notebooks useful as well."
 msgstr ""
 
-#: ../../classes_howto.rst:69
+#: ../../classes_howto.rst:66
 msgid ""
 "If you plan to teach about programming aspects as well as about "
 "glaciology, **focus on the content** more than on the method. "
@@ -155,7 +152,7 @@ msgid ""
 "they just produced."
 msgstr ""
 
-#: ../../classes_howto.rst:76
+#: ../../classes_howto.rst:73
 msgid ""
 "If you have the chance to have more experienced students in the room, "
 "**organize peer-mentoring in groups of 2 or 3**. Students are often "
@@ -182,5 +179,23 @@ msgstr ""
 #~ "files to JupyterLab so that they "
 #~ "feel comfortable saving their work from"
 #~ " time to time."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Currently, we are working on making "
+#~ "OGGM-Edu suitable for classes at "
+#~ "the highschool level (using the web "
+#~ "applications) and at the university "
+#~ "level (using the programmable notebooks). "
+#~ "You will find some help to get "
+#~ "you started below."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Our notebooks have been used for a"
+#~ " one week workshop given to students"
+#~ " in Peru. Read `this blog post "
+#~ "<https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_ for"
+#~ " more details."
 #~ msgstr ""
 

@@ -9,7 +9,7 @@ Glacier Simulator
 
 The glacier simulator is an **interactive web application** with which
 you can learn (and teach) about glacier flow, how glaciers grow and shrink,
-what parameters influence their size, and a lot more!
+what glacier properties influence their size or velocity, and a lot more!
 
 You can start the app by clicking on this link: |badge_bokeh_en|_
 
@@ -23,6 +23,7 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
   we recommend to use the app
   `on MyBinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/v1.3?urlpath=panel/app>`_
   or even locally on your own computer (see :ref:`docker-launch-simulator` below).
+
 
 Getting started with the app
 ----------------------------
@@ -260,6 +261,7 @@ around the world. Here, we will now discover how different mass-balance gradient
     - Which of the two glaciers (maritime or continental) is thicker (*Max ice thickness*)?
     - Which is flowing faster (*Max ice velocity*)?
     - Which reaches the equilibrium faster (*Time*)?
+
 - *Advanced*:
     - How are *Length*, *Area* and *Volume* affected?
 
@@ -303,6 +305,7 @@ of the experiments, note that the total ice gain/loss at a certain elevation equ
     - For *Constant width*, what values of AAR-t (below or above 0.5) do you expect for an 
       advancing and a retreating glacier? Can you confirm by looking at the AAR during the 
       simulation, or using the timeseries plots. 
+
 - *Advanced*:
     - How is AAR-eq changing with a different mass-balance gradients below and above the ELA?
     - What can you conclude from the experiments about real-world glaciers which have a typical AAR-eq 
