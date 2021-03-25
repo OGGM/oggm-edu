@@ -1,5 +1,5 @@
 .. figure:: _static/oggm.gif
-
+   :align: left
 
 Welcome to OGGM-Edu!
 ====================

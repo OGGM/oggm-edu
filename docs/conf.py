@@ -21,76 +21,6 @@ import datetime
 print("python version:", sys.version)
 print("python exec:", sys.executable)
 print("sys.path:", sys.path)
-try:
-    import IPython
-    print("ipython: %s, %s" % (IPython.__version__, IPython.__file__))
-except ImportError:
-    print("no ipython")
-try:
-    import numpy
-    print("numpy: %s, %s" % (numpy.__version__, numpy.__file__))
-except ImportError:
-    print("no numpy")
-try:
-    import scipy
-    print("scipy: %s, %s" % (scipy.__version__, scipy.__file__))
-except ImportError:
-    print("no scipy")
-try:
-    import pandas
-    print("pandas: %s, %s" % (pandas.__version__, pandas.__file__))
-except ImportError:
-    print("no pandas")
-try:
-    import geopandas
-    print("geopandas: %s, %s" % (geopandas.__version__, geopandas.__file__))
-except ImportError:
-    print("no geopandas")
-try:
-    import xarray
-    print("xarray: %s, %s" % (xarray.__version__, xarray.__file__))
-except ImportError:
-    print("no xarray")
-try:
-    import matplotlib
-    matplotlib.use('Agg')
-    print("matplotlib: %s, %s" % (matplotlib.__version__, matplotlib.__file__))
-except ImportError:
-    print("no matplotlib")
-try:
-    import rasterio
-    print("rasterio: %s, %s" % (rasterio.__version__, rasterio.__file__))
-except ImportError:
-    print("no rasterio")
-try:
-    import gdal
-    import osgeo.gdal
-    print("gdal: %s, %s" % (osgeo.gdal.__version__, gdal.__file__))
-except ImportError:
-    print("no gdal")
-try:
-    import pyproj
-    print("pyproj: %s, %s" % (pyproj.__version__, pyproj.__file__))
-except ImportError:
-    print("no pyproj")
-try:
-    import netCDF4
-    print("netCDF4: %s, %s" % (netCDF4.__version__, netCDF4.__file__))
-except ImportError:
-    print("no netCDF4")
-try:
-    import skimage
-    print("skimage: %s, %s" % (skimage.__version__, skimage.__file__))
-except ImportError:
-    print("no skimage")
-
-# Remove some warnings
-try:
-    import warnings
-    from fiona.errors import FionaDeprecationWarning
-    warnings.filterwarnings('ignore', category=FionaDeprecationWarning)
-except ImportError:
-    pass
 
 # -- General configuration ------------------------------------------------
 
@@ -139,7 +69,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OGGM-Edu'
-copyright = u'OGGM-Edu Developers 2018-2020'
+copyright = u'OGGM-Edu Developers 2018-2021'
 author = u'OGGM-Edu Developers'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -212,14 +142,19 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'logo_only': True,
-    'display_version': False,
+    "repository_url": "https://github.com/OGGM/oggm-edu",
+    "use_repository_button": True,
+    "use_issues_button": True,
+    "use_edit_page_button": True,
+    "path_to_docs": "docs",
+    "home_page_in_toc": True,
+    "toc_title": "On this page",
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -227,10 +162,10 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-# html_title = None
+html_title = ""
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-# html_short_title = None
+html_short_title = "OGGM-Edu documentation"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
