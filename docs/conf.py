@@ -144,6 +144,17 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 html_theme = 'sphinx_book_theme'
 
+
+extra_navbar = """<p align="left"><strong>License</strong></p>
+<p align="left">
+<a href="default.asp">
+  <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
+</a> 
+</p>
+<p align="left">Unless specified otherwise, the content of OGGM-Edu is shared 
+under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</p>
+"""
+
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
@@ -155,7 +166,13 @@ html_theme_options = {
     "path_to_docs": "docs",
     "home_page_in_toc": True,
     "toc_title": "On this page",
+    "extra_navbar": extra_navbar,
 }
+
+html_sidebars = {
+    "**": ["sidebar-search-bs.html", "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
+}
+
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -180,6 +197,8 @@ html_favicon = '_static/favicon.ico'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_css_files = ['custom.css']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -308,8 +327,8 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'OGGM-Edu', u'OGGM-Edu Documentation',
-     author, 'OGGM-Edu', 'One line description of project.',
-     'Miscellaneous'),
+     author, 'OGGM-Edu', 'OGGM-Edu is an educational website about glaciers.',
+     'Education'),
 ]
 
 # Documents to append as an appendix to all manuals.
@@ -335,7 +354,7 @@ with open("prolog.rst", "r") as myfile:
 with open("epilog.rst", "r") as myfile:
     rst_epilog = myfile.read()
 
-# Add toggle container https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
+
+# Add toggle container
 def setup(app):
-    app.add_stylesheet('custom.css')
     app.add_config_value('READTHEDOCS_LANGUAGE', '', READTHEDOCS_LANGUAGE)

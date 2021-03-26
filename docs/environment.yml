@@ -2,8 +2,10 @@ name: edudocs
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+  - python
   - numpydoc
   - ipython
   - sphinx
-  - sphinx-book-theme
+  - pip
+  - pip:
+      - sphinx-book-theme

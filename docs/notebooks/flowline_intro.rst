@@ -3,7 +3,7 @@
 Glacier flowline modelling
 ==========================
 
-.. figure:: _static/intro_fig_flowline.png
+.. figure:: ../_static/intro_fig_flowline.png
 
     Figure: Geometry of a glacier model after 500 years, that moves only from deformation processes.
 

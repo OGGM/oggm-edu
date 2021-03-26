@@ -3,11 +3,11 @@
 Temperature index models
 ========================
 
-.. figure:: _static/intro_fig_timodels.png
+.. figure:: ../_static/intro_fig_timodels.png
 
 	Figure: Mass balance from in-situ measurements (blue) and mass balance modelled using OGGM's temperature index model (orange).
 
-This notebook provides a general overview of temperature index models and an
+This notebook provides a general overview of temperature index melt models and an
 example implementation in OGGM. To open the notebook in your browser, click
 the button below.
 

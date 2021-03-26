@@ -3,7 +3,7 @@
 Glaciers as water resources
 ===========================
 
-.. figure:: _static/intro_glacier_water_volume_seasonality.png
+.. figure:: ../_static/intro_glacier_water_volume_seasonality.png
 
 	Figure: Annual cycle of glacier water volume change during the glacier retreat phase (blue) and in equilibrium state (orange).
 

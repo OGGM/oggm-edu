@@ -1,3 +1,5 @@
+:orphan:
+
 .. _as_gallery:
 
 Lesson plan 1: Glacier Gallery

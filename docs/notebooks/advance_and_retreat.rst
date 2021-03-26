@@ -3,7 +3,7 @@
 Glacier advance and retreat
 ===============================================
 
-.. figure:: _static/intro_advance_retreat.png
+.. figure:: ../_static/intro_advance_retreat.png
 
 	Figure: Glacier advance (retreat) as a result of a decrease (increase) in the equilibrium line altitude.
 

@@ -3,7 +3,7 @@
 Accumulation, ablation and glacier mass balance
 ===============================================
 
-.. figure:: _static/intro_acc_abl.png
+.. figure:: ../_static/intro_acc_abl.png
 
 	Figure: Schematic representation of glacier mass balance as the sum of accumulation and ablation.
 

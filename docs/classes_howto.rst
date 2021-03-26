@@ -13,8 +13,6 @@ high school level (using the web applications) and at the university level
 (using the programmable notebooks). You will find some help to get you started
 below.
 
-See also :ref:`examples` for existing classes based on OGGM-Edu.
-
 Using the OGGM-Edu web apps at the highschool level
 ---------------------------------------------------
 
@@ -73,3 +71,16 @@ even trying to analyse the plot they just produced.
 If you have the chance to have more experienced students in the room,
 **organize peer-mentoring in groups of 2 or 3**. Students are often better
 in mentoring each other than we are.
+
+
+Implementation
+--------------
+
+Ready to give it a go? You will find more information in the pages below:
+
+.. toctree::
+    :maxdepth: 1
+
+    examples.rst
+    user_content.rst
+    technical_details.rst
