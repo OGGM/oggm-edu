@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-25 21:25+0100\n"
+"POT-Creation-Date: 2021-03-26 12:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,15 +25,15 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: ../../index.rst:79 ../../index.rst:97
+#: ../../index.rst:79 ../../index.rst:90
 msgid "Interactive Notebooks"
 msgstr ""
 
-#: ../../index.rst:115 ../../index.rst:121
+#: ../../index.rst:102 ../../index.rst:108
 msgid "OGGM tutorials"
 msgstr ""
 
-#: ../../index.rst:129 ../../index.rst:143
+#: ../../index.rst:116 ../../index.rst:127
 msgid "For instructors and teachers"
 msgstr ""
 
@@ -150,192 +150,140 @@ msgid ":doc:`notebooks_howto`"
 msgstr ""
 
 #: ../../index.rst:87
-msgid ":doc:`notebooks_flowline_intro`"
+msgid ":doc:`notebooks_index`"
 msgstr ""
 
-#: ../../index.rst:88
-msgid ":doc:`notebooks_ice_flow_parameters`"
-msgstr ""
-
-#: ../../index.rst:89
-msgid ":doc:`notebooks_surging_glaciers`"
-msgstr ""
-
-#: ../../index.rst:90
-msgid ":doc:`notebooks_mass_balance_gradient`"
-msgstr ""
-
-#: ../../index.rst:91
-msgid ":doc:`notebooks_temperature_index_models`"
-msgstr ""
-
-#: ../../index.rst:92
-msgid ":doc:`notebooks_accumulation_and_ablation`"
-msgstr ""
-
-#: ../../index.rst:93
-msgid ":doc:`notebooks_advance_and_retreat`"
-msgstr ""
-
-#: ../../index.rst:94
-msgid ":doc:`notebooks_real_glacier_simulations`"
-msgstr ""
-
-#: ../../index.rst:117
+#: ../../index.rst:104
 msgid "These are more advanced notebooks, for users of the OGGM model."
 msgstr ""
 
-#: ../../index.rst:119
+#: ../../index.rst:106
 msgid ":doc:`oggm_tuto`"
 msgstr ""
 
-#: ../../index.rst:131
+#: ../../index.rst:118
 msgid ""
 "Thanks for considering OGGM-Edu for your classes! We've gathered some "
 "recommendations and guidelines here."
 msgstr ""
 
-#: ../../index.rst:134
+#: ../../index.rst:121
 msgid ":doc:`why_oggmedu`"
 msgstr ""
 
-#: ../../index.rst:135
+#: ../../index.rst:122
 msgid ":doc:`classes_howto`"
 msgstr ""
 
-#: ../../index.rst:136
+#: ../../index.rst:123
 msgid ":doc:`examples`"
 msgstr ""
 
-#: ../../index.rst:137
-msgid ":doc:`user_content`"
-msgstr ""
-
-#: ../../index.rst:138
-msgid ":doc:`technical_details`"
-msgstr ""
-
-#: ../../index.rst:139
-msgid ":doc:`other_resources`"
-msgstr ""
-
-#: ../../index.rst:140
+#: ../../index.rst:124
 msgid ":doc:`charter`"
 msgstr ""
 
-#: ../../index.rst:141
+#: ../../index.rst:125
 msgid ":doc:`roadmap`"
 msgstr ""
 
-#: ../../index.rst:160
+#: ../../index.rst:141
 msgid "Get in touch"
 msgstr ""
 
-#: ../../index.rst:162
+#: ../../index.rst:143
 msgid "Interested in OGGM-Edu? We would love to hear from you!"
 msgstr ""
 
-#: ../../index.rst:164
+#: ../../index.rst:145
 msgid "All of this website and notebooks are located `on GitHub`_."
 msgstr ""
 
-#: ../../index.rst:165
+#: ../../index.rst:146
 msgid "Report bugs or share your ideas on the `issue tracker`_."
 msgstr ""
 
-#: ../../index.rst:166
+#: ../../index.rst:147
 msgid "Improve the website by submitting a `pull request`_."
 msgstr ""
 
-#: ../../index.rst:167
+#: ../../index.rst:148
 msgid "Follow us on `Twitter`_."
 msgstr ""
 
-#: ../../index.rst:168
+#: ../../index.rst:149
 msgid "Or you can always send us an `e-mail`_ the good old way."
 msgstr ""
 
-#: ../../index.rst:177
+#: ../../index.rst:158
 msgid "Acknowledgements"
 msgstr ""
 
-#: ../../index.rst:179
+#: ../../index.rst:160
 msgid ""
 "OGGM-Edu is an affiliated project of the larger OGGM consortium "
 "(`oggm.org <https://oggm.org>`_). It is mainly the work of volunteers, "
 "but we also had support from various sources:"
 msgstr ""
 
-#: ../../index.rst:183
+#: ../../index.rst:164
 msgid ""
 "the University of Innsbruck, Förderkreis **1669** – **Wissen** schafft "
 "Gesell **schaft** (2019-2020)."
 msgstr ""
 
-#: ../../index.rst:185
+#: ../../index.rst:166
 msgid "the German BMBF (project FKZ 01LS1602A, 2017-2019)."
 msgstr ""
 
-#: ../../index.rst:186
+#: ../../index.rst:167
 msgid ""
 "`Google Cloud | Data Solutions for Change`_ who provided cloud computing "
 "and hosting credits (2019-2020)."
 msgstr ""
 
-#: ../../index.rst:188
+#: ../../index.rst:169
 msgid ""
 "the University of Innsbruck, department of `Digital Sciences "
 "<https://www.uibk.ac.at/zid/abteilungen/lt/>`_ (Neue Medien Projekte, "
 "2018)."
 msgstr ""
 
-#: ../../index.rst:191
+#: ../../index.rst:172
 msgid ""
 "the OGGM e.V. organisation, who supported the creation of the OGGM-Edu "
 "logo and of the glacier graphics."
 msgstr ""
 
-#: ../../index.rst:216
+#: ../../index.rst:199
 msgid "We rely on awesome open source tools to run OGGM-Edu! Most notably:"
 msgstr ""
 
-#: ../../index.rst:218
+#: ../../index.rst:201
 msgid "`Jupyter <https://jupyter.org>`_"
 msgstr ""
 
-#: ../../index.rst:219
+#: ../../index.rst:202
 msgid "`MyBinder <https://mybinder.org>`_"
 msgstr ""
 
-#: ../../index.rst:220
+#: ../../index.rst:203
 msgid "`HoloViz <http://holoviz.org/>`_"
 msgstr ""
 
-#: ../../index.rst:221
+#: ../../index.rst:204
 msgid "`ReadTheDocs <https://readthedocs.org>`_"
 msgstr ""
 
-#: ../../index.rst:222
+#: ../../index.rst:205
 msgid "and many (many) other packages of the scientific python ecosytem"
 msgstr ""
 
-#: ../../index.rst:224
+#: ../../index.rst:207
 msgid ""
 "Last but not least: thanks to all OGGM-Edu friends and contributors! For "
 "a full list, see our `github repository <https://github.com/OGGM/oggm-"
 "edu/graphs/contributors>`_."
-msgstr ""
-
-#: ../../<rst_epilog>:3
-msgid "**License**"
-msgstr ""
-
-#: ../../<rst_epilog>:8
-msgid ""
-"*Unless specified otherwise (e.g. certain images, links...), the content "
-"of this page is shared under a* `Creative Commons Attribution 4.0 "
-"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
-"(CC BY 4.0).*"
 msgstr ""
 
 #~ msgid ""
@@ -381,5 +329,50 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ":doc:`activity_sheets`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_flowline_intro`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_ice_flow_parameters`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_surging_glaciers`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_mass_balance_gradient`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_temperature_index_models`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_accumulation_and_ablation`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_advance_and_retreat`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_real_glacier_simulations`"
+#~ msgstr ""
+
+#~ msgid ":doc:`user_content`"
+#~ msgstr ""
+
+#~ msgid ":doc:`technical_details`"
+#~ msgstr ""
+
+#~ msgid ":doc:`other_resources`"
+#~ msgstr ""
+
+#~ msgid "**License**"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*Unless specified otherwise (e.g. certain "
+#~ "images, links...), the content of this"
+#~ " page is shared under a* `Creative"
+#~ " Commons Attribution 4.0 International "
+#~ "<https://creativecommons.org/licenses/by/4.0/>`_ *license "
+#~ "(CC BY 4.0).*"
 #~ msgstr ""
 

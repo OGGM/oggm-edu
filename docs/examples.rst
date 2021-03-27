@@ -21,13 +21,13 @@ High school activity sheets
 ---------------------------
 
 Here are examples of suggested activities developed by Josie Lino, a
-high school student who did an internship with us. They and have not yet
-been tested in class. Feel free to adapt from them, and send us your
-suggestions!
+high school student who wrote them during a short internship with us.
+They have not yet been tested in class.
+Feel free to adapt from them, and send us your suggestions!
 
 - :ref:`as_gallery`
 - :ref:`as_simulator`
 
-We don't have examples for the Glacier Explorer app yet. Send us some! Or
+We don't have examples for the Glacier Explorer app yet. Send us one! Or
 check out `this twitter thread <https://twitter.com/OGGM_org/status/1359450122451619842>`_
 for some inspiration.

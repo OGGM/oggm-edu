@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-17 23:39+0100\n"
+"POT-Creation-Date: 2021-03-26 12:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,18 +233,6 @@ msgstr ""
 msgid "The JupyterLab's upload button (red box)"
 msgstr ""
 
-#: ../../<rst_epilog>:3
-msgid "**License**"
-msgstr ""
-
-#: ../../<rst_epilog>:8
-msgid ""
-"*Unless specified otherwise (e.g. certain images, links...), the content "
-"of this page is shared under a* `Creative Commons Attribution 4.0 "
-"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
-"(CC BY 4.0).*"
-msgstr ""
-
 #~ msgid "Binder"
 #~ msgstr ""
 
@@ -297,5 +285,17 @@ msgstr ""
 #~ " have to `install OGGM "
 #~ "<https://docs.oggm.org/en/latest/installing-oggm.html>`_ "
 #~ "locally for them to work!"
+#~ msgstr ""
+
+#~ msgid "**License**"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*Unless specified otherwise (e.g. certain "
+#~ "images, links...), the content of this"
+#~ " page is shared under a* `Creative"
+#~ " Commons Attribution 4.0 International "
+#~ "<https://creativecommons.org/licenses/by/4.0/>`_ *license "
+#~ "(CC BY 4.0).*"
 #~ msgstr ""
 

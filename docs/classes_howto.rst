@@ -13,8 +13,8 @@ high school level (using the web applications) and at the university level
 (using the programmable notebooks). You will find some help to get you started
 below.
 
-Using the OGGM-Edu web apps at the highschool level
----------------------------------------------------
+Using the OGGM-Edu web apps at the high school level
+----------------------------------------------------
 
 OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even
 longer. It could be organized as such:
@@ -46,8 +46,8 @@ short notebook. In a second session (after an hour or so),
 summarize the usual pitfalls:
 
 - recognize that notebooks are actual files (not something magical on browser)
-- aknowledge that the order of execution of cells matter
-- aknowledge that errors in cell execution are OK and can be recovered from
+- acknowledge that the order of execution of cells matter
+- acknowledge that errors in cell execution are OK and can be recovered from
 - show how to restart with a fresh notebook
 - encourage the use of keyboard shortcuts (such as `[shift+enter]` and
   `[ctrl+m] + key`)
@@ -76,7 +76,7 @@ in mentoring each other than we are.
 Implementation
 --------------
 
-Ready to give it a go? You will find more information in the pages below:
+Ready to give OGGM-Edu a go? You will find more information in the pages below:
 
 .. toctree::
     :maxdepth: 1

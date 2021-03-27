@@ -86,7 +86,12 @@ release = u'1.0'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
+# https://stackoverflow.com/questions/55808716/sphinx-documentation-translation-i18n-of-conf-py-variables
+# sphinx-build -b html -t language_de . _build/de
+for t in tags:
+    if t.startswith('language_'):
+        language = t[9:]
 
 
 # Options for internationalization
@@ -95,10 +100,11 @@ gettext_compact = False     # optional.
 
 
 # For local builds we have to parse the current language
-READTHEDOCS_LANGUAGE = os.environ.get('READTHEDOCS_LANGUAGE', 'en')
+READTHEDOCS_LANGUAGE = os.environ.get('READTHEDOCS_LANGUAGE', language)
 SPHINXOPTS = os.environ.get('SPHINXOPTS', None)
 if SPHINXOPTS is not None and 'language=' in SPHINXOPTS:
     READTHEDOCS_LANGUAGE = SPHINXOPTS.split('language=')[-1]
+language = READTHEDOCS_LANGUAGE
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -144,16 +150,48 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 html_theme = 'sphinx_book_theme'
 
-
-extra_navbar = """<p align="left"><strong>License</strong></p>
-<p align="left">
-<a href="default.asp">
-  <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
-</a> 
-</p>
-<p align="left">Unless specified otherwise, the content of OGGM-Edu is shared 
-under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</p>
-"""
+if READTHEDOCS_LANGUAGE == 'de':
+    extra_navbar = """<p align="left"><strong>Licenz</strong></p>
+    <p align="left">
+    <a href="default.asp">
+      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
+    </a> 
+    </p>
+    <p align="left">Falls nicht anders festgelegt, ist der Inhalt von OGGM-Edu unter einer 
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Attribution 4.0 International</a>-Lizenz geteilt.</p>
+    """
+    toc_title = "Auf dieser Seite"
+elif READTHEDOCS_LANGUAGE == 'fr':
+    extra_navbar = """<p align="left"><strong>License</strong></p>
+    <p align="left">
+    <a href="default.asp">
+      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
+    </a> 
+    </p>
+    <p align="left">Sauf indication contraire, le contenu de OGGM-Edu est partagé avec une license <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">Creative Commons Attribution 4.0 International</a>.</p>
+    """
+    toc_title = "Sur cette page"
+elif READTHEDOCS_LANGUAGE == 'es':
+    extra_navbar = """<p align="left"><strong>Licencia</strong></p>
+    <p align="left">
+    <a href="default.asp">
+      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
+    </a> 
+    </p>
+    <p align="left">A menos que se especifique lo contrario, el contenido de OGGM-Edu se comparte con una licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Creative Commons Attribution 4.0 International</a>.</p>
+    """
+    toc_title = "En esta página"
+else:
+    extra_navbar = """<p align="left"><strong>License</strong></p>
+    <p align="left">
+    <a href="default.asp">
+      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
+    </a> 
+    </p>
+    <p align="left">Unless specified otherwise, the content of OGGM-Edu is shared 
+    under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</p>
+    """
+    toc_title = "On this page"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -165,7 +203,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "path_to_docs": "docs",
     "home_page_in_toc": True,
-    "toc_title": "On this page",
+    "toc_title": toc_title,
     "extra_navbar": extra_navbar,
 }
 
