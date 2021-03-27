@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) OGGM-Edu Developers 2018-2020
+# Copyright (C) OGGM-Edu Developers 2018-2021
 # This file is distributed under the same license as the OGGM-Edu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 15:51+0100\n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,38 +76,4 @@ msgid ""
 "<https://twitter.com/OGGM_org/status/1359450122451619842>`_ for some "
 "inspiration."
 msgstr ""
-
-#~ msgid "Application examples"
-#~ msgstr ""
-
-#~ msgid "**License**"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*Unless specified otherwise (e.g. certain "
-#~ "images, links...), the content of this"
-#~ " page is shared under a* `Creative"
-#~ " Commons Attribution 4.0 International "
-#~ "<https://creativecommons.org/licenses/by/4.0/>`_ *license "
-#~ "(CC BY 4.0).*"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Here are examples of suggested "
-#~ "activities developed by Josie Lino, a"
-#~ " high school student who did an "
-#~ "internship with us. They and have "
-#~ "not yet been tested in class. Feel"
-#~ " free to adapt from them, and "
-#~ "send us your suggestions!"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "We don't have examples for the "
-#~ "Glacier Explorer app yet. Send us "
-#~ "some! Or check out `this twitter "
-#~ "thread "
-#~ "<https://twitter.com/OGGM_org/status/1359450122451619842>`_ for"
-#~ " some inspiration."
-#~ msgstr ""
 

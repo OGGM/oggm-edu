@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2018, OGGM Developers
+# Copyright (C) OGGM-Edu Developers 2018-2021
 # This file is distributed under the same license as the OGGM-Edu package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OGGM-Edu 0.1\n"
+"Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 15:51+0100\n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,65 +164,4 @@ msgid ""
 "Ready to give OGGM-Edu a go? You will find more information in the pages "
 "below:"
 msgstr ""
-
-#~ msgid ""
-#~ "**On Binder: avoid bad surprises by "
-#~ "explaining to your class that the "
-#~ "sessions are temporary**. Show your "
-#~ "students how to download and upload "
-#~ "files to JupyterLab so that they "
-#~ "feel comfortable saving their work from"
-#~ " time to time."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Currently, we are working on making "
-#~ "OGGM-Edu suitable for classes at "
-#~ "the highschool level (using the web "
-#~ "applications) and at the university "
-#~ "level (using the programmable notebooks). "
-#~ "You will find some help to get "
-#~ "you started below."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Our notebooks have been used for a"
-#~ " one week workshop given to students"
-#~ " in Peru. Read `this blog post "
-#~ "<https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_ for"
-#~ " more details."
-#~ msgstr ""
-
-#~ msgid "See also :ref:`examples` for existing classes based on OGGM-Edu."
-#~ msgstr ""
-
-#~ msgid "**License**"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*Unless specified otherwise (e.g. certain "
-#~ "images, links...), the content of this"
-#~ " page is shared under a* `Creative"
-#~ " Commons Attribution 4.0 International "
-#~ "<https://creativecommons.org/licenses/by/4.0/>`_ *license "
-#~ "(CC BY 4.0).*"
-#~ msgstr ""
-
-#~ msgid "Using the OGGM-Edu web apps at the highschool level"
-#~ msgstr ""
-
-#~ msgid "aknowledge that the order of execution of cells matter"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "aknowledge that errors in cell execution"
-#~ " are OK and can be recovered "
-#~ "from"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Ready to give it a go? You "
-#~ "will find more information in the "
-#~ "pages below:"
-#~ msgstr ""
 

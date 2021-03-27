@@ -395,4 +395,6 @@ with open("epilog.rst", "r") as myfile:
 
 # Add toggle container
 def setup(app):
+    # In sphinx, you can use .. ifconfig:: READTHEDOCS_LANGUAGE == 'en' to
+    # hide content if necessary
     app.add_config_value('READTHEDOCS_LANGUAGE', '', READTHEDOCS_LANGUAGE)

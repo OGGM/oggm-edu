@@ -32,17 +32,4 @@ Source code
 
 Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, BSD3 licensed.
 
-.. ifconfig:: READTHEDOCS_LANGUAGE == 'en'
-
-  Possible future app improvements
-  --------------------------------
-
-  - display of uncertainties into the graphic
-  - possibility to choose between absolute and percentage change of volume
-  - adding a map in which the user can select glaciers
-  - implement tick-boxes for choosing the displayed RCP-scenarios
-  - two dropdown menus to give the opportunity that every region can be compared to every other region/country
-
-  If you are interested to contribute you can send us the edited
-  `file <https://github.com/OGGM/alps_future/blob/master/app.ipynb>`_ per mail or
-  with a pull-request. Thanks!
+Possible future app improvements: see `this issue <https://github.com/OGGM/alps_future/issues/5>`_

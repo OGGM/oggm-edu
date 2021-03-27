@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) OGGM Developers
+# Copyright (C) OGGM-Edu Developers 2018-2021
 # This file is distributed under the same license as the OGGM-Edu package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OGGM-Edu 0.1\n"
+"Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-26 12:05+0100\n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -285,94 +285,4 @@ msgid ""
 "a full list, see our `github repository <https://github.com/OGGM/oggm-"
 "edu/graphs/contributors>`_."
 msgstr ""
-
-#~ msgid ""
-#~ "Our main goal is to **provide "
-#~ "tools and materials for instructors** "
-#~ "who want to teach about glaciers "
-#~ "at school, in workshops or at the"
-#~ " university level. For example, OGGM-"
-#~ "Edu was used to conduct a "
-#~ "`weeklong workshop <https://oggm.org/2019/12/06/OGGM-"
-#~ "Edu-AGU/>`_ on glaciology and glacial"
-#~ " water resources for Peruvian students."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "These are more advanced notebooks, for"
-#~ " current and future users of the "
-#~ "OGGM model."
-#~ msgstr ""
-
-#~ msgid "This platform is an educational website about glaciers."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Our main goal is to **provide "
-#~ "tools and materials for instructors** "
-#~ "who want to teach about glaciers "
-#~ "at school, in workshops or at the"
-#~ " university. For example, OGGM-Edu "
-#~ "was used to conduct a `weeklong "
-#~ "workshop <https://oggm.org/2019/12/06/OGGM-Edu-"
-#~ "AGU/>`_ on glaciology and glacial water"
-#~ " resources for undergraduate Peruvian "
-#~ "students."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**OGGM-Edu has four independent "
-#~ "components**, serving complementary purposes:"
-#~ msgstr ""
-
-#~ msgid "Check out our new :ref:`activity_sheets` for high school teachers!"
-#~ msgstr ""
-
-#~ msgid ":doc:`activity_sheets`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_flowline_intro`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_ice_flow_parameters`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_surging_glaciers`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_mass_balance_gradient`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_temperature_index_models`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_accumulation_and_ablation`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_advance_and_retreat`"
-#~ msgstr ""
-
-#~ msgid ":doc:`notebooks_real_glacier_simulations`"
-#~ msgstr ""
-
-#~ msgid ":doc:`user_content`"
-#~ msgstr ""
-
-#~ msgid ":doc:`technical_details`"
-#~ msgstr ""
-
-#~ msgid ":doc:`other_resources`"
-#~ msgstr ""
-
-#~ msgid "**License**"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*Unless specified otherwise (e.g. certain "
-#~ "images, links...), the content of this"
-#~ " page is shared under a* `Creative"
-#~ " Commons Attribution 4.0 International "
-#~ "<https://creativecommons.org/licenses/by/4.0/>`_ *license "
-#~ "(CC BY 4.0).*"
-#~ msgstr ""
 
