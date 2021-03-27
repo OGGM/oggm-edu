@@ -3,7 +3,7 @@
 Why OGGM-Edu?
 =============
 
-OGGM-Edu was created as an educational branch of the larger Open Global Glacier
+OGGM-Edu was created as an educational branch of the Open Global Glacier
 Model (`OGGM <http://oggm.org>`_) project. It is now largely independent and,
 we hope, can become a useful educational website as we engage more
 content creators and users! Here is what motivates us:
@@ -23,18 +23,18 @@ content creators and users! Here is what motivates us:
 - We rely on an **open-source**, **decentralized** and **collaborative**
   content creation system:
 
-    - *open-source*: everything is available on our online repositories,
-      with an open license allowing nonrestrictive reuse.
-    - *decentralized*: content using OGGM-Edu or that can be run on OGGM-Edu
-      does not have to be stored on our repositories. For example,
-      out `own notebooks <https://github.com/OGGM/oggm-edu-notebooks>`_ are
-      stored in a separate repository, and so are
-      `Lizz' notebooks <https://github.com/ehultee/CdeC-glaciologia>`_.
-    - *collaborative*: thanks to the decentralized open-source model, any new
-      modification and innovation can feed back into the original website,
-      if the author of the new content chose a license allowing it (which we
-      strongly encourage!).
-- We use **tools familiar to scientists**, not web developpers: our apps and
+  - *open-source*: everything is available on our online repositories,
+    with an open license allowing nonrestrictive reuse.
+  - *decentralized*: content using OGGM-Edu or that can be run on OGGM-Edu
+    does not have to be stored on our repositories. For example,
+    out `own notebooks <https://github.com/OGGM/oggm-edu-notebooks>`_ are
+    stored in a separate repository, and so are
+    `Lizz' notebooks <https://github.com/ehultee/CdeC-glaciologia>`_.
+  - *collaborative*: thanks to the decentralized open-source model, any new
+    modification and innovation can feed back into the original website,
+    if the author of the new content chose a license allowing it (which we
+    strongly encourage!).
+- We use **tools familiar to scientists**, not web developers: our apps and
   notebooks are written in the Python programming language, this website is
   written in the `rst format <https://en.wikipedia.org/wiki/ReStructuredText>`_.
   These tools are much easier to learn and adopt for scientists than,

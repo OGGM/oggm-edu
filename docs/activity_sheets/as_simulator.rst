@@ -1,3 +1,5 @@
+:orphan:
+
 .. _as_simulator:
 
 Lesson plan 3: Glacier Simulator
@@ -13,7 +15,6 @@ Lesson plan 3: Glacier Simulator
      parameters influence glacier size, and more.
 :Objectives:
     Upon completion of this lesson, students will be able to:
-
        - Recite and understand words and their definitions, most notably: Equillibrium Line Altitude (ELA), accumulation area, and glacier-mass balance.
        - Describe the correlation between glacier top width and accumulation area, ELA and equilibrium glacier size, and glacier density and gradient.
        - Discover through scientific inquiry and analysis of visual data

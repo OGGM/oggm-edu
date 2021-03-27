@@ -29,8 +29,8 @@ Help with typos, text, content, etc.
 
 Everything on this website is written by volunteers and non-native english
 speakers. If you find mistakes or things you'd like to change, please do!
-You can edit each file by following the "Edit on GitHub" link at the top
-of each page, or send us your modification suggestions!
+You can edit each file by following the "suggest edit" button at the top
+of each page, or send us your modification suggestions per mail!
 
 If you want to build the OGGM-Edu website locally to see your changes 
 before publishing them online, see 
@@ -51,15 +51,15 @@ Let's face it: right now, OGGM-Edu is of limited use for teachers, who have only
 little time to prepare their class. It would be very useful to prepare concrete
 "activity sheets" which explain how to spend one, two, or four hours with
 OGGM-Edu, at various levels of difficulty and level of detail. Such
-documents could also live on the website and be updated as people report their
-experiences with the tool. 
+documents could also live on the website (e.g. in :ref:`examples`) and be
+updated as people report their experiences with the tool.
 
 
 Help translate OGGM-Edu
 -----------------------
 
 We are seeking to improve the usefulness of OGGM-Edu in non english speaking
-groups. It is technically easy to do it (we already have
+groups. It is technically easy to do (we already have
 template - dummy - pages for
 `german <https://edu.oggm.org/de/latest/>`_,
 `french <https://edu.oggm.org/fr/latest/>`_ and
@@ -73,7 +73,7 @@ simple text editor or dedicated tools (e.g. `poedit <https://poedit.net/>`_).
 See `this file <https://github.com/OGGM/oggm-edu/blob/master/docs/locale/fr/LC_MESSAGES/alps_future.po>`_
 for an example.
 
-If you would like to help, grab these files and translate were you can! The translation
+If you would like to help, grab these files and translate where you can! The translation
 of even one single page would be very useful. We can provide support and advice with the languages
 we can read (spanish, french, german).
 
@@ -118,4 +118,4 @@ Website design
 
 ReadTheDocs and Sphinx are great, but they have their limits. If you have
 web skills and would like to make OGGM-Edu more appealing,
-:ref:`reach out! <title_contact>`
+:ref:`reach out! <title_contact>`.

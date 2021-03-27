@@ -1,7 +1,7 @@
 .. _examples:
 
-Application examples
-====================
+Classes based on OGGM-Edu
+=========================
 
 This page lists some known applications of OGGM-Edu in classes. You can
 use them "as is", or as templates for your own classes. We would love to hear
@@ -21,16 +21,13 @@ High school activity sheets
 ---------------------------
 
 Here are examples of suggested activities developed by Josie Lino, a
-high school student who did an internship with us. They and have not yet
-been tested in class. Feel free to adapt from them, and send us your
-suggestions!
+high school student who wrote them during a short internship with us.
+They have not yet been tested in class.
+Feel free to adapt from them, and send us your suggestions!
 
-.. toctree::
-    :maxdepth: 1
+- :ref:`as_gallery`
+- :ref:`as_simulator`
 
-    activity_sheets/as_gallery.rst
-    activity_sheets/as_simulator.rst
-
-We don't have examples for the Glacier Explorer app yet. Send us some! Or
+We don't have examples for the Glacier Explorer app yet. Send us one! Or
 check out `this twitter thread <https://twitter.com/OGGM_org/status/1359450122451619842>`_
 for some inspiration.

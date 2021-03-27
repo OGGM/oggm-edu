@@ -70,8 +70,6 @@ and run the model again. Is the new glacier larger or smaller than before? Why?
     at its head, albeit over a different area (width). See our 
     :ref:`glacier_aar` experiments to learn more about the AAR.
 
-
-
 Equilibrium Line Altitude (ELA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -408,7 +406,7 @@ need one to download the app and display the logos).
 
 To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
-From there, run this command into a terminal:
+From there, run this command into a terminal::
 
     docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:8080 oggm/bokeh:20200406 git+https://github.com/OGGM/glacier_simulator.git app.ipynb
 

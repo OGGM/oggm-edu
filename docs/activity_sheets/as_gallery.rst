@@ -1,3 +1,5 @@
+:orphan:
+
 .. _as_gallery:
 
 Lesson plan 1: Glacier Gallery
@@ -12,7 +14,6 @@ Lesson plan 1: Glacier Gallery
     by OGGM-Edu, students will be introduced to glaciers and their forms.
 :Objectives:
     Upon completion of this lesson, students will be able to:
-
        - Identify the standard definition of a glacier
        - Compare and contrast the four glacier types presented in the app
 :Materials Needed:
