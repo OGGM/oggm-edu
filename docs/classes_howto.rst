@@ -9,13 +9,12 @@ some preparation. Check out :ref:`other_resources` if you are interested in
 the fundamentals and online textbook materials.
 
 Currently, we are working on making OGGM-Edu suitable for classes at the
-highschool level (using the web applications) and at the university level
+high school level (using the web applications) and at the university level
 (using the programmable notebooks). You will find some help to get you started
 below.
 
-
-Using the OGGM-Edu web apps at the highschool level
----------------------------------------------------
+Using the OGGM-Edu web apps at the high school level
+----------------------------------------------------
 
 OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even
 longer. It could be organized as such:
@@ -39,10 +38,6 @@ We use notebooks frequently for our own `lectures <https://fabienmaussion.info/t
 and we are big fans! They allow to convey knowledge in interactive,
 "try as you learn" practicals, and they encourage active learning.
 
-Our notebooks have been used for a one week workshop given to students
-in Peru. Read `this blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_
-for more details.
-
 Here are a few recommendations based on our own experience:
 
 **Spend at least two hours explaining the notebook and jupyterlab environments**.
@@ -51,8 +46,8 @@ short notebook. In a second session (after an hour or so),
 summarize the usual pitfalls:
 
 - recognize that notebooks are actual files (not something magical on browser)
-- aknowledge that the order of execution of cells matter
-- aknowledge that errors in cell execution are OK and can be recovered from
+- acknowledge that the order of execution of cells matter
+- acknowledge that errors in cell execution are OK and can be recovered from
 - show how to restart with a fresh notebook
 - encourage the use of keyboard shortcuts (such as `[shift+enter]` and
   `[ctrl+m] + key`)
@@ -76,3 +71,16 @@ even trying to analyse the plot they just produced.
 If you have the chance to have more experienced students in the room,
 **organize peer-mentoring in groups of 2 or 3**. Students are often better
 in mentoring each other than we are.
+
+
+Implementation
+--------------
+
+Ready to give OGGM-Edu a go? You will find more information in the pages below:
+
+.. toctree::
+    :maxdepth: 1
+
+    examples.rst
+    user_content.rst
+    technical_details.rst

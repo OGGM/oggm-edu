@@ -1,18 +1,18 @@
 .. figure:: _static/oggm.gif
-
+   :align: left
 
 Welcome to OGGM-Edu!
 ====================
 
-This platform is an educational website about glaciers.
+OGGM-Edu is an educational website about glaciers.
 
 Our main goal is to **provide tools and materials for instructors** who
 want to teach about glaciers at school, in workshops or at the university.
-For example, OGGM-Edu was used to conduct
-a `weeklong workshop <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_
-on glaciology and glacial water resources for undergraduate Peruvian students.
 
-**OGGM-Edu has four independent components**, serving complementary purposes:
+For a general introduction and an overview, visit this recent 
+`EGU cryoblog post <https://blogs.egu.eu/divisions/cr/2021/03/12/do-you-know-about-oggm-edu-an-open-source-educational-platform-about-glaciers-and-glacier-modelling/>`_!
+
+**OGGM-Edu has four independent and complementary components**:
 
 1. :ref:`title_apps`, to illustrate glaciological processes with the
    help of interactive graphics on the web. The targeted audience is very
@@ -54,10 +54,6 @@ These interactive apps can be run on any computer with an internet connection.
     simulator.rst
     alps_future.rst
 
-.. seealso::
-
-    Check out our new :ref:`activity_sheets` for high school teachers!
-
 .. _title_graphics:
 
 Graphics
@@ -88,14 +84,7 @@ background in programming, and we are working to make them as accessible as
 possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 
 * :doc:`notebooks_howto`
-* :doc:`notebooks_flowline_intro`
-* :doc:`notebooks_ice_flow_parameters`
-* :doc:`notebooks_surging_glaciers`
-* :doc:`notebooks_mass_balance_gradient`
-* :doc:`notebooks_temperature_index_models`
-* :doc:`notebooks_accumulation_and_ablation`
-* :doc:`notebooks_advance_and_retreat`
-* :doc:`notebooks_real_glacier_simulations`
+* :doc:`notebooks_index`
 
 
 .. toctree::
@@ -104,14 +93,8 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     :caption: Interactive Notebooks
 
     notebooks_howto.rst
-    notebooks_flowline_intro.rst
-    notebooks_ice_flow_parameters.rst
-    notebooks_surging_glaciers.rst
-    notebooks_mass_balance_gradient.rst
-    notebooks_temperature_index_models.rst
-    notebooks_accumulation_and_ablation.rst
-    notebooks_advance_and_retreat.rst
-    notebooks_real_glacier_simulations.rst
+    notebooks_index.rst
+
 
 .. _title_tuto:
 
@@ -137,10 +120,7 @@ recommendations and guidelines here.
 
 * :doc:`why_oggmedu`
 * :doc:`classes_howto`
-* :doc:`activity_sheets`
-* :doc:`user_content`
-* :doc:`technical_details`
-* :doc:`other_resources`
+* :doc:`examples`
 * :doc:`charter`
 * :doc:`roadmap`
 
@@ -151,9 +131,6 @@ recommendations and guidelines here.
 
     why_oggmedu.rst
     classes_howto.rst
-    activity_sheets
-    user_content.rst
-    technical_details.rst
     other_resources.rst
     charter.rst
     roadmap.rst
@@ -198,24 +175,26 @@ also had support from various sources:
 .. raw:: html
 
     <a href="https://www.uibk.ac.at/foerderkreis1669/" >
-    <img src="_static/logo_1669_uibk.jpg" alt="Image missing" width="49%" />
+    <img src="_static/logo_1669_uibk.jpg" alt="Image missing" width="40%" />
     </a>
     <a href="https://www.bmbf.de/en/index.html" >
-    <img src="_static/logo_bmbf.jpg" alt="Image missing" width="49%" />
+    <img src="_static/logo_bmbf.jpg" alt="Image missing" width="40%" />
     </a>
     <a href="https://cloud.google.com/data-solutions-for-change" >
-    <img src="_static/feature-google-for-nonprofits-logo.svg" alt="Image missing" width="49%" />
+    <img src="_static/feature-google-for-nonprofits-logo.svg" alt="Image missing" width="40%" />
     </a>
     <a href="http://holoviz.org/" >
-    <img src="https://discourse.holoviz.org/uploads/default/original/1X/59aba5e11167d6b8742e01fc9d6bb60ddd4df55e.png" alt="Image missing" width="49%" />
+    <img src="https://discourse.holoviz.org/uploads/default/original/1X/59aba5e11167d6b8742e01fc9d6bb60ddd4df55e.png" alt="Image missing" width="40%" />
     </a>
     <a href="https://jupyter.org" >
-    <img src="https://jupyter.org/assets/hublogo.svg" alt="Jupyter logo" width="49%" />
+    <img src="https://jupyter.org/assets/hublogo.svg" alt="Jupyter logo" width="40%" />
     </a>
     <a href="https://mybinder.org" >
-    <img src="https://mybinder.org/static/logo.svg" alt="MyBinder logo" width="49%" />
+    <img src="https://mybinder.org/static/logo.svg" alt="MyBinder logo" width="40%" />
     </a>
+    <br>
 
+|
 
 We rely on awesome open source tools to run OGGM-Edu! Most notably:
 

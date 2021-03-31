@@ -21,17 +21,17 @@ Requirements
 ~~~~~~~~~~~~
 
 There are some extra requirements to build the docs: you will need to
-have ``sphinx``, ``sphinx_rtd_theme``, ``numpydoc`` and ``ipython`` installed.
+have ``sphinx``, ``sphinx-book-theme``, ``numpydoc`` and ``ipython`` installed.
 
 If you have a conda environment, you can install the extra
 requirements with::
 
-      conda install sphinx sphinx_rtd_theme ipython numpydoc sphinx-intl
+      conda install sphinx sphinx-book-theme ipython numpydoc sphinx-intl
 
 If you use pip, activate your python environment and install the requirements
 with::
 
-      pip install sphinx sphinx_rtd_theme ipython numpydoc sphinx-intl
+      pip install sphinx sphinx-book-theme ipython numpydoc sphinx-intl
 
 
 Building the documentation
@@ -67,7 +67,7 @@ Update the translation files
 OGGM-Edu is available in other languages (although almost nothing is translated yet). 
 
 Each time OGGM-Edu is updated in english, it is wize to also update the translation 
-files (`.po`) files. After a regular `make html` build, simply run the `translate.sh` 
+files (`.po`) files. After a `make html` build, simply run the `translate.sh`
 script from the same `oggm-edu/docs` folder: it will update the `.po` files 
 accordingly. 
 
@@ -77,12 +77,12 @@ Build the website in one of the available languages
 
 German::
 
-    sphinx-build -b html -D language=de . _build/de
+    sphinx-build -b html -t language_de . _build/de
 
 French::
 
-    sphinx-build -b html -D language=fr . _build/fr
+    sphinx-build -b html -t language_fr . _build/fr
 
 Spanish::
 
-    sphinx-build -b html -D language=es . _build/es
+    sphinx-build -b html -t language_es . _build/es

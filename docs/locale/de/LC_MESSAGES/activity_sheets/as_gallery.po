@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) OGGM-Edu Developers 2018-2020
+# Copyright (C) OGGM-Edu Developers 2018-2021
 # This file is distributed under the same license as the OGGM-Edu package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 13:17+0200\n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../activity_sheets/as_gallery.rst:4
+#: ../../activity_sheets/as_gallery.rst:6
 msgid "Lesson plan 1: Glacier Gallery"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:7
+#: ../../activity_sheets/as_gallery.rst:9
 msgid "Josie Lino"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Grades"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:9
+#: ../../activity_sheets/as_gallery.rst:11
 msgid "High school students"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Brief Description"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:11
+#: ../../activity_sheets/as_gallery.rst:13
 msgid ""
 "Utilizing the interactive app :ref:`gallery` provided by OGGM-Edu, "
 "students will be introduced to glaciers and their forms."
@@ -51,15 +51,15 @@ msgstr ""
 msgid "Objectives"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:14
+#: ../../activity_sheets/as_gallery.rst:17
 msgid "Upon completion of this lesson, students will be able to:"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:16
+#: ../../activity_sheets/as_gallery.rst:17
 msgid "Identify the standard definition of a glacier"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:17
+#: ../../activity_sheets/as_gallery.rst:18
 msgid "Compare and contrast the four glacier types presented in the app"
 msgstr ""
 
@@ -67,13 +67,13 @@ msgstr ""
 msgid "Materials Needed"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:20
+#: ../../activity_sheets/as_gallery.rst:21
 msgid ""
 "Computer with access to OGGM-Edu (possibly one computer per group of 2 or"
 " 3)"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:21
+#: ../../activity_sheets/as_gallery.rst:22
 msgid "A writing utensil and paper"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Lesson Plan"
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:25
+#: ../../activity_sheets/as_gallery.rst:26
 msgid ""
 "Brainstorm with students to discern what they know about glaciers. This "
 "could entail asking students to individually write down their initial "
@@ -89,7 +89,7 @@ msgid ""
 "the characteristics of a glacier."
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:28
+#: ../../activity_sheets/as_gallery.rst:29
 msgid ""
 "Open the Glacier Gallery app and highlight the definition of a glacier "
 "defined by OGGM-Edu. Emphasize that a glacier is a perennial land-mass of"
@@ -97,7 +97,7 @@ msgid ""
 "definition against the OGGM-Edu provided definition of a glacier."
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:32
+#: ../../activity_sheets/as_gallery.rst:33
 msgid ""
 "Provide short instruction on how to use the Glacier Gallery. Ask students"
 " to independently (either alone or in small groups) to create a visual "
@@ -106,32 +106,20 @@ msgid ""
 "time to work and occasionally offer your assistance when asked or needed."
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:37
+#: ../../activity_sheets/as_gallery.rst:38
 msgid ""
 "If not rushed for time, ask students to individually present their "
 "findings. Otherwise, create your own compare-and-contrast visualization "
 "method and use student-input to fill it in."
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:39
+#: ../../activity_sheets/as_gallery.rst:40
 msgid ""
 "Summarize the key differences between the four glacier types in a method "
 "that would allow students to take notes."
 msgstr ""
 
-#: ../../activity_sheets/as_gallery.rst:40
+#: ../../activity_sheets/as_gallery.rst:41
 msgid "For the remainder of the lesson, ask students to ask questions."
-msgstr ""
-
-#: ../../<rst_epilog>:3
-msgid "**License**"
-msgstr ""
-
-#: ../../<rst_epilog>:8
-msgid ""
-"*Unless specified otherwise (e.g. certain images, links...), the content "
-"of this page is shared under a* `Creative Commons Attribution 4.0 "
-"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
-"(CC BY 4.0).*"
 msgstr ""
 

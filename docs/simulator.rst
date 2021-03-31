@@ -9,7 +9,7 @@ Glacier Simulator
 
 The glacier simulator is an **interactive web application** with which
 you can learn (and teach) about glacier flow, how glaciers grow and shrink,
-what parameters influence their size, and a lot more!
+what glacier properties influence their size or velocity, and a lot more!
 
 You can start the app by clicking on this link: |badge_bokeh_en|_
 
@@ -21,8 +21,9 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
   using computer resources on the cloud. If several people are using the app at
   the same time, the server might become slow or unresponsive. In this case,
   we recommend to use the app
-  `on MyBinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/v1.1?urlpath=panel/app>`_
+  `on MyBinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/v1.3?urlpath=panel/app>`_
   or even locally on your own computer (see :ref:`docker-launch-simulator` below).
+
 
 Getting started with the app
 ----------------------------
@@ -68,8 +69,6 @@ and run the model again. Is the new glacier larger or smaller than before? Why?
     further down valley, the glacier is loosing more mass at its terminus than 
     at its head, albeit over a different area (width). See our 
     :ref:`glacier_aar` experiments to learn more about the AAR.
-
-
 
 Equilibrium Line Altitude (ELA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -260,6 +259,7 @@ around the world. Here, we will now discover how different mass-balance gradient
     - Which of the two glaciers (maritime or continental) is thicker (*Max ice thickness*)?
     - Which is flowing faster (*Max ice velocity*)?
     - Which reaches the equilibrium faster (*Time*)?
+
 - *Advanced*:
     - How are *Length*, *Area* and *Volume* affected?
 
@@ -303,6 +303,7 @@ of the experiments, note that the total ice gain/loss at a certain elevation equ
     - For *Constant width*, what values of AAR-t (below or above 0.5) do you expect for an 
       advancing and a retreating glacier? Can you confirm by looking at the AAR during the 
       simulation, or using the timeseries plots. 
+
 - *Advanced*:
     - How is AAR-eq changing with a different mass-balance gradients below and above the ELA?
     - What can you conclude from the experiments about real-world glaciers which have a typical AAR-eq 
@@ -405,7 +406,7 @@ need one to download the app and display the logos).
 
 To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
-From there, run this command into a terminal:
+From there, run this command into a terminal::
 
     docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:8080 oggm/bokeh:20200406 git+https://github.com/OGGM/glacier_simulator.git app.ipynb
 

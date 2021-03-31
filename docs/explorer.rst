@@ -142,7 +142,7 @@ need one to download the app, display the logos and the map).
 
 To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
-From there, run this command into a terminal:
+From there, run this command into a terminal::
 
     docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:80 oggm/bokeh:20191210 git+https://github.com/OGGM/world-glacier-explorer.git app.ipynb
 

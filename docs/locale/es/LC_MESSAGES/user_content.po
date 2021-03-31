@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) OGGM Developers
+# Copyright (C) OGGM-Edu Developers 2018-2021
 # This file is distributed under the same license as the OGGM-Edu package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OGGM-Edu 0.1\n"
+"Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-17 23:39+0100\n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,49 +34,49 @@ msgid ""
 "the notebooks you would like to run in an online git repository (e.g. "
 "GitHub, Gitlab, Bitbucket). For example, we have created an `oggm-edu-"
 "contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single "
-"notebook to get you started. See also `Lizz' class (in spanish) "
-"<https://github.com/ehultee/CdeC-glaciologia>`_ for a real-world example."
+"notebook to get you started. See also :ref:`examples` for existing "
+"classes making use of this system."
 msgstr ""
 
-#: ../../user_content.rst:18
+#: ../../user_content.rst:17
 msgid ""
 "Ideally, we would like all OGGM-Edu related content to be bundled here on"
 " this open platform: if you feel comfortable sharing your content to "
 "others, please let us know!"
 msgstr ""
 
-#: ../../user_content.rst:23
+#: ../../user_content.rst:22
 msgid "On MyBinder"
 msgstr ""
 
-#: ../../user_content.rst:25
+#: ../../user_content.rst:24
 msgid ""
 "Using your own notebooks in an OGGM-Edu Binder environment is super easy!"
 " Once your notebooks are online, you simply have to provide the correct "
 "link to your students. The syntax is following::"
 msgstr ""
 
-#: ../../user_content.rst:31
+#: ../../user_content.rst:30
 msgid "For example, a link to our contrib repository looks like:"
 msgstr ""
 
-#: ../../user_content.rst:33
+#: ../../user_content.rst:32
 msgid ""
 "`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
 "pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_"
 msgstr ""
 
-#: ../../user_content.rst:35
+#: ../../user_content.rst:34
 msgid ""
 "What is happening here? The first part of the link (up to the question "
 "mark) is telling MyBinder to use the OGGM environment we are maintaining "
 "`here <https://github.com/OGGM/binder>`_ (we use the stable branch here)."
 " The second part of the link is using `nbgitpuller "
 "<https://jupyterhub.github.io/nbgitpuller/>`_ to fetch the provided "
-"online repository and it's content. That's all!"
+"online repository and its content. That's all!"
 msgstr ""
 
-#: ../../user_content.rst:42
+#: ../../user_content.rst:41
 msgid ""
 "This was the most basic example. If you want to use other features, like "
 "using the Jupyter Lab interface (instead of the simple notebooks "
@@ -84,11 +84,11 @@ msgid ""
 "repository (for example within a folder), the syntax is::"
 msgstr ""
 
-#: ../../user_content.rst:50
+#: ../../user_content.rst:49
 msgid "For example, we start the OGGM-Edu tutorials with this link:"
 msgstr ""
 
-#: ../../user_content.rst:52
+#: ../../user_content.rst:51
 #, python-format
 msgid ""
 "`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
@@ -97,88 +97,16 @@ msgid ""
 "notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_"
 msgstr ""
 
-#: ../../user_content.rst:54
+#: ../../user_content.rst:53
 msgid ""
 "It's getting quite long, I know! What's best therefore is to hide the "
 "links `behind a badge "
 "<https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_."
 msgstr ""
 
-#: ../../user_content.rst:57
+#: ../../user_content.rst:56
 msgid ""
 "If you are creating educational resources based on OGGM-Edu, please "
 ":ref:`get in touch <title_contact>` so that we can advertise them!"
 msgstr ""
-
-#: ../../<rst_epilog>:3
-msgid "**License**"
-msgstr ""
-
-#: ../../<rst_epilog>:8
-msgid ""
-"*Unless specified otherwise (e.g. certain images, links...), the content "
-"of this page is shared under a* `Creative Commons Attribution 4.0 "
-"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
-"(CC BY 4.0).*"
-msgstr ""
-
-#~ msgid "Use your own content in OGGM-Edu"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "You might be interested in running "
-#~ "your own notebooks in an OGGM-Edu"
-#~ " environment, for example during the "
-#~ "development phase or for a specific "
-#~ "class."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If you are creating educational "
-#~ "resources based on OGGM-Edu, please "
-#~ ":ref:`title_contact` so that we can "
-#~ "adverstise them!"
-#~ msgstr ""
-
-#~ msgid "On JupyterHub"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If you are using `hub.oggm.org "
-#~ "<https://hub.oggm.org>`_ or your own hub "
-#~ "deployment, visit `the OGGM documentation "
-#~ "<https://docs.oggm.org/en/latest/cloud.html#oggm-hub>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If you are creating educational "
-#~ "resources based on OGGM-Edu, please "
-#~ ":ref:`get in touch <title_contact>` so "
-#~ "that we can adverstise them!"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-"
-#~ "pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "What is happening here? The first "
-#~ "part of the link (up to the "
-#~ "question mark) is telling MyBinder to"
-#~ " use the OGGM environment we are "
-#~ "maintaining `here <https://github.com/OGGM/binder>`_. "
-#~ "The second part of the link is "
-#~ "using `nbgitpuller "
-#~ "<https://jupyterhub.github.io/nbgitpuller/>`_ to fetch "
-#~ "the provided online repository and it's"
-#~ " content. That's all!"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`<https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-"
-#~ "pull?repo=https://github.com/OGGM/oggm-edu-"
-#~ "notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-"
-#~ "edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_"
-#~ msgstr ""
 

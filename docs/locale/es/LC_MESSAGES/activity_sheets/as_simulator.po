@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) OGGM-Edu Developers 2018-2020
+# Copyright (C) OGGM-Edu Developers 2018-2021
 # This file is distributed under the same license as the OGGM-Edu package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 13:17+0200\n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../activity_sheets/as_simulator.rst:4
+#: ../../activity_sheets/as_simulator.rst:6
 msgid "Lesson plan 3: Glacier Simulator"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:7
+#: ../../activity_sheets/as_simulator.rst:9
 msgid "Josie Lino"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Grades"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:9
+#: ../../activity_sheets/as_simulator.rst:11
 msgid "High school students"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Brief Description"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:11
+#: ../../activity_sheets/as_simulator.rst:13
 msgid ""
 "Utilizing the interactive app :ref:`simulator` provided by OGGM-Edu, "
 "students will learn how glaciers flow, grow, shrink, as well as what "
@@ -52,24 +52,24 @@ msgstr ""
 msgid "Objectives"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:15
+#: ../../activity_sheets/as_simulator.rst:19
 msgid "Upon completion of this lesson, students will be able to:"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:17
+#: ../../activity_sheets/as_simulator.rst:18
 msgid ""
 "Recite and understand words and their definitions, most notably: "
 "Equillibrium Line Altitude (ELA), accumulation area, and glacier-mass "
 "balance."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:18
+#: ../../activity_sheets/as_simulator.rst:19
 msgid ""
 "Describe the correlation between glacier top width and accumulation area,"
 " ELA and equilibrium glacier size, and glacier density and gradient."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:19
+#: ../../activity_sheets/as_simulator.rst:20
 msgid "Discover through scientific inquiry and analysis of visual data"
 msgstr ""
 
@@ -77,17 +77,17 @@ msgstr ""
 msgid "Materials Needed"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:22
+#: ../../activity_sheets/as_simulator.rst:23
 msgid ""
 "Computer with access to OGGM-Edu (possibly one computer per group of 2 or"
 " 3)"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:23
+#: ../../activity_sheets/as_simulator.rst:24
 msgid "A writing utensil and paper"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:24
+#: ../../activity_sheets/as_simulator.rst:25
 msgid "A teacher-computer to present slides to students"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Lesson Plan"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:27
+#: ../../activity_sheets/as_simulator.rst:28
 msgid ""
 "Use the OGGM-Edu provided :ref:`glacier_basics` graphics to visually "
 "present the key concepts to students that will be reinforced with the "
@@ -107,7 +107,7 @@ msgid ""
 " on the fundamentals or be used as a supplement for students."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:28
+#: ../../activity_sheets/as_simulator.rst:29
 msgid ""
 "Either provide short instructions on how to use Glacier Simulator, or "
 "allow students (in small groups or individually) to guide themselves "
@@ -115,32 +115,32 @@ msgid ""
 "allotted time for student questions on how to use the app."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:29
+#: ../../activity_sheets/as_simulator.rst:30
 msgid ""
 "Either project on a board, or print out and pass, instructions that will "
 "guide students through the three self-contained inquiries. The "
 "instructions for the first inquiry are as follows:"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:31
+#: ../../activity_sheets/as_simulator.rst:32
 msgid ""
 "In beginner mode, set the ELA to 3000m a.s.l and note the equilibrium "
 "volume of the glacier, its length, and maximal thickness."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:32
+#: ../../activity_sheets/as_simulator.rst:33
 msgid ""
 "Choose the “wider top” glacier shape and run the model again. Is the new "
 "glacier larger or smaller? Why do you think so?"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:33
+#: ../../activity_sheets/as_simulator.rst:34
 msgid ""
 "Allow students to independently work through the first experiment and "
 "offer guidance when prompted or needed."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:34
+#: ../../activity_sheets/as_simulator.rst:35
 msgid ""
 "When all students are finished, or time commands, ask students for their "
 "answer to the questions posed in the last instruction. Emphasize the "
@@ -148,33 +148,33 @@ msgid ""
 "areas."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:35
+#: ../../activity_sheets/as_simulator.rst:36
 msgid ""
 "Allow students to independently work through the second inquiry and offer"
 " guidance when prompted or needed. The instructions follow:"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:37
+#: ../../activity_sheets/as_simulator.rst:38
 msgid ""
 "In beginner mode, set the ELA to 2500m a.s.l and note the equilibrium "
 "volume of the glacier, it’s length, and maximal thickness."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:38
+#: ../../activity_sheets/as_simulator.rst:39
 msgid ""
 "Change the ELA up to 3500m a.s.l in 200m increments and record, at every "
 "increment, the equilibrium volume of the glacier, it’s length, and "
 "maximal thickness."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:39
+#: ../../activity_sheets/as_simulator.rst:40
 msgid ""
 "Draw these variables on a graph, as a function of the ELA. How does "
 "glacier volume change with ELA? Can you explain why? What about glacier "
 "length and thickness? Are these changes linear, or more complex?"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:40
+#: ../../activity_sheets/as_simulator.rst:41
 msgid ""
 "When all students are finished, or time commands, ask students to either "
 "present their graphs, or create your own graph with student input. "
@@ -183,7 +183,7 @@ msgid ""
 "equilibrium glacier size."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:41
+#: ../../activity_sheets/as_simulator.rst:42
 msgid ""
 "Quickly introduce students to the concept of glacier flow. The "
 "`AntarcticGlaciers: glacier flow  <http://www.antarcticglaciers.org"
@@ -195,7 +195,7 @@ msgid ""
 "follow the instructions:"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:43
+#: ../../activity_sheets/as_simulator.rst:44
 msgid ""
 "Use beginner mode with standard settings (constant width, mass balance "
 "gradient of 4 and ELA of 3000) and run the model with each setting for "
@@ -204,13 +204,13 @@ msgid ""
 "each model run."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:44
+#: ../../activity_sheets/as_simulator.rst:45
 msgid ""
 "Using your analytical skills, answer the following questions. Which "
 "glaciers are thicker: steep or thin ones? Why?"
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:45
+#: ../../activity_sheets/as_simulator.rst:46
 msgid ""
 "When all students are finished, or time commands, ask students for their "
 "answer to the questions posed in the last instruction. Correct students "
@@ -218,22 +218,10 @@ msgid ""
 "steeper the slope, the thinner the glacier."
 msgstr ""
 
-#: ../../activity_sheets/as_simulator.rst:46
+#: ../../activity_sheets/as_simulator.rst:47
 msgid ""
 "Use the remainder of the lesson to answer any questions students may "
 "have. Direct them to the supplementary sources listed in this document "
 "for further investigation or reinforcement of concepts."
-msgstr ""
-
-#: ../../<rst_epilog>:3
-msgid "**License**"
-msgstr ""
-
-#: ../../<rst_epilog>:8
-msgid ""
-"*Unless specified otherwise (e.g. certain images, links...), the content "
-"of this page is shared under a* `Creative Commons Attribution 4.0 "
-"International <https://creativecommons.org/licenses/by/4.0/>`_ *license "
-"(CC BY 4.0).*"
 msgstr ""
 
