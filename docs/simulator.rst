@@ -21,7 +21,7 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
   using computer resources on the cloud. If several people are using the app at
   the same time, the server might become slow or unresponsive. In this case,
   we recommend to use the app
-  `on MyBinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/v1.3?urlpath=panel/app>`_
+  `on MyBinder <https://mybinder.org/v2/gh/OGGM/glacier_simulator/stable?urlpath=panel/app>`_
   or even locally on your own computer (see :ref:`docker-launch-simulator` below).
 
 
@@ -405,7 +405,7 @@ To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
 From there, run this command into a terminal::
 
-    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:8080 oggm/bokeh:20200406 git+https://github.com/OGGM/glacier_simulator.git@v1.3 app.ipynb
+    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:8080 oggm/bokeh:20210130 git+https://github.com/OGGM/glacier_simulator.git@stable app.ipynb
 
 Once running, you should be able to start the app in your browser at this
 address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_.
