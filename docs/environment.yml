@@ -8,4 +8,4 @@ dependencies:
   - sphinx
   - pip
   - pip:
-      - sphinx-book-theme
+      - sphinx-book-theme<=0.6.1
