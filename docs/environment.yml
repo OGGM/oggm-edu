@@ -8,5 +8,4 @@ dependencies:
   - sphinx
   - pip
   - pip:
-      - pydata-sphinx-theme==0.6.1
       - sphinx-book-theme==0.0.42
