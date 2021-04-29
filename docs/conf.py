@@ -31,21 +31,11 @@ print("sys.path:", sys.path)
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.extlinks',
     'sphinx.ext.mathjax',
-    'numpydoc',
     'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
-    'IPython.sphinxext.ipython_directive',
-    'IPython.sphinxext.ipython_console_highlighting',
+    'numpydoc',
 ]
-
-extlinks = {'issue': ('https://github.com/OGGM/oggm-edu/issues/%s', 'GH'),
-            'pull': ('https://github.com/OGGM/oggm-edu/pull/%s', 'PR'),
-            }
 
 autosummary_generate = True
 
