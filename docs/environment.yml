@@ -5,7 +5,7 @@ dependencies:
   - python
   - numpydoc
   - ipython
-  - sphinx
+  - sphinx<3.5.4
   - pip
   - pip:
       - sphinx-book-theme
