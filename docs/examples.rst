@@ -20,7 +20,7 @@ At the university level
 High school activity sheets
 ---------------------------
 
-Here are examples of suggested activities developed by Josie Lino, a
+Here are examples of suggested activities developed by Josie Iino, a
 high school student who wrote them during a short internship with us.
 They have not yet been tested in class.
 Feel free to adapt from them, and send us your suggestions!

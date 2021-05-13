@@ -6,7 +6,7 @@ Lesson plan 1: Glacier Gallery
 ==============================
 
 :Author:
-    Josie Lino
+    Josie Iino
 :Grades:
     High school students
 :Brief Description:

@@ -6,7 +6,7 @@ Lesson plan 3: Glacier Simulator
 ================================
 
 :Author:
-    Josie Lino
+    Josie Iino
 :Grades:
     High school students
 :Brief Description:
