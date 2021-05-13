@@ -14,6 +14,33 @@ from oggm.core.flowline import (FluxBasedModel,
 from oggm.core.massbalance import LinearMassBalance
 from oggm import cfg, utils
 
+# allow to plot pictures as subplots
+import matplotlib.image as mpimg
+
+def plot_glacier_graphics(num='01', title=False):
+    glacier_graphics = 'https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_intro/png/glacier_{}.png'
+    plt.imshow(mpimg.imread(glacier_graphics.format(num)))
+    ax =plt.gca()
+    ax.patch.set_visible(False)
+    ax.axis('off')
+    if title != False:
+        plt.title(title)
+
+
+# I made this to separate the definition of the geometry from the definition of the mass balance,
+# as it is kind of mixed in the function 'linear_mb_equilibrium' from the oggm_edu package
+def define_widths_with_trapezoidal_shape_at_top(topw, bottomw, nx, nz, map_dx):  
+    # accumulation area occupies a fraction NZ of the total glacier extent
+    acc_width = np.linspace(topw, bottomw, int(nx * nz))
+
+    # ablation area occupies a fraction 1 - NZ of the total glacier extent
+    abl_width = np.tile(bottomw, nx - len(acc_width))
+
+    # glacier widths profile
+    widths = np.hstack([acc_width, abl_width])
+
+    return widths
+
 
 def define_linear_bed(top, bottom, nx):
     """Creates a linear glacier bed.
@@ -327,7 +354,7 @@ def response_time_vol(model, perturbed_mb):
     return response_time, pert_model
 
 
-def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
+def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40, subplot=False):
     """Plots the glacier geometry in pseudo-3d.
 
     Parameters
@@ -360,8 +387,12 @@ def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40):
     Y = np.array(Y)
 
     # plot glacier geometry in 3D
-    fig = plt.figure(figsize=(16, 9))
-    ax = fig.add_subplot(111, projection='3d')
+    if subplot != False:   
+        fig = plt.figure(figsize=(20, 9))
+        ax = fig.add_subplot(121, projection='3d')
+    else:
+        fig = plt.figure(figsize=(16, 9))
+        ax = fig.add_subplot(111, projection='3d')
     ax.view_init(elev, azim)
     ax.plot_surface(X, Y, Z)
     ax.set_xlabel('Distance along flowline / (km)')
@@ -573,8 +604,9 @@ def linear_ablation(mb_grad, ela, gsurface, bed, widths, abl_0=None):
     return abl_d, abl_0
 
 
-def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
-                       plot_ela=False):
+def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, labels_ela=[],
+                       ela=None,
+                       plot_ela=False, label_init='initial'):
     """Plots the glacier bed together with the actual glacier surface and
     perturbed glacier surfaces, e.g. the glacier surface after accumulation or
     ablation.
@@ -603,7 +635,7 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
 
     # plot the glacier bed and the initial glacier surface
     ax.plot(dis, bed_h, '--k', label='bed')
-    ax.plot(dis, initial, '--r', label='initial')
+    ax.plot(dis, initial, '--r', label=label_init)
 
     # check which surface is passed to the function
     counter = 0
@@ -622,10 +654,10 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
 
         # accumulation surface
         if all(sfc - initial >= 0):
-            ax.plot(dis, sfc, color='lightblue',
+            ax.plot(dis, sfc, color='deepskyblue',
                     linewidth=2, label=l)
             ax.fill_between(dis, initial, sfc,
-                            sfc >= initial, color='lightblue', alpha=0.5)
+                            sfc >= initial, color='deepskyblue', alpha=0.7)
 
         # ablation surface
         elif not any(sfc - initial > 0):
@@ -633,13 +665,15 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
             ax.fill_between(dis, initial, sfc,
                             sfc <= initial, color='red', alpha=0.3)
 
-        # mass balance surface
+        # glacier mass distribution without considering *ice flow*
         else:
-            ax.plot(dis, sfc, '-k', linewidth=2, label=l)
+            ax.plot(dis, sfc, '-', color = 'brown', linewidth=2, label=l)
             ax.fill_between(dis, initial, sfc,
-                            sfc > initial, color='lightblue', alpha=0.5)
+                            sfc > initial, color='deepskyblue', alpha=0.7,
+                            label ='net accumulation')
             ax.fill_between(dis, initial, sfc,
-                            sfc <= initial, color='red', alpha=0.3)
+                            sfc <= initial, color='red', alpha=0.3,
+                            label = 'net ablation')
         # advance counter
         counter += 1
 
@@ -647,16 +681,16 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
     if plot_ela and ela:
 
         # add a label for the initial ELA to the labels list
-        labels.insert(0, 'Initial')
+        labels_ela.insert(0, 'Initial')
 
         # plot the ela's
-        for e, l in zip(ela, labels):
+        for e, l in zip(ela, labels_ela):
 
             # check which ELA it is
             if e > ela[0]:
                 color = 'red'
             elif e < ela[0]:
-                color = 'lightblue'
+                color = 'deepskyblue'
             else:
                 color = 'grey'
 
@@ -668,9 +702,9 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, ela=None,
                     verticalalignment='bottom', color=color)
 
     # axes labels and legend
-    ax.legend(frameon=False)
-    ax.set_xlabel('Distance along flowline / (km)')
-    ax.set_ylabel('Elevation / (m)')
+    ax.legend(frameon=False, fontsize=18)
+    ax.set_xlabel('Distance along flowline (km)', fontsize=18)
+    ax.set_ylabel('Elevation (m)', fontsize=18)
 
 
 def correct_to_bed(bed, ref_sfc):
