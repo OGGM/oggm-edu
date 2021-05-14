@@ -1,12 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-oggm-edu - plots
-
-@author: Zora
+oggm-edu - useful functions
 """
 import numpy as np
 import xarray as xr
+import urllib
 import pandas as pd
 import matplotlib.pyplot as plt
 from oggm.core.flowline import (FluxBasedModel,
@@ -16,10 +13,13 @@ from oggm import cfg, utils
 
 # allow to plot pictures as subplots
 import matplotlib.image as mpimg
+from PIL import Image
+
+graphics_url = 'https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_intro/png/glacier_{}.png'
+
 
 def plot_glacier_graphics(num='01', title=False):
-    glacier_graphics = 'https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_intro/png/glacier_{}.png'
-    plt.imshow(mpimg.imread(glacier_graphics.format(num)))
+    plt.imshow(Image.open(urllib.request.urlopen(graphics_url.format(num))))
     ax =plt.gca()
     ax.patch.set_visible(False)
     ax.axis('off')
@@ -299,7 +299,7 @@ def response_time_vol(model, perturbed_mb):
         except RuntimeError:
             count += 1
             # if equilibrium not reached yet, add 1000 years. Then try again.
-            model.run_until(models[0].yr + 1000)
+            model.run_until(model.yr + 1000)
             if count == 6:
                 raise RuntimeError('Because the gradient is be very small, '
                                    'the equilibrium will be reached only '
@@ -317,7 +317,7 @@ def response_time_vol(model, perturbed_mb):
         except RuntimeError:
             count += 1
             # if equilibrium not reached yet, add 1000 years. Then try again.
-            pert_model.run_until(models[0].yr + 1000)
+            pert_model.run_until(model.yr + 1000)
             if count == 6:
                 raise RuntimeError('Because the gradient is be very small, '
                                    'the equilibrium will be reached only '
