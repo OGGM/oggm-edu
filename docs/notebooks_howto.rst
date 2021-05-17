@@ -62,6 +62,8 @@ for more information.
 Starting a MyBinder environment
 -------------------------------
 
+|badge_edu_notebooks|
+
 After clicking on an OGGM-Edu MyBinder link, you should see a loading page
 similar to the one below (here with the *show log* button activated):
 

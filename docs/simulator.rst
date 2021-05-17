@@ -200,7 +200,7 @@ We will use the simulator app to explore the characteristics of a surging glacie
 
 **Going further:**
 
-In the Notebook :ref:`notebooks_surging_glaciers` you can use OGGM to simulate surging events in Python yourself.
+In the notebook `surging glaciers <https://oggm.org/oggm-edu-notebooks/oggm-edu/surging_experiment.html>`_ you can use OGGM to simulate surging events in Python yourself.
 
 Velocity and thickness along the glacier
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
