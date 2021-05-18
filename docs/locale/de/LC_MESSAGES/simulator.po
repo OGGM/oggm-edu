@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 12:36+0200\n"
+"POT-Creation-Date: 2021-05-17 23:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,8 +378,9 @@ msgstr ""
 
 #: ../../simulator.rst:203
 msgid ""
-"In the Notebook :ref:`notebooks_surging_glaciers` you can use OGGM to "
-"simulate surging events in Python yourself."
+"In the notebook `surging glaciers <https://oggm.org/oggm-edu-notebooks"
+"/oggm-edu/surging_experiment.html>`_ you can use OGGM to simulate surging"
+" events in Python yourself."
 msgstr ""
 
 #: ../../simulator.rst:206
@@ -1031,5 +1032,11 @@ msgstr ""
 #~ " the glacier area above the ELA "
 #~ "equals the glacier area below "
 #~ "(approximately)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the Notebook :ref:`notebooks_surging_glaciers`"
+#~ " you can use OGGM to simulate "
+#~ "surging events in Python yourself."
 #~ msgstr ""
 

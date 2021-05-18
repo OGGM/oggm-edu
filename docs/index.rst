@@ -83,9 +83,7 @@ glaciological concepts. They are relatively easy to follow and adapt with some
 background in programming, and we are working to make them as accessible as
 possible. Read our :ref:`notebooks_howto` first if you are new to these things.
 
-* :doc:`notebooks_howto`
-* :doc:`notebooks_index`
-
+|badge_edu_notebooks|
 
 .. toctree::
     :maxdepth: 1
@@ -93,7 +91,7 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     :caption: Interactive Notebooks
 
     notebooks_howto.rst
-    notebooks_index.rst
+    OGGM-Edu notebooks <https://oggm.org/oggm-edu-notebooks>
 
 
 .. _title_tuto:
@@ -103,14 +101,15 @@ OGGM tutorials
 
 These are more advanced notebooks, for users of the OGGM model.
 
-* :doc:`oggm_tuto`
+|badge_tutorial_notebooks|
 
 .. toctree::
     :maxdepth: 1
     :hidden:
     :caption: OGGM tutorials
 
-    oggm_tuto.rst
+    OGGM tutorials <https://oggm.org/tutorials/stable>
+
 
 For instructors and teachers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

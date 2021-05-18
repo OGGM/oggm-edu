@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 16:34+0100\n"
+"POT-Creation-Date: 2021-05-17 23:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,17 +109,21 @@ msgid "Starting a MyBinder environment"
 msgstr ""
 
 #: ../../notebooks_howto.rst:65
+msgid "|badge_edu_notebooks|"
+msgstr ""
+
+#: ../../notebooks_howto.rst:67
 msgid ""
 "After clicking on an OGGM-Edu MyBinder link, you should see a loading "
 "page similar to the one below (here with the *show log* button "
 "activated):"
 msgstr ""
 
-#: ../../notebooks_howto.rst:71
+#: ../../notebooks_howto.rst:73
 msgid "A typical binder load page"
 msgstr ""
 
-#: ../../notebooks_howto.rst:73
+#: ../../notebooks_howto.rst:75
 msgid ""
 "This page indicates that a working OGGM-Edu environment (called an "
 "\"image\") was found on the Binder database and is being started for you."
@@ -128,17 +132,17 @@ msgid ""
 "or not the image was already loaded on the virtual machine."
 msgstr ""
 
-#: ../../notebooks_howto.rst:79
+#: ../../notebooks_howto.rst:81
 msgid ""
 "In rare cases, you might encouter a start log with more verbose output, "
 "such as this one:"
 msgstr ""
 
-#: ../../notebooks_howto.rst:85
+#: ../../notebooks_howto.rst:87
 msgid "A binder image build log"
 msgstr ""
 
-#: ../../notebooks_howto.rst:87
+#: ../../notebooks_howto.rst:89
 msgid ""
 "This occurs when the image needs to be created anew (refer to "
 ":ref:`technical_details` for more information about why this happens). "
@@ -146,28 +150,28 @@ msgid ""
 "patient!"
 msgstr ""
 
-#: ../../notebooks_howto.rst:93
+#: ../../notebooks_howto.rst:95
 msgid ""
 "Sometimes, the log screen might show an error of the type \"Failed to "
 "connect to event stream\". When this happens, simply refresh your browser"
 " (or click on the OGGM-Edu link again)"
 msgstr ""
 
-#: ../../notebooks_howto.rst:99
+#: ../../notebooks_howto.rst:101
 msgid "JupyterLab"
 msgstr ""
 
-#: ../../notebooks_howto.rst:101
+#: ../../notebooks_howto.rst:103
 msgid ""
 "Once the Binder environment is ready, you should see a page similar to "
 "this:"
 msgstr ""
 
-#: ../../notebooks_howto.rst:106
+#: ../../notebooks_howto.rst:108
 msgid "The JupyterLab environment with the three main areas highlighted."
 msgstr ""
 
-#: ../../notebooks_howto.rst:109
+#: ../../notebooks_howto.rst:111
 msgid ""
 "This is the JupyterLab development environment. It is quite intuitive and"
 " most people find their way through it without major struggle, but you "
@@ -176,17 +180,17 @@ msgid ""
 "well."
 msgstr ""
 
-#: ../../notebooks_howto.rst:115
+#: ../../notebooks_howto.rst:117
 msgid "The three main areas highlighted above are:"
 msgstr ""
 
-#: ../../notebooks_howto.rst:117
+#: ../../notebooks_howto.rst:119
 msgid ""
 "**Menu Bar** (blue): top-level menus that expose actions available in "
 "JupyterLab"
 msgstr ""
 
-#: ../../notebooks_howto.rst:118
+#: ../../notebooks_howto.rst:120
 msgid ""
 "**Left Sidebar** (red): contains a number of commonly-used tabs, such as "
 "a file browser (most important), a list of running kernels (i.e.: "
@@ -194,7 +198,7 @@ msgid ""
 "main work area"
 msgstr ""
 
-#: ../../notebooks_howto.rst:121
+#: ../../notebooks_howto.rst:123
 msgid ""
 "**Main Work Area** (green): the main work area in JupyterLab enables you "
 "to arrange documents (notebooks, text files, etc.) and other activities "
@@ -203,18 +207,18 @@ msgid ""
 " by dragging a tab to the left, right, top, or bottom of the panel"
 msgstr ""
 
-#: ../../notebooks_howto.rst:129
+#: ../../notebooks_howto.rst:131
 msgid "Download and upload files to MyBinder/JupyterLab"
 msgstr ""
 
-#: ../../notebooks_howto.rst:131
+#: ../../notebooks_howto.rst:133
 msgid ""
 "Since your MyBinder environment is temporary, you might find it useful to"
 " download the notebooks you modified during your session, and/or upload "
 "notebooks or data that you store on your computer."
 msgstr ""
 
-#: ../../notebooks_howto.rst:135
+#: ../../notebooks_howto.rst:137
 msgid ""
 "To **download a notebook, use the left sidebar's file explorer**: right-"
 "click on the file you'd like to download and select `Download`. You can "
@@ -223,13 +227,13 @@ msgid ""
 "formats might not export properly."
 msgstr ""
 
-#: ../../notebooks_howto.rst:142
+#: ../../notebooks_howto.rst:144
 msgid ""
 "To **upload a file or notebook, use the up-arrow button on the top of the"
 " sidebar**: you can upload any file - text or data."
 msgstr ""
 
-#: ../../notebooks_howto.rst:148
+#: ../../notebooks_howto.rst:150
 msgid "The JupyterLab's upload button (red box)"
 msgstr ""
 

@@ -41,14 +41,13 @@ the provided online repository and its content. That's all!
 This was the most basic example. If you want to use other features, like using
 the Jupyter Lab interface (instead of the simple notebooks interface), and if
 you want to start at an arbitrary location in the repository (for example
-within a folder), the syntax is::
-
-
-    https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=<PATH/TO/YOUR/REPO>%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/<YOUR_REPO_NAME>/<PATH/TO/FILE>%3Fautodecode
+within a folder), the syntax is a bit more clumsy. The best way (by far!)
+is to rely on nbgitpuller's `link generator <https://jupyterhub.github.io/nbgitpuller/link.html>`_
+to do the job for you.
 
 For example, we start the OGGM-Edu tutorials with this link:
 
-`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_
+`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FOGGM%252Foggm-edu-notebooks%26urlpath%3Dlab%252Ftree%252Foggm-edu-notebooks%252Fwelcome.ipynb%26branch%3Dmaster>`_
 
 It's getting quite long, I know! What's best therefore is to hide the links
 `behind a badge <https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_.

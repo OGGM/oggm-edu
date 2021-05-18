@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 16:34+0100\n"
+"POT-Creation-Date: 2021-05-17 23:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,15 +25,19 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: ../../index.rst:79 ../../index.rst:90
+#: ../../index.rst:88
+msgid "OGGM-Edu notebooks"
+msgstr ""
+
+#: ../../index.rst:79 ../../index.rst:88
 msgid "Interactive Notebooks"
 msgstr ""
 
-#: ../../index.rst:102 ../../index.rst:108
+#: ../../index.rst:100 ../../index.rst:106
 msgid "OGGM tutorials"
 msgstr ""
 
-#: ../../index.rst:116 ../../index.rst:127
+#: ../../index.rst:115 ../../index.rst:126
 msgid "For instructors and teachers"
 msgstr ""
 
@@ -146,143 +150,148 @@ msgid ""
 msgstr ""
 
 #: ../../index.rst:86
-msgid ":doc:`notebooks_howto`"
+msgid "|badge_edu_notebooks|"
 msgstr ""
 
-#: ../../index.rst:87
-msgid ":doc:`notebooks_index`"
-msgstr ""
-
-#: ../../index.rst:104
+#: ../../index.rst:102
 msgid "These are more advanced notebooks, for users of the OGGM model."
 msgstr ""
 
-#: ../../index.rst:106
-msgid ":doc:`oggm_tuto`"
+#: ../../index.rst:104
+msgid "|badge_tutorial_notebooks|"
 msgstr ""
 
-#: ../../index.rst:118
+#: ../../index.rst:117
 msgid ""
 "Thanks for considering OGGM-Edu for your classes! We've gathered some "
 "recommendations and guidelines here."
 msgstr ""
 
-#: ../../index.rst:121
+#: ../../index.rst:120
 msgid ":doc:`why_oggmedu`"
 msgstr ""
 
-#: ../../index.rst:122
+#: ../../index.rst:121
 msgid ":doc:`classes_howto`"
 msgstr ""
 
-#: ../../index.rst:123
+#: ../../index.rst:122
 msgid ":doc:`examples`"
 msgstr ""
 
-#: ../../index.rst:124
+#: ../../index.rst:123
 msgid ":doc:`charter`"
 msgstr ""
 
-#: ../../index.rst:125
+#: ../../index.rst:124
 msgid ":doc:`roadmap`"
 msgstr ""
 
-#: ../../index.rst:141
+#: ../../index.rst:140
 msgid "Get in touch"
 msgstr ""
 
-#: ../../index.rst:143
+#: ../../index.rst:142
 msgid "Interested in OGGM-Edu? We would love to hear from you!"
 msgstr ""
 
-#: ../../index.rst:145
+#: ../../index.rst:144
 msgid "All of this website and notebooks are located `on GitHub`_."
 msgstr ""
 
-#: ../../index.rst:146
+#: ../../index.rst:145
 msgid "Report bugs or share your ideas on the `issue tracker`_."
 msgstr ""
 
-#: ../../index.rst:147
+#: ../../index.rst:146
 msgid "Improve the website by submitting a `pull request`_."
 msgstr ""
 
-#: ../../index.rst:148
+#: ../../index.rst:147
 msgid "Follow us on `Twitter`_."
 msgstr ""
 
-#: ../../index.rst:149
+#: ../../index.rst:148
 msgid "Or you can always send us an `e-mail`_ the good old way."
 msgstr ""
 
-#: ../../index.rst:158
+#: ../../index.rst:157
 msgid "Acknowledgements"
 msgstr ""
 
-#: ../../index.rst:160
+#: ../../index.rst:159
 msgid ""
 "OGGM-Edu is an affiliated project of the larger OGGM consortium "
 "(`oggm.org <https://oggm.org>`_). It is mainly the work of volunteers, "
 "but we also had support from various sources:"
 msgstr ""
 
-#: ../../index.rst:164
+#: ../../index.rst:163
 msgid ""
 "the University of Innsbruck, Förderkreis **1669** – **Wissen** schafft "
 "Gesell **schaft** (2019-2020)."
 msgstr ""
 
-#: ../../index.rst:166
+#: ../../index.rst:165
 msgid "the German BMBF (project FKZ 01LS1602A, 2017-2019)."
 msgstr ""
 
-#: ../../index.rst:167
+#: ../../index.rst:166
 msgid ""
 "`Google Cloud | Data Solutions for Change`_ who provided cloud computing "
 "and hosting credits (2019-2020)."
 msgstr ""
 
-#: ../../index.rst:169
+#: ../../index.rst:168
 msgid ""
 "the University of Innsbruck, department of `Digital Sciences "
 "<https://www.uibk.ac.at/zid/abteilungen/lt/>`_ (Neue Medien Projekte, "
 "2018)."
 msgstr ""
 
-#: ../../index.rst:172
+#: ../../index.rst:171
 msgid ""
 "the OGGM e.V. organisation, who supported the creation of the OGGM-Edu "
 "logo and of the glacier graphics."
 msgstr ""
 
-#: ../../index.rst:199
+#: ../../index.rst:198
 msgid "We rely on awesome open source tools to run OGGM-Edu! Most notably:"
 msgstr ""
 
-#: ../../index.rst:201
+#: ../../index.rst:200
 msgid "`Jupyter <https://jupyter.org>`_"
 msgstr ""
 
-#: ../../index.rst:202
+#: ../../index.rst:201
 msgid "`MyBinder <https://mybinder.org>`_"
 msgstr ""
 
-#: ../../index.rst:203
+#: ../../index.rst:202
 msgid "`HoloViz <http://holoviz.org/>`_"
 msgstr ""
 
-#: ../../index.rst:204
+#: ../../index.rst:203
 msgid "`ReadTheDocs <https://readthedocs.org>`_"
 msgstr ""
 
-#: ../../index.rst:205
+#: ../../index.rst:204
 msgid "and many (many) other packages of the scientific python ecosytem"
 msgstr ""
 
-#: ../../index.rst:207
+#: ../../index.rst:206
 msgid ""
 "Last but not least: thanks to all OGGM-Edu friends and contributors! For "
 "a full list, see our `github repository <https://github.com/OGGM/oggm-"
 "edu/graphs/contributors>`_."
 msgstr ""
+
+#~ msgid ":doc:`notebooks_howto`"
+#~ msgstr ""
+
+#~ msgid ":doc:`notebooks_index`"
+#~ msgstr ""
+
+#~ msgid ":doc:`oggm_tuto`"
+#~ msgstr ""
 
