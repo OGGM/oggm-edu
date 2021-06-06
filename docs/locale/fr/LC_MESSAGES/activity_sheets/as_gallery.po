@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-13 12:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../activity_sheets/as_gallery.rst:6
+msgid "Lesson plan 1: Glacier Gallery"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst
+msgid "Author"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:9
+msgid "Josie Iino"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst
+msgid "Grades"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:11
+msgid "High school students"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst
+msgid "Brief Description"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:13
+msgid ""
+"Utilizing the interactive app :ref:`gallery` provided by OGGM-Edu, "
+"students will be introduced to glaciers and their forms."
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst
+msgid "Objectives"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:17
+msgid "Upon completion of this lesson, students will be able to:"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:17
+msgid "Identify the standard definition of a glacier"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:18
+msgid "Compare and contrast the four glacier types presented in the app"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst
+msgid "Materials Needed"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:21
+msgid ""
+"Computer with access to OGGM-Edu (possibly one computer per group of 2 or"
+" 3)"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:22
+msgid "A writing utensil and paper"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst
+msgid "Lesson Plan"
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:26
+msgid ""
+"Brainstorm with students to discern what they know about glaciers. This "
+"could entail asking students to individually write down their initial "
+"definition of a glacier, or collaboratively create a mind-map that lists "
+"the characteristics of a glacier."
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:29
+msgid ""
+"Open the Glacier Gallery app and highlight the definition of a glacier "
+"defined by OGGM-Edu. Emphasize that a glacier is a perennial land-mass of"
+" ice, and highlight the differences between the student-provided "
+"definition against the OGGM-Edu provided definition of a glacier."
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:33
+msgid ""
+"Provide short instruction on how to use the Glacier Gallery. Ask students"
+" to independently (either alone or in small groups) to create a visual "
+"representation of the similarities and differences between the four "
+"glacier types on a piece of paper. Provide a short period of allotted "
+"time to work and occasionally offer your assistance when asked or needed."
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:38
+msgid ""
+"If not rushed for time, ask students to individually present their "
+"findings. Otherwise, create your own compare-and-contrast visualization "
+"method and use student-input to fill it in."
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:40
+msgid ""
+"Summarize the key differences between the four glacier types in a method "
+"that would allow students to take notes."
+msgstr ""
+
+#: ../../activity_sheets/as_gallery.rst:41
+msgid "For the remainder of the lesson, ask students to ask questions."
+msgstr ""

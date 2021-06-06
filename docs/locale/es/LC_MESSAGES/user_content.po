@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-17 23:38+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../user_content.rst:4
+msgid "Use your own notebooks with OGGM-Edu"
+msgstr ""
+
+#: ../../user_content.rst:6
+msgid ""
+"You might be interested in running your own notebooks in an OGGM-Edu "
+"environment, for example during the development phase or for a class you "
+"are giving."
+msgstr ""
+
+#: ../../user_content.rst:10
+msgid ""
+"Fortunately, this is very easy to do! All you need to do is to provide "
+"the notebooks you would like to run in an online git repository (e.g. "
+"GitHub, Gitlab, Bitbucket). For example, we have created an `oggm-edu-"
+"contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single "
+"notebook to get you started. See also :ref:`examples` for existing "
+"classes making use of this system."
+msgstr ""
+
+#: ../../user_content.rst:17
+msgid ""
+"Ideally, we would like all OGGM-Edu related content to be bundled here on"
+" this open platform: if you feel comfortable sharing your content to "
+"others, please let us know!"
+msgstr ""
+
+#: ../../user_content.rst:22
+msgid "On MyBinder"
+msgstr ""
+
+#: ../../user_content.rst:24
+msgid ""
+"Using your own notebooks in an OGGM-Edu Binder environment is super easy!"
+" Once your notebooks are online, you simply have to provide the correct "
+"link to your students. The syntax is following::"
+msgstr ""
+
+#: ../../user_content.rst:30
+msgid "For example, a link to our contrib repository looks like:"
+msgstr ""
+
+#: ../../user_content.rst:32
+msgid ""
+"`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
+"pull?repo=https://github.com/OGGM/oggm-edu-contrib>`_"
+msgstr ""
+
+#: ../../user_content.rst:34
+msgid ""
+"What is happening here? The first part of the link (up to the question "
+"mark) is telling MyBinder to use the OGGM environment we are maintaining "
+"`here <https://github.com/OGGM/binder>`_ (we use the stable branch here)."
+" The second part of the link is using `nbgitpuller "
+"<https://jupyterhub.github.io/nbgitpuller/>`_ to fetch the provided "
+"online repository and its content. That's all!"
+msgstr ""
+
+#: ../../user_content.rst:41
+msgid ""
+"This was the most basic example. If you want to use other features, like "
+"using the Jupyter Lab interface (instead of the simple notebooks "
+"interface), and if you want to start at an arbitrary location in the "
+"repository (for example within a folder), the syntax is a bit more "
+"clumsy. The best way (by far!) is to rely on nbgitpuller's `link "
+"generator <https://jupyterhub.github.io/nbgitpuller/link.html>`_ to do "
+"the job for you."
+msgstr ""
+
+#: ../../user_content.rst:48
+msgid "For example, we start the OGGM-Edu tutorials with this link:"
+msgstr ""
+
+#: ../../user_content.rst:50
+#, python-format
+msgid ""
+"`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
+"pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FOGGM%252Foggm-edu-"
+"notebooks%26urlpath%3Dlab%252Ftree%252Foggm-edu-"
+"notebooks%252Fwelcome.ipynb%26branch%3Dmaster>`_"
+msgstr ""
+
+#: ../../user_content.rst:52
+msgid ""
+"It's getting quite long, I know! What's best therefore is to hide the "
+"links `behind a badge "
+"<https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_."
+msgstr ""
+
+#: ../../user_content.rst:55
+msgid ""
+"If you are creating educational resources based on OGGM-Edu, please "
+":ref:`get in touch <title_contact>` so that we can advertise them!"
+msgstr ""
+
+#~ msgid ""
+#~ "This was the most basic example. "
+#~ "If you want to use other features,"
+#~ " like using the Jupyter Lab interface"
+#~ " (instead of the simple notebooks "
+#~ "interface), and if you want to "
+#~ "start at an arbitrary location in "
+#~ "the repository (for example within a "
+#~ "folder), the syntax is::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`<https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-"
+#~ "pull?repo=https://github.com/OGGM/oggm-edu-"
+#~ "notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-"
+#~ "edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode>`_"
+#~ msgstr ""
+

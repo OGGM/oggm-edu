@@ -9,20 +9,20 @@ A collection of free glacier graphics that can be used for education and
 outreach.
 
 
-**License**: `Creative Commons Attribution-NonCommercial 4.0 International License <http://creativecommons.org/licenses/by-nc/4.0/>`_
+**License**: `Creative Commons Attribution-ShareAlike 4.0 International License <https://creativecommons.org/licenses/by-sa/4.0/>`_
 
-.. figure:: https://i.creativecommons.org/l/by-nc/4.0/88x31.png
-    :target: http://creativecommons.org/licenses/by-nc/4.0/
+.. figure:: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+    :target: https://creativecommons.org/licenses/by-sa/4.0/
 
 
 Feel free to use / adapt the graphics, but always refer to the original author
-and do not sell them.
+and share them with a compatible license.
 
 **Author**: Fabien Maussion with the `OGGM <http://oggm.org>`_ model.
 
-**Code**: *has been moved, should be re-uploaded soon*
+**Code**: `on GitHub <https://github.com/OGGM/oggm-edu-notebooks/blob/master/graphics/ela_changes_response_time.ipynb>`_
 
-**Interactive notebook**: *has been moved, should be re-uploaded soon*
+**Interactive notebook**: `MyBinder link <https://mybinder.org/v2/gh/OGGM/binder/stable?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-edu-notebooks/graphics/ela_changes_response_time.ipynb%3Fautodecode>`_
 
 **Image download**: `zip file <https://github.com/OGGM/glacier-graphics/blob/master/glacier_response/glacier_response.zip>`_
 

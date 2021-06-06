@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-27 16:34+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../explorer.rst:4
+msgid "World Glaciers Explorer"
+msgstr ""
+
+#: ../../explorer.rst:10
+msgid ""
+"The world glacier explorer is an **interactive web application** with "
+"which you can learn (and teach) about the world's glaciers, their "
+"location, their climate, and the ice they store. By \"glaciers\", we mean"
+" all glaciers outside of the two continental ice sheets (Greenland and "
+"Antarctica)."
+msgstr ""
+
+#: ../../explorer.rst:15
+msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
+msgstr ""
+
+#: ../../explorer.rst:19
+msgid ""
+"Alternatively, you can start the app `on mybinder "
+"<https://mybinder.org/v2/gh/OGGM/world-glacier-"
+"explorer/master?urlpath=panel/app>`_ (slightly slower in general, but a "
+"good alternative if our server is saturated). If you want to run the app "
+"on your own computer, see :ref:`docker-launch` below."
+msgstr ""
+
+#: ../../explorer.rst:23
+msgid "**The app contains five elements**:"
+msgstr ""
+
+#: ../../explorer.rst:25
+msgid ""
+"the **world map** (upper right) displays thg glaciers' location, with the"
+" color shading indicating the total glacier area in each pixel. Moving "
+"the mouse over a glacier pixel displays its exact glaciated area. When "
+"selecting a box on the map, the other elements in the app will update "
+"accordingly. Above the map, there is a toolbar: with the \"Box Zoom\" "
+"button, you can also zoom into a specific region. Click on \"Reset\" to "
+"set the map back to defaults (see the video below for a demo). *Be aware "
+"that the map projection is slightly misleading: high latitudes appear "
+"much bigger on the map than they really are.*"
+msgstr ""
+
+#: ../../explorer.rst:34
+msgid ""
+"the **clear selection button** on the left resets the current glacier "
+"selection."
+msgstr ""
+
+#: ../../explorer.rst:35
+msgid ""
+"the **bar plots** (left of the map) indicate various statistics about the"
+" current glacier selection (default selection: all glaciers). The upper "
+"blue bar indicates the number of glaciers selected, the middle blue bar "
+"their total area, and the lower blue bar their estimated volume. This "
+"volume can be converted to its *sea-level rise equivalent* (in mm), which"
+" is the global sea-level rise to be expected if all glacier vanished. "
+"Only glaciers *above* sea-level are contributing to this figure, "
+"therefore there are two vertical orange bars: *asl* (above sea-level) and"
+" *bsl* (below sea-level). See the demo and explanations below on how to "
+"use this information."
+msgstr ""
+
+#: ../../explorer.rst:45
+msgid ""
+"the three **climate histograms plots** (lower row) display the "
+"distribution of the selected glaciers' climate conditions. The y-axis is "
+"given in number of glaciers per bin, and the x-axis in the unit of the "
+"target variable (temperature trend, average temperature, average "
+"precipitation at the glacier location). Selecting a range of values in "
+"these plots also actualizes the map and the rest of the plots (see demo "
+"below)."
+msgstr ""
+
+#: ../../explorer.rst:51
+msgid ""
+"the **glacier elevation/altitude scatter plot** (lower right) displays "
+"the average elevation of the glaciers on the map as a function of "
+"latitude (y-axis)."
+msgstr ""
+
+#: ../../explorer.rst:56
+msgid "Video tutorials"
+msgstr ""
+
+#: ../../explorer.rst:59
+msgid "Part 1: app functionalities"
+msgstr ""
+
+#: ../../explorer.rst:67
+msgid "Part 2: example questions"
+msgstr ""
+
+#: ../../explorer.rst:76
+msgid "Questions to explore with this app"
+msgstr ""
+
+#: ../../explorer.rst:78
+msgid ""
+"With this app, you can address many questions, by yourself or in class! "
+"For example:"
+msgstr ""
+
+#: ../../explorer.rst:80
+msgid "How many glaciers are there on Earth? How much volume do they represent?"
+msgstr ""
+
+#: ../../explorer.rst:81
+msgid ""
+"How much would the sea-level rise if all glaciers melted? All glaciers in"
+" the Alps? In the Himalayas? etc."
+msgstr ""
+
+#: ../../explorer.rst:83
+msgid "What is the relationship between latitude and glacier elevation? Why?"
+msgstr ""
+
+#: ../../explorer.rst:84
+msgid "Where are the locations with highest precipitation? And the driests?"
+msgstr ""
+
+#: ../../explorer.rst:85
+msgid ""
+"Is there a relationship between average temperature and average "
+"precipitation?"
+msgstr ""
+
+#: ../../explorer.rst:86
+msgid ""
+"How much glacier area is found on Greenland? In the European Alps? How "
+"does these number compare to, say, the area of Berlin, France, Mexico?"
+msgstr ""
+
+#: ../../explorer.rst:88
+msgid ""
+"Does the number of glaciers in a region always correlate with their total"
+" volume?"
+msgstr ""
+
+#: ../../explorer.rst:89
+msgid ""
+"What regions are most likely to contribute to sea-level rise? Where do we"
+" find glaciers with ice below sea-level?"
+msgstr ""
+
+#: ../../explorer.rst:91
+msgid "Where are the glaciers which are warming the fastest? Why?"
+msgstr ""
+
+#: ../../explorer.rst:92
+msgid ""
+"Where are the wettest glaciers in the Himalayas? (select all Himalayan "
+"glaciers first, then the wettest). Can you explain why?"
+msgstr ""
+
+#: ../../explorer.rst:94
+msgid "Repeat the excercise above with other regions: Greenland, the Alps, etc."
+msgstr ""
+
+#: ../../explorer.rst:95
+msgid "And many more!"
+msgstr ""
+
+#: ../../explorer.rst:98
+msgid "Resources"
+msgstr ""
+
+#: ../../explorer.rst:100
+msgid ""
+"Several pages from `Glaciers and Climate "
+"<http://www.antarcticglaciers.org/glaciers-and-climate/>`_ on "
+"`antarcticglaciers.org`_ are highly relevant here"
+msgstr ""
+
+#: ../../explorer.rst:101
+msgid ""
+"`Warming trends at glaciers locations "
+"<https://fabienmaussion.info/2019/08/29/era5/>`_, a blog post by Fabien "
+"Maussion"
+msgstr ""
+
+#: ../../explorer.rst:102
+msgid ""
+"`Glacial Census Reveals Ice Thicknesses Around the World "
+"<https://eos.org/articles/glacial-census-reveals-ice-thicknesses-around-"
+"the-world>`_, EOS"
+msgstr ""
+
+#: ../../explorer.rst:108
+msgid "Authors"
+msgstr ""
+
+#: ../../explorer.rst:110
+msgid ""
+"`Philipp Rudiger <https://github.com/philippjfr>`_ and `James Bednar "
+"<https://github.com/jbednar>`_ from `HoloViz <http://holoviz.org//>`_ and"
+" Anaconda Inc., based on an original Dash application by `Fabien Maussion"
+" <https://fabienmaussion.info/>`_. `Zora Schirmeister "
+"<https://github.com/zschirmeister>`_ improved the app with new data, "
+"plots, and an improved layout."
+msgstr ""
+
+#: ../../explorer.rst:118
+msgid "Data sources"
+msgstr ""
+
+#: ../../explorer.rst:120
+msgid ""
+"Glacier location, elevation and area are obtained from the `Randolph "
+"Glacier Inventory version 6 <https://www.glims.org/RGI/>`_. The climate "
+"data (temperature, precipitation, trends) is extracted from `ERA5 data "
+"<https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>`_ "
+"provided by the `ECMWF <https://www.ecmwf.int/>`_. The glacier volume was"
+" provided by `Farinotti et al., (2019) "
+"<https://www.nature.com/articles/s41561-019-0300-3>`_"
+msgstr ""
+
+#: ../../explorer.rst:129
+msgid "Source code"
+msgstr ""
+
+#: ../../explorer.rst:131
+msgid ""
+"Code and data are on `GitHub <https://github.com/OGGM/world-glacier-"
+"explorer>`_, MIT licensed."
+msgstr ""
+
+#: ../../explorer.rst:136
+msgid "Launching from Docker"
+msgstr ""
+
+#: ../../explorer.rst:138
+msgid ""
+"This application should work quite well online, either on our server or "
+"on mybinder. But you can also start the app locally, which will make it "
+"faster and less dependent on an internet connection (although you still "
+"need one to download the app, display the logos and the map)."
+msgstr ""
+
+#: ../../explorer.rst:143
+msgid ""
+"To start the app locally, all you'll need is to have `Docker "
+"<https://www.docker.com/>`_ installed on your computer. From there, run "
+"this command into a terminal::"
+msgstr ""
+
+#: ../../explorer.rst:149
+msgid ""
+"Once running, you should be able to start the app in your browser at this"
+" address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_."
+msgstr ""
+
+#: ../../explorer.rst:153
+msgid "Possible future improvements"
+msgstr ""
+
+#: ../../explorer.rst:155
+msgid ""
+"With a category choice bar, it would be possible to differentiate "
+"glaciers from ice-caps or marine terminating glaciers from land-"
+"terminating ones."
+msgstr ""
+
+#: ../../explorer.rst:157
+msgid ""
+"We could also simplify the app for younger target audiences, with less "
+"panels and less distraction."
+msgstr ""
+

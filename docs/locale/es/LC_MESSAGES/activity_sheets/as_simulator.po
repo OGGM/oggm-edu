@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-13 12:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../activity_sheets/as_simulator.rst:6
+msgid "Lesson plan 3: Glacier Simulator"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst
+msgid "Author"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:9
+msgid "Josie Iino"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst
+msgid "Grades"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:11
+msgid "High school students"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst
+msgid "Brief Description"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:13
+msgid ""
+"Utilizing the interactive app :ref:`simulator` provided by OGGM-Edu, "
+"students will learn how glaciers flow, grow, shrink, as well as what "
+"parameters influence glacier size, and more."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst
+msgid "Objectives"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:19
+msgid "Upon completion of this lesson, students will be able to:"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:18
+msgid ""
+"Recite and understand words and their definitions, most notably: "
+"Equillibrium Line Altitude (ELA), accumulation area, and glacier-mass "
+"balance."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:19
+msgid ""
+"Describe the correlation between glacier top width and accumulation area,"
+" ELA and equilibrium glacier size, and glacier density and gradient."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:20
+msgid "Discover through scientific inquiry and analysis of visual data"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst
+msgid "Materials Needed"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:23
+msgid ""
+"Computer with access to OGGM-Edu (possibly one computer per group of 2 or"
+" 3)"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:24
+msgid "A writing utensil and paper"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:25
+msgid "A teacher-computer to present slides to students"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst
+msgid "Lesson Plan"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:28
+msgid ""
+"Use the OGGM-Edu provided :ref:`glacier_basics` graphics to visually "
+"present the key concepts to students that will be reinforced with the "
+"interactive app. Allow students to take notes, but remind them these "
+"concepts will be reinforced in the interactive app. The "
+"`AntarcticGlaciers: mass-balance <http://www.antarcticglaciers.org"
+"/glacier-processes/mass-balance/introduction-glacier-mass-balance/>`_ "
+"webpage has information that could be used to verbally aid the instructor"
+" on the fundamentals or be used as a supplement for students."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:29
+msgid ""
+"Either provide short instructions on how to use Glacier Simulator, or "
+"allow students (in small groups or individually) to guide themselves "
+"through the beginner tutorial within the program. Afterwards leave an "
+"allotted time for student questions on how to use the app."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:30
+msgid ""
+"Either project on a board, or print out and pass, instructions that will "
+"guide students through the three self-contained inquiries. The "
+"instructions for the first inquiry are as follows:"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:32
+msgid ""
+"In beginner mode, set the ELA to 3000m a.s.l and note the equilibrium "
+"volume of the glacier, its length, and maximal thickness."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:33
+msgid ""
+"Choose the “wider top” glacier shape and run the model again. Is the new "
+"glacier larger or smaller? Why do you think so?"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:34
+msgid ""
+"Allow students to independently work through the first experiment and "
+"offer guidance when prompted or needed."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:35
+msgid ""
+"When all students are finished, or time commands, ask students for their "
+"answer to the questions posed in the last instruction. Emphasize the "
+"positive correlation between glacier top width and larger accumulation "
+"areas."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:36
+msgid ""
+"Allow students to independently work through the second inquiry and offer"
+" guidance when prompted or needed. The instructions follow:"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:38
+msgid ""
+"In beginner mode, set the ELA to 2500m a.s.l and note the equilibrium "
+"volume of the glacier, it’s length, and maximal thickness."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:39
+msgid ""
+"Change the ELA up to 3500m a.s.l in 200m increments and record, at every "
+"increment, the equilibrium volume of the glacier, it’s length, and "
+"maximal thickness."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:40
+msgid ""
+"Draw these variables on a graph, as a function of the ELA. How does "
+"glacier volume change with ELA? Can you explain why? What about glacier "
+"length and thickness? Are these changes linear, or more complex?"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:41
+msgid ""
+"When all students are finished, or time commands, ask students to either "
+"present their graphs, or create your own graph with student input. "
+"Highlight the nonlinear relationships between ELA and length, volume, and"
+" maximal thickness. Emphasize the negative relationship between ELA and "
+"equilibrium glacier size."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:42
+msgid ""
+"Quickly introduce students to the concept of glacier flow. The "
+"`AntarcticGlaciers: glacier flow  <http://www.antarcticglaciers.org"
+"/glacier-processes/glacier-flow-2/glacier-flow>`_ webpage can be used as "
+"an aid. For a visual representation of the gravitational force, present "
+"to students the `free body on an inclined plane illustration "
+"<https://en.wikipedia.org/wiki/Inclined_plane#/media/File:Free_body1.3.svg>`_."
+" Allow students to independently work for an allotted period of time and "
+"follow the instructions:"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:44
+msgid ""
+"Use beginner mode with standard settings (constant width, mass balance "
+"gradient of 4 and ELA of 3000) and run the model with each setting for "
+"the slope and use the geometry plot for inspection. Take notes on a piece"
+" of paper of the ice thickness, volume, area and length at the end of "
+"each model run."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:45
+msgid ""
+"Using your analytical skills, answer the following questions. Which "
+"glaciers are thicker: steep or thin ones? Why?"
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:46
+msgid ""
+"When all students are finished, or time commands, ask students for their "
+"answer to the questions posed in the last instruction. Correct students "
+"on their mistakes, and allow students to reiterate the concept that the "
+"steeper the slope, the thinner the glacier."
+msgstr ""
+
+#: ../../activity_sheets/as_simulator.rst:47
+msgid ""
+"Use the remainder of the lesson to answer any questions students may "
+"have. Direct them to the supplementary sources listed in this document "
+"for further investigation or reinforcement of concepts."
+msgstr ""

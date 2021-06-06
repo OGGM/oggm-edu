@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-13 12:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../examples.rst:4
+msgid "Classes based on OGGM-Edu"
+msgstr ""
+
+#: ../../examples.rst:6
+msgid ""
+"This page lists some known applications of OGGM-Edu in classes. You can "
+"use them \"as is\", or as templates for your own classes. We would love "
+"to hear back from you: if you are creating educational resources based on"
+" OGGM-Edu, please :ref:`get in touch <title_contact>` so that we can "
+"advertise them!"
+msgstr ""
+
+#: ../../examples.rst:12
+msgid "At the university level"
+msgstr ""
+
+#: ../../examples.rst:14
+msgid ""
+"`Three-day workshop <https://github.com/ehultee/CdeC-glaciologia>`_ for "
+"university students without prior glacier experience (in spanish). By "
+"`Lizz Ultee <https://ehultee.github.io/>`_. More context about her class "
+"`here <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_."
+msgstr ""
+
+#: ../../examples.rst:17
+msgid ""
+"`University of Michigan CLaSP 474 Ice and Climate notebooks "
+"<https://github.com/skachuck/clasp474_w2021>`_, adapted (and enhanced) "
+"OGGM-Edu notebooks. By `Samuel Kachuck <http://georei.com/>`_."
+msgstr ""
+
+#: ../../examples.rst:21
+msgid "High school activity sheets"
+msgstr ""
+
+#: ../../examples.rst:23
+msgid ""
+"Here are examples of suggested activities developed by Josie Iino, a high"
+" school student who wrote them during a short internship with us. They "
+"have not yet been tested in class. Feel free to adapt from them, and send"
+" us your suggestions!"
+msgstr ""
+
+#: ../../examples.rst:28
+msgid ":ref:`as_gallery`"
+msgstr ""
+
+#: ../../examples.rst:29
+msgid ":ref:`as_simulator`"
+msgstr ""
+
+#: ../../examples.rst:31
+msgid ""
+"We don't have examples for the Glacier Explorer app yet. Send us one! Or "
+"check out `this twitter thread "
+"<https://twitter.com/OGGM_org/status/1359450122451619842>`_ for some "
+"inspiration."
+msgstr ""
