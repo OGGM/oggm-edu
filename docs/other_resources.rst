@@ -25,5 +25,6 @@ check out these great online resources:
   of glacier facts and photos.
 - `World glacier monitoring service <https://wgms.ch/>`_: the reference for
   glacier observations and monitoring.
+- `Cryosphere Software, Data and Tools <https://github.com/awesome-cryosphere/cryosphere-links>`_: This is a link list with awesome data, models, and tools around the cryosphere.
 
 :ref:`title_contact` if you'd like to add some more to this list!
