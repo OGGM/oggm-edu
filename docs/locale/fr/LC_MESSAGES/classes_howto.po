@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../classes_howto.rst:4
 msgid "OGGM-Edu in classes and workshops"
-msgstr ""
+msgstr "OGGM-Edu en classe et dans les ateliers"
 
 #: ../../classes_howto.rst:6
 msgid ""
@@ -28,6 +28,10 @@ msgid ""
 "can require some preparation. Check out :ref:`other_resources` if you are"
 " interested in the fundamentals and online textbook materials."
 msgstr ""
+" OGGM-Edu peut facilement être utilisé pour vos cours / ateliers - "
+"nous vous encourageons à l'essayer ! En fonction de vos connaissances sur les glaciers, cela "
+"peut nécessiter une certaine préparation. Consultez la page :ref:`autres_ressources` si les"
+"principes fondamentaux et les manuels en ligne vous intéressent."
 
 #: ../../classes_howto.rst:11
 msgid ""
@@ -36,26 +40,34 @@ msgid ""
 "level (using the programmable notebooks). You will find some help to get "
 "you started below."
 msgstr ""
+"Nous travaillons actuellement à l'adaptation de l'OGGM-Edu aussi bien pour les"
+"classes de lycée (en utilisant les applications Web) que pour les cours de niveau"
+"universitaire (en utilisant les notebooks programmables). Vous trouverez l'aide"
+"nécessaire pour vous lancer ci-dessous."
 
 #: ../../classes_howto.rst:17
 msgid "Using the OGGM-Edu web apps at the high school level"
-msgstr ""
+msgstr "Utiliser les applications web OOGM-Edu dans les classes de lycée"
 
 #: ../../classes_howto.rst:19
 msgid ""
 "OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even "
 "longer. It could be organized as such:"
 msgstr ""
+"OGGM-Edu peut être utilisé pour construire un cours de 2 à 4 heures, voire "
+"plus. Il pourrait être organisé comme suit :"
 
 #: ../../classes_howto.rst:22
 msgid ""
 "General introduction to glaciers: what is a glacier, where do we find "
 "them, why are they important?"
 msgstr ""
+" Introduction générale sur les glaciers : qu'est-ce qu'un glacier, où les trouve-t-on,"
+"pourquoi sont-ils importants ?"
 
 #: ../../classes_howto.rst:24
 msgid "Learn about different glacier types in the :ref:`gallery`."
-msgstr ""
+msgstr "Découvrir les différents types de glaciers dans la :ref:`galerie`."
 
 #: ../../classes_howto.rst:25
 msgid ""
@@ -63,6 +75,9 @@ msgid ""
 ":ref:`explorer` app. Use the sample questions to encourage the students "
 "to explore the app by themselves or in small groups."
 msgstr ""
+"Découvrir l'emplacement des glaciers et leur climat avec l'application "
+":ref:`explorer`. Vous pouvez utiliser les questions en exemple pour encourager les élèves "
+"à explorer l'application par eux-mêmes ou en petits groupes."
 
 #: ../../classes_howto.rst:28
 msgid ""
@@ -71,10 +86,14 @@ msgid ""
 "experiments, and can be complemented with a `glacier goo "
 "<https://www.youtube.com/watch?v=DUdeN5CpsW0>`_ experiment."
 msgstr ""
+"Pour des cours plus avancés, approfondissez la notion d'écoulement glaciaire avec le "
+":ref:`simulator`. Cette application peut être utilisée pour un certain nombre "
+"de simulations différentes, et peut être complétée par une expérience avec la "glacier goo" "
+"<https://www.youtube.com/watch?v=DUdeN5CpsW0>`_ ."
 
 #: ../../classes_howto.rst:35
 msgid "Using the OGGM-Edu notebooks at the university level"
-msgstr ""
+msgstr "Utiliser les notebooks OGGM-Edu au niveau universitaire"
 
 #: ../../classes_howto.rst:37
 msgid ""
@@ -83,10 +102,14 @@ msgid ""
 "allow to convey knowledge in interactive, \"try as you learn\" "
 "practicals, and they encourage active learning."
 msgstr ""
+"Nous utilisons fréquemment les cahiers pour nos propres `cours <https://fabienmaussion.info/teaching/>`_, "
+"et nous en sommes pleinement satisfaits ! Ils permettent de transmettre des connaissances"
+"de manière interactive, via des travaux pratiques pour \"apprendre en essayant\", "
+"et ils encouragent l'apprentissage actif."
 
 #: ../../classes_howto.rst:41
 msgid "Here are a few recommendations based on our own experience:"
-msgstr ""
+msgstr "Voici quelques recommandations basées sur notre propre expérience :"
 
 #: ../../classes_howto.rst:43
 msgid ""
@@ -95,30 +118,38 @@ msgid ""
 " play with a simple and short notebook. In a second session (after an "
 "hour or so), summarize the usual pitfalls:"
 msgstr ""
+"**Passez au moins deux heures à expliquer le fonctionnement du notebook et de "
+"jupyterlab**. Montrez d'abord leurs fonctionnalités de base, puis laissez les élèves "
+"s'entrainer sur un notebook plutôt simple et court. Dans un deuxième temps (après une "
+"heure environ), résumez les pièges habituels :"
 
 #: ../../classes_howto.rst:48
 msgid ""
 "recognize that notebooks are actual files (not something magical on "
 "browser)"
 msgstr ""
+"reconnaître que les notebooks sont de vrais fichiers (et pas quelque chose de magique sur le "
+"navigateur)"
 
 #: ../../classes_howto.rst:49
 msgid "acknowledge that the order of execution of cells matter"
-msgstr ""
+msgstr "constater que l'ordre d'exécution des cellules a son importance"
 
 #: ../../classes_howto.rst:50
 msgid "acknowledge that errors in cell execution are OK and can be recovered from"
-msgstr ""
+msgstr "constater que les erreurs lors de l'exécution des cellules sont admises et peuvent être corrigées. "
 
 #: ../../classes_howto.rst:51
 msgid "show how to restart with a fresh notebook"
-msgstr ""
+msgstr "montrer comment recommencer avec un nouveau notebook"
 
 #: ../../classes_howto.rst:52
 msgid ""
 "encourage the use of keyboard shortcuts (such as `[shift+enter]` and "
 "`[ctrl+m] + key`)"
 msgstr ""
+"encourager l'usage des raccourcis clavier ( `[shift+enter]` et "
+"`[ctrl+m] + key` par exemple)"
 
 #: ../../classes_howto.rst:55
 msgid ""
@@ -127,6 +158,10 @@ msgid ""
 "files to JupyterLab so that they feel comfortable saving their work from "
 "time to time."
 msgstr ""
+"**Sur MyBinder : évitez les mauvaises surprises en expliquant à votre classe que les "
+"sessions sont temporaires**. Montrez à vos élèves comment télécharger et uploader des "
+"fichiers vers JupyterLab afin qu'ils soient à l'aise avec le fait de sauvegarder leur travail de "
+"temps en temps".
 
 #: ../../classes_howto.rst:59
 msgid ""
@@ -136,6 +171,11 @@ msgid ""
 "this `free online book <https://jupyter4edu.github.io/jupyter-edu-"
 "book/>`_ about teaching with jupyter notebooks useful as well."
 msgstr ""
+"Quels que soient vos objectifs pédagogiques, **prévoyez toujours moins**. A ce titre, "
+" `ce blog <https://medium.com/@jasonjwilliamsny/4-practical-"
+"suggestions-for-using-jupyter-notebooks-in-tutorials-9c478c8c0032>`_ et "
+"ce `livre en ligne gratuit <https://jupyter4edu.github.io/jupyter-edu-"
+"book/>`_ qui traite de l'enseignement avec les notebooks jupyter peuvent se retrouver utiles"
 
 #: ../../classes_howto.rst:64
 msgid ""
@@ -147,6 +187,13 @@ msgid ""
 "about how to change a colormap before even trying to analyse the plot "
 "they just produced."
 msgstr ""
+"Si vous prévoyez d'enseigner dans le même temps les notions de programmation et de "
+"glaciologie, **focalisez vous davantage sur le contenu** que sur la méthode. "
+"Malheureusement (ou heureusement), l'aspect "fun" des notebooks et les "
+"défis de la programmation distraient souvent les étudiants de ce qu'ils "
+"font réellement : de la glaciologie et de la climatologie. Nous avons vu des étudiants chercher sur Google "
+"le moyen de changer la palette de couleurs avant même d'essayer d'analyser le graphique "
+"qu'ils viennent de produire."
 
 #: ../../classes_howto.rst:71
 msgid ""
@@ -154,14 +201,18 @@ msgid ""
 "**organize peer-mentoring in groups of 2 or 3**. Students are often "
 "better in mentoring each other than we are."
 msgstr ""
+"Si vous avez la chance d'avoir des étudiants plus expérimentés dans la salle, "
+"**mettez en place un mentorat par groupes de 2 ou 3**. Les étudiants sont souvent "
+"meilleurs dans le mentorat mutuel que nous le sommes."
 
 #: ../../classes_howto.rst:77
 msgid "Implementation"
-msgstr ""
+msgstr "Mise en oeuvre"
 
 #: ../../classes_howto.rst:79
 msgid ""
 "Ready to give OGGM-Edu a go? You will find more information in the pages "
 "below:"
 msgstr ""
-
+"Prêt à vous lancer dans l'aventure OGGM-Edu ? Vous trouverez plus d'informations dans les pages "
+" ci-dessous :"
