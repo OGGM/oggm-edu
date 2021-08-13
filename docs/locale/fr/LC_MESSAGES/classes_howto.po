@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 " OGGM-Edu peut facilement être utilisé pour vos cours / ateliers - "
 "nous vous encourageons à l'essayer ! En fonction de vos connaissances sur les glaciers, cela "
-"peut nécessiter une certaine préparation. Consultez la page :ref:`autres_ressources` si les"
+"peut nécessiter une certaine préparation. Consultez la page :ref:`other_resources` si les"
 "principes fondamentaux et les manuels en ligne vous intéressent."
 
 #: ../../classes_howto.rst:11
@@ -67,7 +67,7 @@ msgstr ""
 
 #: ../../classes_howto.rst:24
 msgid "Learn about different glacier types in the :ref:`gallery`."
-msgstr "Découvrir les différents types de glaciers dans la :ref:`galerie`."
+msgstr "Découvrir les différents types de glaciers dans la :ref:`gallery`."
 
 #: ../../classes_howto.rst:25
 msgid ""
