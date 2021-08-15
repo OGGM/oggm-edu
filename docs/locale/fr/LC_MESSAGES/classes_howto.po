@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../classes_howto.rst:4
 msgid "OGGM-Edu in classes and workshops"
-msgstr "OGGM-Edu en classe et dans les ateliers"
+msgstr "Utiliser OGGM-Edu pour vos cours et séminaires"
 
 #: ../../classes_howto.rst:6
 msgid ""
@@ -28,7 +28,7 @@ msgid ""
 "can require some preparation. Check out :ref:`other_resources` if you are"
 " interested in the fundamentals and online textbook materials."
 msgstr ""
-"OGGM-Edu peut facilement être utilisé pour vos cours / ateliers - "
+"OGGM-Edu peut facilement être utilisé pour vos cours / ateliers / séminaires - "
 "nous vous encourageons à l'essayer ! En fonction de vos connaissances sur les glaciers, cela "
 "peut nécessiter une certaine préparation. Consultez la page :ref:`other_resources` pour des liens vers des "
 "manuels en ligne."
@@ -89,7 +89,7 @@ msgstr ""
 "Pour des cours plus avancés, approfondissez la notion d'écoulement glaciaire avec le "
 ":ref:`simulator`. Cette application peut être utilisée pour un certain nombre "
 "de simulations différentes, et peut être complétée par une expérience avec un "
-"<glacier fluide  <https://www.youtube.com/watch?v=DUdeN5CpsW0>`_."
+"`glacier fluide  <https://www.youtube.com/watch?v=DUdeN5CpsW0>`_."
 
 #: ../../classes_howto.rst:35
 msgid "Using the OGGM-Edu notebooks at the university level"
