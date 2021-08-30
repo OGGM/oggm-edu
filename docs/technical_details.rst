@@ -59,4 +59,7 @@ The advantages of OGGM-Hub over Binder are:
 `hub.oggm.org <https://hub.oggm.org>`_ is only available to registered users (registration is free!),
 but it won't work for an entire class. If you have a specific need for an
 OGGM-hub service (e.g. for a one-week class or a workshop), please
-:ref:`title_contact` and we'll try to arrange a specific set-up for you!
+:ref:`title_contact` to get access to `classroom.oggm.org <https://classroom.oggm.org>`_!
+`classroom.oggm.org <https://classroom.oggm.org>`_ is a copy of
+`hub.oggm.org <https://hub.oggm.org>`_, but with less resources allocated
+to each user (good enough for a class though!).
