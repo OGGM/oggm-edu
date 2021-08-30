@@ -15,8 +15,8 @@ notebook to get you started. See also :ref:`examples` for existing classes
 making use of this system.
 
 Ideally, we would like all OGGM-Edu related content to be bundled here on this
-open platform: if you feel comfortable sharing your content to others,
-please let us know!
+open platform: if you are creating educational resources based on OGGM-Edu,
+please :ref:`get in touch <title_contact>` so that we can advertise them!
 
 On MyBinder
 -----------
@@ -42,7 +42,7 @@ This was the most basic example. If you want to use other features, like using
 the Jupyter Lab interface (instead of the simple notebooks interface), and if
 you want to start at an arbitrary location in the repository (for example
 within a folder), the syntax is a bit more clumsy. The best way (by far!)
-is to rely on nbgitpuller's `link generator <https://jupyterhub.github.io/nbgitpuller/link.html>`_
+is to rely on nbgitpuller's `link generator`_
 to do the job for you.
 
 For example, we start the OGGM-Edu tutorials with this link:
@@ -52,5 +52,38 @@ For example, we start the OGGM-Edu tutorials with this link:
 It's getting quite long, I know! What's best therefore is to hide the links
 `behind a badge <https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_.
 
-If you are creating educational resources based on OGGM-Edu,
-please :ref:`get in touch <title_contact>` so that we can advertise them!
+.. _link generator: https://jupyterhub.github.io/nbgitpuller/link.html
+
+On classroom.oggm.org
+---------------------
+
+Since August 2021, we provide a dedicated OGGM JupyterLab server running on
+a dedicated machine in Bremen. `classroom.oggm.org <https://classroom.oggm.org>`_
+(that's it's name!) is like `OGGM-Hub <https://docs.oggm.org/en/stable/cloud.html#oggm-hub>`_,
+but tailored for instructors and their classes.
+
+The advantages of OGGM-classroom over Binder are:
+
+- more resources for your students, faster launches
+- user management: you can set passwords and user names at wish
+- persistent sessions: work can be saved between sessions and log-ins (this is by far the main advantage)
+
+We are currently in the testing phase, and it is unclear how many students we
+can allow to run their notebooks at the same time. If you are willing to try
+it out, please :ref:`get in touch <title_contact>` and we will do our best
+to let you use it with your class!
+
+Similarly to MyBinder, you can create a link for your students to download
+the content of your notebooks repository very easily. We recommend to use
+nbgitpuller's `link generator`_ for this purpose.
+
+For example, we can start the OGGM-Edu tutorials on classroom.oggm.org with this link:
+
+`<https://classroom.oggm.org/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FOGGM%2Foggm-edu-notebooks&urlpath=lab%2Ftree%2Foggm-edu-notebooks%2Fwelcome.ipynb&branch=master>`_
+
+Again, hiding the links
+`behind a badge <https://mybinder.readthedocs.io/en/latest/howto/badges.html>`_ makes it prettier:
+
+|badge_classroom_tutos|
+
+Enjoy!
