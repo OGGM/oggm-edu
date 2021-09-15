@@ -49,7 +49,7 @@ for an introduction about glacier mass-balance and the ELA, or our
 **Experiment:**
 
 - In "Beginner mode", start by setting the ELA to 3000m a.s.l, and note on a piece of paper: the equilibrium volume of the glacier, its length and maximal thickness.
-- Now choose the "wider top" glacier shape and run the model again.
+- Now choose the "Wide top, narrow bottom" glacier shape and run the model again.
 
 **Question to answer:**
 
