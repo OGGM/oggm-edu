@@ -7,7 +7,7 @@ Mass-Balance Simulator
     :width: 100%
     :target: https://bokeh.oggm.org/mb_simulator/app
 
-The Mass-Balance simulator is an **interactive web application** with which you can learn (and teach) about the glacier Mass-Balance, including the influence of different climate environments and different parameter settings.
+The Mass-Balance simulator is an **interactive web application** with which you can learn (and teach) about glacier climatic mass-balance (MB), including the influence of different climate environments and different MB model parameter settings.
 
 You can start the app by clicking on this link: |badge_bokeh_en|_
 
@@ -15,7 +15,7 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
 
 .. important::
 
-  The Mass-Balance simulator app using computer resources on the cloud. If several people are using the app at
+  The app uses computer resources on the cloud. If several people are using the app at
   the same time, the server might become slow or unresponsive. In this case,
   we recommend to use the app
   `on MyBinder <https://mybinder.org/v2/gh/OGGM/mb_simulator/stable?urlpath=panel/app>`_
@@ -24,17 +24,15 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
 Getting started with the app
 ----------------------------
 
-The Mass-Balance simulator is in principle structured in three parts:
+The MB simulator is structured in three parts:
 
-- under 'Mass Balance 1' and 'Mass Balance 2', individual Mass-Balance models can be defined (with their particular climate configuration and model parameter settings) and explored (up to the monthly contributions).
+- under 'Mass Balance 1' and 'Mass Balance 2', individual MB models can be defined (with their particular climate configuration and model parameter settings) and explored (up to the monthly contributions).
 - under 'Compare mass balances', the two individual Mass-Balance models are compared to each other.
 
 For an introduction on how to interact with the app and what the individual figures show you should watch the tutorial video below!
 
 Video tutorial
 ---------------
-
-Watch this video for an introduction to the app's features and how to use it!
 
 .. raw:: html
 
@@ -44,40 +42,42 @@ Watch this video for an introduction to the app's features and how to use it!
 Theoretical Background
 ----------------------
 
-The Mass-Balance describes the ice gain and loss of a glacier system. For a good general introduction visit `antarcticglaciers.org (mass-balance)`_.
+The mass-balance describes the ice gain and loss of a glacier system. For a general introduction, visit `antarcticglaciers.org (mass-balance)`_.
 
-The actual equation in the background of the App is a so-called Temperature-index model briefly explained in the `OGGM Docs`_ or in more detail in `Marzeion et al. (2012)`_. And the climate data for the different locations is from the `CRU TS v4 Dataset`_.
+The actual equation in the background of the app is a so-called "monthly temperature-index model", as explained in the `OGGM Docs`_. The climate data for the different locations is extracted from the `CRU TS v4 Dataset`_.
+
+TODO: add some content about limitations here (simplifications of the model - what it does good and not), and also about the climate data.
 
 Questions to explore with this app
 ----------------------------------
 
 With this app, you can address many questions, by yourself or in class! This list will grow in the future (documentation takes time!).
 
-Monthly contributions to annual Mass Balance
+Monthly contributions to annual mass balance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Experiment:**
 
-- Choose as a Base Climate 'Hintereisferner (Alps, continental)' and let all the other settings unchanged.
+- Choose as a base climate 'Hintereisferner (Alps, continental)' and let all the other settings unchanged.
 - Now look at the climograph (showing precipitation and temperature at each month) and try to answer the questions below.
 
 **Questions to answer:**
 
-By only looking at (or moving with your mouse over) the climograph try to guess:
+By only looking at (or moving with your mouse over) the climograph, try to guess:
 
 - In which month do you think the accumulation is largest at 4000 m?
 - In which month do you think the ablation is largest at 2000 m?
-- Which month has the lowest altitude with a Mass Balance of 0 kg m⁻² month⁻¹ (lowest monthly Equilibrium Line Altitude ELA)?
+- Which month has the lowest altitude with a Mass Balance of 0 kg m⁻² month⁻¹ (lowest monthly Equilibrium Line Altitude, ELA)?
 
-After you made your guess you can compare the different months by switching them on and off at the left of the Accumulation plot. Tip: Move your mouse over the plots to get exact values.
+After you made your guess you can compare the different months by switching them on and off at the left of the accumulation plot. Tip: Move your mouse over the plots to get exact values.
 
 .. admonition:: Take home messages
     :class: toggle
 
-    - Largest Accumulation at 4500 m in June, the month with the largest precipitation amount
-    - Largest Ablation at 2000 m in July, the month with the largest temperature
+    - Largest accumulation at 4500 m in June, the month with the largest precipitation amount
+    - Largest ablation at 2000 m in July, the month with the highest temperature
     - Lowest monthly ELA in December, even January has the lowest temperature, but in December more precipitation
-    - Advanced comment: Comparing Ablation of December and January in 1600 m shows slightly more negative value in January than December. But from the definition of the Ablation we would expect a more negative value for December when only looking at the mean temperature shown in the climograph (the lower the temperature the smaller the Ablation). This is an example showing the difference of calculating the monthly mass balance at each month and then calculating the mean (as it is done in the background) or first calculating a mean temperature for a month and then using this for the calculation of the monthly Mass-Balance, for more information look at this `OGGM Blogpost`_.
+    - Advanced comment: Comparing ablation of December and January in 1600 m shows slightly more negative value in January than December. But from the definition of the ablation we would expect a more negative value for December when only looking at the mean temperature shown in the climograph (the lower the temperature the smaller the ablation). This is an example showing the difference of calculating the monthly mass balance at each month and then calculating the mean (as it is done in the background) or first calculating a mean temperature for a month and then using this for the calculation of the monthly MB. For more information look at this `OGGM Blogpost`_.
 
 
 Compare different locations/climates
@@ -85,19 +85,19 @@ Compare different locations/climates
 
 **Experiment:**
 
-- Define two different Base Climates for 'Mass Balance 1' ('Hintereisferner (Alps, continental)') and 'Mass Balance 2' ('Echaurren Norte (Andes, mediterranean)') for the period 1990 - 2020, with the default MB settings.
+- Define two different base climates for 'Mass Balance 1' ('Hintereisferner (Alps, continental)') and 'Mass Balance 2' ('Echaurren Norte (Andes, mediterranean)') for the period 1990 - 2020, with the default MB settings.
 - Go to 'Compare mass balances' and compare them ;).
 
 **Questions to answer:**
 
-- Compare the Accumulation and Ablation at the ELA.
-- Compare the total Mass-Balance shape and the position of the ELA.
+- Compare the accumulation and ablation at the ELA.
+- Compare the total MB profile and the position of the ELA.
 - *Advanced*: How do you believe these differences influence the glacier flow?
 
 .. admonition:: Take home messages
     :class: toggle
 
-    - Accumulation and Ablation at ELA appr. two times larger at Hintereisferner compared to Echaurren Norte.
+    - Accumulation and ablation at ELA appr. two times larger at Hintereisferner compared to Echaurren Norte.
     - *Advanced*: This results in a larger Mass-Balance gradient around the ELA for Hintereisferner. How this influences the glacier flow can be explored with the `Glacier Simulator (Mass-balance gradient)`_.
     - Higher ELA for Echauren Norte is a result of less annual precipitation and higher temperatures.
 
