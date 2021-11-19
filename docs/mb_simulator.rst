@@ -27,7 +27,7 @@ Getting started with the app
 The MB simulator is structured in three parts:
 
 - under 'Mass Balance 1' and 'Mass Balance 2', individual MB models can be defined (with their particular climate configuration and model parameter settings) and explored (up to the monthly contributions).
-- under 'Compare mass balances', the two individual Mass-Balance models are compared to each other.
+- under 'Compare mass balances', the two individual MB models are compared to each other.
 
 For an introduction on how to interact with the app and what the individual figures show you should watch the tutorial video below!
 
@@ -42,19 +42,34 @@ Video tutorial
 Theoretical Background
 ----------------------
 
-The mass-balance describes the ice gain and loss of a glacier system. For a general introduction, visit `antarcticglaciers.org (mass-balance)`_.
+The MB describes the ice gain and loss of a glacier system. For a general introduction, visit `antarcticglaciers.org (mass-balance)`_.
 
-The actual equation in the background of the app is a so-called "monthly temperature-index model", as explained in the `OGGM Docs`_. The climate data for the different locations is extracted from the `CRU TS v4 Dataset`_.
+MB model
+~~~~~~~~
 
-TODO: add some content about limitations here (simplifications of the model - what it does good and not), and also about the climate data.
+The actual equation in the background of the app is a so-called "monthly temperature-index model", as explained in the `OGGM Docs`_. In short:
+
+- The model estimates the ablation (mass loss) only as a function of monthly mean temperature. Whenever the temperature is above a certain threshold (T_melt) ice melt is assumed. How much ice melt is determined by the temperature sensitivity parameter (μ).
+- The daily/monthly temperature cycle isn't taken into account, but ice melt may occur (e.g. around noon) also on days/months with a negative mean temperature. Therefore the melt threshold (T_melt) is often set to negative temperatures to account for this.
+- One should keep in mind that the actual ice melt is described by the whole surface energy balance (including shortwave/longwave radiation, latent/sensible heat flux, surface properties,...) and not the temperature alone.
+- The model estimates the accumulation (mass gain) as a function of precipitation and temperature, where the temperature determines the fraction of solid precipitation.
+- For real-world applications, the sensitivity parameter (μ) needs to be calibrated against observation and inherently will account also for all other processes and properties not directly considered by the model (e.g. slope aspect, wind-blown snow, avalanching, ...).
+
+Dataset
+~~~~~~~
+
+The temperature and precipitation data is extracted from the `CRU TS v4 Dataset`_. In short:
+
+- CRU TS v4 is a global gridded dataset (0.5° regular grid) derived from weather station observations. It covers the period 1901 - 2020 (updated annually) and provides mean monthly values for each year.
+- Whenever there are no observations available for a certain period the variables are set to their 1961 - 1990 monthly average.
 
 Questions to explore with this app
 ----------------------------------
 
 With this app, you can address many questions, by yourself or in class! This list will grow in the future (documentation takes time!).
 
-Monthly contributions to annual mass balance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Monthly contributions to annual MB
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Experiment:**
 
@@ -67,7 +82,7 @@ By only looking at (or moving with your mouse over) the climograph, try to guess
 
 - In which month do you think the accumulation is largest at 4000 m?
 - In which month do you think the ablation is largest at 2000 m?
-- Which month has the lowest altitude with a Mass Balance of 0 kg m⁻² month⁻¹ (lowest monthly Equilibrium Line Altitude, ELA)?
+- Which month has the lowest altitude with a MB of 0 kg m⁻² month⁻¹ (lowest monthly Equilibrium Line Altitude, ELA)?
 
 After you made your guess you can compare the different months by switching them on and off at the left of the accumulation plot. Tip: Move your mouse over the plots to get exact values.
 
@@ -77,7 +92,7 @@ After you made your guess you can compare the different months by switching them
     - Largest accumulation at 4500 m in June, the month with the largest precipitation amount
     - Largest ablation at 2000 m in July, the month with the highest temperature
     - Lowest monthly ELA in December, even January has the lowest temperature, but in December more precipitation
-    - Advanced comment: Comparing ablation of December and January in 1600 m shows slightly more negative value in January than December. But from the definition of the ablation we would expect a more negative value for December when only looking at the mean temperature shown in the climograph (the lower the temperature the smaller the ablation). This is an example showing the difference of calculating the monthly mass balance at each month and then calculating the mean (as it is done in the background) or first calculating a mean temperature for a month and then using this for the calculation of the monthly MB. For more information look at this `OGGM Blogpost`_.
+    - Advanced comment: Comparing ablation of December and January in 1600 m shows slightly more negative value in January than December. But from the definition of the ablation we would expect a more negative value for December when only looking at the mean temperature shown in the climograph (the lower the temperature the smaller the ablation). This is an example showing the difference of calculating the monthly MB at each month and then calculating the mean (as it is done in the background) or first calculating a mean temperature for a month and then using this for the calculation of the monthly MB. For more information look at this `OGGM Blogpost`_.
 
 
 Compare different locations/climates
@@ -98,7 +113,7 @@ Compare different locations/climates
     :class: toggle
 
     - Accumulation and ablation at ELA appr. two times larger at Hintereisferner compared to Echaurren Norte.
-    - *Advanced*: This results in a larger Mass-Balance gradient around the ELA for Hintereisferner. How this influences the glacier flow can be explored with the `Glacier Simulator (Mass-balance gradient)`_.
+    - *Advanced*: This results in a larger MB gradient around the ELA for Hintereisferner. How this influences the glacier flow can be explored with the `Glacier Simulator (Mass-balance gradient)`_.
     - Higher ELA for Echauren Norte is a result of less annual precipitation and higher temperatures.
 
 
@@ -126,19 +141,18 @@ Compare different periods of the same base climate
 Influence of MB settings
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Experiment (Suggestion):**
+**Experiment (suggestion):**
 
-- Choose the same Base Climate for 'Mass Balance 1' and 'Mass Balance 2' with the same climate periods.
+- Choose the same base climate for 'Mass Balance 1' and 'Mass Balance 2' with the same climate periods.
 - Now go to 'MB settings' and change one of the settings for 'Mass Balance 2'.
 
-**Questions to Answer:**
+**Questions to answer:**
 
-- What is the influence on the Accumulation, Ablation, Mass-Balance or ELA height?
-- Is the influences the same for different Base Climates?
+- What is the influence on the accumulation, ablation, MB or ELA height?
+- Is the influences the same for different base climates?
 
 .. _antarcticglaciers.org (mass-balance): http://www.antarcticglaciers.org/glacier-processes/introduction-glacier-mass-balance
 .. _OGGM Docs: https://docs.oggm.org/en/stable/mass-balance.html#temperature-index-model
-.. _Marzeion et al. (2012): https://tc.copernicus.org/articles/6/1295/2012/tc-6-1295-2012.html
 .. _CRU TS v4 Dataset: https://www.nature.com/articles/s41597-020-0453-3
 .. _OGGM Blogpost: https://oggm.org/2021/08/05/mean-forcing/
 .. _Glacier Simulator (Mass-balance gradient): https://edu.oggm.org/en/latest/simulator.html#mass-balance-gradient
