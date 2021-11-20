@@ -43,6 +43,7 @@ These interactive apps can be run on any computer with an internet connection.
 * :doc:`explorer`
 * :doc:`simulator`
 * :doc:`alps_future`
+* :doc:`mb_simulator`
 
 .. toctree::
     :maxdepth: 1
@@ -53,6 +54,7 @@ These interactive apps can be run on any computer with an internet connection.
     explorer.rst
     simulator.rst
     alps_future.rst
+    mb_simulator.rst
 
 .. _title_graphics:
 
