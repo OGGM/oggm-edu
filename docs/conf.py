@@ -197,8 +197,10 @@ html_theme_options = {
     "extra_navbar": extra_navbar,
 }
 
+# This is necessary to have an optional footer
 html_sidebars = {
-    "**": ["sidebar-search-bs.html", "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
+    "**": ["sidebar-logo.html", "search-field.html",
+           "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
 }
 
 
