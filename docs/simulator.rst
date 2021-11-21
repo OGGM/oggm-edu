@@ -15,7 +15,7 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
 
 .. _badge_bokeh_en: https://bokeh.oggm.org/simulator/app
 
-.. important::
+.. note::
 
   The glacier simulator app runs a numerical glacier model in the background,
   using computer resources on the cloud. If several people are using the app at
