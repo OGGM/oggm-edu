@@ -534,39 +534,48 @@ class GlacierCollection:
         # Get the ax from the first plot
         fig, ax = plt.subplots()
         # Bedrock
-        ax.plot(gl1.distance_along_glacier, gl1.bed_h, label='Bedrock',
+        ax.plot(gl1.bed.distance_along_glacier, gl1.bed.bed_h, label='Bedrock',
                 ls=':', c='k', lw=2, zorder=3)
         # Fill it in.
-        ax.fill_betweenx(gl1.bed_h, gl1.distance_along_glacier,
-                         facecolor='grey', alpha=0.3)
+        ax.fill_betweenx(gl1.bed.bed_h, gl1.bed.distance_along_glacier,
+                         facecolor='lightgrey')
 
         # Set the title.
         ax.set_title('Glacier collection')
 
         elas = []
         # Loop over the collection.
+        color_cycler = plt.get_cmap('tab10')
         for i, glacier in enumerate(self.glaciers):
             # Plot the surface
             if glacier.current_state is not None:
-                ax.plot(glacier.distance_along_glacier,
-                        glacier.current_state.surface_h,
-                        label=f'Glacier nr. {i+1} at year {glacier.age}')
+                ax.fill_between(glacier.bed.distance_along_glacier,
+                                glacier.current_state.surface_h,
+                                glacier.bed.bed_h,
+                                facecolors='white',
+                                edgecolors=color_cycler(i),
+                                lw=2,
+                                label=f'Glacier nr. {i+1} at year'
+                                + f' {glacier.age}')
             elas.append(glacier.ELA)
 
         # Loop the unique ELAs.
         for i, ela in enumerate(set(elas)):
             # Plot the ELA
-            ax.axhline(ela, ls='--', zorder=1, alpha=0.3)
+            ax.axhline(ela, ls='--', zorder=1)
             # Label if elas are equal.
             if len(set(elas)) == 1:
-                ax.text(glacier.distance_along_glacier[-1], ela + 10,
+                ax.text(glacier.bed.distance_along_glacier[-1], ela + 10,
                         'ELAs are equal', ha='right', va='bottom')
             # If we have multiple ELAs.
             else:
-                ax.text(glacier.distance_along_glacier[-1], ela + 10,
+                ax.text(glacier.bed.distance_along_glacier[-1], ela + 10,
                         f'ELA  nr {i+1}', ha='right', va='bottom')
 
         # axis labels.
         ax.set_xlabel('Distance along glacer [km]')
         ax.set_ylabel('Altitude [m]')
-        plt.legend(loc='lower right')
+        ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0]+200))
+        ax.set_xlim((0, gl1.bed.distance_along_glacier[-1]+2))
+        ax.set_facecolor('#ADD8E6')
+        plt.legend(loc='lower left')
