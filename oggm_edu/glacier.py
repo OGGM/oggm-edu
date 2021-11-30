@@ -6,6 +6,7 @@ glacier mechanics.
 # Other libraries.
 import numpy as np
 import seaborn as sns
+import xarray as xr
 import warnings
 
 # Plotting
@@ -203,6 +204,8 @@ class Glacier:
         # Descriptives
         # Store the age of the glacier outside the model object.
         self._age = 0.
+        # This is used to store the history of the glacier evolution.
+        self._history = None
 
     def __repr__(self):
         '''Pretty representation of the glacier object'''
@@ -290,17 +293,30 @@ class Glacier:
         'Set the age of the age of the glacier.'
         self._age = value
 
-    def grow_to_year(self, year):
-        '''Method to grow the glacier for n years.
+    @property
+    def history(self):
+        return self._history
+
+    @history.setter
+    def history(self, obj):
+        'Set the glacier history object'
+        if self._history is None:
+            self._history = obj
+        else:
+            self._history = xr.combine_by_coords([self.history, obj],
+                                                 combine_attrs='override')
+
+    def progress_to_year(self, year):
+        '''Method to progress the glacier to year n.
 
         Parameters
         ----------
         year : int
-            Year until which to grow the glacier.
+            Year until which to progress the glacier.
         '''
         # Check if the glacier has a masss balance model
         if not self.mb_model:
-            string = 'To grow the glacier it needs a mass balance.' \
+            string = 'To evolve the glacier it needs a mass balance.' \
                       + '\nMake sure the ELA and mass balance gradient' \
                       + ' are defined.'
             raise NotImplementedError(string)
@@ -321,7 +337,7 @@ class Glacier:
             model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age)
             # Run the model.
             try:
-                model.run_until(year)
+                self.history = model.run_until_and_store(year)
             except RuntimeError:
                 print('Glacier outgrew its domain and had to stop.')
                 # raise RuntimeError('Glacier grew outside its domain.'
@@ -331,8 +347,55 @@ class Glacier:
             self.model_state = model
             self.age = model.yr
 
-    def grow_to_equilibrium(self):
+    def progress_to_equilibrium(self, years=2500):
         'Method to grow the glacier to equilibrium.'
+
+        def stop_function(model, previous_state):
+            '''Function to stop the simulation when equilbrium is
+            reached. Basically a re-shape of the criterium of
+            run_until_equilibrium.'''
+            # We don't stop unless
+            stop = False
+            # Ambigous rate
+            rate = 0.001
+            max_ite = 500
+            # If we have a previous step check it
+            if previous_state is not None:
+                # Here we save some stuff to diagnose the eq. state
+                # If this is true, we update the state:
+                if ((previous_state['t_rate'] > rate) and
+                        (previous_state['ite'] <= max_ite) and
+                        (previous_state['was_close_zero'] < 5)):
+
+                    # Increase iterations.
+                    previous_state['ite'] += 1
+                    # Get the current volume
+                    v_af = model.volume_m3
+                    # If volume before is close to zero, update counter.
+                    if np.isclose(previous_state['v_bef'], 0, atol=1):
+                        previous_state['was_close_zero'] += 1
+                        previous_state['t_rate'] = 1
+                    # If not close to zero, update how slow volume is updating.
+                    else:
+                        previous_state['t_rate'] =\
+                            (np.abs(v_af - previous_state['v_bef'])
+                                / previous_state['v_bef'])
+                    previous_state['v_bef'] = v_af
+                # If we go over the iteration limit.
+                elif previous_state['ite'] > max_ite:
+                    raise RuntimeError('Not able to find equilbrium')
+                # Otherwise we stop.
+                else:
+                    stop = True
+
+            # If we don't have a previous state, define it.
+            else:
+                previous_state = {'ite': 0, 'was_close_zero': 0,
+                                  't_rate': 1,
+                                  'v_bef': model.volume_m3}
+
+            return stop, previous_state
+
         # Check if the glacier has a masss balance model
         if not self.mb_model:
             string = 'To grow the glacier it needs a mass balance.' \
@@ -346,11 +409,16 @@ class Glacier:
             model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age)
             # Run the model.
             try:
-                model.run_until_equilibrium()
+                #  Run with a stopping criteria.
+                out = model.run_until_and_store(years,
+                                                stop_criterion=stop_function)
+                # We need to drop the nan years
+                out = out.dropna(dim='time')
+                # Add the history dataset.
+                self.history = out
+
             except RuntimeError:
                 print('Glacier grew out of its domain and had to stop.')
-                # raise RuntimeError('Glacier grew outside its domain.'
-                #                    + ' Try raising the ELA.')
 
             self.current_state = model.fls[0]
             self.age = model.yr
@@ -370,10 +438,6 @@ class Glacier:
                           color='lightgrey')
         ax1.set_ylabel('Altitude [m]')
 
-        # Plot the initial glacier surface
-        ax1.plot(self.bed.distance_along_glacier, self.initial_state.surface_h,
-                 label='Initial glacier surface height', c='tab:orange')
-
         # Set face color of side view.
         ax1.set_facecolor('#ADD8E6')
         ax1.set_ylim((self.bed.bottom, self.bed.top + 200))
@@ -390,13 +454,23 @@ class Glacier:
 
         # If we have a current state, plot it.
         if self.current_state is not None:
+            # Some masking shenanigans
+            diff = self.current_state.surface_h - self.bed.bed_h
+            mask = diff > 0
+            idx = diff.argmin()
+            mask[:idx+1] = True
+            # Fill the glacier.
             ax1.fill_between(self.bed.distance_along_glacier,
                              self.bed.bed_h,
                              self.current_state.surface_h,
+                             where=mask,
                              color='white',
-                             edgecolor='C0',
-                             lw=2,
-                             label='Current glacier surface height')
+                             lw=2)
+            # Add outline
+            ax1.plot(self.bed.distance_along_glacier[mask],
+                     self.current_state.surface_h[mask],
+                     lw=2,
+                     label='Current glacier outline')
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
             filled = np.where(self.current_state.thick > 0, self.bed.widths, 0)
@@ -451,6 +525,37 @@ class Glacier:
         plt.title('Mass balance profile')
         plt.legend()
 
+    def plot_history(self):
+        '''Plot the history of the glacier.'''
+        if self.history is None:
+            raise AttributeError('Glacier has no history yet,'
+                                 ' try progress the glacier')
+
+        fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
+
+        # Plot the length.
+        self.history.length_m.plot(ax=ax1)
+        ax1.set_xlabel('')
+        ax1.set_title(f'Glacier history at year {int(self.age)}')
+        ax1.annotate('Glacier length', (0.98, 0.1), xycoords='axes fraction',
+                     bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
+                     ha='right')
+        ax1.set_ylabel('Length [m]')
+        # Plot the volume
+        self.history.volume_m3.plot(ax=ax2)
+        ax2.set_xlabel('')
+        ax2.annotate('Glacier volume', (0.98, 0.1), xycoords='axes fraction',
+                     bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
+                     ha='right')
+        ax2.set_ylabel('Volume [m$^3$]')
+        # Plot the area
+        self.history.area_m2.plot(ax=ax3)
+        ax3.set_xlabel('Year')
+        ax3.annotate('Glacier area', (0.98, 0.1), xycoords='axes fraction',
+                     bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
+                     ha='right')
+        ax3.set_ylabel('Area [m$^2$]')
+
 
 class GlacierCollection:
     '''This is class for storing multiple glaciers, providing convenient
@@ -501,7 +606,7 @@ class GlacierCollection:
         else:
             self._glaciers.append(glacier)
 
-    def grow_to_year(self, year):
+    def progress_to_year(self, year):
         '''Grow the glaciers within the collection to year.
 
         Parameters
@@ -513,16 +618,16 @@ class GlacierCollection:
             raise ValueError('Collection is empty')
 
         for glacier in self.glaciers:
-            glacier.grow_to_year(year)
+            glacier.progress_to_year(year)
 
-    def grow_to_equilibrium(self):
+    def progress_to_equilibrium(self):
         '''Grow the glaciers within the collection to equilibrium.
         '''
         if len(self.glaciers) < 1:
             raise ValueError('Collection is empty')
 
         for glacier in self.glaciers:
-            glacier.grow_to_equilibrium()
+            glacier.progress_to_equilibrium()
 
     def plot(self):
         '''Plot the glaciers in the collection to compare them.'''
@@ -536,6 +641,7 @@ class GlacierCollection:
         # Bedrock
         ax.plot(gl1.bed.distance_along_glacier, gl1.bed.bed_h, label='Bedrock',
                 ls=':', c='k', lw=2, zorder=3)
+        ax.set_ylim((gl1.bed.bottom, gl1.bed.top + 200))
         # Fill it in.
         ax.fill_betweenx(gl1.bed.bed_h, gl1.bed.distance_along_glacier,
                          facecolor='lightgrey')
@@ -545,18 +651,31 @@ class GlacierCollection:
 
         elas = []
         # Loop over the collection.
-        color_cycler = plt.get_cmap('tab10')
         for i, glacier in enumerate(self.glaciers):
             # Plot the surface
             if glacier.current_state is not None:
+                # Masking shenanigans.
+                diff = glacier.current_state.surface_h - glacier.bed.bed_h
+                mask = diff > 0
+                idx = diff.argmin()
+                mask[:idx+1] = True
+                # Fill the ice.
                 ax.fill_between(glacier.bed.distance_along_glacier,
                                 glacier.current_state.surface_h,
                                 glacier.bed.bed_h,
+                                where=mask,
                                 facecolors='white',
-                                edgecolors=color_cycler(i),
-                                lw=2,
-                                label=f'Glacier nr. {i+1} at year'
-                                + f' {glacier.age}')
+                                # edgecolors=color_cycler(i),
+                                # lw=2,
+                                )
+                # Plot outline
+                ax.plot(glacier.bed.distance_along_glacier[mask],
+                        glacier.current_state.surface_h[mask],
+                        label=f'Glacier nr. {i+1} at year'
+                        + f' {glacier.age}')
+                # Ylim
+                ax.set_ylim((gl1.bed.bottom,
+                             gl1.current_state.surface_h[0]+200))
             elas.append(glacier.ELA)
 
         # Loop the unique ELAs.
@@ -575,7 +694,43 @@ class GlacierCollection:
         # axis labels.
         ax.set_xlabel('Distance along glacer [km]')
         ax.set_ylabel('Altitude [m]')
-        ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0]+200))
         ax.set_xlim((0, gl1.bed.distance_along_glacier[-1]+2))
         ax.set_facecolor('#ADD8E6')
         plt.legend(loc='lower left')
+
+    def plot_history(self):
+        '''Plot the histories of the collection'''
+
+        fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
+
+        for glacier in self.glaciers:
+            # Plot the length.
+            glacier.history.length_m.plot(ax=ax1)
+            # Plot the volume
+            glacier.history.volume_m3.plot(ax=ax2)
+            # Plot the area
+            glacier.history.area_m2.plot(ax=ax3,
+                                         label=f'ELA: {glacier.ELA} \n' +
+                                         f'MB grad: {glacier.mb_gradient} \n' +
+                                         f'Age: {glacier.age}')
+        # Decorations
+        ax1.set_xlabel('')
+        ax1.set_title('Glacier histories')
+        ax1.annotate('Glacier length', (0.98, 0.1), xycoords='axes fraction',
+                     bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
+                     ha='right')
+        ax1.set_ylabel('Length [m]')
+        ax2.set_xlabel('')
+        ax2.annotate('Glacier volume', (0.98, 0.1), xycoords='axes fraction',
+                     bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
+                     ha='right')
+        ax2.set_ylabel('Volume [m$^3$]')
+        ax3.set_xlabel('Year')
+        ax3.annotate('Glacier area', (0.98, 0.1), xycoords='axes fraction',
+                     bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
+                     ha='right')
+        ax3.set_ylabel('Area [m$^2$]')
+        handels, labels = ax3.get_legend_handles_labels()
+        fig.legend(handels, labels, loc='upper left', ncol=1,
+                   title='Glacier info',
+                   bbox_to_anchor=(0.9, 0.89))
