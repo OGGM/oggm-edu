@@ -1,4 +1,4 @@
-oggm
+git+git://github.com/OGGM/oggm#egg=oggm
 numpy
 matplotlib
 seaborn
