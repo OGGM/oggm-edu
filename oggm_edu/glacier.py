@@ -27,7 +27,7 @@ class GlacierBed:
     '''The glacier bed'''
 
     def __init__(self, top=None, bottom=None, width=None, altitudes=None,
-                 widths=None, nx=200, map_dx=100):
+                 widths=None, slope=None, nx=200, map_dx=100):
         '''Initialise the bed. Pass single scalars for top, bottom and width
          to create a square glacier bed. For finer control pass altitudes and
          widths as lists or tuples for custom geometry. Will linearly
@@ -48,6 +48,8 @@ class GlacierBed:
         widths : array_like, (ints of floats)
             List of values defining the widths along the glacier.
             Length should match altitudes.
+        slope : float
+            Define the slope of the bed, decimal
         nx : int
             Number of grid points.
         map_dx : int
@@ -92,11 +94,20 @@ class GlacierBed:
         if self.top <= self.bottom and self.bottom < 0:
             raise ValueError('Top of the bed has to be above the bottom.' +
                              ' Bottom also has to be above 0')
+        # Calculate the slope correction
+        if slope:
+            if slope >= 1. or slope <= 0.:
+                raise ValueError('Slope shoud be between 0 and 1 (not equal)')
+            # If there is a slop we re calculate the map_dx
+            else:
+                map_dx = (self.top - self.bottom) / (nx * slope)
+
         # Set the resolution.
         self.map_dx = map_dx
         # Initialise the bed
         self.bed_h = np.linspace(self.top, self.bottom, nx)
-        self.distance_along_glacier = np.linspace(0, nx, nx) * map_dx * 1e-3
+        self.distance_along_glacier = np.linspace(0, nx, nx) *\
+            self.map_dx * 1e-3
         # Widths.
         # If width has a length of one, we have a constant width.
         if width:
@@ -144,7 +155,8 @@ class GlacierBed:
         string = f'Linear glacier bed with a {w_string} width.' \
                  f'\n Top: {self.top} m.' \
                  f'\n Bottom: {self.bottom} m.' \
-                 f'\n Widths: {self.width}'
+                 f'\n Widths: {self.width}' \
+                 f'\n Length: {self.distance_along_glacier[-1]} km.'
         return string
 
     def plot(self):
@@ -215,6 +227,11 @@ class Glacier:
             self.current_state = None
             self.model_state = None
 
+            # Ice dynamics parameters
+            # Sane defaults
+            self._basal_sliding = 0.
+            self._creep = cfg.PARAMS['glen_a']
+
             # Descriptives
             # Store the age of the glacier outside the model object.
             self._age = 0.
@@ -239,6 +256,9 @@ class Glacier:
             self.initial_state = copy.initial_state
             self.current_state = copy.current_state
             self.model_state = copy.model_state
+            # Ice parameters
+            self._basal_sliding = copy.basal_sliding
+            self._creep = copy.creep
             # Some descriptives
             self._age = copy.age
             # History
@@ -340,6 +360,35 @@ class Glacier:
         '''Return the glacier history dataset.'''
         return self._history
 
+    @property
+    def basal_sliding(self):
+        return self._basal_sliding
+
+    @basal_sliding.setter
+    def basal_sliding(self, value):
+        '''Set the sliding parameter of the glacier
+
+        Parameters
+        ----------
+        value : float
+            Value fo the glacier sliding
+        '''
+        self._basal_sliding = value
+
+    @property
+    def creep(self):
+        return self._creep
+
+    @creep.setter
+    def creep(self, value):
+        '''Set the value for glen_a creep
+
+        Parameters
+        ----------
+        value : float
+        '''
+        self._creep = value
+
     @history.setter
     def history(self, obj):
         '''Logic for the glacier history attribute. If there is no histoy,
@@ -381,7 +430,8 @@ class Glacier:
             # Check if we have a current state already.
             state = self.state()
             # Initialise the model
-            model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age)
+            model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age,
+                                   glen_a=self.creep, fs=self.basal_sliding)
             # Run the model. Store the history.
             try:
                 self.history = model.run_until_and_store(year)
@@ -462,7 +512,8 @@ class Glacier:
         else:
             state = self.state()
             # Initialise the model
-            model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age)
+            model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age,
+                                   glen_a=self.creep, fs=self.basal_sliding)
             # Run the model.
             try:
                 #  Run with a stopping criteria.
