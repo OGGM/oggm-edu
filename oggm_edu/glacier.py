@@ -8,6 +8,7 @@ import numpy as np
 import seaborn as sns
 import xarray as xr
 import warnings
+import collections
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -704,16 +705,30 @@ class GlacierCollection:
 
         Parameters
         ----------
-        glacier: oggm.edu Glacier object
+        glacier: oggm.edu Glacier object or array_like with
+        Glacier objects
         '''
-        # Check that glacier is of the right type.
-        if not isinstance(glacier, Glacier):
-            raise TypeError('Glacier collection can only'
-                            ' contain glacier objects.')
-        # If the glacier is an instance of Glacier, we can add it to
-        # the collection.
+        # Check if iterable
+        if isinstance(glacier, collections.Sequence):
+            for glacier in glacier:
+                # Check that glacier is of the right type.
+                if not isinstance(glacier, Glacier):
+                    raise TypeError('Glacier collection can only'
+                                    ' contain glacier objects.')
+                # If the glacier is an instance of Glacier, we can add it to
+                # the collection.
+                else:
+                    self._glaciers.append(glacier)
+        # If not iterable
         else:
-            self._glaciers.append(glacier)
+            # Check that glacier is of the right type.
+            if not isinstance(glacier, Glacier):
+                raise TypeError('Glacier collection can only'
+                                ' contain glacier objects.')
+            # If the glacier is an instance of Glacier, we can add it to
+            # the collection.
+            else:
+                self._glaciers.append(glacier)
 
     def progress_to_year(self, year):
         '''Progress the glaciers within the collection to
