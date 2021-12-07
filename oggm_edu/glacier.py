@@ -183,38 +183,69 @@ class GlacierBed:
 class Glacier:
     '''The glacier object'''
 
-    def __init__(self, bed):
-        '''Initialise a glacier.
+    def __init__(self, bed=None, copy=None):
+        '''Initialise a glacier object. Either from a glacier bed
+        or from an already existing glaicer.
 
         Parameters
         ----------
         bed : GlacierBed object
+
+        copy : Glacier object
+            Copy the attributes of a already existing glacier.
         '''
-        # Check the type of the bed.
-        if not isinstance(bed, GlacierBed):
-            raise TypeError('The bed has to be of the type GlacierBed.')
-        # Set the bed.
-        self.bed = bed
-        # Set the surface height.
-        self.surface_h = self.bed.bed_h
+        # If we pass a bed, initialise a new glacier.
+        if bed and not copy:
+            # Check the type of the bed.
+            if not isinstance(bed, GlacierBed):
+                raise TypeError('The bed has to be of the type GlacierBed.')
+            # Set the bed.
+            self.bed = bed
+            # Set the surface height.
+            self.surface_h = self.bed.bed_h
 
-        # Mass balance
-        self._ELA = None
-        self._mb_gradient = None
-        self._mb_model = None
+            # Mass balance
+            self._ELA = None
+            self._mb_gradient = None
+            self._mb_model = None
 
-        # Initilaise the flowline
-        self.initial_state = self.init_flowline()
-        # Set current and model state to None.
-        self.current_state = None
-        self.model_state = None
+            # Initilaise the flowline
+            self.initial_state = self.init_flowline()
+            # Set current and model state to None.
+            self.current_state = None
+            self.model_state = None
 
-        # Descriptives
-        # Store the age of the glacier outside the model object.
-        self._age = 0.
-        # This is used to store the history of the glacier evolution.
-        #  None for now.
-        self._history = None
+            # Descriptives
+            # Store the age of the glacier outside the model object.
+            self._age = 0.
+            # This is used to store the history of the glacier evolution.
+            #  None for now.
+            self._history = None
+        # If there is no bed, but a copy.
+        elif not bed and copy:
+            # Check the glacier
+            if not isinstance(copy, Glacier):
+                raise TypeError('The glacier to copy must be a Glacier object')
+            # Copy the attributes
+            # Is this actually copying the attributes or just
+            # referencing them?
+            self.bed = copy.bed
+            self.surface_h = self.bed.bed_h
+            # Mb stuff.
+            self._ELA = copy.ELA
+            self._mb_gradient = copy.mb_gradient
+            self._mb_model = copy.mb_model
+            # Glacier state
+            self.initial_state = copy.initial_state
+            self.current_state = copy.current_state
+            self.model_state = copy.model_state
+            # Some descriptives
+            self._age = copy.age
+            # History
+            self._history = copy.history
+        # if nothing works
+        else:
+            raise ValueError('Provide either a bed or a glacier to copy')
 
     def __repr__(self):
         '''Pretty representation of the glacier object'''
