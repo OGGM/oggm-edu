@@ -35,17 +35,17 @@ class GlacierBed:
 
         Parameters
         ----------
-        top : int/float
+        top : int or float
             Elevation at the top of the bed domain in meters.
-        bottom : int/float
+        bottom : int or float
             Elevation at the bottom of the bed domain in meters.
-        width : int/float
+        width : int or float
             Width of the bed in meters. Generates a square bed.
-        altitudes : int/float, list/tuple
+        altitudes : array_like (ints or floats)
             list of values corresponding to the altitude/width distribution.
             First and last value will be the top and bottom.
             Length should match widths.
-        widths : int/float, list/tuple
+        widths : array_like, (ints of floats)
             List of values defining the widths along the glacier.
             Length should match altitudes.
         nx : int
@@ -72,6 +72,7 @@ class GlacierBed:
 
         # Check that width is a single scalar.
         if width is not None:
+            # Ask for forgiveness...
             try:
                 width + 1
             except TypeError:
@@ -91,6 +92,7 @@ class GlacierBed:
         if self.top <= self.bottom and self.bottom < 0:
             raise ValueError('Top of the bed has to be above the bottom.' +
                              ' Bottom also has to be above 0')
+        # Set the resolution.
         self.map_dx = map_dx
         # Initialise the bed
         self.bed_h = np.linspace(self.top, self.bottom, nx)
@@ -107,9 +109,10 @@ class GlacierBed:
             # First create a constant bed.
             tmp_w = np.zeros(nx)
 
+            # Make sure we have lists.
             altitudes = list(altitudes)
             widths = list(widths)
-            # Check that altitudes make sense.
+            # Check that the provided altitudes make sense.
             altitudes_tmp = altitudes.copy()
             altitudes_tmp.sort(reverse=True)
             if not altitudes_tmp == altitudes:
@@ -131,11 +134,13 @@ class GlacierBed:
 
         # If noting works, raise an error.
         else:
-            raise ValueError('Width and altitude widths are not compatible.')
+            raise ValueError('Provided arguments are not compatible.')
 
     def __repr__(self):
+        # Is the bed width constant or variable?
         w_string = ('constant' if type(self.width) in (int, float)
                     else 'variable')
+        # String representatio
         string = f'Linear glacier bed with a {w_string} width.' \
                  f'\n Top: {self.top} m.' \
                  f'\n Bottom: {self.bottom} m.' \
@@ -155,14 +160,17 @@ class GlacierBed:
         # And fill it.
         ax1.fill_betweenx(self.bed_h, self.distance_along_glacier,
                           color='lightgrey')
+        # Some labels etc.
         ax1.set_ylabel('Altitude [m]')
         ax1.set_facecolor('#ADD8E6')
         ax1.set_ylim(self.bottom, self.top + 400)
+
         # Fill the bed.
         ax2.fill_between(self.distance_along_glacier,
                          -self.widths/2 * self.map_dx,
                          self.widths/2 * self.map_dx,
                          color='lightgrey')
+        # More styling.
         ax2.set_facecolor('darkgrey')
         ax2.axhline(0, c='k')
         plt.xlim((0, self.distance_along_glacier[-1] + 2))
@@ -180,13 +188,12 @@ class Glacier:
 
         Parameters
         ----------
-        bed : bed object
-
+        bed : GlacierBed object
         '''
         # Check the type of the bed.
         if not isinstance(bed, GlacierBed):
             raise TypeError('The bed has to be of the type GlacierBed.')
-        # Save the bed.
+        # Set the bed.
         self.bed = bed
         # Set the surface height.
         self.surface_h = self.bed.bed_h
@@ -198,6 +205,7 @@ class Glacier:
 
         # Initilaise the flowline
         self.initial_state = self.init_flowline()
+        # Set current and model state to None.
         self.current_state = None
         self.model_state = None
 
@@ -205,6 +213,7 @@ class Glacier:
         # Store the age of the glacier outside the model object.
         self._age = 0.
         # This is used to store the history of the glacier evolution.
+        #  None for now.
         self._history = None
 
     def __repr__(self):
@@ -221,6 +230,7 @@ class Glacier:
         return string
 
     def init_flowline(self):
+        # Initialise a RectangularBedFlowline for the glacier.
         return RectangularBedFlowline(surface_h=self.surface_h,
                                       bed_h=self.bed.bed_h,
                                       widths=self.bed.widths,
@@ -236,7 +246,7 @@ class Glacier:
 
         Parameters
         ----------
-        value : float
+        value : int or float
             Altitude of the ELA.
         '''
         # We cant have a negative ELA.
@@ -258,7 +268,7 @@ class Glacier:
 
         Parameters
         ----------
-        value : float
+        value : int or float
             Mass balance altitude gradient, mm/m.
         '''
         # We cant have a negative gradient.
@@ -278,6 +288,7 @@ class Glacier:
         return self.mb_model.get_annual_mb(self.surface_h) * cfg.SEC_IN_YEAR
 
     def state(self):
+        '''Glacier state logic'''
         state = self.initial_state
         # If we have a current state
         if self.current_state:
@@ -290,25 +301,28 @@ class Glacier:
 
     @age.setter
     def age(self, value):
-        'Set the age of the age of the glacier.'
+        '''Set the age of the glacier.'''
         self._age = value
 
     @property
     def history(self):
+        '''Return the glacier history dataset.'''
         return self._history
 
     @history.setter
     def history(self, obj):
-        'Set the glacier history object'
+        '''Logic for the glacier history attribute. If there is no histoy,
+        we add it. If the glacier already has some hhistory, we append it.'''
+        # Does it have any history?
         if self._history is None:
             self._history = obj
+        # Append the history.
         else:
             self._history = xr.combine_by_coords([self.history, obj],
                                                  combine_attrs='override')
 
     def progress_to_year(self, year):
         '''Method to progress the glacier to year n.
-
         Parameters
         ----------
         year : int
@@ -321,6 +335,7 @@ class Glacier:
                       + ' are defined.'
             raise NotImplementedError(string)
 
+        # Some checks on the year.
         elif year < 0:
             raise ValueError('Year has to be above zero')
 
@@ -330,25 +345,32 @@ class Glacier:
                           + ' de-age the glacier.'
                           + ' Geometry will remain.')
 
+        # If all passes
         else:
             # Check if we have a current state already.
             state = self.state()
             # Initialise the model
             model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age)
-            # Run the model.
+            # Run the model. Store the history.
             try:
                 self.history = model.run_until_and_store(year)
             except RuntimeError:
                 print('Glacier outgrew its domain and had to stop.')
-                # raise RuntimeError('Glacier grew outside its domain.'
-                #                    + ' Try raising the ELA.')
 
+            # Update attributes.
             self.current_state = model.fls[0]
             self.model_state = model
             self.age = model.yr
 
     def progress_to_equilibrium(self, years=2500):
-        'Method to grow the glacier to equilibrium.'
+        '''Progress the glacier to equilibrium.
+
+        Parameters
+        ----------
+        years : int, optional
+            Specify the number of years during which we try to find
+            an equilibrium state.
+        '''
 
         def stop_function(model, previous_state):
             '''Function to stop the simulation when equilbrium is
@@ -356,8 +378,10 @@ class Glacier:
             run_until_equilibrium.'''
             # We don't stop unless
             stop = False
-            # Ambigous rate
+            # Ambigous rate, basically how fast is the glacier
+            # changing every step.
             rate = 0.001
+            # How many times to we try
             max_ite = 500
             # If we have a previous step check it
             if previous_state is not None:
@@ -390,6 +414,7 @@ class Glacier:
 
             # If we don't have a previous state, define it.
             else:
+                # Dictionary containing the stuff we need.
                 previous_state = {'ite': 0, 'was_close_zero': 0,
                                   't_rate': 1,
                                   'v_bef': model.volume_m3}
@@ -412,7 +437,7 @@ class Glacier:
                 #  Run with a stopping criteria.
                 out = model.run_until_and_store(years,
                                                 stop_criterion=stop_function)
-                # We need to drop the nan years
+                # We need to drop the nan years.
                 out = out.dropna(dim='time')
                 # Add the history dataset.
                 self.history = out
@@ -420,6 +445,7 @@ class Glacier:
             except RuntimeError:
                 print('Glacier grew out of its domain and had to stop.')
 
+            # Update attributes.
             self.current_state = model.fls[0]
             self.age = model.yr
             self.model_state = model
@@ -583,6 +609,7 @@ class GlacierCollection:
     def check_collection(self, glacier):
         '''Utility method. Check if the glaciers obey the collection rules.
         They need to have the same domains for this to make sense I think.'''
+        # TODO
 
     @property
     def glaciers(self):
@@ -607,7 +634,8 @@ class GlacierCollection:
             self._glaciers.append(glacier)
 
     def progress_to_year(self, year):
-        '''Grow the glaciers within the collection to year.
+        '''Progress the glaciers within the collection to
+        the specified year.
 
         Parameters
         ----------
@@ -617,15 +645,17 @@ class GlacierCollection:
         if len(self.glaciers) < 1:
             raise ValueError('Collection is empty')
 
+        # Loop over the glaciers within the collection.
         for glacier in self.glaciers:
             glacier.progress_to_year(year)
 
     def progress_to_equilibrium(self):
-        '''Grow the glaciers within the collection to equilibrium.
+        '''Progress the glaciers within the collection to equilibrium.
         '''
         if len(self.glaciers) < 1:
             raise ValueError('Collection is empty')
 
+        # Loop.
         for glacier in self.glaciers:
             glacier.progress_to_equilibrium()
 
