@@ -1,5 +1,5 @@
 '''This class provides a high level interface to the OGGM modelling framwork,
-suitable for purely educational purposes, understanding the basics of
+suitable for educational purposes regarding the understanding the basics of
 glacier mechanics.
 '''
 
@@ -21,7 +21,7 @@ from oggm import cfg
 cfg.initialize_minimal()
 sns.set_context('notebook')
 sns.set_style('ticks')
-plt.rcParams['figure.figsize'] = (10, 9)
+plt.rcParams['figure.figsize'] = (12, 9)
 
 
 class GlacierBed:
@@ -824,6 +824,23 @@ class GlacierCollection:
         ax.set_xlim((0, gl1.bed.distance_along_glacier[-1]+2))
         ax.set_facecolor('#ADD8E6')
         plt.legend(loc='lower left')
+        # Add a second legend with infos.
+        # It would be cool to only show attributes that are different.
+        labels = []
+        for glacier in self.glaciers:
+            # Create the label
+            label = f'ELA: {glacier.ELA} \n' \
+                f'MB grad: {glacier.mb_gradient} \n' \
+                f'Age: {glacier.age} \n' \
+                f'Creep: {glacier.creep:.2e} \n' \
+                f'Sliding: {glacier.basal_sliding}'
+            # Append the label to the list.
+            labels.append(label)
+        # Get the handles back
+        handles, _ = ax.get_legend_handles_labels()
+        # Create the legend
+        fig.legend(handles[1:], labels, title='Glacier info',
+                   loc='upper left', bbox_to_anchor=(0.9, 0.89))
 
     def plot_history(self):
         '''Plot the histories of the collection'''
@@ -839,10 +856,12 @@ class GlacierCollection:
             glacier.history.area_m2.plot(ax=ax3,
                                          label=f'ELA: {glacier.ELA} \n' +
                                          f'MB grad: {glacier.mb_gradient} \n' +
-                                         f'Age: {glacier.age}')
+                                         f'Age: {glacier.age} \n' +
+                                         f'Creep: {glacier.creep:.2e} \n' +
+                                         f'Sliding: {glacier.basal_sliding}')
         # Decorations
         ax1.set_xlabel('')
-        ax1.set_title('Glacier histories')
+        ax1.set_title('Glacier collection evolution')
         ax1.annotate('Glacier length', (0.98, 0.1), xycoords='axes fraction',
                      bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
                      ha='right')
