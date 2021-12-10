@@ -666,6 +666,173 @@ class Glacier:
         ax3.set_ylabel('Area [m$^2$]')
 
 
+class SurgingGlacier(Glacier):
+    '''A surging glacier. This will have the same attributes as a normal
+    glacier but with some extensions e.g. normal years and surging years.
+    '''
+
+    def __init__(self, bed):
+        '''Initialise the surging glacier. Inherit attributes and methods
+        from the Glacier class and extend it with some attributes specific
+        for surging glaciers.
+        '''
+
+        # Inherit from glacier
+        super().__init__(bed)
+
+        # Surging attributes
+        self._normal_years = 50
+        self._surging_years = 5
+        # Basal sliding during surge has a sane default.
+        # So no need to touch it.
+        self._basal_sliding_surge = 5.7e-20 * 10
+
+    @property
+    def normal_years(self):
+        '''Number of years that the glacier progress without surging.'''
+        return self._normal_years
+
+    @normal_years.setter
+    def normal_years(self, value):
+        '''Set the length of the normal period.
+
+        Parameters
+        ----------
+        value : int
+            Length of the normal period.
+        '''
+        if value > 0 and isinstance(value, int):
+            self._normal_years = value
+        else:
+            raise ValueError('Normal years should be above 0 and' +
+                             ' and of the type integer.')
+
+    @property
+    def surging_years(self):
+        '''Number of years that the glacier progress during surges.'''
+        return self._surging_years
+
+    @surging_years.setter
+    def surging_years(self, value):
+        '''Set the length of the surging period.
+
+        Parameters
+        ----------
+        value : int
+            Length of surging period.
+        '''
+        if value > 0 and isinstance(value, int):
+            self._surging_years = value
+        else:
+            raise ValueError('Surging years should be above 0 and' +
+                             ' and of the type integer.')
+
+    @property
+    def basal_sliding_surge(self):
+        return self._basal_sliding_surge
+
+    @basal_sliding_surge.setter
+    def basal_sliding_surge(self, value):
+        self._basal_sliding_surge = value
+
+    def progress_to_year(self, year):
+        '''Progress the surging glacier to specified year.
+        This will progress the glacier in periods of surging
+        and not surging, specified by the `normal_years` and
+        `surging_years` attributes.
+
+        Parameters:
+        -----------
+        year : int
+            Which year to progress the surging glacier.
+        '''
+
+        # Check if the glacier has a masss balance model
+        if not self.mb_model:
+            string = 'To evolve the glacier it needs a mass balance.' \
+                      + '\nMake sure the ELA and mass balance gradient' \
+                      + ' are defined.'
+            raise NotImplementedError(string)
+
+        # Some checks on the year.
+        elif year < 0:
+            raise ValueError('Year has to be above zero')
+
+        elif year <= self.age:
+            warnings.warn('Year has to be above the current age of'
+                          + ' the glacier. It is not possible to'
+                          + ' de-age the glacier.'
+                          + ' Geometry will remain.')
+
+        # If all passes
+        else:
+            # How many years to have left to simulate
+            years_left = year - self.age
+            # Assume that we start with a normal period
+            normal_period = True
+            # While we have years to run we do the following...
+            while years_left:
+                # Check if we have a current state already.
+                state = self.state()
+                # If in a normal period
+                if normal_period:
+                    # How many years should we run?
+                    # We either run for the normal period amount of
+                    # yeasrs. Or for the years left we have left.
+                    years_to_run = np.min([self.age + years_left,
+                                          self.age + self.normal_years])
+                    # Cast to int
+                    years_to_run = int(years_to_run)
+                    # Initialise the model, width the normal basal_slidng
+                    model = FluxBasedModel(state, mb_model=self.mb_model,
+                                           y0=self.age, glen_a=self.creep,
+                                           fs=self.basal_sliding)
+                    # Run the model. Store the history.
+                    try:
+                        self.history = model.run_until_and_store(
+                            years_to_run)
+                    except RuntimeError:
+                        print('Glacier outgrew its domain and had to stop.')
+                        # We should break here.
+                        break
+
+                # If we are not in normal state, we do a surging period.
+                else:
+                    # How many years should we run?
+                    # Same as above but now we run for surging period amount
+                    # of years.
+                    years_to_run = np.min([self.age + years_left,
+                                          self.age + self.surging_years])
+                    # Cast to int
+                    years_to_run = int(years_to_run)
+                    # Initialise the model, with the surging basal_sliding
+                    model = FluxBasedModel(state, mb_model=self.mb_model,
+                                           y0=self.age, glen_a=self.creep,
+                                           fs=self.basal_sliding_surge)
+                    # Run the model. Store the history.
+                    try:
+                        self.history = model.run_until_and_store(
+                            years_to_run)
+                    except RuntimeError:
+                        print('Glacier outgrew its domain and had to stop.')
+                        # We should break here.
+                        break
+
+                # Update attributes.
+                self.current_state = model.fls[0]
+                self.model_state = model
+                self.age = model.yr
+                # Check where we are
+                years_left = year - self.age
+                # Switch state
+                normal_period = not normal_period
+
+    def progress_to_equilibrium(self):
+        '''Surging glaciers do not really have an eq. state.'''
+        raise NotImplementedError('Surging glaciers do not progress to' +
+                                  ' equilibrium. Yet...')
+
+
 class GlacierCollection:
     '''This is class for storing multiple glaciers, providing convenient
     methods for comparing them.
