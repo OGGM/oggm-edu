@@ -12,6 +12,7 @@ import collections
 
 # Plotting
 from matplotlib import pyplot as plt
+from matplotlib.patches import Patch
 # Import OGGM things.
 from oggm.core.flowline import FluxBasedModel, RectangularBedFlowline
 from oggm.core.massbalance import LinearMassBalance
@@ -634,8 +635,8 @@ class Glacier:
         plt.title('Mass balance profile')
         plt.legend()
 
-    def plot_history(self):
-        '''Plot the history of the glacier.'''
+    def _create_history_plot_components(self):
+        '''Create components for the history plot of the glacier.'''
         if self.history is None:
             raise AttributeError('Glacier has no history yet,'
                                  ' try progress the glacier')
@@ -664,6 +665,19 @@ class Glacier:
                      bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
                      ha='right')
         ax3.set_ylabel('Area [m$^2$]')
+
+        # Grid
+        ax1.grid(True)
+        ax2.grid(True)
+        ax3.grid(True)
+
+        return fig, ax1, ax2, ax3
+
+    def plot_history(self):
+        '''Plot the history of the glacier'''
+        # Get the components
+        fig, ax1, ax2, ax3 = self._create_history_plot_components()
+        plt.show()
 
 
 class SurgingGlacier(Glacier):
@@ -831,6 +845,37 @@ class SurgingGlacier(Glacier):
         '''Surging glaciers do not really have an eq. state.'''
         raise NotImplementedError('Surging glaciers do not progress to' +
                                   ' equilibrium. Yet...')
+
+    def plot_history(self):
+        '''Plot the history of the surging glacier.
+        Extends the Glacier.plot_history() method.'''
+        # Get the base plotting components.
+        fig, ax1, ax2, ax3 = self._create_history_plot_components()
+
+        # We then want to add markers for the surging years.
+        # How many surges do we have?
+        nr_surges = int(self.age / (self.normal_years +
+                                    self.surging_years))
+        # Loop over the surges
+        for i in range(nr_surges):
+            # When should the span start
+            start = (i+1) * self.normal_years +\
+                i * self.surging_years
+            # and end.
+            end = (i + 1) * self.normal_years +\
+                self.surging_years + i * self.surging_years
+            # Add spans
+            ax1.axvspan(start, end, color='tab:orange', alpha=0.3)
+            ax2.axvspan(start, end, color='tab:orange', alpha=0.3)
+            ax3.axvspan(start, end, color='tab:orange', alpha=0.3)
+
+        # Legend entry
+        patch = Patch(facecolor='tab:orange', alpha=0.3,
+                      label='Surging period')
+        fig.legend(handles=[patch], loc='upper left',
+                   bbox_to_anchor=(0.9, 0.89))
+
+        plt.show()
 
 
 class GlacierCollection:
