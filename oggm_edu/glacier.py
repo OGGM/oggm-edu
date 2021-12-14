@@ -150,16 +150,30 @@ class GlacierBed:
             raise ValueError('Provided arguments are not compatible.')
 
     def __repr__(self):
+
+        # Get the json representation of the object.
+        json = self._json_repr()
+
+        # Create a nicer string of it.
+        string = ''
+        for key, value in json.items():
+            string += f'{key}: {value} \n'
+        return string
+
+    def _json_repr(self):
+        '''Json representation of the bed'''
         # Is the bed width constant or variable?
         w_string = ('constant' if type(self.width) in (int, float)
                     else 'variable')
-        # String representatio
-        string = f'Linear glacier bed with a {w_string} width.' \
-                 f'\n Top: {self.top} m.' \
-                 f'\n Bottom: {self.bottom} m.' \
-                 f'\n Widths: {self.width}' \
-                 f'\n Length: {self.distance_along_glacier[-1]} km.'
-        return string
+        # Create a dictionary with some of the attributes.
+        json = {
+            'Bed type': f'Linear bed with a {w_string} width',
+            'Top [m]': self.top,
+            'Bottom [m]': self.bottom,
+            'Width(s) [m]': self.width,
+            'Length [km]': self.distance_along_glacier[-1]
+        }
+        return json
 
     def plot(self):
         '''Plot the glacier bed'''
@@ -272,15 +286,25 @@ class Glacier:
     def __repr__(self):
         '''Pretty representation of the glacier object'''
 
-        # Do we have a current state?
-        state = self.state()
-        string = f'Glacier at year {int(self.age)}' \
-                 + f'\nELA: {self.ELA}' \
-                 + f'\nLength {state.length_m} m.' \
-                 + f'\nArea {state.area_km2:.3f} km2.\nVolume' \
-                 + f' {state.volume_km3:.3f} km3' \
-                 + f'\n{self.bed}'
+        # Get the json representation.
+        json = self._json_repr()
+        # Create the string
+        string = ''
+        for key, value in json.items():
+            string += f'{key}: {value} \n'
         return string
+
+    def _json_repr(self):
+        '''Json represenation'''
+        state = self.state()
+        json = {'Glacier age': int(self.age),
+                'ELA [m]': self.ELA,
+                'Length [m]': state.length_m,
+                'Area [km2]': state.area_km2,
+                'Volume [km3]': state.volume_km3,
+                'Bed': self.bed
+                }
+        return json
 
     def init_flowline(self):
         # Initialise a RectangularBedFlowline for the glacier.
@@ -604,7 +628,7 @@ class Glacier:
                      verticalalignment='bottom')
             # Where along the bed is the ELA? Convert height to
             # distance along glacier kind of.
-            idx = (np.abs(self.bed.bed_h - self.ELA)).argmin()
+            idx = (np.abs(self.current_state.surface_h - self.ELA)).argmin()
             # Plot the ELA in top down
             ax2.vlines(self.bed.distance_along_glacier[idx],
                        ymin=-self.bed.widths[idx]/2 * self.bed.map_dx,
