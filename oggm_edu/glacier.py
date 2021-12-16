@@ -424,7 +424,9 @@ class Glacier:
             self._history = obj
         # Append the history.
         else:
-            self._history = xr.combine_by_coords([self.history, obj],
+            # We slice the new series because we dont need the first year.
+            self._history = xr.combine_by_coords([self.history,
+                                                  obj.isel(time=slice(1, -1))],
                                                  combine_attrs='override')
 
     def progress_to_year(self, year):
