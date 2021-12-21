@@ -922,7 +922,7 @@ class SurgingGlacier(Glacier):
         '''
 
         # Check if the glacier has a masss balance model
-        if not self.mb_model:
+        if not self.mass_balance:
             string = 'To evolve the glacier it needs a mass balance.' \
                       + '\nMake sure the ELA and mass balance gradient' \
                       + ' are defined.'
@@ -967,7 +967,7 @@ class SurgingGlacier(Glacier):
                         self._normal_period = not self._normal_period
 
                     # Initialise the model, width the normal basal_slidng
-                    model = FluxBasedModel(state, mb_model=self.mb_model,
+                    model = FluxBasedModel(state, mb_model=self.mass_balance,
                                            y0=self.age, glen_a=self.creep,
                                            fs=self.basal_sliding)
                     # Run the model. Store the history.
@@ -999,7 +999,7 @@ class SurgingGlacier(Glacier):
                         self._normal_period = not self._normal_period
 
                     # Initialise the model, with the surging basal_sliding
-                    model = FluxBasedModel(state, mb_model=self.mb_model,
+                    model = FluxBasedModel(state, mb_model=self.mass_balance,
                                            y0=self.age, glen_a=self.creep,
                                            fs=self.basal_sliding_surge)
                     # Run the model. Store the history.
