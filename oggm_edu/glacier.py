@@ -155,7 +155,7 @@ class GlacierBed:
         json = self._json_repr()
 
         # Create a nicer string of it.
-        string = ''
+        string = 'Glacier bed \n'
         for key, value in json.items():
             string += f'{key}: {value} \n'
         return string
@@ -208,10 +208,81 @@ class GlacierBed:
         ax1.legend()
 
 
+class MassBalance(LinearMassBalance):
+    '''Mass balance class'''
+
+    def __init__(self, ELA, gradient, hemisphere=None,
+                 density=None):
+        '''
+        Initialise the mass balance from the ELA and the gradient.
+        '''
+        super().__init__(ela_h=ELA, grad=gradient)
+
+        # Temperature bias evolution
+        self._temp_bias_final = 0.
+        self._temp_bias_grad = 0.
+        self._temp_bias_intersect = 0.
+        self._temp_bias_final_year = 0
+
+    def _to_json(self):
+        json = {
+            'ELA [m]': self.ela_h,
+            'Original ELA [m]': self.orig_ela_h,
+            'Temperature bias [C]': self.temp_bias,
+            'Gradient [mm/m/yr]': self.grad,
+            'Hemisphere': self.hemisphere,
+            'Ice density [kg/m3]': self.rho
+        }
+        return json
+
+    def __repr__(self):
+        json = self._to_json()
+        string = 'Glacier mass balance \n'
+        # Create a nice string
+        for key, value in json.items():
+            string += f'{key}: {value} \n'
+        return string
+
+    def _update_temp_bias(self, year):
+        '''Updates the temperature bias internally during progression.'''
+        # Change the temperature bias
+        new_temp_bias = self._temp_bias_grad * year + self._temp_bias_intersect
+        self.temp_bias = new_temp_bias
+
+    def _add_temp_bias(self, temp_bias, duration, year):
+        '''Method to add a gradual temperature bias to the mass balance of the
+        glacier.
+
+        Parameters
+        ----------
+        temp_bias: float
+            Final temperature bias to apply after the specified duration
+        duration: int
+            Number of year during which to apply the temperature bias.
+        year: int
+            Current age of the glacier
+        '''
+        # Check that criteria are met.
+        if isinstance(temp_bias, float) and isinstance(duration, int):
+            # Set the temperature bias.
+            self._temp_bias_final = temp_bias
+            # Set the final year
+            self._temp_bias_final_year = year + duration
+            # Calculate the gradient, linear for now.
+            self._temp_bias_grad = (self._temp_bias_final - self.temp_bias)\
+                / duration
+            # And the intersect
+            self._temp_bias_intersect = self._temp_bias_final -\
+                (self._temp_bias_grad * self._temp_bias_final_year)
+
+        else:
+            raise TypeError('Temperature bias and/or duration of wrong type')
+
+
 class Glacier:
     '''The glacier object'''
 
-    def __init__(self, bed=None, copy=None):
+    def __init__(self, bed=None, mass_balance=None, copy=None):
         '''Initialise a glacier object. Either from a glacier bed
         or from an already existing glaicer.
 
@@ -233,9 +304,19 @@ class Glacier:
             self.surface_h = self.bed.bed_h
 
             # Mass balance
-            self._ELA = None
-            self._mb_gradient = None
-            self._mb_model = None
+            self._mass_balance = None
+            # The following two attributes are just used when we set the mass
+            # balance in steps.
+            self._ELA_assign = None
+            self._mb_grad_assign = None
+
+            # If mass balance object is provided, and of type MassBalance
+            if mass_balance and isinstance(mass_balance, MassBalance):
+                self._mass_balance = mass_balance
+
+            elif mass_balance and not isinstance(mass_balance, MassBalance):
+                raise TypeError('Mass balance supplied but not of the' +
+                                ' correct type.')
 
             # Initilaise the flowline
             self.initial_state = self.init_flowline()
@@ -265,9 +346,9 @@ class Glacier:
             self.bed = copy.bed
             self.surface_h = self.bed.bed_h
             # Mb stuff.
-            self._ELA = copy.ELA
-            self._mb_gradient = copy.mb_gradient
-            self._mb_model = copy.mb_model
+            self._mass_balance = copy._mass_balance
+            self._ELA_assign = copy._ELA_assign
+            self._mb_grad_assign = copy._mb_grad_assign
             # Glacier state
             self.initial_state = copy.initial_state
             self.current_state = copy.current_state
@@ -289,20 +370,20 @@ class Glacier:
         # Get the json representation.
         json = self._json_repr()
         # Create the string
-        string = ''
+        string = 'Glacier \n'
         for key, value in json.items():
             string += f'{key}: {value} \n'
+        string += repr(self.bed)
+        string += repr(self.mass_balance)
         return string
 
     def _json_repr(self):
         '''Json represenation'''
         state = self.state()
-        json = {'Glacier age': int(self.age),
-                'ELA [m]': self.ELA,
+        json = {'Age': int(self.age),
                 'Length [m]': state.length_m,
                 'Area [km2]': state.area_km2,
                 'Volume [km3]': state.volume_km3,
-                'Bed': self.bed
                 }
         return json
 
@@ -315,7 +396,10 @@ class Glacier:
 
     @property
     def ELA(self):
-        return self._ELA
+        try:
+            return self.mass_balance.ela_h
+        except AttributeError:
+            return None
 
     @ELA.setter
     def ELA(self, value):
@@ -330,14 +414,18 @@ class Glacier:
         if value < 0:
             raise ValueError('ELA below 0 not allowed.')
 
-        self._ELA = value
+        self._ELA_assign = value
         # If we have the gradient, set the mb_model
-        if self.mb_gradient:
-            self._mb_model = LinearMassBalance(self.ELA, grad=self.mb_gradient)
+        if self._mb_grad_assign:
+            self._mass_balance = MassBalance(self._ELA_assign,
+                                             self._mb_grad_assign)
 
     @property
     def mb_gradient(self):
-        return self._mb_gradient
+        try:
+            return self.mass_balance.grad
+        except AttributeError:
+            return None
 
     @mb_gradient.setter
     def mb_gradient(self, value):
@@ -352,17 +440,19 @@ class Glacier:
         if value < 0:
             raise ValueError('Mass balance gradient less than 0 not allowed')
 
-        self._mb_gradient = value
+        self._mb_grad_assign = value
         # If we have the ELA, set the mb_model
-        if self.ELA:
-            self._mb_model = LinearMassBalance(self.ELA, grad=self.mb_gradient)
+        if self._ELA_assign:
+            self._mass_balance = MassBalance(self._ELA_assign,
+                                             self._mb_grad_assign)
 
     @property
-    def mb_model(self):
-        return self._mb_model
+    def mass_balance(self):
+        return self._mass_balance
 
     def annual_mass_balance(self):
-        return self.mb_model.get_annual_mb(self.surface_h) * cfg.SEC_IN_YEAR
+        return self.mass_balance.get_annual_mb(self.surface_h)\
+            * cfg.SEC_IN_YEAR
 
     def state(self):
         '''Glacier state logic'''
@@ -425,9 +515,21 @@ class Glacier:
         # Append the history.
         else:
             # We slice the new series because we dont need the first year.
-            self._history = xr.combine_by_coords([self.history,
-                                                  obj.isel(time=slice(1, -1))],
-                                                 combine_attrs='override')
+            self._history = xr.combine_by_coords([
+                self.history.isel(time=slice(0, -1)), obj
+            ], combine_attrs='override')
+
+    def add_temperature_bias(self, bias, duration):
+        '''Add a temperature bias to the mass balance of the glacier.
+
+        Parameters
+        ----------
+        bias: float
+            Temperature bias to apply
+        duration: int
+            Specify during how many years the bias will be applied.
+        '''
+        self.mass_balance._add_temp_bias(bias, duration, self.age)
 
     def progress_to_year(self, year):
         '''Method to progress the glacier to year n.
@@ -437,7 +539,7 @@ class Glacier:
             Year until which to progress the glacier.
         '''
         # Check if the glacier has a masss balance model
-        if not self.mb_model:
+        if not self.mass_balance:
             string = 'To evolve the glacier it needs a mass balance.' \
                       + '\nMake sure the ELA and mass balance gradient' \
                       + ' are defined.'
@@ -455,21 +557,38 @@ class Glacier:
 
         # If all passes
         else:
-            # Check if we have a current state already.
-            state = self.state()
-            # Initialise the model
-            model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age,
-                                   glen_a=self.creep, fs=self.basal_sliding)
-            # Run the model. Store the history.
-            try:
-                self.history = model.run_until_and_store(year)
-            except RuntimeError:
-                print('Glacier outgrew its domain and had to stop.')
+            # Do we have any years left to run?
+            while year - self.age > 0:
+                # Check if we have a current state already.
+                state = self.state()
+                # Initialise the model
+                model = FluxBasedModel(state, mb_model=self.mass_balance,
+                                       y0=self.age, glen_a=self.creep,
+                                       fs=self.basal_sliding)
+                # If we have temp evolution left to do.
+                if self.age < self.mass_balance._temp_bias_final_year:
+                    # Run the model. Store the history.
+                    # How big are the steps?
+                    run_to = int(self.age + 1)
+                    try:
+                        self.history = model.run_until_and_store(run_to)
+                    except RuntimeError:
+                        raise RuntimeError('Glacier outgrew its domain and' +
+                                           ' had to stop')
+                    self.mass_balance._update_temp_bias(model.yr)
+                # If there is no temp evolution, do all the years.
+                else:
+                    # Run the model. Store the history.
+                    try:
+                        self.history = model.run_until_and_store(year)
+                    except RuntimeError:
+                        raise RuntimeError('Glacier outgrew its domain and' +
+                                           ' had to stop')
 
-            # Update attributes.
-            self.current_state = model.fls[0]
-            self.model_state = model
-            self.age = model.yr
+                # Update attributes.
+                self.current_state = model.fls[0]
+                self.model_state = model
+                self.age = model.yr
 
     def progress_to_equilibrium(self, years=2500):
         '''Progress the glacier to equilibrium.
@@ -531,17 +650,23 @@ class Glacier:
             return stop, previous_state
 
         # Check if the glacier has a masss balance model
-        if not self.mb_model:
+        if not self.mass_balance:
             string = 'To grow the glacier it needs a mass balance.' \
                       + '\nMake sure the ELA and mass balance gradient' \
                       + ' are defined.'
             raise NotImplementedError(string)
 
         else:
-            state = self.state()
+            # Do we have a temp scenario which isn't passed yet?
+            if self.age < self.mass_balance._temp_bias_final_year:
+                # If so, progress normally.
+                self.progress_to_year(self.mass_balance._temp_bias_final_year)
+            # Then we can find the eq. state.
             # Initialise the model
-            model = FluxBasedModel(state, mb_model=self.mb_model, y0=self.age,
-                                   glen_a=self.creep, fs=self.basal_sliding)
+            state = self.state()
+            model = FluxBasedModel(state, mb_model=self.mass_balance,
+                                   y0=self.age, glen_a=self.creep,
+                                   fs=self.basal_sliding)
             # Run the model.
             try:
                 #  Run with a stopping criteria.
@@ -630,12 +755,14 @@ class Glacier:
                      verticalalignment='bottom')
             # Where along the bed is the ELA? Convert height to
             # distance along glacier kind of.
-            idx = (np.abs(self.current_state.surface_h - self.ELA)).argmin()
-            # Plot the ELA in top down
-            ax2.vlines(self.bed.distance_along_glacier[idx],
-                       ymin=-self.bed.widths[idx]/2 * self.bed.map_dx,
-                       ymax=self.bed.widths[idx]/2 * self.bed.map_dx,
-                       color='k', ls='--', lw=1)
+            if self.current_state is not None:
+                idx = (np.abs(self.current_state.surface_h -
+                              self.ELA)).argmin()
+                # Plot the ELA in top down
+                ax2.vlines(self.bed.distance_along_glacier[idx],
+                           ymin=-self.bed.widths[idx]/2 * self.bed.map_dx,
+                           ymax=self.bed.widths[idx]/2 * self.bed.map_dx,
+                           color='k', ls='--', lw=1)
 
         # Limits etc
         plt.xlim((0, self.bed.distance_along_glacier[-1] + 2))
