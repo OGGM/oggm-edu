@@ -35,3 +35,6 @@ docs/generated
 docs/_sources
 docs/_images
 docs/.doctrees
+
+# Etc.
+.vim
