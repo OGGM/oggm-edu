@@ -335,6 +335,10 @@ class Glacier:
             # This is used to store the history of the glacier evolution.
             #  None for now.
             self._history = None
+
+            # We want to save the eq. states.
+            self._eq_states = []
+
         # If there is no bed, but a copy.
         elif not bed and copy:
             # Check the glacier
@@ -360,6 +364,8 @@ class Glacier:
             self._age = copy.age
             # History
             self._history = copy.history
+            # Eq. states
+            self._eq_states = copy.eq_states
         # if nothing works
         else:
             raise ValueError('Provide either a bed or a glacier to copy')
@@ -518,6 +524,43 @@ class Glacier:
             self._history = xr.combine_by_coords([
                 self.history.isel(time=slice(0, -1)), obj
             ], combine_attrs='override')
+
+    @property
+    def eq_states(self):
+        if len(self._eq_states) == 0:
+            print("The glacier have not reached equilibrium yet.")
+        else:
+            return self._eq_states
+
+    @property
+    def response_time(self):
+        '''Returns the reponse time of the glacier.
+        Calculates the volume response time from Oerlemans based on the
+        two latest eq. states.'''
+
+        # If we don't hace a eq. states yet
+        if len(self._eq_states) < 2:
+            raise AttributeError("Glacier don't have a response time yet." +
+                  " The glacier needs two equilibrium states.")
+        else:
+            # We calcuate the response time when we need it.
+            # Not sure if this is stupid but.
+            # Final eq. volume
+            v_final = self.history.volume_m3.sel(time=self.eq_states[-1])
+            # Initial volume
+            v_initial = self.history.volume_m3.sel(time=self.eq_states[-2])
+            # Volume difference
+            v_diff = v_final - (v_final - v_initial) / np.e
+            # Find the year where volume is closest to the v_diff.
+            all_vol_diff = np.abs(self.history.volume_m3.sel(
+                time=slice(self.eq_states[-2], self.eq_states[-1])
+            ) - v_diff)
+            # Get the index
+            idx = all_vol_diff.argmin()
+            # Reponse time
+            response_time = all_vol_diff.time.isel(time=idx) -\
+                self.eq_states[-2]
+            return response_time.values.item()
 
     def add_temperature_bias(self, bias, duration):
         '''Add a temperature bias to the mass balance of the glacier.
@@ -684,6 +727,8 @@ class Glacier:
             self.current_state = model.fls[0]
             self.age = model.yr
             self.model_state = model
+            # Remember the eq. year
+            self._eq_states.append(self.age)
 
     def plot(self):
         '''Plot the glacier'''
