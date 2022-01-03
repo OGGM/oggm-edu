@@ -172,7 +172,7 @@ class GlacierBed:
             'Bed type': f'Linear bed with a {w_string} width',
             'Top [m]': self.top,
             'Bottom [m]': self.bottom,
-            'Width(s) [m]': self.width,
+            'Width(s) [m]': [self.width],
             'Length [km]': self.distance_along_glacier[-1]
         }
         return json
@@ -1096,12 +1096,38 @@ class GlacierCollection:
 
         self._glaciers = []
 
+        # Do we have a list of glaciers?
         if glacier_list:
+            # Check that all are Glaciers.
             if all(isinstance(glacier, Glacier) for glacier in glacier_list):
                 self._glaciers = glacier_list
 
     def __repr__(self):
-        return f'Glacier collection with {len(self.glaciers)} glaciers.'
+        return f'Glacier collection with {len(self._glaciers)} glaciers.'
+
+    def _repr_html_(self):
+        # Pretty representation for notebooks.
+        # Get the first glacier and base the creation of the dataframe of this.
+        # If we have glaciers in the collection.
+        if len(self._glaciers) > 0:
+            json = {**self._glaciers[0]._to_json(),
+                    **self._glaciers[0].bed._to_json(),
+                    **self._glaciers[0].mass_balance._to_json()
+                    }
+            # Create the dataframe.
+            df = pd.DataFrame(json, index=[0])
+            # We then loop over the rest of the collection.
+            for glacier in self._glaciers[1:]:
+                # Next json representation
+                json = {**glacier._to_json(), **glacier.bed._to_json(),
+                        **glacier.mass_balance._to_json()}
+                # Add it to the df.
+                df = df.append(json, ignore_index=True)
+            # Return the html representation of the dataframe.
+            return df._repr_html_()
+        # If empty.
+        else:
+            pass
 
     def check_collection(self, glacier):
         '''Utility method. Check if the glaciers obey the collection rules.
@@ -1110,10 +1136,8 @@ class GlacierCollection:
 
     @property
     def glaciers(self):
-        # Return the glaciers list.
         return self._glaciers
 
-    # @glaciers.setter
     def add(self, glacier):
         '''Add a glacier to the collection.
 
@@ -1129,6 +1153,9 @@ class GlacierCollection:
                 if not isinstance(glacier, Glacier):
                     raise TypeError('Glacier collection can only'
                                     ' contain glacier objects.')
+                # Is the glacier already in the collection?
+                if glacier in self._glaciers:
+                    raise AttributeError('Glacier is already in collection')
                 # If the glacier is an instance of Glacier, we can add it to
                 # the collection.
                 else:
@@ -1139,6 +1166,9 @@ class GlacierCollection:
             if not isinstance(glacier, Glacier):
                 raise TypeError('Glacier collection can only'
                                 ' contain glacier objects.')
+            # Is the glacier already in the collection?
+            if glacier in self._glaciers:
+                raise AttributeError('Glacier is already in collection')
             # If the glacier is an instance of Glacier, we can add it to
             # the collection.
             else:
@@ -1153,30 +1183,30 @@ class GlacierCollection:
         year: int
             Which year to grow the glaciers.
         '''
-        if len(self.glaciers) < 1:
+        if len(self._glaciers) < 1:
             raise ValueError('Collection is empty')
 
         # Loop over the glaciers within the collection.
-        for glacier in self.glaciers:
+        for glacier in self._glaciers:
             glacier.progress_to_year(year)
 
     def progress_to_equilibrium(self):
         '''Progress the glaciers within the collection to equilibrium.
         '''
-        if len(self.glaciers) < 1:
+        if len(self._glaciers) < 1:
             raise ValueError('Collection is empty')
 
         # Loop.
-        for glacier in self.glaciers:
+        for glacier in self._glaciers:
             glacier.progress_to_equilibrium()
 
     def plot(self):
         '''Plot the glaciers in the collection to compare them.'''
 
-        if len(self.glaciers) < 1:
+        if len(self._glaciers) < 1:
             raise ValueError('Collection is empty')
         # We use this to plot the bedrock etc.
-        gl1 = self.glaciers[0]
+        gl1 = self._glaciers[0]
         # Get the ax from the first plot
         fig, ax = plt.subplots()
         # Bedrock
@@ -1192,7 +1222,7 @@ class GlacierCollection:
 
         elas = []
         # Loop over the collection.
-        for i, glacier in enumerate(self.glaciers):
+        for i, glacier in enumerate(self._glaciers):
             # Plot the surface
             if glacier.current_state is not None:
                 # Masking shenanigans.
@@ -1241,7 +1271,7 @@ class GlacierCollection:
         # Add a second legend with infos.
         # It would be cool to only show attributes that are different.
         labels = []
-        for glacier in self.glaciers:
+        for glacier in self._glaciers:
             # Create the label
             label = f'ELA: {glacier.ELA} \n' \
                 f'MB grad: {glacier.mb_gradient} \n' \
@@ -1261,7 +1291,7 @@ class GlacierCollection:
 
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
-        for glacier in self.glaciers:
+        for glacier in self._glaciers:
             # Plot the length.
             glacier.history.length_m.plot(ax=ax1)
             # Plot the volume
