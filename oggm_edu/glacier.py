@@ -7,8 +7,10 @@ glacier mechanics.
 import numpy as np
 import seaborn as sns
 import xarray as xr
+import pandas as pd
 import warnings
 import collections
+import copy
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -282,7 +284,7 @@ class MassBalance(LinearMassBalance):
 class Glacier:
     '''The glacier object'''
 
-    def __init__(self, bed=None, mass_balance=None, copy=None):
+    def __init__(self, bed=None, mass_balance=None):
         '''Initialise a glacier object. Either from a glacier bed
         or from an already existing glaicer.
 
@@ -290,11 +292,11 @@ class Glacier:
         ----------
         bed : GlacierBed object
 
-        copy : Glacier object
-            Copy the attributes of a already existing glacier.
+        mass_balance : MassBalance object
+            Optional
         '''
         # If we pass a bed, initialise a new glacier.
-        if bed and not copy:
+        if bed:
             # Check the type of the bed.
             if not isinstance(bed, GlacierBed):
                 raise TypeError('The bed has to be of the type GlacierBed.')
@@ -339,42 +341,15 @@ class Glacier:
             # We want to save the eq. states.
             self._eq_states = []
 
-        # If there is no bed, but a copy.
-        elif not bed and copy:
-            # Check the glacier
-            if not isinstance(copy, Glacier):
-                raise TypeError('The glacier to copy must be a Glacier object')
-            # Copy the attributes
-            # Is this actually copying the attributes or just
-            # referencing them?
-            self.bed = copy.bed
-            self.surface_h = self.bed.bed_h
-            # Mb stuff.
-            self._mass_balance = copy._mass_balance
-            self._ELA_assign = copy._ELA_assign
-            self._mb_grad_assign = copy._mb_grad_assign
-            # Glacier state
-            self.initial_state = copy.initial_state
-            self.current_state = copy.current_state
-            self.model_state = copy.model_state
-            # Ice parameters
-            self._basal_sliding = copy.basal_sliding
-            self._creep = copy.creep
-            # Some descriptives
-            self._age = copy.age
-            # History
-            self._history = copy.history
-            # Eq. states
-            self._eq_states = copy.eq_states
         # if nothing works
         else:
-            raise ValueError('Provide either a bed or a glacier to copy')
+            raise ValueError('Provide a bed.')
 
     def __repr__(self):
         '''Pretty representation of the glacier object'''
 
         # Get the json representation.
-        json = self._json_repr()
+        json = self._to_json()
         # Create the string
         string = 'Glacier \n'
         for key, value in json.items():
@@ -392,6 +367,11 @@ class Glacier:
                 'Volume [km3]': state.volume_km3,
                 }
         return json
+
+    def copy(self):
+        '''Return a deepcopy of the glacier. Useful for creating
+        new glaciers.'''
+        return copy.deepcopy(self)
 
     def init_flowline(self):
         # Initialise a RectangularBedFlowline for the glacier.
