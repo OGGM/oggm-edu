@@ -154,7 +154,7 @@ class GlacierBed:
     def __repr__(self):
 
         # Get the json representation of the object.
-        json = self._json_repr()
+        json = self._to_json()
 
         # Create a nicer string of it.
         string = 'Glacier bed \n'
@@ -162,7 +162,7 @@ class GlacierBed:
             string += f'{key}: {value} \n'
         return string
 
-    def _json_repr(self):
+    def _to_json(self):
         '''Json representation of the bed'''
         # Is the bed width constant or variable?
         w_string = ('constant' if type(self.width) in (int, float)
@@ -358,7 +358,7 @@ class Glacier:
         string += repr(self.mass_balance)
         return string
 
-    def _json_repr(self):
+    def _to_json(self):
         '''Json represenation'''
         state = self.state()
         json = {'Age': int(self.age),
@@ -494,7 +494,7 @@ class Glacier:
     @history.setter
     def history(self, obj):
         '''Logic for the glacier history attribute. If there is no histoy,
-        we add it. If the glacier already has some hhistory, we append it.'''
+        we add it. If the glacier already has some history, we append it.'''
         # Does it have any history?
         if self._history is None:
             self._history = obj
