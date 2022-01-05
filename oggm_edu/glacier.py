@@ -162,6 +162,16 @@ class GlacierBed:
             string += f'{key}: {value} \n'
         return string
 
+    def _repr_html_(self):
+        '''HTML representations'''
+        # Get attris
+        attrs = self._to_json()
+        df = pd.DataFrame.from_dict(attrs, orient="index")
+        df.columns = [""]
+        df.index.name = type(self).__name__
+
+        return df._repr_html_()
+
     def _to_json(self):
         '''Json representation of the bed'''
         # Is the bed width constant or variable?
@@ -244,6 +254,16 @@ class MassBalance(LinearMassBalance):
         for key, value in json.items():
             string += f'{key}: {value} \n'
         return string
+
+    def _repr_html_(self):
+        '''HTML representations'''
+        # Get attris
+        attrs = self._to_json()
+        df = pd.DataFrame.from_dict(attrs, orient="index")
+        df.columns = [""]
+        df.index.name = type(self).__name__
+
+        return df._repr_html_()
 
     def _update_temp_bias(self, year):
         '''Updates the temperature bias internally during progression.'''
@@ -357,6 +377,16 @@ class Glacier:
         string += repr(self.bed)
         string += repr(self.mass_balance)
         return string
+
+    def _repr_html_(self):
+        '''HTML representations'''
+        # Get attris
+        attrs = self._to_json()
+        df = pd.DataFrame.from_dict(attrs, orient="index")
+        df.columns = [""]
+        df.index.name = type(self).__name__
+
+        return df._repr_html_()
 
     def _to_json(self):
         '''Json represenation'''
@@ -884,6 +914,19 @@ class SurgingGlacier(Glacier):
         self._normal_years_left = self.normal_years
         self._surging_years_left = self.surging_years
 
+    def _to_json(self):
+        '''Json represenation'''
+        state = self.state()
+        json = {'Age': int(self.age),
+                'Length [m]': state.length_m,
+                'Area [km2]': state.area_km2,
+                'Volume [km3]': state.volume_km3,
+                'Surging periodicity (off/on)':
+                (self.normal_years, self.surging_years),
+                'Surging now?': self._normal_period
+                }
+        return json
+
     @property
     def normal_years(self):
         '''Number of years that the glacier progress without surging.'''
@@ -1123,6 +1166,7 @@ class GlacierCollection:
                         **glacier.mass_balance._to_json()}
                 # Add it to the df.
                 df = df.append(json, ignore_index=True)
+                df.index.name = "Glacier"
             # Return the html representation of the dataframe.
             return df._repr_html_()
         # If empty.
