@@ -268,18 +268,28 @@ class GlacierCollection:
                              gl1.current_state.surface_h[0]+200))
             elas.append(glacier.ELA)
 
-        # Loop the unique ELAs.
-        for i, ela in enumerate(set(elas)):
+        # If all elas are equal.
+        if len(set(elas)) == 1:
             # Plot the ELA
-            ax.axhline(ela, ls='--', zorder=1)
-            # Label if elas are equal.
-            if len(set(elas)) == 1:
+            ax.axhline(elas[0], ls='--', zorder=1)
+            ax.text(glacier.bed.distance_along_glacier[-1], elas[0] + 10,
+                    'All ELAs are equal', ha='right', va='bottom')
+        # If elas not equal.
+        else:
+            # Do we have some elas that are equal?
+            # Get a set dictionary of ELAs.
+            elas_d = {key: '' for key in set(elas)}
+            # Fill it.
+            for i, key in enumerate(elas):
+                elas_d[key] += f'{i+1}, '
+
+            # Loop the unique ELAs.
+            for ela, string in elas_d.items():
+                # Add the annotation.
                 ax.text(glacier.bed.distance_along_glacier[-1], ela + 10,
-                        'ELAs are equal', ha='right', va='bottom')
-            # If we have multiple ELAs.
-            else:
-                ax.text(glacier.bed.distance_along_glacier[-1], ela + 10,
-                        f'ELA  nr {i+1}', ha='right', va='bottom')
+                        f'ELA  nr {string[:-2]}', ha='right', va='bottom')
+                # Plot the ELA
+                ax.axhline(ela, ls='--', zorder=1)
 
         # axis labels.
         ax.set_xlabel('Distance along glacer [km]')
