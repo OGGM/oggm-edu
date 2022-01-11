@@ -1,4 +1,3 @@
-
 '''This module provides a utility class, GlacierCollection, designed to ease
 the handling of multiple glaciers.
 '''

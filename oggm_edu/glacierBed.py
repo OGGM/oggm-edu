@@ -1,4 +1,3 @@
-
 '''This module provides a class, GlacierBed, which aids the setup of a
 glacier bed to use with the Glacier and SurgingGlacier classes.
 '''

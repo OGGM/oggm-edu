@@ -1,4 +1,3 @@
-
 '''This module contains the MassBalance class, an abstract interface to
 the OGGM mass balance model which is to be used with the Glacier and
 SurgingGlacier classes.
