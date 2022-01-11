@@ -78,8 +78,41 @@ class GlacierCollection:
     def glaciers(self):
         return self._glaciers
 
+    def fill(self, glacier, n, attributes_to_change=None):
+        '''Fill the collection with a desired number of glaciers.
+
+        Parameters
+        ----------
+        glacier: Glacier
+            Initial glacier, to base the rest of the collection on.
+        n: int
+            Specify number of glaciers in the collection.
+        attributes_to_change: dict
+            Dictionary where key value pairs correspond to the
+            attribute and values to be assigned each glacier.
+            See GlacierCollection.change_attributes for more.
+        '''
+        # Is original a valid glacier?
+        if not isinstance(glacier, Glacier):
+            raise TypeError('Glacier collection can only'
+                            ' contain glacier objects.')
+        # Check n.
+        elif not isinstance(n, int):
+            raise TypeError('n should be an integer.')
+
+        else:
+            # The bread and butter of the function,
+            # Fill the collection.
+            for _ in range(n):
+                # Add a copy of the glacier.
+                self.add(glacier.copy())
+
+        # Do we change some vars?
+        if attributes_to_change:
+            self.change_attributes(attributes_to_change)
+
     def add(self, glacier):
-        '''Add a glacier to the collection.
+        '''Add one or more glaciers to the collection.
 
         Parameters
         ----------
@@ -113,6 +146,52 @@ class GlacierCollection:
             # the collection.
             else:
                 self._glaciers.append(glacier)
+
+    def change_attributes(self, attributes_to_change):
+        '''Change the attribute(s) of the glaciers in the collection.
+
+        Parameters
+        __________
+        attributes_to_change: dict
+            Dictionary where the key value pairs follow the structure:
+            {'key': [n values], ...}, where 'key' match an attribute
+            of the glacier and n match the length of the collection.
+            Valid values for key are:
+            - mb_gradient
+            - ELA
+            - basal_sliding
+            - creep
+            - normal_years
+            - surging_years
+            - basal_sliding_surge
+        '''
+        # Did we get a dict?
+        if not isinstance(attributes_to_change, dict):
+            raise TypeError('attributes_to_change should be a dictionary.')
+
+        # What are we allowed to change??
+        valid_attrs = ('mb_gradient', 'ELA', 'basal_sliding', 'creep',
+                       'normal_years', 'surging_years',
+                       'basal_sliding_surge')
+        # For each key-value pair:
+        for key, values in attributes_to_change.items():
+            # Is current key valid?
+            if key not in valid_attrs:
+                raise ValueError(f'Attribute {key} not a valid attribute'
+                                 ' for function.')
+            # Are the value valid?
+            elif not isinstance(values, collections.Sequence):
+                raise TypeError('Provided value should be in the form'
+                                ' of a list/tuple')
+            elif not len(values) == len(self.glaciers):
+                raise ValueError('Numbers of values provided does not'
+                                 ' match size of collection.')
+            # If all passes
+            else:
+                for (glacier, value) in zip(self.glaciers, values):
+                    # Use built in setattr. Should respect the defined
+                    # setters, with error messages an such.
+                    setattr(glacier, key, value)
 
     def progress_to_year(self, year):
         '''Progress the glaciers within the collection to
