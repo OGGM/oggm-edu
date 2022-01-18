@@ -177,8 +177,8 @@ class GlacierBed:
         }
         return json
 
-    def plot(self):
-        '''Plot the glacier bed'''
+    def _create_base_plot(self):
+        '''Create the base plot the glacier bed'''
 
         fig, (ax1, ax2) = plt.subplots(nrows=2,
                                        gridspec_kw={'height_ratios': [2, 1]},
@@ -208,3 +208,10 @@ class GlacierBed:
         plt.ylabel('Distance from centerline [m]')
         ax1.set_title('Glacier domain')
         ax1.legend()
+
+        return fig, ax1, ax2
+
+    def plot(self):
+        '''Plot the bed'''
+        fig, ax1, ax2 = self._create_base_plot()
+        plt.show()
