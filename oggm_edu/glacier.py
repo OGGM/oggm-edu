@@ -18,6 +18,7 @@ import xarray as xr
 import pandas as pd
 import warnings
 import copy
+from itertools import cycle
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -85,10 +86,12 @@ class Glacier:
 
             # Descriptives
             # Store the age of the glacier outside the model object.
-            self._age = 0.
+            self._age = 0
             # This is used to store the history of the glacier evolution.
             #  None for now.
             self._history = None
+            # Store the state history
+            self._state_history = None
 
             # We want to save the eq. states.
             self._eq_states = []
@@ -217,12 +220,29 @@ class Glacier:
     @age.setter
     def age(self, value):
         '''Set the age of the glacier.'''
-        self._age = value
+        self._age = int(value)
 
     @property
     def history(self):
         '''Return the glacier history dataset.'''
         return self._history
+
+    @property
+    def state_history(self):
+        return self._state_history
+
+    @state_history.setter
+    def state_history(self, obj):
+        '''Setting/updating the state history'''
+        # Is there any state history yet?
+        if self.state_history is None:
+            self._state_history = obj
+        # If there is, append instead.
+        else:
+            # We slice the new series because we dont need the first year.
+            self._state_history = xr.combine_by_coords([
+                self.state_history.isel(time=slice(0, -1)), obj
+            ], combine_attrs='override')
 
     @property
     def basal_sliding(self):
@@ -356,7 +376,8 @@ class Glacier:
                     # How big are the steps?
                     run_to = int(self.age + 1)
                     try:
-                        self.history = model.run_until_and_store(run_to)
+                        out = model.run_until_and_store(run_to,
+                                                        fl_diag_path=None)
                     except RuntimeError:
                         raise RuntimeError('Glacier outgrew its domain and' +
                                            ' had to stop')
@@ -365,12 +386,15 @@ class Glacier:
                 else:
                     # Run the model. Store the history.
                     try:
-                        self.history = model.run_until_and_store(year)
+                        out = model.run_until_and_store(year,
+                                                        fl_diag_path=None)
                     except RuntimeError:
                         raise RuntimeError('Glacier outgrew its domain and' +
                                            ' had to stop')
 
                 # Update attributes.
+                self.history = out[0]
+                self.state_history = out[1][0]
                 self.current_state = model.fls[0]
                 self.model_state = model
                 self.age = model.yr
@@ -456,16 +480,15 @@ class Glacier:
             try:
                 #  Run with a stopping criteria.
                 out = model.run_until_and_store(years,
+                                                fl_diag_path=None,
                                                 stop_criterion=stop_function)
-                # We need to drop the nan years.
-                out = out.dropna(dim='time')
-                # Add the history dataset.
-                self.history = out
 
             except RuntimeError:
                 print('Glacier grew out of its domain and had to stop.')
 
             # Update attributes.
+            self.history = out[0].dropna(dim='time')
+            self.state_history = out[1][0].dropna(dim='time')
             self.current_state = model.fls[0]
             self.age = model.yr
             self.model_state = model
@@ -619,6 +642,65 @@ class Glacier:
         fig, ax1, ax2, ax3 = self._create_history_plot_components()
         plt.show()
 
+    def plot_state_history(self, interval=50):
+        '''Plot the state history of the glacier (thicknesses) at specified
+        intervals.
+
+        Parameters
+        ----------
+        interval: int
+            Specifies the number of years between each states in the plot.
+        '''
+        # Get the base plotting components from the bed.
+        fig, ax1, ax2 = self.bed._create_base_plot()
+
+        # We need a manual color cycle for the top down view.
+        prop_cycle = plt.rcParams['axes.prop_cycle']
+        colors = cycle(prop_cycle.by_key()['color'])
+
+        # Want to plot thickness at specified intervals. So we slice it.
+        states = self.state_history.thickness_m.\
+            isel(time=slice(interval, -1, interval))
+        # Loop over states.
+        for i, state in enumerate(states):
+            # Some masking shenanigans
+            mask = state.values > 0
+            idx = state.values.argmin()
+            mask[:idx+1] = True
+            # Fill the glacier.
+            ax1.fill_between(self.bed.distance_along_glacier,
+                             self.bed.bed_h,
+                             state.values + self.bed.bed_h,
+                             where=mask,
+                             color='white',
+                             lw=2)
+            # Add outline
+            # Modify the zorder to get lines to show up nice.
+            ax1.plot(self.bed.distance_along_glacier[mask],
+                     state[mask] + self.bed.bed_h[mask],
+                     lw=2,
+                     label=f'Glacier outline at year {interval+i*interval}',
+                     zorder=4-i*0.1)
+            # Fill in the glacier in the topdown view.
+            # Where does the glacier have thickness?
+            filled = np.where(state > 0, self.bed.widths, 0)
+            # Fill vetween them
+            # Modify the zorder to get lines to show up nice.
+            ax2.fill_between(self.bed.distance_along_glacier,
+                             -filled/2 * self.bed.map_dx,
+                             filled/2 * self.bed.map_dx,
+                             where=filled > 0,
+                             facecolor='white',
+                             edgecolor=next(colors),
+                             lw=2,
+                             zorder=2-i*0.1
+                             )
+        # New title.
+        ax1.set_title('Glacier states')
+        # Update the legend.
+        ax1.legend()
+        plt.show()
+
 
 class SurgingGlacier(Glacier):
     '''A surging glacier. This will have the same attributes as a normal
@@ -655,7 +737,7 @@ class SurgingGlacier(Glacier):
                 'Volume [km3]': state.volume_km3,
                 'Surging periodicity (off/on)':
                 (self.normal_years, self.surging_years),
-                'Surging now?': self._normal_period
+                'Surging now?': not self._normal_period
                 }
         return json
 
@@ -772,8 +854,8 @@ class SurgingGlacier(Glacier):
                                            fs=self.basal_sliding)
                     # Run the model. Store the history.
                     try:
-                        self.history = model.run_until_and_store(
-                            years_to_run)
+                        out = model.run_until_and_store(years_to_run,
+                                                        fl_diag_path=None)
                     except RuntimeError:
                         print('Glacier outgrew its domain and had to stop.')
                         # We should break here.
@@ -804,14 +886,16 @@ class SurgingGlacier(Glacier):
                                            fs=self.basal_sliding_surge)
                     # Run the model. Store the history.
                     try:
-                        self.history = model.run_until_and_store(
-                            years_to_run)
+                        out = model.run_until_and_store(years_to_run,
+                                                        fl_diag_path=None)
                     except RuntimeError:
                         print('Glacier outgrew its domain and had to stop.')
                         # We should break here.
                         break
 
                 # Update attributes.
+                self.history = out[0]
+                self.state_history = out[1][0]
                 self.current_state = model.fls[0]
                 self.model_state = model
                 self.age = model.yr
