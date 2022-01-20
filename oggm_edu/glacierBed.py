@@ -213,5 +213,7 @@ class GlacierBed:
 
     def plot(self):
         '''Plot the bed'''
-        fig, ax1, ax2 = self._create_base_plot()
+        # Since we are not modifying the base here, we don't need to assign
+        # any of the returns.
+        self._create_base_plot()
         plt.show()

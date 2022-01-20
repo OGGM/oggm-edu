@@ -497,31 +497,7 @@ class Glacier:
 
     def plot(self):
         '''Plot the glacier'''
-        fig, (ax1, ax2) = plt.subplots(nrows=2,
-                                       gridspec_kw={'height_ratios': [2, 1]},
-                                       sharex=True)
-
-        # Plot the bed
-        ax1.plot(self.bed.distance_along_glacier, self.bed.bed_h,
-                 label='Bedrock', ls=':', c='k', lw=2, zorder=3)
-        # And fill it.
-        ax1.fill_betweenx(self.bed.bed_h, self.bed.distance_along_glacier,
-                          color='lightgrey')
-        ax1.set_ylabel('Altitude [m]')
-
-        # Set face color of side view.
-        ax1.set_facecolor('#ADD8E6')
-        ax1.set_ylim((self.bed.bottom, self.bed.top + 200))
-
-        # Top down stuff
-        # Fill the bed on the top down view.
-        ax2.fill_between(self.bed.distance_along_glacier,
-                         -self.bed.widths/2 * self.bed.map_dx,
-                         self.bed.widths/2 * self.bed.map_dx,
-                         color='lightgrey')
-        ax2.axhline(0, c='k', zorder=3)
-        ax2.set_facecolor('darkgrey')
-        ax2.set_ylabel('Distance from centerline [m]')
+        _, ax1, ax2 = self.bed._create_base_plot()
 
         # If we have a current state, plot it.
         if self.current_state is not None:
