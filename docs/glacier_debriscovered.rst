@@ -3,7 +3,7 @@
 Debris-covered glaciers
 =======================
 
-.. figure:: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/thumbnails/glacier_debriscovered_nolabels.png
+.. figure:: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/png/glacier_debriscovered_nolabels.png
     :width: 100%
 
 
@@ -20,7 +20,7 @@ outreach.
 Feel free to use / adapt the graphics, but always refer to the original author
 and share them with a compatible license.
 
-**Author**: Lindsey Nicholson (adapeted from Anne Maussion, `Atelier les Gros yeux <http://atelierlesgrosyeux.com>`_)
+**Author**: Lindsey Nicholson (adapted from Anne Maussion, `Atelier les Gros yeux <http://atelierlesgrosyeux.com>`_)
 
 This graphic was designed for the paper from `Nicholson et al., 2021 <https://doi.org/10.3389/feart.2021.662695>`_.
 It illustrates the processes of debris flux through a mountain glacier.
@@ -30,7 +30,7 @@ It illustrates the processes of debris flux through a mountain glacier.
 Image with english labels
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/thumbnails/glacier_debriscovered_englishlabels.png
+.. figure:: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/png/glacier_debriscovered_englishlabels.png
     :target: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/png/glacier_debriscovered_englishlabels.png
 
 Rock debris from the surrounding landscape is transported by glacier ice motion,
@@ -44,5 +44,5 @@ debris covered glacier systems as presented in
 Image with no labels
 ^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/thumbnails/glacier_debriscovered_nolabels.png
+.. figure:: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/png/glacier_debriscovered_nolabels.png
     :target: https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_debriscovered/png/glacier_debriscovered_nolabels.png
