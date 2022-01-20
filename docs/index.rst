@@ -64,6 +64,7 @@ Graphics
 Open access images and graphics that can be used for lectures or presentations.
 
 * :doc:`glacier_basics`
+* :doc:`glacier_debriscovered`
 * :doc:`glacier_lowpass`
 
 .. toctree::
@@ -72,6 +73,7 @@ Open access images and graphics that can be used for lectures or presentations.
     :caption: Graphics
 
     glacier_basics.rst
+    glacier_debriscovered.rst
     glacier_lowpass.rst
 
 
