@@ -19,6 +19,7 @@ import pandas as pd
 import warnings
 import copy
 from itertools import cycle
+import re
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -618,45 +619,78 @@ class Glacier:
         fig, ax1, ax2, ax3 = self._create_history_plot_components()
         plt.show()
 
-    def plot_state_history(self, interval=50):
+    def plot_state_history(self, interval=50, eq_states=False):
         '''Plot the state history of the glacier (thicknesses) at specified
         intervals.
 
         Parameters
         ----------
         interval: int
-            Specifies the number of years between each states in the plot.
+            Specifies the number of years between each state in the plot.
+        eq_states: bool
+            Plot the different equilibrium states, if there are any. This takes
+            precedence over the intervals.
         '''
         # Get the base plotting components from the bed.
-        fig, ax1, ax2 = self.bed._create_base_plot()
+        _, ax1, ax2 = self.bed._create_base_plot()
 
         # We need a manual color cycle for the top down view.
         prop_cycle = plt.rcParams['axes.prop_cycle']
         colors = cycle(prop_cycle.by_key()['color'])
 
-        # Want to plot thickness at specified intervals. So we slice it.
-        states = self.state_history.thickness_m.\
-            isel(time=slice(interval, -1, interval))
+        # If we don't want eq. states.
+        if not eq_states:
+            # Want to plot thickness at specified intervals. So we slice it.
+            states = self.state_history.thickness_m.\
+                isel(time=slice(interval, -1, interval))
+            # Needed for sorting.
+            len_states = self.history.length_m.\
+                isel(time=slice(interval, -1, interval))
+            # Title
+            title = 'Glacier states'
+        # If we wan't eq. states
+        else:
+            if len(self.eq_states):
+                # Get the states.
+                states = self.state_history.thickness_m.\
+                    sel(time=self.eq_states)
+                # Needed for sorting.
+                len_states = self.history.length_m.sel(time=self.eq_states)
+                # Title
+                title = 'Glacier equilibirum states'
+            else:
+                raise ValueError('No equilbrium states to plot yet.')
+
+        sorted_index = np.argsort(len_states.values)
+        # Sort the states by length and plot it in reverse.
+        # I.e. plot the longest state first.
+        states = states.values[sorted_index][::-1]
         # Loop over states.
-        for i, state in enumerate(states):
+        for i, state in zip(sorted_index[::-1], states):
             # Some masking shenanigans
-            mask = state.values > 0
-            idx = state.values.argmin()
+            mask = state > 0
+            idx = state.argmin()
             mask[:idx+1] = True
             # Fill the glacier.
             ax1.fill_between(self.bed.distance_along_glacier,
                              self.bed.bed_h,
-                             state.values + self.bed.bed_h,
+                             state + self.bed.bed_h,
                              where=mask,
                              color='white',
                              lw=2)
+            # Label for outline
+            if not eq_states:
+                label = interval + i * interval
+            else:
+                label = self.eq_states[i]
             # Add outline
             # Modify the zorder to get lines to show up nice.
             ax1.plot(self.bed.distance_along_glacier[mask],
                      state[mask] + self.bed.bed_h[mask],
                      lw=2,
-                     label=f'Glacier outline at year {interval+i*interval}',
-                     zorder=4-i*0.1)
+                     label=f'Glacier outline at year {label}',
+                     # zorder=4+i*0.1
+                     )
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
             filled = np.where(state > 0, self.bed.widths, 0)
@@ -669,12 +703,15 @@ class Glacier:
                              facecolor='white',
                              edgecolor=next(colors),
                              lw=2,
-                             zorder=2-i*0.1
+                             # zorder=1+i*0.1
                              )
         # New title.
-        ax1.set_title('Glacier states')
-        # Update the legend.
-        ax1.legend()
+        ax1.set_title(title)
+        # Nat. sort. Thanks stackoverflow.
+        ax1.legend(*zip(*sorted(zip(*ax1.get_legend_handles_labels()),
+                                key=lambda s: [
+                    int(t) if t.isdigit() else t.lower() for
+                    t in re.split('(\d+)', s[1])])))
         plt.show()
 
 
