@@ -42,6 +42,7 @@ These interactive apps can be run on any computer with an internet connection.
 * :doc:`gallery`
 * :doc:`explorer`
 * :doc:`simulator`
+* :doc:`mb_simulator`
 * :doc:`alps_future`
 
 .. toctree::
@@ -52,6 +53,7 @@ These interactive apps can be run on any computer with an internet connection.
     gallery.rst
     explorer.rst
     simulator.rst
+    mb_simulator.rst
     alps_future.rst
 
 .. _title_graphics:
@@ -62,6 +64,7 @@ Graphics
 Open access images and graphics that can be used for lectures or presentations.
 
 * :doc:`glacier_basics`
+* :doc:`glacier_debriscovered`
 * :doc:`glacier_lowpass`
 
 .. toctree::
@@ -70,6 +73,7 @@ Open access images and graphics that can be used for lectures or presentations.
     :caption: Graphics
 
     glacier_basics.rst
+    glacier_debriscovered.rst
     glacier_lowpass.rst
 
 
