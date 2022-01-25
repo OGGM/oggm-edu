@@ -320,18 +320,24 @@ class GlacierCollection:
 
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
+        # Check so that the glacier has a history.
         for glacier in self._glaciers:
-            # Plot the length.
-            glacier.history.length_m.plot(ax=ax1)
-            # Plot the volume
-            glacier.history.volume_m3.plot(ax=ax2)
-            # Plot the area
-            glacier.history.area_m2.plot(ax=ax3,
-                                         label=f'ELA: {glacier.ELA} \n' +
-                                         f'MB grad: {glacier.mb_gradient} \n' +
-                                         f'Age: {glacier.age} \n' +
-                                         f'Creep: {glacier.creep:.2e} \n' +
-                                         f'Sliding: {glacier.basal_sliding}')
+            if glacier.history is not None:
+                # Plot the length.
+                glacier.history.length_m.plot(ax=ax1)
+                # Plot the volume
+                glacier.history.volume_m3.plot(ax=ax2)
+                # Plot the area
+                glacier.history.area_m2.plot(
+                    ax=ax3,
+                    label=f'ELA: {glacier.ELA} \n' +
+                    f'MB grad: {glacier.mb_gradient} \n' +
+                    f'Age: {glacier.age} \n' +
+                    f'Creep: {glacier.creep:.2e} \n' +
+                    f'Sliding: {glacier.basal_sliding}'
+                    )
+            else:
+                print('Glacier history missing')
         # Decorations
         ax1.set_xlabel('')
         ax1.set_title('Glacier collection evolution')

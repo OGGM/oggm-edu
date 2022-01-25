@@ -577,29 +577,31 @@ class Glacier:
 
     def _create_history_plot_components(self):
         '''Create components for the history plot of the glacier.'''
-        if self.history is None:
-            raise AttributeError('Glacier has no history yet,'
-                                 ' try progress the glacier')
 
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
-        # Plot the length.
-        self.history.length_m.plot(ax=ax1)
+        # Plot the length, volume and area if we have a history.
+        if self.history is not None:
+            self.history.length_m.plot(ax=ax1)
+            self.history.volume_m3.plot(ax=ax2)
+            self.history.area_m2.plot(ax=ax3)
+        # If not, we print a message along with the empty plot.
+        else:
+            print('Glacier has no history yet, try progressing the glacier.')
+        # Labels and such.
         ax1.set_xlabel('')
         ax1.set_title(f'Glacier history at year {int(self.age)}')
         ax1.annotate('Glacier length', (0.98, 0.1), xycoords='axes fraction',
                      bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
                      ha='right')
         ax1.set_ylabel('Length [m]')
-        # Plot the volume
-        self.history.volume_m3.plot(ax=ax2)
+        # Volume labels.
         ax2.set_xlabel('')
         ax2.annotate('Glacier volume', (0.98, 0.1), xycoords='axes fraction',
                      bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
                      ha='right')
         ax2.set_ylabel('Volume [m$^3$]')
-        # Plot the area
-        self.history.area_m2.plot(ax=ax3)
+        # Area labels.
         ax3.set_xlabel('Year')
         ax3.annotate('Glacier area', (0.98, 0.1), xycoords='axes fraction',
                      bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
@@ -711,7 +713,7 @@ class Glacier:
         ax1.legend(*zip(*sorted(zip(*ax1.get_legend_handles_labels()),
                                 key=lambda s: [
                     int(t) if t.isdigit() else t.lower() for
-                    t in re.split('(\d+)', s[1])])))
+                    t in re.split(r'(\d+)', s[1])])))
         plt.show()
 
 
