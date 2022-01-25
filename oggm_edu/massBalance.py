@@ -63,6 +63,44 @@ class MassBalance(LinearMassBalance):
 
         return df._repr_html_()
 
+    @property
+    def gradient(self):
+        return self.grad
+
+    @gradient.setter
+    def gradient(self, value):
+        '''Define the mass balance gradient.
+
+        Parameters
+        ----------
+        value : int or float
+            Mass balance altitude gradient, mm/m.
+        '''
+        # We cant have a negative gradient.
+        if value > 0:
+            self.grad = value
+        else:
+            raise ValueError('Mass balance gradient less than 0 not allowed')
+
+    @property
+    def ELA(self):
+        return self.ELA
+
+    @ELA.setter
+    def ELA(self, value):
+        '''Define the equilibrium line altitude.
+
+        Parameters
+        ----------
+        value : int or float
+            Altitude of the ELA.
+        '''
+        # We cant have a negative ELA.
+        if value > 0:
+            self.ELA = value
+        else:
+            raise ValueError('ELA below 0 not allowed.')
+
     def _update_temp_bias(self, year):
         '''Updates the temperature bias internally during progression.'''
         # Change the temperature bias

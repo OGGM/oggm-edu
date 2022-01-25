@@ -157,7 +157,7 @@ class GlacierCollection:
             {'key': [n values], ...}, where 'key' match an attribute
             of the glacier and n match the length of the collection.
             Valid values for key are:
-            - mb_gradient
+            - gradient
             - ELA
             - basal_sliding
             - creep
@@ -170,9 +170,10 @@ class GlacierCollection:
             raise TypeError('attributes_to_change should be a dictionary.')
 
         # What are we allowed to change??
-        valid_attrs = ('mb_gradient', 'ELA', 'basal_sliding', 'creep',
+        valid_attrs = ('gradient', 'ELA', 'basal_sliding', 'creep',
                        'normal_years', 'surging_years',
                        'basal_sliding_surge')
+        mb_attrs = ('gradient', 'ELA')
         # For each key-value pair:
         for key, values in attributes_to_change.items():
             # Is current key valid?
@@ -191,7 +192,10 @@ class GlacierCollection:
                 for (glacier, value) in zip(self.glaciers, values):
                     # Use built in setattr. Should respect the defined
                     # setters, with error messages an such.
-                    setattr(glacier, key, value)
+                    if key in mb_attrs:
+                        setattr(glacier.mass_balance, key, value)
+                    else:
+                        setattr(glacier, key, value)
 
     def progress_to_year(self, year):
         '''Progress the glaciers within the collection to
