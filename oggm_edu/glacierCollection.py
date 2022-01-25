@@ -261,7 +261,7 @@ class GlacierCollection:
                 # Plot outline
                 ax.plot(glacier.bed.distance_along_glacier[mask],
                         glacier.current_state.surface_h[mask],
-                        label=f'Glacier nr. {i+1} at year'
+                        label=f'Glacier {i} at year'
                         + f' {glacier.age}')
                 # Ylim
                 ax.set_ylim((gl1.bed.bottom,
@@ -321,7 +321,7 @@ class GlacierCollection:
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
         # Check so that the glacier has a history.
-        for glacier in self._glaciers:
+        for i, glacier in enumerate(self._glaciers):
             if glacier.history is not None:
                 # Plot the length.
                 glacier.history.length_m.plot(ax=ax1)
@@ -330,10 +330,11 @@ class GlacierCollection:
                 # Plot the area
                 glacier.history.area_m2.plot(
                     ax=ax3,
-                    label=f'ELA: {glacier.ELA} \n' +
-                    f'MB grad: {glacier.mb_gradient} \n' +
-                    f'Age: {glacier.age} \n' +
-                    f'Creep: {glacier.creep:.2e} \n' +
+                    label=f'Glacier {i}\n' +
+                    f'ELA: {glacier.ELA}\n' +
+                    f'MB grad: {glacier.mb_gradient}\n' +
+                    f'Age: {glacier.age}\n' +
+                    f'Creep: {glacier.creep:.2e}\n' +
                     f'Sliding: {glacier.basal_sliding}'
                     )
             else:
