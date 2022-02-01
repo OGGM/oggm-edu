@@ -727,14 +727,14 @@ class SurgingGlacier(Glacier):
     glacier but with some extensions e.g. normal years and surging years.
     '''
 
-    def __init__(self, bed):
+    def __init__(self, bed=None, mass_balance=None):
         '''Initialise the surging glacier. Inherit attributes and methods
         from the Glacier class and extend it with some attributes specific
         for surging glaciers.
         '''
 
         # Inherit from glacier
-        super().__init__(bed)
+        super().__init__(bed, mass_balance)
 
         # Surging attributes
         self._normal_years = 50
@@ -742,6 +742,7 @@ class SurgingGlacier(Glacier):
         # Basal sliding during surge has a sane default.
         # So no need to touch it.
         self._basal_sliding_surge = 5.7e-20 * 10
+        self._basal_sliding = 5.7e-20
         # Some state attributes used by the progress method
         # to determine if we are surging or normal
         self._normal_period = True
@@ -756,7 +757,7 @@ class SurgingGlacier(Glacier):
                 'Area [km2]': state.area_km2,
                 'Volume [km3]': state.volume_km3,
                 'Surging periodicity (off/on)':
-                (self.normal_years, self.surging_years),
+                [[self.normal_years, self.surging_years]],
                 'Surging now?': not self._normal_period
                 }
         return json
