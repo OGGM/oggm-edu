@@ -84,7 +84,7 @@ class MassBalance(LinearMassBalance):
 
     @property
     def ELA(self):
-        return self.ELA
+        return self.ela_h
 
     @ELA.setter
     def ELA(self, value):
@@ -97,7 +97,7 @@ class MassBalance(LinearMassBalance):
         '''
         # We cant have a negative ELA.
         if value > 0:
-            self.ELA = value
+            self.ela_h = value
         else:
             raise ValueError('ELA below 0 not allowed.')
 

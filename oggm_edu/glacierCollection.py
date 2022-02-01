@@ -8,6 +8,7 @@ from oggm_edu.glacier import Glacier
 # Other libraries.
 import seaborn as sns
 import pandas as pd
+import numpy as np
 import collections
 
 # Plotting
@@ -77,6 +78,10 @@ class GlacierCollection:
     @property
     def glaciers(self):
         return self._glaciers
+
+    @property
+    def annual_mass_balance(self):
+        return [glacier.annual_mass_balance() for glacier in self.glaciers]
 
     def fill(self, glacier, n, attributes_to_change=None):
         '''Fill the collection with a desired number of glaciers.
@@ -285,13 +290,13 @@ class GlacierCollection:
             elas_d = {key: '' for key in set(elas)}
             # Fill it.
             for i, key in enumerate(elas):
-                elas_d[key] += f'{i+1}, '
+                elas_d[key] += f'{i}, '
 
             # Loop the unique ELAs.
             for ela, string in elas_d.items():
                 # Add the annotation.
                 ax.text(glacier.bed.distance_along_glacier[-1], ela + 10,
-                        f'ELA  nr {string[:-2]}', ha='right', va='bottom')
+                        f'ELA  glacier {string[:-2]}', ha='right', va='bottom')
                 # Plot the ELA
                 ax.axhline(ela, ls='--', zorder=1)
 
@@ -364,3 +369,57 @@ class GlacierCollection:
         fig.legend(handels, labels, loc='upper left', ncol=1,
                    title='Glacier info',
                    bbox_to_anchor=(0.9, 0.89))
+
+    def plot_mass_balance(self):
+        '''Plot the mass balance(s) for the glaciers in the collection'''
+
+        fig, ax = plt.subplots()
+
+        # How many unique ELAS do we have?
+        elas = []
+
+        # Plot annual mass balance for each glacier.
+        for i, glacier in enumerate(self.glaciers):
+            ax.plot(glacier.annual_mass_balance(), glacier.bed.bed_h,
+                    label=f'Glacier {i}, ' +
+                    f'gradient {glacier.mass_balance.gradient}',
+                    )
+            # Add each ELA.
+            elas.append(glacier.mass_balance.ELA)
+        # Add labels.
+        ax.set_xlabel('Annual mass balance [m yr-1]')
+        ax.set_ylabel('Altitude [m]')
+
+        # Add 0 lines.
+        ax.axvline(x=0, ls=':', label='Mass balance = 0',
+                   c='tab:green')
+
+        # Plot the ELAs.
+        # If all elas are equal.
+        if len(set(elas)) == 1:
+            # Plot the ELA
+            ax.axhline(elas[0], ls='--', zorder=1)
+            # Where to place the annotation?
+            extent = np.array(self.annual_mass_balance).min()
+            ax.text(extent, elas[0] + 2,
+                    'All ELAs are equal', ha='left', va='bottom')
+        # If elas not equal.
+        else:
+            # Do we have some elas that are equal?
+            # Get a set dictionary of ELAs.
+            elas_d = {key: '' for key in set(elas)}
+            # Fill it.
+            for i, key in enumerate(elas):
+                elas_d[key] += f'{i}, '
+
+            # Loop the unique ELAs.
+            for ela, string in elas_d.items():
+                # Add the annotation.
+                extent = np.array(self.annual_mass_balance).min()
+                ax.text(extent, ela + 2,
+                        f'ELA  glacier {string[:-2]}', ha='left', va='bottom')
+                # Plot the ELA
+                ax.axhline(ela, ls='--', zorder=1)
+        ax.set_title('Mass balance profiles')
+
+        plt.legend()
