@@ -400,14 +400,17 @@ class Glacier:
                 self.model_state = model
                 self.age = model.yr
 
-    def progress_to_equilibrium(self, years=2500):
+    def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
         '''Progress the glacier to equilibrium.
 
         Parameters
         ----------
-        years : int, optional
+        years: int, optional
             Specify the number of years during which we try to find
             an equilibrium state.
+        t_rate: float, optional
+            Specify how slow the glacier is allowed to change without
+            reaching equilibrium.
         '''
 
         def stop_function(model, previous_state):
@@ -418,9 +421,9 @@ class Glacier:
             stop = False
             # Ambigous rate, basically how fast is the glacier
             # changing every step.
-            rate = 0.001
+            rate = t_rate
             # How many times to we try
-            max_ite = 500
+            max_ite = years
             # If we have a previous step check it
             if previous_state is not None:
                 # Here we save some stuff to diagnose the eq. state
@@ -445,7 +448,9 @@ class Glacier:
                     previous_state['v_bef'] = v_af
                 # If we go over the iteration limit.
                 elif previous_state['ite'] > max_ite:
-                    raise RuntimeError('Not able to find equilbrium')
+                    # raise RuntimeError('Not able to find equilbrium')
+                    print(f'Not able to find equilibrium within {years} years')
+                    stop = True
                 # Otherwise we stop.
                 else:
                     stop = True

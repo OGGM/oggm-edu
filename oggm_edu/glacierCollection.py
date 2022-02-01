@@ -218,15 +218,24 @@ class GlacierCollection:
         for glacier in self._glaciers:
             glacier.progress_to_year(year)
 
-    def progress_to_equilibrium(self):
-        '''Progress the glaciers within the collection to equilibrium.
+    def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
+        '''Progress the glaciers to equilibrium.
+
+        Parameters
+        ----------
+        years: int, optional
+            Specify the number of years during which we try to find
+            an equilibrium state.
+        t_rate: float, optional
+            Specify how slow the glacier is allowed to change without
+            reaching equilibrium.
         '''
         if len(self._glaciers) < 1:
             raise ValueError('Collection is empty')
 
         # Loop.
         for glacier in self._glaciers:
-            glacier.progress_to_equilibrium()
+            glacier.progress_to_equilibrium(years=years, t_rate=t_rate)
 
     def plot(self):
         '''Plot the glaciers in the collection to compare them.'''
