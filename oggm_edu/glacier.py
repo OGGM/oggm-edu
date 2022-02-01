@@ -131,6 +131,7 @@ class Glacier:
                 'Length [m]': state.length_m,
                 'Area [km2]': state.area_km2,
                 'Volume [km3]': state.volume_km3,
+                'Response time [yrs]': self.response_time
                 }
         return json
 
@@ -303,8 +304,7 @@ class Glacier:
 
         # If we don't hace a eq. states yet
         if len(self._eq_states) < 2:
-            raise AttributeError("Glacier don't have a response time yet." +
-                  " The glacier needs two equilibrium states.")
+            return np.nan
         else:
             # We calcuate the response time when we need it.
             # Not sure if this is stupid but.
