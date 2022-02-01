@@ -62,8 +62,9 @@ class GlacierCollection:
                 json = {**glacier._to_json(), **glacier.bed._to_json(),
                         **glacier.mass_balance._to_json()}
                 # Add it to the df.
-                df = df.append(json, ignore_index=True)
-                df.index.name = "Glacier"
+                df2 = pd.DataFrame(json)
+                df = pd.concat([df, df2], ignore_index=True)
+            df.index.name = "Glacier"
             # Return the html representation of the dataframe.
             return df._repr_html_()
         # If empty.
@@ -374,6 +375,11 @@ class GlacierCollection:
                      bbox={'boxstyle': 'Round', 'color': 'lightgrey'},
                      ha='right')
         ax3.set_ylabel('Area [m$^2$]')
+        # Grid on.
+        ax1.grid(True)
+        ax2.grid(True)
+        ax3.grid(True)
+
         handels, labels = ax3.get_legend_handles_labels()
         fig.legend(handels, labels, loc='upper left', ncol=1,
                    title='Glacier info',
