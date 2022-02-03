@@ -82,7 +82,7 @@ class GlacierCollection:
 
     @property
     def annual_mass_balance(self):
-        return [glacier.annual_mass_balance() for glacier in self.glaciers]
+        return [glacier.annual_mass_balance for glacier in self.glaciers]
 
     def fill(self, glacier, n, attributes_to_change=None):
         '''Fill the collection with a desired number of glaciers.

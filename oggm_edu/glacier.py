@@ -203,9 +203,26 @@ class Glacier:
     def mass_balance(self):
         return self._mass_balance
 
+    @property
     def annual_mass_balance(self):
         return self.mass_balance.get_annual_mb(self.surface_h)\
             * cfg.SEC_IN_YEAR
+
+    @property
+    def specific_mass_balance(self):
+        '''Returns the specific mass balance of the glacier in m w.e.
+        yr^-1.
+        '''
+        # Only want data where there is ice.
+        mask = self.state().thick > 0
+
+        # Get the mb where there is ice.
+        mb_s = self.annual_mass_balance[mask] * cfg.PARAMS['ice_density']
+        # Take the weighted average, since glacier has different widths.
+        mb_s = np.average(mb_s, weights=self.bed.widths[mask])
+
+        # Return the m. w.e.
+        return mb_s / 1000.
 
     def state(self):
         '''Glacier state logic'''
@@ -566,7 +583,7 @@ class Glacier:
 
     def plot_mass_balance(self):
         '''Plot the mass balance profile of the glacier'''
-        plt.plot(self.annual_mass_balance(), self.bed.bed_h,
+        plt.plot(self.annual_mass_balance, self.bed.bed_h,
                  label='Mass balance',
                  c='tab:orange')
         plt.xlabel('Annual mass balance [m yr-1]')
