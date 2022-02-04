@@ -95,7 +95,7 @@ class Glacier:
             self._state_history = None
 
             # We want to save the eq. states.
-            self._eq_states = []
+            self._eq_states = {}
 
         # if nothing works
         else:
@@ -308,7 +308,7 @@ class Glacier:
 
     @property
     def eq_states(self):
-        if len(self._eq_states) == 0:
+        if not self._eq_states:
             print("The glacier have not reached equilibrium yet.")
         else:
             return self._eq_states
@@ -325,21 +325,24 @@ class Glacier:
         else:
             # We calcuate the response time when we need it.
             # Not sure if this is stupid but.
+            # Get the eq state years.
+            year_final = list(self.eq_states)[-1]
+            year_initial = list(self.eq_states)[-2]
             # Final eq. volume
-            v_final = self.history.volume_m3.sel(time=self.eq_states[-1])
+            v_final = self.history.volume_m3.sel(time=year_final)
             # Initial volume
-            v_initial = self.history.volume_m3.sel(time=self.eq_states[-2])
+            v_initial = self.history.volume_m3.sel(time=year_initial)
             # Volume difference
             v_diff = v_final - (v_final - v_initial) / np.e
             # Find the year where volume is closest to the v_diff.
             all_vol_diff = np.abs(self.history.volume_m3.sel(
-                time=slice(self.eq_states[-2], self.eq_states[-1])
+                time=slice(year_initial, year_final)
             ) - v_diff)
             # Get the index
             idx = all_vol_diff.argmin()
             # Reponse time
             response_time = all_vol_diff.time.isel(time=idx) -\
-                self.eq_states[-2]
+                year_initial
             return response_time.values.item()
 
     def add_temperature_bias(self, bias, duration):
@@ -516,7 +519,7 @@ class Glacier:
             self.age = model.yr
             self.model_state = model
             # Remember the eq. year
-            self._eq_states.append(self.age)
+            self._eq_states[self.age] = self.mass_balance.ela_h
 
     def plot(self):
         '''Plot the glacier'''
@@ -667,23 +670,25 @@ class Glacier:
             # Want to plot thickness at specified intervals. So we slice it.
             states = self.state_history.thickness_m.\
                 isel(time=slice(interval, -1, interval))
-            # Needed for sorting.
+            # Length of state. Needed for sorting.
             len_states = self.history.length_m.\
                 isel(time=slice(interval, -1, interval))
             # Title
             title = 'Glacier states'
         # If we wan't eq. states
         else:
-            if len(self.eq_states):
+            if self.eq_states:
                 # Get the states.
+                years = list(self.eq_states)
                 states = self.state_history.thickness_m.\
-                    sel(time=self.eq_states)
-                # Needed for sorting.
-                len_states = self.history.length_m.sel(time=self.eq_states)
+                    sel(time=years)
+                # Length of state. Needed for sorting.
+                len_states = self.history.length_m.sel(time=years)
                 # Title
                 title = 'Glacier equilibirum states'
             else:
-                raise ValueError('No equilbrium states to plot yet.')
+                print('No equilbrium states to plot yet.')
+                return
 
         sorted_index = np.argsort(len_states.values)
         # Sort the states by length and plot it in reverse.
@@ -706,7 +711,12 @@ class Glacier:
             if not eq_states:
                 label = interval + i * interval
             else:
-                label = self.eq_states[i]
+                label = list(self.eq_states)[i]
+                ela = self.eq_states[label]
+
+                # Add hline for ELAS
+                ax1.axhline(ela, ls=':')
+                ax1.text(2, ela+5, f'ELA at year {label}', ha='left')
             # Add outline
             # Modify the zorder to get lines to show up nice.
             ax1.plot(self.bed.distance_along_glacier[mask],
