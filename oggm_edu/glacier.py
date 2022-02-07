@@ -9,7 +9,7 @@ two other classes: the GlacierBed and the MassBalance.
 
 # Internals
 from oggm_edu.glacier_bed import GlacierBed
-from oggm_edu.mass_balance import MassBalance, ZeroMassBalance
+from oggm_edu.mass_balance import MassBalance
 from oggm_edu.funcs import edu_plotter
 
 # Other libraries
@@ -45,15 +45,6 @@ class Glacier:
         if not isinstance(bed, GlacierBed):
             raise TypeError("The bed has to be of type GlacierBed.")
 
-        if mass_balance is None:
-            # Note that a ZeroMassBalance could also be achieved with
-            # a LinearMassBalance and a gradient of zero
-            # Something to think about
-            mass_balance = ZeroMassBalance
-
-        if not isinstance(mass_balance, MassBalance):
-            raise TypeError("The mass_balance has to be of type MassBalance.")
-
         # Set the bed.
         self.bed = bed
         # Set the surface height.
@@ -61,14 +52,18 @@ class Glacier:
 
         # Mass balance
         self._mass_balance = None
+        # If mass balance object is provided, and of type MassBalance
+        if mass_balance and isinstance(mass_balance, MassBalance):
+            self._mass_balance = mass_balance
+
+        # If provided but wrong type
+        elif mass_balance and not isinstance(mass_balance, MassBalance):
+            raise TypeError("mass_balance should be of the type oggm_edu.MassBalance.")
+
         # The following two attributes are just used when we set the mass
         # balance in steps.
         self._ela_assign = None
         self._mb_grad_assign = None
-
-        # If mass balance object is provided, and of type MassBalance
-        self._mass_balance = mass_balance
-
         # Initilaise the flowline
         self.initial_state = self.init_flowline()
         # Set current and model state to None.
