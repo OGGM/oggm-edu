@@ -4,6 +4,7 @@ the handling of multiple glaciers.
 
 # Internals
 from oggm_edu.glacier import Glacier
+from oggm_edu.funcs import edu_plotter
 
 # Other libraries.
 import pandas as pd
@@ -240,6 +241,7 @@ class GlacierCollection:
         for glacier in self._glaciers:
             glacier.progress_to_equilibrium(years=years, t_rate=t_rate)
 
+    @edu_plotter
     def plot(self):
         """Plot the glaciers in the collection to compare them."""
 
@@ -362,6 +364,7 @@ class GlacierCollection:
             bbox_to_anchor=(0.9, 0.89),
         )
 
+    @edu_plotter
     def plot_history(self):
         """Plot the histories of the collection"""
 
@@ -430,6 +433,7 @@ class GlacierCollection:
             bbox_to_anchor=(0.9, 0.89),
         )
 
+    @edu_plotter
     def plot_mass_balance(self):
         """Plot the mass balance(s) for the glaciers in the collection"""
 

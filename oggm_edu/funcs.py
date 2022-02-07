@@ -75,12 +75,11 @@ def edu_plotter(func):
     def context_wrapper(
         *args, sns_context="notebook", sns_axes_style="ticks", figsize=(12, 9), **kwargs
     ):
-
-        with (
-            sns.plotting_context(sns_context),
-            sns.axes_style(sns_axes_style),
-            mpl.rc_context({"figure.figsize": figsize}),
-        ):
+        with \
+            mpl.rc_context({"figure.figsize": figsize}), \
+            sns.plotting_context(sns_context), \
+            sns.axes_style(sns_axes_style)\
+                :
             return func(*args, **kwargs)
 
     return context_wrapper

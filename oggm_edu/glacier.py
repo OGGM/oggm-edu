@@ -10,6 +10,7 @@ two other classes: the GlacierBed and the MassBalance.
 # Internals
 from oggm_edu.glacier_bed import GlacierBed
 from oggm_edu.mass_balance import MassBalance
+from oggm_edu.funcs import edu_plotter
 
 # Other libraries.
 import numpy as np
@@ -27,8 +28,6 @@ from matplotlib.patches import Patch
 # Import OGGM things
 from oggm.core.flowline import FluxBasedModel, RectangularBedFlowline
 from oggm import cfg
-
-from oggm_edu.funcs import edu_plotter
 
 
 class Glacier:
@@ -609,6 +608,7 @@ class Glacier:
         ax1.legend(loc="lower left")
         ax2.set_xlabel("Distance along glacier [km]")
 
+    @edu_plotter
     def plot_mass_balance(self):
         """Plot the mass balance profile of the glacier"""
         plt.plot(
@@ -626,6 +626,7 @@ class Glacier:
         plt.title("Mass balance profile")
         plt.legend()
 
+    @edu_plotter
     def _create_history_plot_components(self):
         """Create components for the history plot of the glacier."""
 
@@ -678,12 +679,14 @@ class Glacier:
 
         return fig, ax1, ax2, ax3
 
+    @edu_plotter
     def plot_history(self):
         """Plot the history of the glacier"""
         # Get the components
         fig, ax1, ax2, ax3 = self._create_history_plot_components()
         plt.show()
 
+    @edu_plotter
     def plot_state_history(self, interval=50, eq_states=False):
         """Plot the state history of the glacier (thicknesses) at specified
         intervals.
@@ -1024,6 +1027,7 @@ class SurgingGlacier(Glacier):
             "Surging glaciers do not progress to equilibrium. Yet..."
         )
 
+    @edu_plotter
     def plot_history(self):
         """Plot the history of the surging glacier.
         Extends the Glacier.plot_history() method."""

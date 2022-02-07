@@ -4,19 +4,10 @@ SurgingGlacier classes.
 """
 
 # Other libraries.
-import seaborn as sns
 import pandas as pd
-
-# Plotting
-from matplotlib import pyplot as plt
 
 # Import OGGM things.
 from oggm.core.massbalance import LinearMassBalance
-
-# Plotting
-sns.set_context("notebook")
-sns.set_style("ticks")
-plt.rcParams["figure.figsize"] = (12, 9)
 
 
 class MassBalance(LinearMassBalance):

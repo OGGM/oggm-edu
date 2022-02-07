@@ -2,6 +2,7 @@
 glacier bed to use with the Glacier and SurgingGlacier classes.
 """
 
+from oggm_edu.funcs import edu_plotter
 # Other libraries.
 import numpy as np
 import pandas as pd
@@ -177,6 +178,7 @@ class GlacierBed:
         }
         return json
 
+    @edu_plotter
     def _create_base_plot(self):
         """Create the base plot the glacier bed"""
 
@@ -219,6 +221,7 @@ class GlacierBed:
 
         return fig, ax1, ax2
 
+    @edu_plotter
     def plot(self):
         """Plot the bed"""
         # Since we are not modifying the base here, we don't need to assign
