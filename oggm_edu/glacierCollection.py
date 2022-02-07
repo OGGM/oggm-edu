@@ -6,18 +6,12 @@ the handling of multiple glaciers.
 from oggm_edu.glacier import Glacier
 
 # Other libraries.
-import seaborn as sns
 import pandas as pd
 import numpy as np
 import collections
 
 # Plotting
 from matplotlib import pyplot as plt
-
-# Plotting
-sns.set_context('notebook')
-sns.set_style('ticks')
-plt.rcParams['figure.figsize'] = (12, 9)
 
 
 class GlacierCollection:

@@ -4,17 +4,10 @@ glacier bed to use with the Glacier and SurgingGlacier classes.
 
 # Other libraries.
 import numpy as np
-import seaborn as sns
 import pandas as pd
 
 # Plotting
 from matplotlib import pyplot as plt
-# Import OGGM things.
-
-# Plotting
-sns.set_context('notebook')
-sns.set_style('ticks')
-plt.rcParams['figure.figsize'] = (12, 9)
 
 
 class GlacierBed:

@@ -13,7 +13,6 @@ from oggm_edu.massBalance import MassBalance
 
 # Other libraries.
 import numpy as np
-import seaborn as sns
 import xarray as xr
 import pandas as pd
 import warnings
@@ -24,15 +23,12 @@ import re
 # Plotting
 from matplotlib import pyplot as plt
 from matplotlib.patches import Patch
-# Import OGGM things.
-from oggm.core.flowline import FluxBasedModel, RectangularBedFlowline
 
+# Import OGGM things
+from oggm.core.flowline import FluxBasedModel, RectangularBedFlowline
 from oggm import cfg
-# Initialise cfg
-cfg.initialize_minimal()
-sns.set_context('notebook')
-sns.set_style('ticks')
-plt.rcParams['figure.figsize'] = (12, 9)
+
+from oggm_edu.funcs import edu_plotter
 
 
 class Glacier:
@@ -521,6 +517,7 @@ class Glacier:
             # Remember the eq. year
             self._eq_states[self.age] = self.mass_balance.ela_h
 
+    @edu_plotter
     def plot(self):
         '''Plot the glacier'''
         _, ax1, ax2 = self.bed._create_base_plot()
