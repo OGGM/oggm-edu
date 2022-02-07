@@ -7,7 +7,10 @@ import seaborn as sns
 from PIL import Image
 from oggm import cfg
 
-graphics_url = "https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_intro/png/glacier_{:02d}.png"
+graphics_url = (
+    "https://raw.githubusercontent.com/OGGM/glacier-graphics/master/"
+    + "glacier_intro/png/glacier_{:02d}.png"
+)
 
 
 def plot_glacier_graphics(num="01", title=False, ax=None):

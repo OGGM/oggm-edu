@@ -6,35 +6,49 @@ import xarray as xr
 import urllib
 import pandas as pd
 import matplotlib.pyplot as plt
-from oggm.core.flowline import (FluxBasedModel, flowline_model_run,
-                                RectangularBedFlowline, FileModel)
-from oggm.core.massbalance import (LinearMassBalance, ConstantMassBalance,
-                                   MassBalanceModel)
+from oggm.core.flowline import (
+    FluxBasedModel,
+    flowline_model_run,
+    RectangularBedFlowline,
+    FileModel,
+)
+from oggm.core.massbalance import (
+    LinearMassBalance,
+    ConstantMassBalance,
+    MassBalanceModel,
+)
 from oggm import cfg, utils
 from oggm import entity_task
-
-# Module logger
-import logging
-log = logging.getLogger(__name__)
 
 # allow to plot pictures as subplots
 import matplotlib.image as mpimg
 from PIL import Image
 
-graphics_url = 'https://raw.githubusercontent.com/OGGM/glacier-graphics/master/glacier_intro/png/glacier_{}.png'
+# Module logger
+import logging
+
+log = logging.getLogger(__name__)
 
 
-def plot_glacier_graphics(num='01', title=False):
+graphics_url = (
+    "https://raw.githubusercontent.com/OGGM/glacier-graphics/master/"
+    + "glacier_intro/png/glacier_{}.png"
+)
+
+
+def plot_glacier_graphics(num="01", title=False):
     plt.imshow(Image.open(urllib.request.urlopen(graphics_url.format(num))))
-    ax =plt.gca()
+    ax = plt.gca()
     ax.patch.set_visible(False)
-    ax.axis('off')
-    if title != False:
+    ax.axis("off")
+    if title:
         plt.title(title)
 
 
-# I made this to separate the definition of the geometry from the definition of the mass balance,
-# as it is kind of mixed in the function 'linear_mb_equilibrium' from the oggm_edu package
+# I made this to separate the definition of the geometry from the definition of
+# the mass balance,
+# as it is kind of mixed in the function 'linear_mb_equilibrium' from the oggm_edu
+# package
 def define_widths_with_trapezoidal_shape_at_top(topw, bottomw, nx, nz, map_dx):
     # accumulation area occupies a fraction NZ of the total glacier extent
     acc_width = np.linspace(topw, bottomw, int(nx * nz))
@@ -107,10 +121,10 @@ def plot_xz_bed(x, bed):
         the glacier bed
     """
 
-    plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
-    plt.xlabel('Distance along glacier [km]')
-    plt.ylabel('Altitude [m]')
-    plt.legend(loc='best', frameon=False)
+    plt.plot(x, bed, color="k", label="Bedrock", linestyle=":", linewidth=1.5)
+    plt.xlabel("Distance along glacier [km]")
+    plt.ylabel("Altitude [m]")
+    plt.legend(loc="best", frameon=False)
 
 
 def glacier_plot(x, bed, model, mb_model, init_flowline):
@@ -136,52 +150,54 @@ def glacier_plot(x, bed, model, mb_model, init_flowline):
     """
 
     # Plot the initial glacier:
-    plt.plot(x, init_flowline.surface_h, label='Initial glacier')
+    plt.plot(x, init_flowline.surface_h, label="Initial glacier")
     # Get the modelled flowline (model.fls[-1]) and plot its surface
-    plt.plot(x, model.fls[-1].surface_h,
-             label='Glacier after {} years'.format(model.yr))
+    plt.plot(
+        x, model.fls[-1].surface_h, label="Glacier after {} years".format(model.yr)
+    )
     # Plot the equilibrium line altitude
-    plt.axhline(mb_model.ela_h, linestyle='--', color='k', linewidth=0.8)
+    plt.axhline(mb_model.ela_h, linestyle="--", color="k", linewidth=0.8)
     # Add the bedrock and axes labels:
-    plt.plot(x, bed, color='k', label='Bedrock', linestyle=':', linewidth=1.5)
-    plt.xlabel('Distance along glacier [km]')
-    plt.ylabel('Altitude [m]')
-    plt.legend(loc='best')
+    plt.plot(x, bed, color="k", label="Bedrock", linestyle=":", linewidth=1.5)
+    plt.xlabel("Distance along glacier [km]")
+    plt.ylabel("Altitude [m]")
+    plt.legend(loc="best")
 
 
 def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
     """This function initializes a new model, therefore it uses FluxBasedModel.
-    The outline of the glacier is calculated for a chosen amount of years.
+     The outline of the glacier is calculated for a chosen amount of years.
 
-    Parameters
-    ----------
-    init_flowline : oggm.core.flowline.RectangularBedFlowline
-        the glacier flowline
-    mb_model : oggm.core.massbalance.LinearMassBalance
-        the glacier mass balance model
-    years : int
-        year until which glacier evolution is calculated
-    glen_a : float, optional
-        Glen's parameter, (default: 2.4e-24 s^-1 Pa^-3)
-    fs : float, optional
-        sliding parameter, (default: 0)
+     Parameters
+     ----------
+     init_flowline : oggm.core.flowline.RectangularBedFlowline
+         the glacier flowline
+     mb_model : oggm.core.massbalance.LinearMassBalance
+         the glacier mass balance model
+     years : int
+         year until which glacier evolution is calculated
+     glen_a : float, optional
+         Glen's parameter, (default: 2.4e-24 s^-1 Pa^-3)
+     fs : float, optional
+         sliding parameter, (default: 0)
 
-   Returns
-   -------
-   model : oggm.core.flowline.FluxBasedModel
-       the initialized model
+    Returns
+    -------
+    model : oggm.core.flowline.FluxBasedModel
+        the initialized model
 
-   TODO: return also length and volume steps (they are calculated for every
-         time step)
-   """
+    TODO: return also length and volume steps (they are calculated for every
+          time step)
+    """
     if not glen_a:
-        glen_a = cfg.PARAMS['glen_a']
+        glen_a = cfg.PARAMS["glen_a"]
 
     if not fs:
         fs = 0
 
-    model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=0.,
-                           glen_a=glen_a, fs=fs)
+    model = FluxBasedModel(
+        init_flowline, mb_model=mb_model, y0=0.0, glen_a=glen_a, fs=fs
+    )
     # Year 0 to 600 in 5 years step
     yrs = np.arange(0, years, 5)
     # Array to fill with data
@@ -197,8 +213,9 @@ def init_model(init_flowline, mb_model, years, glen_a=None, fs=None):
     return model  # , length, vol
 
 
-def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
-                    fs, fs_surge, model):
+def surging_glacier(
+    yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a, fs, fs_surge, model
+):
     """Function implements surging events in evolution of glacier. 2 different
     sliding parameters can be used.
 
@@ -249,32 +266,34 @@ def surging_glacier(yrs, init_flowline, mb_model, bed, widths, map_dx, glen_a,
         length_s3[i] = model.length_m
         vol_s3[i] = model.volume_km3
 
-        if i == 0 or i == (nsteps-1):
+        if i == 0 or i == (nsteps - 1):
             continue
 
-        elif (yr-yrs[i-1]) == 10 and (yrs[i+1]-yr) == 1:
+        elif (yr - yrs[i - 1]) == 10 and (yrs[i + 1] - yr) == 1:
             # Save glacier geometry before the surge
             surging_glacier_h.append(model.fls[-1].surface_h)
 
             # Glacier evolution
             surging_glacier_h_ts = model.fls[-1].surface_h
             init_flowline = RectangularBedFlowline(
-                    surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths,
-                    map_dx=map_dx)
-            model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=yr,
-                                   glen_a=glen_a, fs=fs_surge)
+                surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths, map_dx=map_dx
+            )
+            model = FluxBasedModel(
+                init_flowline, mb_model=mb_model, y0=yr, glen_a=glen_a, fs=fs_surge
+            )
 
-        elif (yr-yrs[i-1]) == 1 and (yrs[i+1]-yr) == 10:
+        elif (yr - yrs[i - 1]) == 1 and (yrs[i + 1] - yr) == 10:
             # Save glacier geometry after the surge
             surging_glacier_h.append(model.fls[-1].surface_h)
 
             # Glacier evolution
             surging_glacier_h_ts = model.fls[-1].surface_h
             init_flowline = RectangularBedFlowline(
-                    surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths,
-                    map_dx=map_dx)
-            model = FluxBasedModel(init_flowline, mb_model=mb_model, y0=yr,
-                                   glen_a=glen_a, fs=fs)
+                surface_h=surging_glacier_h_ts, bed_h=bed, widths=widths, map_dx=map_dx
+            )
+            model = FluxBasedModel(
+                init_flowline, mb_model=mb_model, y0=yr, glen_a=glen_a, fs=fs
+            )
 
     return model, surging_glacier_h, length_s3, vol_s3
 
@@ -307,13 +326,15 @@ def response_time_vol(model, perturbed_mb):
             # if equilibrium not reached yet, add 1000 years. Then try again.
             model.run_until(model.yr + 1000)
             if count == 6:
-                raise RuntimeError('Because the gradient is be very small, '
-                                   'the equilibrium will be reached only '
-                                   'after many years. Run this cell '
-                                   'again, then it should work.')
+                raise RuntimeError(
+                    "Because the gradient is be very small, "
+                    "the equilibrium will be reached only "
+                    "after many years. Run this cell "
+                    "again, then it should work."
+                )
 
     # set up new model, whith outlines of first model, but new mb_model
-    pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb, y0=0.)
+    pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb, y0=0.0)
     # run it until in reaches equilibrium state
     count = 0
     while True:
@@ -325,10 +346,12 @@ def response_time_vol(model, perturbed_mb):
             # if equilibrium not reached yet, add 1000 years. Then try again.
             pert_model.run_until(model.yr + 1000)
             if count == 6:
-                raise RuntimeError('Because the gradient is be very small, '
-                                   'the equilibrium will be reached only '
-                                   'after many years. Run this cell '
-                                   'again, then it should work.')
+                raise RuntimeError(
+                    "Because the gradient is be very small, "
+                    "the equilibrium will be reached only "
+                    "after many years. Run this cell "
+                    "again, then it should work."
+                )
 
     # save outline of model in equilibrium state
     eq_pert_model = pert_model.fls[-1].surface_h
@@ -338,8 +361,7 @@ def response_time_vol(model, perturbed_mb):
     length_w = np.zeros(nsteps)
     vol_w = np.zeros(nsteps)
     year = np.zeros(nsteps)
-    recalc_pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb,
-                                       y0=0.)
+    recalc_pert_model = FluxBasedModel(model.fls[-1], mb_model=perturbed_mb, y0=0.0)
     for i, yer in enumerate(yrs):
         recalc_pert_model.run_until(yer)
         year[i] = recalc_pert_model.yr
@@ -389,27 +411,39 @@ def plot_glacier_3d(dis, bed, widths, nx, elev=30, azim=40, subplot=False):
     Z = np.tile(bed, (nx, 1)).T
     Y = []
     for w in widths:
-        Y.append(np.linspace(-w/2, w/2, nx))
+        Y.append(np.linspace(-w / 2, w / 2, nx))
     Y = np.array(Y)
 
     # plot glacier geometry in 3D
-    if subplot != False:
+    if subplot:
         fig = plt.figure(figsize=(20, 9))
-        ax = fig.add_subplot(121, projection='3d')
+        ax = fig.add_subplot(121, projection="3d")
     else:
         fig = plt.figure(figsize=(16, 9))
-        ax = fig.add_subplot(111, projection='3d')
+        ax = fig.add_subplot(111, projection="3d")
     ax.view_init(elev, azim)
     ax.plot_surface(X, Y, Z)
-    ax.set_xlabel('Distance along flowline / (km)')
-    ax.set_ylabel('Glacier width across flowline / (m)')
-    ax.set_zlabel('Elevation / (m)')
+    ax.set_xlabel("Distance along flowline / (km)")
+    ax.set_ylabel("Glacier width across flowline / (m)")
+    ax.set_zlabel("Elevation / (m)")
 
     return fig
 
 
-def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
-                          idx=None, advance=None, retreat=None, plot=True):
+def linear_mb_equilibrium(
+    bed,
+    surface,
+    accw,
+    elaw,
+    nz,
+    mb_grad,
+    nx,
+    map_dx,
+    idx=None,
+    advance=None,
+    retreat=None,
+    plot=True,
+):
     """Runs the OGGM FluxBasedModel with a linear mass balance
     gradient until the glacier reaches equilibrium.
 
@@ -461,8 +495,9 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
     mwidths = np.zeros(nx) + widths / map_dx
 
     # define the glacier bed
-    init_flowline = RectangularBedFlowline(surface_h=surface, bed_h=bed,
-                                           widths=mwidths, map_dx=map_dx)
+    init_flowline = RectangularBedFlowline(
+        surface_h=surface, bed_h=bed, widths=mwidths, map_dx=map_dx
+    )
 
     # equilibrium line altitude
 
@@ -485,8 +520,9 @@ def linear_mb_equilibrium(bed, surface, accw, elaw, nz, mb_grad, nx, map_dx,
     mb_model = LinearMassBalance(ela, grad=mb_grad)
 
     # flowline model
-    model = FluxBasedModel(init_flowline, mb_model=mb_model,
-                           y0=0., min_dt=0, cfl_number=0.01)
+    model = FluxBasedModel(
+        init_flowline, mb_model=mb_model, y0=0.0, min_dt=0, cfl_number=0.01
+    )
 
     # run until the glacier reaches an equilibrium
     model.run_until_equilibrium()
@@ -537,13 +573,19 @@ def linear_accumulation(mb_grad, ela, gsurface, bed, widths, acc_0=None):
     if not acc_0:
         # if not specified, the accumulation at the ELA is calculated to
         # produce an accumulation of exactly 0 at the glacier terminus
-        acc_0 = (- mb_grad * (terminus - ela_closest) *
-                 widths[gsurface == terminus] * 1e-3)
+        acc_0 = (
+            -mb_grad * (terminus - ela_closest) * widths[gsurface == terminus] * 1e-3
+        )
 
     # accumulation as a function of altitude in one year: m w.e. yr^-1
     # scaled by the model glacier widths
-    acc = (acc_0 + mb_grad * (gsurface[gsurface >= terminus] - ela_closest) *
-           1e-3 * widths[gsurface >= terminus])
+    acc = (
+        acc_0
+        + mb_grad
+        * (gsurface[gsurface >= terminus] - ela_closest)
+        * 1e-3
+        * widths[gsurface >= terminus]
+    )
 
     # append 0 accumulation downstream of glacier terminus
     acc_d = np.hstack([acc, np.zeros(len(gsurface[gsurface < terminus]))])
@@ -593,13 +635,17 @@ def linear_ablation(mb_grad, ela, gsurface, bed, widths, abl_0=None):
     if not abl_0:
         # if not specified, the ablation at the ELA is calculated to
         # produce an ablation of exactly 0 at the glacier top
-        abl_0 = (- mb_grad * (top - ela_closest) *
-                 widths[gsurface == top] * 1e-3)
+        abl_0 = -mb_grad * (top - ela_closest) * widths[gsurface == top] * 1e-3
 
     # ablation as a function of altitude in one year: m w.e. yr^-1
     # scaled by the model glacier widths
-    abl = (- abl_0 + mb_grad * (gsurface[gsurface >= terminus] - ela_closest) *
-           1e-3 * widths[gsurface >= terminus])
+    abl = (
+        -abl_0
+        + mb_grad
+        * (gsurface[gsurface >= terminus] - ela_closest)
+        * 1e-3
+        * widths[gsurface >= terminus]
+    )
 
     # append 0 ablation downstream of glacier terminus
     abl_d = np.hstack([abl, np.zeros(len(gsurface[gsurface < terminus]))])
@@ -610,9 +656,18 @@ def linear_ablation(mb_grad, ela, gsurface, bed, widths, abl_0=None):
     return abl_d, abl_0
 
 
-def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, labels_ela=[],
-                       ela=None,
-                       plot_ela=False, label_init='initial'):
+def intro_glacier_plot(
+    ax,
+    dis,
+    bed_h,
+    initial,
+    ref_sfc,
+    labels,
+    labels_ela=[],
+    ela=None,
+    plot_ela=False,
+    label_init="initial",
+):
     """Plots the glacier bed together with the actual glacier surface and
     perturbed glacier surfaces, e.g. the glacier surface after accumulation or
     ablation.
@@ -640,8 +695,8 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, labels_ela=[],
     """
 
     # plot the glacier bed and the initial glacier surface
-    ax.plot(dis, bed_h, '--k', label='bed')
-    ax.plot(dis, initial, '--r', label=label_init)
+    ax.plot(dis, bed_h, "--k", label="bed")
+    ax.plot(dis, initial, "--r", label=label_init)
 
     # check which surface is passed to the function
     counter = 0
@@ -649,37 +704,49 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, labels_ela=[],
 
         # fill area between bed/initial surface or bed/reference surface
         if counter < 1:
-            ax.fill_between(dis, bed_h, sfc, sfc <= initial,
-                            color='grey', alpha=0.3)
+            ax.fill_between(dis, bed_h, sfc, sfc <= initial, color="grey", alpha=0.3)
             if any(sfc - initial > 0):
-                ax.fill_between(dis, bed_h, initial,
-                                sfc >= initial, color='grey', alpha=0.3)
+                ax.fill_between(
+                    dis, bed_h, initial, sfc >= initial, color="grey", alpha=0.3
+                )
             else:
-                ax.fill_between(dis, bed_h, initial,
-                                sfc > initial, color='grey', alpha=0.3)
+                ax.fill_between(
+                    dis, bed_h, initial, sfc > initial, color="grey", alpha=0.3
+                )
 
         # accumulation surface
         if all(sfc - initial >= 0):
-            ax.plot(dis, sfc, color='deepskyblue',
-                    linewidth=2, label=l)
-            ax.fill_between(dis, initial, sfc,
-                            sfc >= initial, color='deepskyblue', alpha=0.7)
+            ax.plot(dis, sfc, color="deepskyblue", linewidth=2, label=l)
+            ax.fill_between(
+                dis, initial, sfc, sfc >= initial, color="deepskyblue", alpha=0.7
+            )
 
         # ablation surface
         elif not any(sfc - initial > 0):
-            ax.plot(dis, sfc, '-r', linewidth=2, label=l)
-            ax.fill_between(dis, initial, sfc,
-                            sfc <= initial, color='red', alpha=0.3)
+            ax.plot(dis, sfc, "-r", linewidth=2, label=l)
+            ax.fill_between(dis, initial, sfc, sfc <= initial, color="red", alpha=0.3)
 
         # glacier mass distribution without considering *ice flow*
         else:
-            ax.plot(dis, sfc, '-', color = 'brown', linewidth=2, label=l)
-            ax.fill_between(dis, initial, sfc,
-                            sfc > initial, color='deepskyblue', alpha=0.7,
-                            label ='net accumulation')
-            ax.fill_between(dis, initial, sfc,
-                            sfc <= initial, color='red', alpha=0.3,
-                            label = 'net ablation')
+            ax.plot(dis, sfc, "-", color="brown", linewidth=2, label=l)
+            ax.fill_between(
+                dis,
+                initial,
+                sfc,
+                sfc > initial,
+                color="deepskyblue",
+                alpha=0.7,
+                label="net accumulation",
+            )
+            ax.fill_between(
+                dis,
+                initial,
+                sfc,
+                sfc <= initial,
+                color="red",
+                alpha=0.3,
+                label="net ablation",
+            )
         # advance counter
         counter += 1
 
@@ -687,30 +754,34 @@ def intro_glacier_plot(ax, dis, bed_h, initial, ref_sfc, labels, labels_ela=[],
     if plot_ela and ela:
 
         # add a label for the initial ELA to the labels list
-        labels_ela.insert(0, 'Initial')
+        labels_ela.insert(0, "Initial")
 
         # plot the ela's
         for e, l in zip(ela, labels_ela):
 
             # check which ELA it is
             if e > ela[0]:
-                color = 'red'
+                color = "red"
             elif e < ela[0]:
-                color = 'deepskyblue'
+                color = "deepskyblue"
             else:
-                color = 'grey'
+                color = "grey"
 
             # add horizontal line at the current ELA
-            ax.hlines(e, dis[0], dis[-1],
-                      linestyle='--', color=color)
-            ax.text(dis[-1], e + 10,
-                    'ELA: {}'.format(l), horizontalalignment='right',
-                    verticalalignment='bottom', color=color)
+            ax.hlines(e, dis[0], dis[-1], linestyle="--", color=color)
+            ax.text(
+                dis[-1],
+                e + 10,
+                "ELA: {}".format(l),
+                horizontalalignment="right",
+                verticalalignment="bottom",
+                color=color,
+            )
 
     # axes labels and legend
     ax.legend(frameon=False, fontsize=18)
-    ax.set_xlabel('Distance along flowline (km)', fontsize=18)
-    ax.set_ylabel('Elevation (m)', fontsize=18)
+    ax.set_xlabel("Distance along flowline (km)", fontsize=18)
+    ax.set_ylabel("Elevation (m)", fontsize=18)
 
 
 def correct_to_bed(bed, ref_sfc):
@@ -760,8 +831,9 @@ def read_run_results(gdir, window=36, filesuffix=None):
     """
 
     # read model output
-    with xr.open_dataset(gdir.get_filepath('model_diagnostics',
-                                           filesuffix=filesuffix)) as ds:
+    with xr.open_dataset(
+        gdir.get_filepath("model_diagnostics", filesuffix=filesuffix)
+    ) as ds:
         ds = ds.load()
 
     # length needs filtering
@@ -774,19 +846,21 @@ def read_run_results(gdir, window=36, filesuffix=None):
 
     if ds.calendar_month[0] == 10 and gdir.cenlat < 0:
         # this is to cover up a bug in OGGM
-        _, m = utils.hydrodate_to_calendardate(ds.hydro_year.data, ds.hydro_month.data, start_month=4)
+        _, m = utils.hydrodate_to_calendardate(
+            ds.hydro_year.data, ds.hydro_month.data, start_month=4
+        )
         ds.calendar_month[:] = m
 
     odf = pd.DataFrame()
-    odf['length_m'] = ts
-    odf['volume_m3'] = ds.volume_m3
-    odf['delta_water_m3'] = delta_vol * 0.9
-    odf['month'] = ds.calendar_month
+    odf["length_m"] = ts
+    odf["volume_m3"] = ds.volume_m3
+    odf["delta_water_m3"] = delta_vol * 0.9
+    odf["month"] = ds.calendar_month
 
     return odf
 
 
-def compute_climate_statistics(gdir, tmin='1985', tmax='2015', lapse_rate=0.0065):
+def compute_climate_statistics(gdir, tmin="1985", tmax="2015", lapse_rate=0.0065):
     """Computes monthly average temperature and precipitation
     during the climate period defined by tmin and tmax.
 
@@ -810,23 +884,22 @@ def compute_climate_statistics(gdir, tmin='1985', tmax='2015', lapse_rate=0.0065
     """
 
     try:
-        with xr.open_dataset(gdir.get_filepath('climate_monthly')) as ds:
+        with xr.open_dataset(gdir.get_filepath("climate_monthly")) as ds:
             ds = ds.load()
     except FileNotFoundError:
-        with xr.open_dataset(gdir.get_filepath('climate_historical')) as ds:
+        with xr.open_dataset(gdir.get_filepath("climate_historical")) as ds:
             ds = ds.load()
-
 
     ds = ds.sel(time=slice(str(tmin), str(tmax)))
 
-    dsm = ds.groupby('time.month').mean(dim='time')
+    dsm = ds.groupby("time.month").mean(dim="time")
     odf = pd.DataFrame()
-    odf['temp_celcius'] = dsm.temp.to_series()
-    odf['prcp_mm_mth'] = dsm.prcp.to_series()
+    odf["temp_celcius"] = dsm.temp.to_series()
+    odf["prcp_mm_mth"] = dsm.prcp.to_series()
 
     # We correct for altitude difference
     d = utils.glacier_statistics(gdir)
-    odf['temp_celcius'] += (ds.ref_hgt - d['flowline_min_elev']) * lapse_rate
+    odf["temp_celcius"] += (ds.ref_hgt - d["flowline_min_elev"]) * lapse_rate
 
     return odf
 
@@ -834,10 +907,19 @@ def compute_climate_statistics(gdir, tmin='1985', tmax='2015', lapse_rate=0.0065
 class BiasedConstantMassBalance(MassBalanceModel):
     """Time-dependant Temp and PRCP delta ConstantMassBalance model"""
 
-    def __init__(self, gdir, temp_bias_ts=None, prcp_fac_ts=None,
-                 mu_star=None, bias=None, y0=None, halfsize=15,
-                 filename='climate_historical',
-                 input_filesuffix='', **kwargs):
+    def __init__(
+        self,
+        gdir,
+        temp_bias_ts=None,
+        prcp_fac_ts=None,
+        mu_star=None,
+        bias=None,
+        y0=None,
+        halfsize=15,
+        filename="climate_historical",
+        input_filesuffix="",
+        **kwargs
+    ):
         """Initialize
 
         Parameters
@@ -868,11 +950,16 @@ class BiasedConstantMassBalance(MassBalanceModel):
 
         super(BiasedConstantMassBalance, self).__init__()
 
-        self.mbmod = ConstantMassBalance(gdir, mu_star=mu_star, bias=bias,
-                                         y0=y0, halfsize=halfsize,
-                                         filename=filename,
-                                         input_filesuffix=input_filesuffix,
-                                         **kwargs)
+        self.mbmod = ConstantMassBalance(
+            gdir,
+            mu_star=mu_star,
+            bias=bias,
+            y0=y0,
+            halfsize=halfsize,
+            filename=filename,
+            input_filesuffix=input_filesuffix,
+            **kwargs
+        )
 
         self.valid_bounds = self.mbmod.valid_bounds
         self.hemisphere = gdir.hemisphere
@@ -935,14 +1022,23 @@ class BiasedConstantMassBalance(MassBalanceModel):
 
 
 @entity_task(log)
-def run_constant_climate_with_bias(gdir, temp_bias_ts=None, prcp_fac_ts=None,
-                                   ys=None, ye=None,
-                                   y0=2014, halfsize=5,
-                                   climate_filename='climate_historical',
-                                   climate_input_filesuffix='', output_filesuffix='',
-                                   init_model_fls=None,
-                                   init_model_filesuffix=None, init_model_yr=None,
-                                   bias=None, **kwargs):
+def run_constant_climate_with_bias(
+    gdir,
+    temp_bias_ts=None,
+    prcp_fac_ts=None,
+    ys=None,
+    ye=None,
+    y0=2014,
+    halfsize=5,
+    climate_filename="climate_historical",
+    climate_input_filesuffix="",
+    output_filesuffix="",
+    init_model_fls=None,
+    init_model_filesuffix=None,
+    init_model_yr=None,
+    bias=None,
+    **kwargs
+):
     """Runs a glacier with temperature and precipitation correction timeseries.
 
     Parameters
@@ -979,7 +1075,7 @@ def run_constant_climate_with_bias(gdir, temp_bias_ts=None, prcp_fac_ts=None,
     """
 
     if init_model_filesuffix is not None:
-        fp = gdir.get_filepath('model_geometry', filesuffix=init_model_filesuffix)
+        fp = gdir.get_filepath("model_geometry", filesuffix=init_model_filesuffix)
         fmod = FileModel(fp)
         if init_model_yr is None:
             init_model_yr = fmod.last_yr
@@ -992,12 +1088,16 @@ def run_constant_climate_with_bias(gdir, temp_bias_ts=None, prcp_fac_ts=None,
         init_model_fls = fmod.fls
 
     # Final crop
-    mb = BiasedConstantMassBalance(gdir,
-                                   temp_bias_ts=temp_bias_ts,
-                                   prcp_fac_ts=prcp_fac_ts,
-                                   y0=y0, bias=bias, halfsize=halfsize,
-                                   filename=climate_filename,
-                                   input_filesuffix=climate_input_filesuffix)
+    mb = BiasedConstantMassBalance(
+        gdir,
+        temp_bias_ts=temp_bias_ts,
+        prcp_fac_ts=prcp_fac_ts,
+        y0=y0,
+        bias=bias,
+        halfsize=halfsize,
+        filename=climate_filename,
+        input_filesuffix=climate_input_filesuffix,
+    )
 
     # Decide from climate
     if ye is None:
@@ -1005,7 +1105,12 @@ def run_constant_climate_with_bias(gdir, temp_bias_ts=None, prcp_fac_ts=None,
     if ys is None:
         ys = mb.ys
 
-    return flowline_model_run(gdir, output_filesuffix=output_filesuffix,
-                              mb_model=mb, ys=ys, ye=ye,
-                              init_model_fls=init_model_fls,
-                              **kwargs)
+    return flowline_model_run(
+        gdir,
+        output_filesuffix=output_filesuffix,
+        mb_model=mb,
+        ys=ys,
+        ye=ye,
+        init_model_fls=init_model_fls,
+        **kwargs
+    )
