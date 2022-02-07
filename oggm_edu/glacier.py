@@ -8,8 +8,8 @@ two other classes: the GlacierBed and the MassBalance.
 """
 
 # Internals
-from oggm_edu.glacierBed import GlacierBed
-from oggm_edu.massBalance import MassBalance
+from oggm_edu.glacier_bed import GlacierBed
+from oggm_edu.mass_balance import MassBalance
 
 # Other libraries.
 import numpy as np
