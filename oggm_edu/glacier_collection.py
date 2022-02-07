@@ -445,7 +445,7 @@ class GlacierCollection:
         # Plot annual mass balance for each glacier.
         for i, glacier in enumerate(self.glaciers):
             ax.plot(
-                glacier.annual_mass_balance(),
+                glacier.annual_mass_balance,
                 glacier.bed.bed_h,
                 label=f"Glacier {i}, " + f"gradient {glacier.mass_balance.gradient}",
             )
