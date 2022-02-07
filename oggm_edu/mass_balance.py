@@ -22,11 +22,17 @@ plt.rcParams["figure.figsize"] = (12, 9)
 class MassBalance(LinearMassBalance):
     """Mass balance class"""
 
-    def __init__(self, ELA, gradient, hemisphere=None, density=None):
+    def __init__(self, ela, gradient, hemisphere=None, density=None):
+        """Initialise the mass balance from the ELA and the gradient.
+
+        Parameters
+        ----------
+        ela : int or float
+            Equilibrium line altitude of the mass balance. Units: m.
+        gradient : int or float
+            Mass balance gradient. Define the altitude relation of the mass balance.
         """
-        Initialise the mass balance from the ELA and the gradient.
-        """
-        super().__init__(ela_h=ELA, grad=gradient)
+        super().__init__(ela_h=ela, grad=gradient)
 
         # Temperature bias evolution
         self._temp_bias_final = 0.0
@@ -83,11 +89,11 @@ class MassBalance(LinearMassBalance):
             raise ValueError("Mass balance gradient less than 0 not allowed")
 
     @property
-    def ELA(self):
+    def ela(self):
         return self.ela_h
 
-    @ELA.setter
-    def ELA(self, value):
+    @ela.setter
+    def ela(self, value):
         """Define the equilibrium line altitude.
 
         Parameters

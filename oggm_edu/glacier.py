@@ -59,7 +59,7 @@ class Glacier:
             self._mass_balance = None
             # The following two attributes are just used when we set the mass
             # balance in steps.
-            self._ELA_assign = None
+            self._ela_assign = None
             self._mb_grad_assign = None
 
             # If mass balance object is provided, and of type MassBalance
@@ -146,14 +146,14 @@ class Glacier:
         )
 
     @property
-    def ELA(self):
+    def ela(self):
         try:
             return self.mass_balance.ela_h
         except AttributeError:
             return None
 
-    @ELA.setter
-    def ELA(self, value):
+    @ela.setter
+    def ela(self, value):
         """Define the equilibrium line altitude.
 
         Parameters
@@ -165,10 +165,10 @@ class Glacier:
         if value < 0:
             raise ValueError("ELA below 0 not allowed.")
 
-        self._ELA_assign = value
+        self._ela_assign = value
         # If we have the gradient, set the mb_model
         if self._mb_grad_assign:
-            self._mass_balance = MassBalance(self._ELA_assign, self._mb_grad_assign)
+            self._mass_balance = MassBalance(self._ela_assign, self._mb_grad_assign)
 
     @property
     def mb_gradient(self):
@@ -192,8 +192,8 @@ class Glacier:
 
         self._mb_grad_assign = value
         # If we have the ELA, set the mb_model
-        if self._ELA_assign:
-            self._mass_balance = MassBalance(self._ELA_assign, self._mb_grad_assign)
+        if self._ela_assign:
+            self._mass_balance = MassBalance(self._ela_assign, self._mb_grad_assign)
 
     @property
     def mass_balance(self):
@@ -578,11 +578,11 @@ class Glacier:
             ax1.set_ylim((self.bed.bottom, self.current_state.surface_h[0] + 200))
 
         # ELA
-        if self.ELA is not None:
-            ax1.axhline(self.ELA, ls="--", c="k", lw=1)
+        if self.ela is not None:
+            ax1.axhline(self.ela, ls="--", c="k", lw=1)
             ax1.text(
                 self.bed.distance_along_glacier[-1],
-                self.ELA + 10,
+                self.ela + 10,
                 "ELA",
                 horizontalalignment="right",
                 verticalalignment="bottom",
@@ -590,7 +590,7 @@ class Glacier:
             # Where along the bed is the ELA? Convert height to
             # distance along glacier kind of.
             if self.current_state is not None:
-                idx = (np.abs(self.current_state.surface_h - self.ELA)).argmin()
+                idx = (np.abs(self.current_state.surface_h - self.ela)).argmin()
                 # Plot the ELA in top down
                 ax2.vlines(
                     self.bed.distance_along_glacier[idx],
@@ -622,7 +622,7 @@ class Glacier:
 
         # Add ELA and 0 lines.
         plt.axvline(x=0, ls="--", lw=0.8, label="Mass balance = 0", c="tab:green")
-        plt.axhline(y=self.ELA, ls="--", lw=0.8, label="ELA", c="tab:blue")
+        plt.axhline(y=self.ela, ls="--", lw=0.8, label="ELA", c="tab:blue")
         plt.title("Mass balance profile")
         plt.legend()
 

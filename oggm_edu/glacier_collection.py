@@ -161,7 +161,7 @@ class GlacierCollection:
             of the glacier and n match the length of the collection.
             Valid values for key are:
             - gradient
-            - ELA
+            - ela
             - basal_sliding
             - creep
             - normal_years
@@ -175,14 +175,14 @@ class GlacierCollection:
         # What are we allowed to change??
         valid_attrs = (
             "gradient",
-            "ELA",
+            "ela",
             "basal_sliding",
             "creep",
             "normal_years",
             "surging_years",
             "basal_sliding_surge",
         )
-        mb_attrs = ("gradient", "ELA")
+        mb_attrs = ("gradient", "ela")
         # For each key-value pair:
         for key, values in attributes_to_change.items():
             # Is current key valid?
@@ -296,7 +296,7 @@ class GlacierCollection:
                 )
                 # Ylim
                 ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0] + 200))
-            elas.append(glacier.ELA)
+            elas.append(glacier.ela)
 
         # If all elas are equal.
         if len(set(elas)) == 1:
@@ -343,7 +343,7 @@ class GlacierCollection:
         for glacier in self._glaciers:
             # Create the label
             label = (
-                f"ELA: {glacier.ELA} \n"
+                f"ELA: {glacier.ela} \n"
                 f"MB grad: {glacier.mb_gradient} \n"
                 f"Age: {glacier.age} \n"
                 f"Creep: {glacier.creep:.2e} \n"
@@ -378,7 +378,7 @@ class GlacierCollection:
                 glacier.history.area_m2.plot(
                     ax=ax3,
                     label=f"Glacier {i}\n"
-                    + f"ELA: {glacier.ELA}\n"
+                    + f"ELA: {glacier.ela}\n"
                     + f"MB grad: {glacier.mb_gradient}\n"
                     + f"Age: {glacier.age}\n"
                     + f"Creep: {glacier.creep:.2e}\n"
@@ -446,7 +446,7 @@ class GlacierCollection:
                 label=f"Glacier {i}, " + f"gradient {glacier.mass_balance.gradient}",
             )
             # Add each ELA.
-            elas.append(glacier.mass_balance.ELA)
+            elas.append(glacier.mass_balance.ela)
         # Add labels.
         ax.set_xlabel("Annual mass balance [m yr-1]")
         ax.set_ylabel("Altitude [m]")
