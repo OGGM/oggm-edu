@@ -1,4 +1,4 @@
-"""This module provides a high level interface to the OGGM modelling framwork,
+"""This module provides a high level interface to the OGGM modelling framework,
 suitable for educational purposes regarding the understanding the basics of
 glacier mechanics.
 
@@ -9,10 +9,10 @@ two other classes: the GlacierBed and the MassBalance.
 
 # Internals
 from oggm_edu.glacier_bed import GlacierBed
-from oggm_edu.mass_balance import MassBalance
+from oggm_edu.mass_balance import MassBalance, ZeroMassBalance
 from oggm_edu.funcs import edu_plotter
 
-# Other libraries.
+# Other libraries
 import numpy as np
 import xarray as xr
 import pandas as pd
@@ -33,67 +33,64 @@ from oggm import cfg
 class Glacier:
     """The glacier object"""
 
-    def __init__(self, bed=None, mass_balance=None):
-        """Initialise a glacier object. Either from a glacier bed
-        or from an already existing glaicer.
+    def __init__(self, bed, mass_balance=None):
+        """Initialise a glacier object from a bed and a massbalance profile.
 
         Parameters
         ----------
-        bed : GlacierBed object
-
-        mass_balance : MassBalance object
-            Optional
+        bed : oggm_edu.GlacierBed
+        mass_balance : oggm_edu.MassBalance
         """
-        # If we pass a bed, initialise a new glacier.
-        if bed:
-            # Check the type of the bed.
-            if not isinstance(bed, GlacierBed):
-                raise TypeError("The bed has to be of the type GlacierBed.")
-            # Set the bed.
-            self.bed = bed
-            # Set the surface height.
-            self.surface_h = self.bed.bed_h
+        # Check input
+        if not isinstance(bed, GlacierBed):
+            raise TypeError("The bed has to be of type GlacierBed.")
 
-            # Mass balance
-            self._mass_balance = None
-            # The following two attributes are just used when we set the mass
-            # balance in steps.
-            self._ela_assign = None
-            self._mb_grad_assign = None
+        if mass_balance is None:
+            # Note that a ZeroMassBalance could also be achieved with
+            # a LinearMassBalance and a gradient of zero
+            # Something to think about
+            mass_balance = ZeroMassBalance
 
-            # If mass balance object is provided, and of type MassBalance
-            if mass_balance and isinstance(mass_balance, MassBalance):
-                self._mass_balance = mass_balance
+        if not isinstance(mass_balance, MassBalance):
+            raise TypeError("The mass_balance has to be of type MassBalance.")
 
-            elif mass_balance and not isinstance(mass_balance, MassBalance):
-                raise TypeError("Mass balance supplied but not of the correct type.")
+        # Set the bed.
+        self.bed = bed
+        # Set the surface height.
+        self.surface_h = self.bed.bed_h
 
-            # Initilaise the flowline
-            self.initial_state = self.init_flowline()
-            # Set current and model state to None.
-            self.current_state = None
-            self.model_state = None
+        # Mass balance
+        self._mass_balance = None
+        # The following two attributes are just used when we set the mass
+        # balance in steps.
+        self._ela_assign = None
+        self._mb_grad_assign = None
 
-            # Ice dynamics parameters
-            # Sane defaults
-            self._basal_sliding = 0.0
-            self._creep = cfg.PARAMS["glen_a"]
+        # If mass balance object is provided, and of type MassBalance
+        self._mass_balance = mass_balance
 
-            # Descriptives
-            # Store the age of the glacier outside the model object.
-            self._age = 0
-            # This is used to store the history of the glacier evolution.
-            #  None for now.
-            self._history = None
-            # Store the state history
-            self._state_history = None
+        # Initilaise the flowline
+        self.initial_state = self.init_flowline()
+        # Set current and model state to None.
+        self.current_state = None
+        self.model_state = None
 
-            # We want to save the eq. states.
-            self._eq_states = {}
+        # Ice dynamics parameters
+        # Sane defaults
+        self._basal_sliding = 0.0
+        self._creep = cfg.PARAMS["glen_a"]
 
-        # if nothing works
-        else:
-            raise ValueError("Provide a bed.")
+        # Descriptives
+        # Store the age of the glacier outside the model object.
+        self._age = 0
+        # This is used to store the history of the glacier evolution.
+        #  None for now.
+        self._history = None
+        # Store the state history
+        self._state_history = None
+
+        # We want to save the eq. states.
+        self._eq_states = {}
 
     def __repr__(self):
         """Pretty representation of the glacier object"""

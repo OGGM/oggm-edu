@@ -9,7 +9,7 @@ from oggm import cfg
 
 graphics_url = (
     "https://raw.githubusercontent.com/OGGM/glacier-graphics/master/"
-    + "glacier_intro/png/glacier_{:02d}.png"
+    "glacier_intro/png/glacier_{:02d}.png"
 )
 
 
@@ -73,12 +73,16 @@ def edu_plotter(func):
 
     @wraps(func)
     def context_wrapper(
-        *args, sns_context="notebook", sns_axes_style="ticks", figsize=(12, 9), **kwargs
+        *args,
+        sns_context="notebook",
+        sns_axes_style="ticks",
+        figsize=(12, 9),
+        **kwargs,
     ):
         with \
-            mpl.rc_context({"figure.figsize": figsize}), \
-            sns.plotting_context(sns_context), \
-            sns.axes_style(sns_axes_style)\
+                mpl.rc_context({"figure.figsize": figsize}), \
+                sns.plotting_context(sns_context), \
+                sns.axes_style(sns_axes_style)\
                 :
             return func(*args, **kwargs)
 

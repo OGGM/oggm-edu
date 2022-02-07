@@ -7,7 +7,7 @@ SurgingGlacier classes.
 import pandas as pd
 
 # Import OGGM things.
-from oggm.core.massbalance import LinearMassBalance
+from oggm.core.massbalance import LinearMassBalance, ScalarMassBalance
 
 
 class MassBalance(LinearMassBalance):
@@ -132,3 +132,8 @@ class MassBalance(LinearMassBalance):
 
         else:
             raise TypeError("Temperature bias and/or duration of wrong type")
+
+
+class ZeroMassBalance(ScalarMassBalance, MassBalance):
+    # TODO: yeah this is crap lets discuss in the PR
+    pass
