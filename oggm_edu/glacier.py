@@ -33,7 +33,7 @@ from oggm import cfg
 class Glacier:
     """The glacier object"""
 
-    def __init__(self, bed, mass_balance=None):
+    def __init__(self, bed, mass_balance):
         """Initialise a glacier object from a bed and a massbalance profile.
 
         Parameters
@@ -51,19 +51,12 @@ class Glacier:
         self.surface_h = self.bed.bed_h
 
         # Mass balance
-        self._mass_balance = None
-        # If mass balance object is provided, and of type MassBalance
-        if mass_balance and isinstance(mass_balance, MassBalance):
-            self._mass_balance = mass_balance
-
-        # If provided but wrong type
-        elif mass_balance and not isinstance(mass_balance, MassBalance):
+        # If mass balance is of the wrong type.
+        if not isinstance(mass_balance, MassBalance):
             raise TypeError("mass_balance should be of the type oggm_edu.MassBalance.")
 
-        # The following two attributes are just used when we set the mass
-        # balance in steps.
-        self._ela_assign = None
-        self._mb_grad_assign = None
+        self._mass_balance = mass_balance
+
         # Initilaise the flowline
         self.initial_state = self.init_flowline()
         # Set current and model state to None.
@@ -138,53 +131,13 @@ class Glacier:
 
     @property
     def ela(self):
-        try:
-            return self.mass_balance.ela_h
-        except AttributeError:
-            return None
-
-    @ela.setter
-    def ela(self, value):
-        """Define the equilibrium line altitude.
-
-        Parameters
-        ----------
-        value : int or float
-            Altitude of the ELA.
-        """
-        # We cant have a negative ELA.
-        if value < 0:
-            raise ValueError("ELA below 0 not allowed.")
-
-        self._ela_assign = value
-        # If we have the gradient, set the mb_model
-        if self._mb_grad_assign:
-            self._mass_balance = MassBalance(self._ela_assign, self._mb_grad_assign)
+        "Expose the mass balance ela for the glacier."
+        return self.mass_balance.ela_h
 
     @property
     def mb_gradient(self):
-        try:
-            return self.mass_balance.grad
-        except AttributeError:
-            return None
-
-    @mb_gradient.setter
-    def mb_gradient(self, value):
-        """Define the mass balance gradient.
-
-        Parameters
-        ----------
-        value : int or float
-            Mass balance altitude gradient, mm/m.
-        """
-        # We cant have a negative gradient.
-        if value < 0:
-            raise ValueError("Mass balance gradient less than 0 not allowed")
-
-        self._mb_grad_assign = value
-        # If we have the ELA, set the mb_model
-        if self._ela_assign:
-            self._mass_balance = MassBalance(self._ela_assign, self._mb_grad_assign)
+        "Expose the mass balance gradient."
+        return self.mass_balance.gradient
 
     @property
     def mass_balance(self):
@@ -192,6 +145,7 @@ class Glacier:
 
     @property
     def annual_mass_balance(self):
+        "The annual mass balance is a property of the complete glacier."
         return self.mass_balance.get_annual_mb(self.surface_h) * cfg.SEC_IN_YEAR
 
     @property
