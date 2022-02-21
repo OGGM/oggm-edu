@@ -46,7 +46,7 @@ class Glacier:
             raise TypeError("The bed has to be of type GlacierBed.")
 
         # Set the bed.
-        self.bed = bed
+        self.bed = copy.deepcopy(bed)
         # Set the surface height.
         self.surface_h = self.bed.bed_h
 
@@ -55,7 +55,7 @@ class Glacier:
         if not isinstance(mass_balance, MassBalance):
             raise TypeError("mass_balance should be of the type oggm_edu.MassBalance.")
 
-        self._mass_balance = mass_balance
+        self._mass_balance = copy.deepcopy(mass_balance)
 
         # Initilaise the flowline
         self.initial_state = self.init_flowline()
