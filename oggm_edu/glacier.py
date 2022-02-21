@@ -306,17 +306,8 @@ class Glacier:
         year : int
             Year until which to progress the glacier.
         """
-        # Check if the glacier has a masss balance model
-        if not self.mass_balance:
-            string = (
-                "To evolve the glacier it needs a mass balance."
-                + "\nMake sure the ELA and mass balance gradient"
-                + " are defined."
-            )
-            raise NotImplementedError(string)
-
         # Some checks on the year.
-        elif year < 0:
+        if year < 0:
             raise ValueError("Year has to be above zero")
 
         elif year <= self.age:
