@@ -9,7 +9,7 @@ from oggm_edu.funcs import edu_plotter
 # Other libraries.
 import pandas as pd
 import numpy as np
-import collections
+from collections.abc import Sequence
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -124,7 +124,7 @@ class GlacierCollection:
         Glacier objects
         """
         # Check if iterable
-        if isinstance(glacier, collections.Sequence):
+        if isinstance(glacier, Sequence):
             for glacier in glacier:
                 # Check that glacier is of the right type.
                 if not isinstance(glacier, Glacier):
@@ -190,7 +190,7 @@ class GlacierCollection:
             if key not in valid_attrs:
                 raise ValueError(f"Attribute {key} not a valid attribute for function.")
             # Are the value valid?
-            elif not isinstance(values, collections.Sequence):
+            elif not isinstance(values, Sequence):
                 raise TypeError("Provided value should be in the form of a list/tuple")
             elif not len(values) == len(self.glaciers):
                 raise ValueError(
