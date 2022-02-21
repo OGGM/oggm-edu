@@ -3,6 +3,7 @@ glacier bed to use with the Glacier and SurgingGlacier classes.
 """
 
 from oggm_edu.funcs import edu_plotter
+
 # Other libraries.
 import numpy as np
 import pandas as pd
@@ -89,7 +90,7 @@ class GlacierBed:
             self.bottom = altitudes[-1]
 
         # Check the values of top and bottom.
-        if self.top <= self.bottom and self.bottom < 0:
+        if self.top <= self.bottom or self.bottom < 0:
             raise ValueError(
                 "Top of the bed has to be above the bottom."
                 + " Bottom also has to be above 0"
