@@ -1,6 +1,5 @@
 from oggm_edu import GlacierBed, Glacier, MassBalance, GlacierCollection
 import pytest
-from matplotlib import pyplot as plt
 
 mb = MassBalance(ela=3000, gradient=8)
 bed = GlacierBed(top=3700, bottom=1500, width=600)
@@ -119,48 +118,3 @@ def test_progress_to_equilibrium():
 
     collection.progress_to_equilibrium()
     assert collection.glaciers[0].age == collection.glaciers[1].age
-
-
-# Plot testing
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="collection_base_plot.png"
-)
-def test_plot():
-    """Check the base collection plot"""
-    collection.plot()
-    fig = plt.gcf()
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="collection_base_plot_ela.png"
-)
-def test_plot_ela():
-    """Check the base collection plot, where glaciers have different elas"""
-    # CHange the ela. But don't change the glacier
-    collection.change_attributes({"ela": [2500, 3000]})
-    collection.plot()
-    fig = plt.gcf()
-    # Change back the ela so other tests are preserved.
-    collection.change_attributes({"ela": [3000, 3000]})
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="collection_history_plot.png"
-)
-def test_plot_history():
-    """Check the base collection plot"""
-    collection.plot_history()
-    fig = plt.gcf()
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="collection_mass_balance_plot.png"
-)
-def test_plot_mass_balance():
-    """Check the base collection plot"""
-    collection.plot_mass_balance()
-    fig = plt.gcf()
-    return fig

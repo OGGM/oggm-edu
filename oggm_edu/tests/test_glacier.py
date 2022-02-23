@@ -1,7 +1,5 @@
 from oggm_edu import Glacier, SurgingGlacier, GlacierBed, MassBalance
-import numpy as np
 from numpy.testing import assert_equal
-from matplotlib import pyplot as plt
 import pytest
 
 real_mb = MassBalance(ela=3000, gradient=5)
@@ -67,59 +65,49 @@ def test_progress_to_year():
     assert len(glacier.state_history.time) == year + 1
 
 
-# Some fancy plot testing.
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="glacier_plot.png"
-)
-def test_plot():
-    """Make sure the base plot look as intended."""
+def test_add_temperature_bias():
+    """Test to make sure that the entire temperature bias mechanism works as intended."""
     glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    # Plot the glacier.
-    glacier.plot()
-    # Retreive the figure.
-    fig = plt.gcf()
-    return fig
+    # Add a temperature bias
+    duration = 10
+    bias = 2.0
+    glacier.add_temperature_bias(bias=2.0, duration=duration)
+    # Progress the glacier a few years.
+    year = 2
+    glacier.progress_to_year(year)
+    # Check the current temperature bias.
+    assert glacier.mass_balance.temp_bias == bias / duration * year
 
+    # Progress a bit further
+    year = 10
+    glacier.progress_to_year(year)
+    # We should have reached the final temp bias now.
+    assert glacier.mass_balance.temp_bias == bias
+    # This should've also have update the ELA, check against the original ELA.
+    assert glacier.ela == real_mb.ela + 150 * 2
+    assert glacier.age == 10
+    # Progress even further, bias should not continue to evolve
+    glacier.progress_to_year(20)
+    assert glacier.mass_balance.temp_bias == bias
+    assert glacier.ela == real_mb.ela + 150 * 2
+    # If we then set a new bias this should start to evolve again.
+    new_bias = -1.0
+    new_duration = 10
+    glacier.add_temperature_bias(bias=new_bias, duration=new_duration)
+    # Progress
+    year = 25
+    glacier.progress_to_year(year)
+    # What should the bias be now?
+    # We should be going from the previous bias towards the new bias.
+    assert glacier.mass_balance.temp_bias == bias + (
+        (new_bias - bias) / new_duration * 5
+    )
 
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="mass_balance_plot.png"
-)
-def test_plot_mass_balance():
-    """Make sure the mass_balance plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    # Plot the glacier.
-    glacier.plot_mass_balance()
-    # Retreive the figure.
-    fig = plt.gcf()
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="history_plot.png"
-)
-def test_plot_history():
-    """Make sure the mass_balance plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    glacier.progress_to_year(100)
-    # Plot the glacier.
-    fig, _, _, _ = glacier._create_history_plot_components()
-
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="state_history_plot.png"
-)
-def test_plot_state_history():
-    """Make sure the mass_balance plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    glacier.progress_to_year(100)
-    # Plot the glacier.
-    glacier.plot_state_history()
-
-    fig = plt.gcf()
-
-    return fig
+    # Progress further
+    year = 35
+    glacier.progress_to_year(year)
+    assert glacier.mass_balance.temp_bias == new_bias
+    assert glacier.ela == real_mb.ela + 150 * new_bias
 
 
 def test_surging_glacier():
@@ -148,18 +136,3 @@ def test_surging_glacier():
     # No eq. state method.
     with pytest.raises(Exception) as e_info:
         surging_glacier.progress_to_equilibrium()
-
-
-# Test the plotting.
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="surging_history_plot.png"
-)
-def test_surging_history_plot():
-    surging_glacier = SurgingGlacier(bed=real_bed, mass_balance=real_mb)
-
-    # Progress the surging glacier
-    year = 200
-    surging_glacier.progress_to_year(year)
-    surging_glacier.plot_history()
-    fig = plt.gcf()
-    return fig

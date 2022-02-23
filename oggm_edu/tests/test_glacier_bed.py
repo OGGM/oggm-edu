@@ -48,14 +48,3 @@ def test_constructor_attribute_assignment():
     assert_equal(bed.bed_h, [2500, 2250, 2000, 1750, 1500])
     # What should the widhts be? Linearly interpolated.
     assert_equal(bed.widths * bed.map_dx, [500, 500, 500, 375, 250])
-
-
-# Some fancy plot testing.
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="bed_base_plot.png"
-)
-def test_plot():
-    """Make sure the base plot look as intended."""
-    bed = GlacierBed(top=3400, bottom=1000, width=500)
-    fig, _, _ = bed._create_base_plot()
-    return fig
