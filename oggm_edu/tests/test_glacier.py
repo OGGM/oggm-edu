@@ -65,6 +65,51 @@ def test_progress_to_year():
     assert len(glacier.state_history.time) == year + 1
 
 
+def test_add_temperature_bias():
+    """Test to make sure that the entire temperature bias mechanism works as intended."""
+    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
+    # Add a temperature bias
+    duration = 10
+    bias = 2.0
+    glacier.add_temperature_bias(bias=2.0, duration=duration)
+    # Progress the glacier a few years.
+    year = 2
+    glacier.progress_to_year(year)
+    # Check the current temperature bias.
+    assert glacier.mass_balance.temp_bias == bias / duration * year
+
+    # Progress a bit further
+    year = 10
+    glacier.progress_to_year(year)
+    # We should have reached the final temp bias now.
+    assert glacier.mass_balance.temp_bias == bias
+    # This should've also have update the ELA, check against the original ELA.
+    assert glacier.ela == real_mb.ela + 150 * 2
+    assert glacier.age == 10
+    # Progress even further, bias should not continue to evolve
+    glacier.progress_to_year(20)
+    assert glacier.mass_balance.temp_bias == bias
+    assert glacier.ela == real_mb.ela + 150 * 2
+    # If we then set a new bias this should start to evolve again.
+    new_bias = -1.0
+    new_duration = 10
+    glacier.add_temperature_bias(bias=new_bias, duration=new_duration)
+    # Progress
+    year = 25
+    glacier.progress_to_year(year)
+    # What should the bias be now?
+    # We should be going from the previous bias towards the new bias.
+    assert glacier.mass_balance.temp_bias == bias + (
+        (new_bias - bias) / new_duration * 5
+    )
+
+    # Progress further
+    year = 35
+    glacier.progress_to_year(year)
+    assert glacier.mass_balance.temp_bias == new_bias
+    assert glacier.ela == real_mb.ela + 150 * new_bias
+
+
 def test_surging_glacier():
     """Some test on the surging glacier."""
 
