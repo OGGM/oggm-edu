@@ -538,6 +538,19 @@ class Glacier:
                     ls="--",
                     lw=1,
                 )
+            # If we don't have a state yet, plot the ELA on the bed.
+            else:
+                # Where is the ela in regards to the bed height?
+                idx = (np.abs(self.bed.bed_h - self.ela)).argmin()
+                # Add vertical line.
+                ax2.vlines(
+                    self.bed.distance_along_glacier[idx],
+                    ymin=-self.bed.widths[idx] / 2 * self.bed.map_dx,
+                    ymax=self.bed.widths[idx] / 2 * self.bed.map_dx,
+                    color="k",
+                    ls="--",
+                    lw=1,
+                )
 
         # Limits etc
         plt.xlim((0, self.bed.distance_along_glacier[-1] + 2))
