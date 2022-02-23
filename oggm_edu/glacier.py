@@ -99,7 +99,7 @@ class Glacier:
         attrs = self._to_json()
         df = pd.DataFrame.from_dict(attrs, orient="index")
         df.columns = [""]
-        df.index.name = type(self).__name__
+        df.index.name = "Attribute"
 
         return df._repr_html_()
 
@@ -107,10 +107,12 @@ class Glacier:
         """Json represenation"""
         state = self.state()
         json = {
+            "Type": type(self).__name__,
             "Age": int(self.age),
             "Length [m]": state.length_m,
             "Area [km2]": state.area_km2,
             "Volume [km3]": state.volume_km3,
+            "Max ice thickness [m]": state.thick.max(),
             "Response time [yrs]": self.response_time,
         }
         return json
@@ -536,6 +538,19 @@ class Glacier:
                     ls="--",
                     lw=1,
                 )
+            # If we don't have a state yet, plot the ELA on the bed.
+            else:
+                # Where is the ela in regards to the bed height?
+                idx = (np.abs(self.bed.bed_h - self.ela)).argmin()
+                # Add vertical line.
+                ax2.vlines(
+                    self.bed.distance_along_glacier[idx],
+                    ymin=-self.bed.widths[idx] / 2 * self.bed.map_dx,
+                    ymax=self.bed.widths[idx] / 2 * self.bed.map_dx,
+                    color="k",
+                    ls="--",
+                    lw=1,
+                )
 
         # Limits etc
         plt.xlim((0, self.bed.distance_along_glacier[-1] + 2))
@@ -768,10 +783,12 @@ class SurgingGlacier(Glacier):
         """Json represenation"""
         state = self.state()
         json = {
+            "Type": type(self).__name__,
             "Age": int(self.age),
             "Length [m]": state.length_m,
             "Area [km2]": state.area_km2,
             "Volume [km3]": state.volume_km3,
+            "Max ice thickness [m]": state.thick.max(),
             "Surging periodicity (off/on)": [[self.normal_years, self.surging_years]],
             "Surging now?": not self._normal_period,
         }

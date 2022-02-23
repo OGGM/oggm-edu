@@ -345,6 +345,7 @@ class GlacierCollection:
         for glacier in self._glaciers:
             # Create the label
             label = (
+                f"Type: {type(glacier).__name__}\n"
                 f"ELA: {glacier.ela} \n"
                 f"MB grad: {glacier.mb_gradient} \n"
                 f"Age: {glacier.age} \n"
@@ -380,12 +381,15 @@ class GlacierCollection:
                 # Plot the area
                 glacier.history.area_m2.plot(
                     ax=ax3,
-                    label=f"Glacier {i}\n"
-                    + f"ELA: {glacier.ela}\n"
-                    + f"MB grad: {glacier.mb_gradient}\n"
-                    + f"Age: {glacier.age}\n"
-                    + f"Creep: {glacier.creep:.2e}\n"
-                    + f"Sliding: {glacier.basal_sliding}",
+                    label=(
+                        f"Glacier {i}\n"
+                        f"Type: {type(glacier).__name__}\n"
+                        f"ELA: {glacier.ela}\n"
+                        f"MB grad: {glacier.mb_gradient}\n"
+                        f"Age: {glacier.age}\n"
+                        f"Creep: {glacier.creep:.2e}\n"
+                        f"Sliding: {glacier.basal_sliding}"
+                    ),
                 )
             else:
                 print("Glacier history missing")
