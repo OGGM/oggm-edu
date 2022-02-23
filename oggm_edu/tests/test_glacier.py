@@ -1,7 +1,5 @@
 from oggm_edu import Glacier, SurgingGlacier, GlacierBed, MassBalance
-import numpy as np
 from numpy.testing import assert_equal
-from matplotlib import pyplot as plt
 import pytest
 
 real_mb = MassBalance(ela=3000, gradient=5)
@@ -67,61 +65,6 @@ def test_progress_to_year():
     assert len(glacier.state_history.time) == year + 1
 
 
-# Some fancy plot testing.
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="glacier_plot.png"
-)
-def test_plot():
-    """Make sure the base plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    # Plot the glacier.
-    glacier.plot()
-    # Retreive the figure.
-    fig = plt.gcf()
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="mass_balance_plot.png"
-)
-def test_plot_mass_balance():
-    """Make sure the mass_balance plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    # Plot the glacier.
-    glacier.plot_mass_balance()
-    # Retreive the figure.
-    fig = plt.gcf()
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="history_plot.png"
-)
-def test_plot_history():
-    """Make sure the mass_balance plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    glacier.progress_to_year(100)
-    # Plot the glacier.
-    fig, _, _, _ = glacier._create_history_plot_components()
-
-    return fig
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="state_history_plot.png"
-)
-def test_plot_state_history():
-    """Make sure the mass_balance plot look as intended."""
-    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
-    glacier.progress_to_year(100)
-    # Plot the glacier.
-    glacier.plot_state_history()
-
-    fig = plt.gcf()
-
-    return fig
-
-
 def test_surging_glacier():
     """Some test on the surging glacier."""
 
@@ -148,18 +91,3 @@ def test_surging_glacier():
     # No eq. state method.
     with pytest.raises(Exception) as e_info:
         surging_glacier.progress_to_equilibrium()
-
-
-# Test the plotting.
-@pytest.mark.mpl_image_compare(
-    baseline_dir="baseline_images", filename="surging_history_plot.png"
-)
-def test_surging_history_plot():
-    surging_glacier = SurgingGlacier(bed=real_bed, mass_balance=real_mb)
-
-    # Progress the surging glacier
-    year = 200
-    surging_glacier.progress_to_year(year)
-    surging_glacier.plot_history()
-    fig = plt.gcf()
-    return fig
