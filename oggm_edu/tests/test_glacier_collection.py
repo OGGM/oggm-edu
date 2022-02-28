@@ -81,6 +81,23 @@ def test_change_attributes():
     assert collection.glaciers[0].mass_balance.gradient == 10
     assert collection.glaciers[1].mass_balance.gradient == 15
 
+    # Testing the expression assignment mechanism
+    collection = GlacierCollection()
+    collection.fill(glacier1, n=5)
+    # Change another attribute.
+    collection.change_attributes(
+        attributes_to_change={"basal_sliding": [10, 10, 10, 10, 10]}
+    )
+    collection.change_attributes(
+        attributes_to_change={"basal_sliding": ["* 5", "/ 5", "+ 5", "- 5", ""]}
+    )
+    # Did it work?
+    assert collection.glaciers[0].basal_sliding == 50
+    assert collection.glaciers[1].basal_sliding == 2
+    assert collection.glaciers[2].basal_sliding == 15
+    assert collection.glaciers[3].basal_sliding == 5
+    assert collection.glaciers[4].basal_sliding == 10
+
 
 def test_progress_to_year():
     """Test progressing the collection to a specified year"""

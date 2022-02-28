@@ -79,11 +79,54 @@ def edu_plotter(func):
         figsize=(12, 9),
         **kwargs,
     ):
-        with \
-                mpl.rc_context({"figure.figsize": figsize}), \
-                sns.plotting_context(sns_context), \
-                sns.axes_style(sns_axes_style)\
-                :
+        with mpl.rc_context({"figure.figsize": figsize}), sns.plotting_context(
+            sns_context
+        ), sns.axes_style(sns_axes_style):
             return func(*args, **kwargs)
 
     return context_wrapper
+
+
+def expression_parser(expression, numeric):
+    """Parse an uncomplete math expression e.g. '* 10' and apply it to supplied attribute.
+
+    Parameters
+    ----------
+    expression : string
+        Incomplete math expression in the form '* 5' or '- 10'. Can also be empty to leave
+        numeric un-affected.
+    numeric : int or float
+        Value to evaluate against expression.
+    Returns
+    -------
+    The full expression evaluated.
+    """
+
+    # is expression a string?
+    if not isinstance(expression, str):
+        raise TypeError("expression should be a string.")
+
+    elif not isinstance(numeric, (int, float)):
+        raise TypeError("numeric should be an integer or a float.")
+    # If expression is empty, we return the numeric.
+    elif expression == "":
+        return numeric
+
+    else:
+        # Extract the operator
+        operator = expression[0]
+        if operator not in ["*", "/", "+", "-"]:
+            raise ValueError(
+                "First part of expression should be either one of *, /, +, -."
+            )
+        # Extract the factor
+        factor = float(expression[1:])
+        # Create a table of possible expressions. Then we just pick the correct one for return.
+        expression_dict = {
+            "*": numeric * factor,
+            "/": numeric / factor,
+            "+": numeric + factor,
+            "-": numeric - factor,
+        }
+
+        return expression_dict[operator]

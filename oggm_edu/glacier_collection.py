@@ -4,7 +4,7 @@ the handling of multiple glaciers.
 
 # Internals
 from oggm_edu.glacier import Glacier
-from oggm_edu.funcs import edu_plotter
+from oggm_edu.funcs import edu_plotter, expression_parser
 
 # Other libraries.
 import pandas as pd
@@ -160,7 +160,7 @@ class GlacierCollection:
             Dictionary where the key value pairs follow the structure:
             {'key': [n values], ...}, where 'key' match an attribute
             of the glacier and n match the length of the collection.
-            Valid values for key are:
+            Valid keys are:
             - gradient
             - ela
             - basal_sliding
@@ -168,6 +168,10 @@ class GlacierCollection:
             - normal_years
             - surging_years
             - basal_sliding_surge
+            Values should be either numeric or a string of a partial
+            mathematical expression e.g. '* 10', which is evaluated
+            to multiplying the current value by a factor 10. Pass an empty
+            string to leave the attribute unaffected.
         """
         # Did we get a dict?
         if not isinstance(attributes_to_change, dict):
@@ -198,13 +202,26 @@ class GlacierCollection:
                 )
             # If all passes
             else:
+                # Set values and glaciers.
                 for (glacier, value) in zip(self.glaciers, values):
+                    # Should we act on the glacier or mass balance?
+                    if key in mb_attrs:
+                        obj = glacier.mass_balance
+                    # Just the glacier
+                    else:
+                        obj = glacier
+
+                    # If value is a string (a partial expression) we set the value
+                    # using the expression_parser.
+                    if isinstance(value, str):
+                        # Get the current value of the attribute.
+                        curr_value = getattr(obj, key)
+                        # Calculate the value based on the partial expression.
+                        value = expression_parser(value, curr_value)
+                    # If value is not a string we can just assign it directly.
                     # Use built in setattr. Should respect the defined
                     # setters, with error messages an such.
-                    if key in mb_attrs:
-                        setattr(glacier.mass_balance, key, value)
-                    else:
-                        setattr(glacier, key, value)
+                    setattr(obj, key, value)
 
     def progress_to_year(self, year):
         """Progress the glaciers within the collection to
