@@ -114,3 +114,15 @@ def test_non_linear_bed_constructor():
     # Bed top and bottom should always equal the first and last value in the bed_h.
     assert bed.bed_h[0] == bed.top
     assert bed.bed_h[-1] == bed.bottom
+
+    # Make sure we cant provide strange slop angles.
+    with pytest.raises(Exception) as e_info:
+        bed = GlacierBed(top=3600, bottom=3000, width=300, slopes=[90])
+
+    with pytest.raises(Exception) as e_info:
+        _ = GlacierBed(
+            altitudes=[2500, 2000, 1500],
+            widths=[500, 500, 250],
+            slopes=[25, -15],
+            slope_sections=[2500, 2200, 1400],
+        )

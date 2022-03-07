@@ -112,7 +112,11 @@ class GlacierBed:
             # If slopes is not a sequence, then make it one.
             if not isinstance(slopes, Sequence):
                 slopes = [slopes]
-            #  Do we have suquences of both slopes and breakpoints?
+
+            # Make sure that the provided slopes are reasonable.
+            if (np.asarray(slopes) < 1).any() or (np.asarray(slopes) > 80).any():
+                raise ValueError("Slopes should be above 0 and below 80 degrees.")
+            #  Do we have sequence of both slopes and breakpoints?
             if isinstance(slopes, Sequence) and isinstance(slope_sections, Sequence):
                 # Are they compatible?
                 # There should be one more section compared to slopes
