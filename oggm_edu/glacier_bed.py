@@ -3,6 +3,7 @@ glacier bed to use with the Glacier and SurgingGlacier classes.
 """
 
 from oggm_edu.funcs import edu_plotter
+from collections.abc import Sequence
 
 # Other libraries.
 import numpy as np
@@ -22,14 +23,18 @@ class GlacierBed:
         width=None,
         altitudes=None,
         widths=None,
-        slope=None,
+        slopes=None,
+        slope_sections=None,
         nx=200,
         map_dx=100,
     ):
         """Initialise the bed. Pass single scalars for top, bottom and width
-         to create a square glacier bed. For finer control pass altitudes and
-         widths as lists or tuples for custom geometry. Will linearly
-         intepolate between the altitude/width pairs.
+        to create a square glacier bed. For finer control of the width pass
+        altitudes and widths as lists or tuples for custom geometry. This will linearly
+        intepolate between the altitude/width pairs.
+
+        To contol the slope of the glacier provide a single value to slopes. For even finer contol
+        pass a sequence of values to slopes along with a sequence of altitudes to slope_sections.
 
         Parameters
         ----------
@@ -46,10 +51,15 @@ class GlacierBed:
         widths : array_like, (ints of floats)
             List of values defining the widths along the glacier.
             Length should match altitudes.
-        slope : float
-            Define the slope of the bed, decimal
+        slopes : array_like(int)
+            Define the slope of the bed, degrees. One or multiple values. For the latter,
+            slope sections are required.
+        slope_sections : array_like(int)
+            Defines the altitude spans for the slopes. Should start with the top altitude and
+            end with the bottom altitude. The number of altitudes need to be one greater then
+            the number of slopes.
         nx : int
-            Number of grid points.
+            Number of grid points. Will be overriden if slope is provided.
         map_dx : int
             Grid point spacing in meters.
         """
@@ -95,30 +105,76 @@ class GlacierBed:
                 "Top of the bed has to be above the bottom."
                 + " Bottom also has to be above 0"
             )
-        # Calculate the slope correction
-        if slope:
-            if slope >= 1.0 or slope <= 0.0:
-                raise ValueError("Slope shoud be between 0 and 1 (not equal)")
-            # If there is a slop we re calculate the map_dx
-            else:
-                map_dx = (self.top - self.bottom) / (nx * slope)
-
         # Set the resolution.
         self.map_dx = map_dx
-        # Initialise the bed
-        self.bed_h = np.linspace(self.top, self.bottom, nx)
-        self.distance_along_glacier = np.linspace(0, nx, nx) * self.map_dx * 1e-3
+        # Do we have a specified slope?
+        if slopes:
+            # If slopes is not a sequence, then make it one.
+            if not isinstance(slopes, Sequence):
+                slopes = [slopes]
+            #  Do we have suquences of both slopes and breakpoints?
+            if isinstance(slopes, Sequence) and isinstance(slope_sections, Sequence):
+                # Are they compatible?
+                # There should be one more section compared to slopes
+                if not len(slopes) == len(slope_sections) - 1:
+                    raise ValueError(
+                        "Number of slope sections should be one more then number of slopes"
+                    )
+                # Have to match top and bottom.
+                elif slope_sections[0] != self.top or slope_sections[-1] != self.bottom:
+                    raise ValueError(
+                        "First and last value of slope_sections should match top and bottom."
+                    )
+            # If we passed a single slope, we can assign slope sections to still make use of our fancy algo.
+            elif len(slopes) == 1:
+                slope_sections = [self.top, self.bottom]
+            # What is the height difference between the sections?
+            slope_sections = np.asarray(slope_sections)
+            slope_sections_diff = np.abs(np.diff(slope_sections))
+
+            # How long does a segment has to be to have the correct slope angle?
+            x_segments_length = slope_sections_diff / np.tan(np.deg2rad(slopes))
+            # We add a zero to the start to begin the interpolation in the right place.
+            # Take the cumsum to get the absolute position of each coord.
+            x_segments_length = np.concatenate([[0], x_segments_length.cumsum()])
+
+            # What does the total length of the glacier have to be?
+            # This should be a float for correct interpolation.
+            total_length = x_segments_length.max()
+            # And how many gridpoints do we need for this?
+            self.nx = int(total_length / self.map_dx)
+            # Distance along the glacier: up to the total length in the closest number of grid points.
+            self.distance_along_glacier = np.linspace(0, total_length, self.nx)
+            # Interpolate the heights
+            heights = np.interp(
+                self.distance_along_glacier, x_segments_length, slope_sections
+            )
+
+            # We can now put the distance in kms
+            self.distance_along_glacier = self.distance_along_glacier * 1e-3
+
+            # Assign the heights.
+            self.bed_h = heights
+
+        # Otherwise we just make a simple bed profile.
+        else:
+            self.nx = nx
+            self.bed_h = np.linspace(self.top, self.bottom, self.nx)
+            self.distance_along_glacier = (
+                np.linspace(0, self.nx, self.nx) * map_dx * 1e-3
+            )
+
         # Widths.
         # If width has a length of one, we have a constant width.
         if width:
             self.width = width
-            self.widths = (np.zeros(nx) + self.width) / map_dx
+            self.widths = (np.zeros(self.nx) + self.width) / self.map_dx
         # If length of width and length of width altitudes are compatible,
         # we create a bed with variable width.
         elif len(altitudes) == len(widths):
             self.width = widths
             # First create a constant bed.
-            tmp_w = np.zeros(nx)
+            tmp_w = np.zeros(self.nx)
 
             # Make sure we have lists.
             altitudes = list(altitudes)
@@ -138,7 +194,7 @@ class GlacierBed:
                 # Linear interpolation between the widths.
                 tmp_w[mask] = np.linspace(self.width[i], self.width[i + 1], mask.sum())
             # Assign the varied widths it.
-            self.widths = tmp_w / map_dx
+            self.widths = tmp_w / self.map_dx
 
         # If noting works, raise an error.
         else:
