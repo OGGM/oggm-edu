@@ -27,15 +27,15 @@ class GlacierCollection:
         ----------
         glacier_list : list of glaciers objects
             Defaults to none. Has the possibility to add glaciers on the go.
+            Glaciers need to have the same bed slope.
         """
 
         self._glaciers = []
 
         # Do we have a list of glaciers?
         if glacier_list:
-            # Check that all are Glaciers.
-            if all(isinstance(glacier, Glacier) for glacier in glacier_list):
-                self._glaciers = glacier_list
+            # Use the add method.
+            self.add(glacier_list)
 
     def __repr__(self):
         return f"Glacier collection with {len(self._glaciers)} glaciers."
@@ -70,10 +70,21 @@ class GlacierCollection:
         else:
             pass
 
-    def check_collection(self, glacier):
+    def _check_collection(self, glacier):
         """Utility method. Check if the glaciers obey the collection rules.
-        They need to have the same domains for this to make sense I think."""
-        # TODO
+        Make sure that a new glacier has the same bed as other glaciers in the collection.
+
+        glacier : Glacier
+            New glacier to check against the collection.
+        """
+
+        # Since this happens as soon as a glacier is added to a collection, we only have to check
+        # against the previous glacier
+        beds_ok = np.array_equal(self._glaciers[-1].bed.bed_h, glacier.bed.bed_h)
+
+        # If beds are not ok
+        if not beds_ok:
+            raise ValueError("Bed of new glacier does not match beds in collection.")
 
     @property
     def glaciers(self):
@@ -116,7 +127,7 @@ class GlacierCollection:
             self.change_attributes(attributes_to_change)
 
     def add(self, glacier):
-        """Add one or more glaciers to the collection.
+        """Add one or more glaciers to the collection. Glaciers have to have the same slope.
 
         Parameters
         ----------
@@ -132,24 +143,26 @@ class GlacierCollection:
                         "Glacier collection can only contain glacier objects."
                     )
                 # Is the glacier already in the collection?
-                if glacier in self._glaciers:
+                elif glacier in self._glaciers:
                     raise AttributeError("Glacier is already in collection")
-                # If the glacier is an instance of Glacier, we can add it to
-                # the collection.
-                else:
-                    self._glaciers.append(glacier)
+                # If there are already glaciers in the collection, check that the new one fit.
+                elif self._glaciers:
+                    self._check_collection(glacier)
+                # If no throws, add it.
+                self._glaciers.append(glacier)
         # If not iterable
         else:
             # Check that glacier is of the right type.
             if not isinstance(glacier, Glacier):
                 raise TypeError("Glacier collection can only contain glacier objects.")
             # Is the glacier already in the collection?
-            if glacier in self._glaciers:
+            elif glacier in self._glaciers:
                 raise AttributeError("Glacier is already in collection")
-            # If the glacier is an instance of Glacier, we can add it to
-            # the collection.
-            else:
-                self._glaciers.append(glacier)
+            # If there are already glaciers in the collection, check that the new one fit.
+            elif self._glaciers:
+                self._check_collection(glacier)
+            # If no throws, add it.
+            self._glaciers.append(glacier)
 
     def change_attributes(self, attributes_to_change):
         """Change the attribute(s) of the glaciers in the collection.
