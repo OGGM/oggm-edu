@@ -552,8 +552,6 @@ class Glacier:
                     lw=1,
                 )
 
-        # Limits etc
-        plt.xlim((0, self.bed.distance_along_glacier[-1] + 2))
 
         # Decorations
         ax1.set_title(f"Glacier state at year {int(self.age)}")

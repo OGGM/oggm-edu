@@ -366,7 +366,8 @@ class GlacierCollection:
         # axis labels.
         ax.set_xlabel("Distance along glacer [km]")
         ax.set_ylabel("Altitude [m]")
-        ax.set_xlim((0, gl1.bed.distance_along_glacier[-1] + 2))
+        # Add 2% of bed length as padding to the plot.
+        ax.set_xlim((0, gl1.bed.distance_along_glacier[-1] * 1.02))
         ax.set_facecolor("#ADD8E6")
         plt.legend(loc="lower left")
         # Add a second legend with infos.

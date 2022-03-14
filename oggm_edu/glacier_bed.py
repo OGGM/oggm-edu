@@ -274,7 +274,8 @@ class GlacierBed:
         # More styling.
         ax2.set_facecolor("darkgrey")
         ax2.axhline(0, c="k")
-        plt.xlim((0, self.distance_along_glacier[-1] + 2))
+        # We add 2% of the bed length to the plot to have some space.
+        plt.xlim((0, self.distance_along_glacier[-1] * 1.02))
         plt.xlabel("Distance along glacier [km]")
         plt.ylabel("Distance from centerline [m]")
         ax1.set_title("Glacier domain")
