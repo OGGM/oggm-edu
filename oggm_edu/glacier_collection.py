@@ -10,6 +10,8 @@ from oggm_edu.funcs import edu_plotter, expression_parser
 import pandas as pd
 import numpy as np
 from collections.abc import Sequence
+from multiprocessing import Pool
+from functools import partial
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -236,6 +238,21 @@ class GlacierCollection:
                     # setters, with error messages an such.
                     setattr(obj, key, value)
 
+    def _partial_progression(self, year, glacier):
+        """Function used to create partial tasks which can be passed to pool of workers.
+
+        Parameters
+        ----------
+        year : int
+            Which year to progress the glacier
+        glacier : oggm_edu.Glacier
+            Instance which should be progressed.
+        """
+        # Simply progress the glacier to desired year.
+        glacier.progress_to_year(year)
+        # Return the glacier.
+        return glacier
+
     def progress_to_year(self, year):
         """Progress the glaciers within the collection to
         the specified year.
@@ -243,14 +260,39 @@ class GlacierCollection:
         Parameters
         ----------
         year : int
-            Which year to grow the glaciers.
+            Which year to progress the glaciers.
         """
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
 
-        # Loop over the glaciers within the collection.
-        for glacier in self._glaciers:
-            glacier.progress_to_year(year)
+        # Create a partial function, with the year specified.
+        partial_progression = partial(self._partial_progression, year)
+
+        # Pool context manager.
+        with Pool() as p:
+            # We use pool.map to evaluate the partial function on all glaciers in the collection.
+            # After this, "update" the collection with the resulting glaciers.
+            self._glaciers = p.map(partial_progression, self._glaciers)
+
+    def _partial_eq_progression(self, years, t_rate, glacier):
+        """Function used to create partial tasks which can be passed to pool of workers.
+        Progress to equilibrium state.
+
+        Parameters
+        ----------
+        years : int
+            Specify the number of years during which we try to find
+            an equilibrium state.
+        t_rate : float
+            Specify how slow the glacier is allowed to change without
+            reaching equilibrium.
+        glacier : oggm_edu.Glacier
+            Instance which should be progressed.
+        """
+        # Simply progress the glacier to desired year.
+        glacier.progress_to_equilibrium(years=years, t_rate=t_rate)
+        # Return the new glacier
+        return glacier
 
     def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
         """Progress the glaciers to equilibrium.
@@ -267,9 +309,13 @@ class GlacierCollection:
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
 
-        # Loop.
-        for glacier in self._glaciers:
-            glacier.progress_to_equilibrium(years=years, t_rate=t_rate)
+        partial_eq_progression = partial(self._partial_eq_progression, years, t_rate)
+
+        # Pool context manager.
+        with Pool() as p:
+            # We use pool.map to evaluate the partial function on all glaciers in the collection.
+            # After this, "update" the collection with the resulting glaciers.
+            self._glaciers = p.map(partial_eq_progression, self._glaciers)
 
     @edu_plotter
     def plot(self):
