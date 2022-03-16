@@ -341,16 +341,30 @@ class Glacier:
                     run_to = int(self.age + 1)
                     try:
                         out = model.run_until_and_store(run_to, fl_diag_path=None)
+                    # If the glacier grows out of its bed, we try progressing again,
+                    # but five years shorter.
                     except RuntimeError:
-                        raise RuntimeError("Glacier outgrew its domain and had to stop")
+                        print(
+                            "Glacier grew out of its domain, trying to step back five years"
+                        )
+                        # Recurse with five years less. Eventually we'll find the largest possible state.
+                        self.progress_to_year(year - 5)
+                        # Since we've already saved the new state we can just return here.
+                        return
                     self.mass_balance._update_temp_bias(model.yr)
                 # If there is no temp evolution, do all the years.
                 else:
                     # Run the model. Store the history.
                     try:
                         out = model.run_until_and_store(year, fl_diag_path=None)
+                    # If it fails, see above.
                     except RuntimeError:
-                        raise RuntimeError("Glacier outgrew its domain and had to stop")
+                        print(
+                            "Glacier grew out of its domain, stepping back five years"
+                        )
+                        # Ohhh recursion
+                        self.progress_to_year(year - 5)
+                        return
 
                 # Update attributes.
                 self.history = out[0]
@@ -461,7 +475,12 @@ class Glacier:
                 )
 
             except RuntimeError:
-                print("Glacier grew out of its domain and had to stop.")
+                # We chose to print and return instead of raising since the
+                # collection will then be able to continue.
+                print(
+                    "Glacier grew out of its domain before reaching an equilibrium state."
+                )
+                return
 
             # Update attributes.
             self.history = out[0].dropna(dim="time")
@@ -551,7 +570,6 @@ class Glacier:
                     ls="--",
                     lw=1,
                 )
-
 
         # Decorations
         ax1.set_title(f"Glacier state at year {int(self.age)}")
