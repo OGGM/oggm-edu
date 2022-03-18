@@ -11,11 +11,15 @@ please :ref:`get in touch <title_contact>` so that we can advertise them!
 At the university level
 -----------------------
 
+
+- `Middlebury College glaciology-labs notebooks <https://github.com/ehultee/glaciology-labs>`_,
+  adapted (and enhanced) OGGM-Edu notebooks. By `Lizz Ultee <https://ehultee.github.io/>`_.
+- `University of Michigan CLaSP 474 Ice and Climate notebooks <https://github.com/skachuck/clasp474_w2021>`_,
+  adapted (and enhanced) OGGM-Edu notebooks. By `Samuel Kachuck <http://georei.com/>`_.
 - `Three-day workshop <https://github.com/ehultee/CdeC-glaciologia>`_
   for university students without prior glacier experience (in spanish). By `Lizz Ultee <https://ehultee.github.io/>`_.
   More context about her class `here <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_.
-- `University of Michigan CLaSP 474 Ice and Climate notebooks <https://github.com/skachuck/clasp474_w2021>`_,
-  adapted (and enhanced) OGGM-Edu notebooks. By `Samuel Kachuck <http://georei.com/>`_.
+ 
 
 High school activity sheets
 ---------------------------
