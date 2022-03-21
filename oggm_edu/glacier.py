@@ -483,8 +483,8 @@ class Glacier:
                 return
 
             # Update attributes.
-            self.history = out[0].dropna(dim="time")
-            self.state_history = out[1][0].dropna(dim="time")
+            self.history = out[0]
+            self.state_history = out[1][0]
             self.current_state = model.fls[0]
             self.age = model.yr
             self.model_state = model
