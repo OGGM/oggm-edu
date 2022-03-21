@@ -293,8 +293,13 @@ class MassBalance(MassBalanceModel):
         year : int
             Current age of the glacier
         """
+        # Check that we don't have a temperature bias scenario already.
+        if self._temp_bias_final_year != 0 and year <= self._temp_bias_final_year:
+            raise RuntimeError(
+                "We can't add a new temperature bias while the previous one is\nstill being evaluated."
+            )
         # Check that criteria are met.
-        if isinstance(temp_bias, float) and isinstance(duration, int):
+        elif isinstance(temp_bias, float) and isinstance(duration, int):
             # Set the temperature bias.
             self._temp_bias_final = temp_bias
             # Set the final year

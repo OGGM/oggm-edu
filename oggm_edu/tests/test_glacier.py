@@ -88,6 +88,10 @@ def test_add_temperature_bias():
     # Check the current temperature bias.
     assert glacier.mass_balance.temp_bias == bias / duration * year
 
+    # Adding a new temperature bias before the previous one is finished should fail.
+    with pytest.raises(Exception) as e_info:
+        glacier.add_temperature_bias(bias=2.5, duration=duration)
+
     # Progress a bit further
     year = 10
     glacier.progress_to_year(year)
