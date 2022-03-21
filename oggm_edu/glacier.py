@@ -693,8 +693,15 @@ class Glacier:
         prop_cycle = plt.rcParams["axes.prop_cycle"]
         colors = cycle(prop_cycle.by_key()["color"])
 
+        # Do we have any states?
+        if not self.state_history:
+            print(
+                "Glacier doesn't have a state history yet, try progressing the glacier."
+            )
+            # We don't want to do anything else, since some operation depend on the state_history.
+            return
         # If we don't want eq. states.
-        if not eq_states:
+        elif not eq_states:
             # Want to plot thickness at specified intervals. So we slice it.
             states = self.state_history.thickness_m.isel(
                 time=slice(interval, -1, interval)
