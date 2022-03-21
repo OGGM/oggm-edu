@@ -103,6 +103,25 @@ class Glacier:
 
         return df._repr_html_()
 
+    def reset(self):
+        """Reset the glacier to initial state."""
+        # Just force attributes to initials.
+        self.current_state = None
+        self.model_state = None
+        # Surface height.
+        self.surface_h = self.bed.bed_h
+        # Forget history.
+        self._history = None
+        self._state_history = None
+        self._eq_states = {}
+        # Age
+        self._age = 0
+        # Ice params.
+        self._basal_sliding = 0.0
+        self._creep = cfg.PARAMS["glen_a"]
+        # Reset the mass balance.
+        self._mass_balance.reset()
+
     def _to_json(self):
         """Json represenation"""
         state = self.state()
@@ -814,6 +833,23 @@ class SurgingGlacier(Glacier):
             "Surging now?": not self._normal_period,
         }
         return json
+
+    def reset(self):
+        """Reset the state of the surging glacier."""
+        # Extend from glacier.
+        super(SurgingGlacier, self).reset()
+        # Surging attributes
+        self._normal_years = 50
+        self._surging_years = 5
+        # Basal sliding during surge has a sane default.
+        # So no need to touch it.
+        self._basal_sliding_surge = 5.7e-20 * 10
+        self._basal_sliding = 5.7e-20
+        # Some state attributes used by the progress method
+        # to determine if we are surging or normal
+        self._normal_period = True
+        self._normal_years_left = self.normal_years
+        self._surging_years_left = self.surging_years
 
     @property
     def normal_years(self):

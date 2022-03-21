@@ -124,6 +124,17 @@ class MassBalance(MassBalanceModel):
 
         return df._repr_html_()
 
+    def reset(self):
+        """Reset the mass balance to initial state."""
+        # ELA
+        self.ela = self.orig_ela_h
+        # Temperature bias evolution
+        self._temp_bias = 0
+        self._temp_bias_final = 0.0
+        self._temp_bias_grad = 0.0
+        self._temp_bias_intersect = 0.0
+        self._temp_bias_final_year = 0
+
     @property
     def gradient(self):
         return self.grad

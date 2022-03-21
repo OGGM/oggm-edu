@@ -72,6 +72,16 @@ class GlacierCollection:
         else:
             pass
 
+    def reset(self):
+        """Reset all glaciers in the collection"""
+        # If we have glaciers,
+        if self._glaciers:
+            # Reset all of them.
+            for glacier in self.glaciers:
+                glacier.reset()
+        else:
+            print("Collection does not contain any glaciers to reset.")
+
     def _check_collection(self, glacier):
         """Utility method. Check if the glaciers obey the collection rules.
         Make sure that a new glacier has the same bed as other glaciers in the collection.
