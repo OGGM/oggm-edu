@@ -726,7 +726,12 @@ class Glacier:
 
                 # Add hline for ELAS
                 ax1.axhline(ela, ls=":")
-                ax1.text(0.2, ela + 5, f"ELA at year {label}", ha="left")
+                ax1.text(
+                    self.bed.distance_along_glacier[-1] - 0.2,
+                    ela + 5,
+                    f"ELA at year {label}",
+                    ha="right",
+                )
             # Add outline
             # Modify the zorder to get lines to show up nice.
             ax1.plot(
