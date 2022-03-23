@@ -82,21 +82,27 @@ class GlacierCollection:
         else:
             print("Collection does not contain any glaciers to reset.")
 
-    def _check_collection(self, glacier):
+    def _check_collection(self):
         """Utility method. Check if the glaciers obey the collection rules.
-        Make sure that a new glacier has the same bed as other glaciers in the collection.
-
-        glacier : Glacier
-            New glacier to check against the collection.
+        Make sure that the glaciers have the same bed.
         """
 
-        # Since this happens as soon as a glacier is added to a collection, we only have to check
-        # against the previous glacier
-        beds_ok = np.array_equal(self._glaciers[-1].bed.bed_h, glacier.bed.bed_h)
+        # If there is only one glacier in the collection, it is always ok.
+        if len(self._glaciers) <= 1:
+            return True
 
-        # If beds are not ok
-        if not beds_ok:
-            raise ValueError("Bed of new glacier does not match beds in collection.")
+        # Compare the glacier beds
+        beds = [glacier.bed.bed_h for glacier in self._glaciers]
+        # Do we get all ok?
+        ok = []
+        # We only have to check all the beds against one reference bed.
+        for bed in beds[1:]:
+            # Is the pair equal?
+            ok.append(np.array_equal(beds[0], bed))
+
+        # Any fails?
+        ok = np.asarray(ok).all()
+        return ok
 
     @property
     def glaciers(self):
@@ -157,9 +163,6 @@ class GlacierCollection:
                 # Is the glacier already in the collection?
                 elif glacier in self._glaciers:
                     raise AttributeError("Glacier is already in collection")
-                # If there are already glaciers in the collection, check that the new one fit.
-                elif self._glaciers:
-                    self._check_collection(glacier)
                 # If no throws, add it.
                 self._glaciers.append(glacier)
         # If not iterable
@@ -170,11 +173,12 @@ class GlacierCollection:
             # Is the glacier already in the collection?
             elif glacier in self._glaciers:
                 raise AttributeError("Glacier is already in collection")
-            # If there are already glaciers in the collection, check that the new one fit.
-            elif self._glaciers:
-                self._check_collection(glacier)
             # If no throws, add it.
             self._glaciers.append(glacier)
+
+        # We save this as an attribute. Re-compute when we add something to the collection.
+        # Then we can check the attribute from e.g. plot methods.
+        self._collection_ok = self._check_collection()
 
     def change_attributes(self, attributes_to_change):
         """Change the attribute(s) of the glaciers in the collection.
@@ -333,6 +337,12 @@ class GlacierCollection:
 
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
+
+        elif not self._collection_ok:
+            raise ValueError(
+                "We can only plot glacier surfaces if the glaciers all have the same bed."
+            )
+
         # We use this to plot the bedrock etc.
         gl1 = self._glaciers[0]
         # Get the ax from the first plot

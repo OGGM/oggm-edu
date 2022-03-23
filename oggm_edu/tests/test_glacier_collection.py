@@ -23,18 +23,22 @@ def test_constructor():
     # Should have length 2.
     assert len(collection.glaciers) == 2
 
-    # This should add the first two glaciers in the list.
-    with pytest.raises(Exception) as e_info:
-        collection = GlacierCollection([glacier1, glacier2, glacier3])
-    assert len(collection.glaciers) == 2
-
 
 def test_check_collection():
-    """We can't add any glacier to a collection. Beds have to match."""
-    collection = GlacierCollection([glacier1, glacier2])
+    """Check if the glaciers in the collection are the same."""
 
+    # Check collection should be true since glaciers have the same beds.
+    collection = GlacierCollection([glacier1, glacier2])
+    print(collection._check_collection())
+    assert collection._check_collection()
+
+    # Check collection should be false. Glaciers have different beds.
+    collection = GlacierCollection([glacier1, glacier3])
+    assert not collection._check_collection()
+
+    # Check that plot throws when we have different beds.
     with pytest.raises(Exception) as e_info:
-        collection._check_collection(glacier3)
+        collection.plot()
 
 
 def test_add():
@@ -47,13 +51,6 @@ def test_add():
     # But not possible to add the same glacier again.
     with pytest.raises(Exception) as e_info:
         collection.add(glacier1)
-
-    # Try adding a glacier with different bed.
-    # Should throw
-    with pytest.raises(Exception) as e_info:
-        collection.add(glacier3)
-    # Number of glaciers should remain the same.
-    assert len(collection.glaciers) == 3
 
 
 def test_fill():
