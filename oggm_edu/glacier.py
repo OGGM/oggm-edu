@@ -103,6 +103,25 @@ class Glacier:
 
         return df._repr_html_()
 
+    def reset(self):
+        """Reset the glacier to initial state."""
+        # Just force attributes to initials.
+        self.current_state = None
+        self.model_state = None
+        # Surface height.
+        self.surface_h = self.bed.bed_h
+        # Forget history.
+        self._history = None
+        self._state_history = None
+        self._eq_states = {}
+        # Age
+        self._age = 0
+        # Ice params.
+        self._basal_sliding = 0.0
+        self._creep = cfg.PARAMS["glen_a"]
+        # Reset the mass balance.
+        self._mass_balance.reset()
+
     def _to_json(self):
         """Json represenation"""
         state = self.state()
@@ -341,16 +360,30 @@ class Glacier:
                     run_to = int(self.age + 1)
                     try:
                         out = model.run_until_and_store(run_to, fl_diag_path=None)
+                    # If the glacier grows out of its bed, we try progressing again,
+                    # but five years shorter.
                     except RuntimeError:
-                        raise RuntimeError("Glacier outgrew its domain and had to stop")
+                        print(
+                            "Glacier grew out of its domain, trying to step back five years"
+                        )
+                        # Recurse with five years less. Eventually we'll find the largest possible state.
+                        self.progress_to_year(year - 5)
+                        # Since we've already saved the new state we can just return here.
+                        return
                     self.mass_balance._update_temp_bias(model.yr)
                 # If there is no temp evolution, do all the years.
                 else:
                     # Run the model. Store the history.
                     try:
                         out = model.run_until_and_store(year, fl_diag_path=None)
+                    # If it fails, see above.
                     except RuntimeError:
-                        raise RuntimeError("Glacier outgrew its domain and had to stop")
+                        print(
+                            "Glacier grew out of its domain, stepping back five years"
+                        )
+                        # Ohhh recursion
+                        self.progress_to_year(year - 5)
+                        return
 
                 # Update attributes.
                 self.history = out[0]
@@ -461,11 +494,16 @@ class Glacier:
                 )
 
             except RuntimeError:
-                print("Glacier grew out of its domain and had to stop.")
+                # We chose to print and return instead of raising since the
+                # collection will then be able to continue.
+                print(
+                    "Glacier grew out of its domain before reaching an equilibrium state."
+                )
+                return
 
             # Update attributes.
-            self.history = out[0].dropna(dim="time")
-            self.state_history = out[1][0].dropna(dim="time")
+            self.history = out[0]
+            self.state_history = out[1][0]
             self.current_state = model.fls[0]
             self.age = model.yr
             self.model_state = model
@@ -551,9 +589,6 @@ class Glacier:
                     ls="--",
                     lw=1,
                 )
-
-        # Limits etc
-        plt.xlim((0, self.bed.distance_along_glacier[-1] + 2))
 
         # Decorations
         ax1.set_title(f"Glacier state at year {int(self.age)}")
@@ -658,8 +693,15 @@ class Glacier:
         prop_cycle = plt.rcParams["axes.prop_cycle"]
         colors = cycle(prop_cycle.by_key()["color"])
 
+        # Do we have any states?
+        if not self.state_history:
+            print(
+                "Glacier doesn't have a state history yet, try progressing the glacier."
+            )
+            # We don't want to do anything else, since some operation depend on the state_history.
+            return
         # If we don't want eq. states.
-        if not eq_states:
+        elif not eq_states:
             # Want to plot thickness at specified intervals. So we slice it.
             states = self.state_history.thickness_m.isel(
                 time=slice(interval, -1, interval)
@@ -710,7 +752,12 @@ class Glacier:
 
                 # Add hline for ELAS
                 ax1.axhline(ela, ls=":")
-                ax1.text(0.2, ela + 5, f"ELA at year {label}", ha="left")
+                ax1.text(
+                    self.bed.distance_along_glacier[-1] - 0.2,
+                    ela + 5,
+                    f"ELA at year {label}",
+                    ha="right",
+                )
             # Add outline
             # Modify the zorder to get lines to show up nice.
             ax1.plot(
@@ -793,6 +840,23 @@ class SurgingGlacier(Glacier):
             "Surging now?": not self._normal_period,
         }
         return json
+
+    def reset(self):
+        """Reset the state of the surging glacier."""
+        # Extend from glacier.
+        super(SurgingGlacier, self).reset()
+        # Surging attributes
+        self._normal_years = 50
+        self._surging_years = 5
+        # Basal sliding during surge has a sane default.
+        # So no need to touch it.
+        self._basal_sliding_surge = 5.7e-20 * 10
+        self._basal_sliding = 5.7e-20
+        # Some state attributes used by the progress method
+        # to determine if we are surging or normal
+        self._normal_period = True
+        self._normal_years_left = self.normal_years
+        self._surging_years_left = self.surging_years
 
     @property
     def normal_years(self):

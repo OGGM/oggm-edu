@@ -10,6 +10,8 @@ from oggm_edu.funcs import edu_plotter, expression_parser
 import pandas as pd
 import numpy as np
 from collections.abc import Sequence
+from multiprocessing import Pool
+from functools import partial
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -70,21 +72,37 @@ class GlacierCollection:
         else:
             pass
 
-    def _check_collection(self, glacier):
-        """Utility method. Check if the glaciers obey the collection rules.
-        Make sure that a new glacier has the same bed as other glaciers in the collection.
+    def reset(self):
+        """Reset all glaciers in the collection"""
+        # If we have glaciers,
+        if self._glaciers:
+            # Reset all of them.
+            for glacier in self.glaciers:
+                glacier.reset()
+        else:
+            print("Collection does not contain any glaciers to reset.")
 
-        glacier : Glacier
-            New glacier to check against the collection.
+    def _check_collection(self):
+        """Utility method. Check if the glaciers obey the collection rules.
+        Make sure that the glaciers have the same bed.
         """
 
-        # Since this happens as soon as a glacier is added to a collection, we only have to check
-        # against the previous glacier
-        beds_ok = np.array_equal(self._glaciers[-1].bed.bed_h, glacier.bed.bed_h)
+        # If there is only one glacier in the collection, it is always ok.
+        if len(self._glaciers) <= 1:
+            return True
 
-        # If beds are not ok
-        if not beds_ok:
-            raise ValueError("Bed of new glacier does not match beds in collection.")
+        # Compare the glacier beds
+        beds = [glacier.bed.bed_h for glacier in self._glaciers]
+        # Do we get all ok?
+        ok = []
+        # We only have to check all the beds against one reference bed.
+        for bed in beds[1:]:
+            # Is the pair equal?
+            ok.append(np.array_equal(beds[0], bed))
+
+        # Any fails?
+        ok = np.asarray(ok).all()
+        return ok
 
     @property
     def glaciers(self):
@@ -145,9 +163,6 @@ class GlacierCollection:
                 # Is the glacier already in the collection?
                 elif glacier in self._glaciers:
                     raise AttributeError("Glacier is already in collection")
-                # If there are already glaciers in the collection, check that the new one fit.
-                elif self._glaciers:
-                    self._check_collection(glacier)
                 # If no throws, add it.
                 self._glaciers.append(glacier)
         # If not iterable
@@ -158,11 +173,12 @@ class GlacierCollection:
             # Is the glacier already in the collection?
             elif glacier in self._glaciers:
                 raise AttributeError("Glacier is already in collection")
-            # If there are already glaciers in the collection, check that the new one fit.
-            elif self._glaciers:
-                self._check_collection(glacier)
             # If no throws, add it.
             self._glaciers.append(glacier)
+
+        # We save this as an attribute. Re-compute when we add something to the collection.
+        # Then we can check the attribute from e.g. plot methods.
+        self._collection_ok = self._check_collection()
 
     def change_attributes(self, attributes_to_change):
         """Change the attribute(s) of the glaciers in the collection.
@@ -236,6 +252,21 @@ class GlacierCollection:
                     # setters, with error messages an such.
                     setattr(obj, key, value)
 
+    def _partial_progression(self, year, glacier):
+        """Function used to create partial tasks which can be passed to pool of workers.
+
+        Parameters
+        ----------
+        year : int
+            Which year to progress the glacier
+        glacier : oggm_edu.Glacier
+            Instance which should be progressed.
+        """
+        # Simply progress the glacier to desired year.
+        glacier.progress_to_year(year)
+        # Return the glacier.
+        return glacier
+
     def progress_to_year(self, year):
         """Progress the glaciers within the collection to
         the specified year.
@@ -243,14 +274,39 @@ class GlacierCollection:
         Parameters
         ----------
         year : int
-            Which year to grow the glaciers.
+            Which year to progress the glaciers.
         """
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
 
-        # Loop over the glaciers within the collection.
-        for glacier in self._glaciers:
-            glacier.progress_to_year(year)
+        # Create a partial function, with the year specified.
+        partial_progression = partial(self._partial_progression, year)
+
+        # Pool context manager.
+        with Pool() as p:
+            # We use pool.map to evaluate the partial function on all glaciers in the collection.
+            # After this, "update" the collection with the resulting glaciers.
+            self._glaciers = p.map(partial_progression, self._glaciers)
+
+    def _partial_eq_progression(self, years, t_rate, glacier):
+        """Function used to create partial tasks which can be passed to pool of workers.
+        Progress to equilibrium state.
+
+        Parameters
+        ----------
+        years : int
+            Specify the number of years during which we try to find
+            an equilibrium state.
+        t_rate : float
+            Specify how slow the glacier is allowed to change without
+            reaching equilibrium.
+        glacier : oggm_edu.Glacier
+            Instance which should be progressed.
+        """
+        # Simply progress the glacier to desired year.
+        glacier.progress_to_equilibrium(years=years, t_rate=t_rate)
+        # Return the new glacier
+        return glacier
 
     def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
         """Progress the glaciers to equilibrium.
@@ -267,9 +323,13 @@ class GlacierCollection:
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
 
-        # Loop.
-        for glacier in self._glaciers:
-            glacier.progress_to_equilibrium(years=years, t_rate=t_rate)
+        partial_eq_progression = partial(self._partial_eq_progression, years, t_rate)
+
+        # Pool context manager.
+        with Pool() as p:
+            # We use pool.map to evaluate the partial function on all glaciers in the collection.
+            # After this, "update" the collection with the resulting glaciers.
+            self._glaciers = p.map(partial_eq_progression, self._glaciers)
 
     @edu_plotter
     def plot(self):
@@ -277,6 +337,12 @@ class GlacierCollection:
 
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
+
+        elif not self._collection_ok:
+            raise ValueError(
+                "We can only plot glacier surfaces if the glaciers all have the same bed."
+            )
+
         # We use this to plot the bedrock etc.
         gl1 = self._glaciers[0]
         # Get the ax from the first plot
@@ -366,7 +432,8 @@ class GlacierCollection:
         # axis labels.
         ax.set_xlabel("Distance along glacer [km]")
         ax.set_ylabel("Altitude [m]")
-        ax.set_xlim((0, gl1.bed.distance_along_glacier[-1] + 2))
+        # Add 2% of bed length as padding to the plot.
+        ax.set_xlim((0, gl1.bed.distance_along_glacier[-1] * 1.02))
         ax.set_facecolor("#ADD8E6")
         plt.legend(loc="lower left")
         # Add a second legend with infos.

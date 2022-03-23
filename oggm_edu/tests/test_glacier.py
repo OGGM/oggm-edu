@@ -65,6 +65,16 @@ def test_progress_to_year():
     assert len(glacier.state_history.time) == year + 1
 
 
+def test_progress_to_equilibrium():
+    """Should be possible to combine progress_to_year and progress_to_equilibrium"""
+    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
+    glacier.progress_to_year(100)
+    glacier.progress_to_equilibrium()
+
+    # We don't really now what the eq state is. But at least some checks on the data.
+    assert len(glacier.history.time) == len(glacier.state_history.time)
+
+
 def test_add_temperature_bias():
     """Test to make sure that the entire temperature bias mechanism works as intended."""
     glacier = Glacier(bed=real_bed, mass_balance=real_mb)
@@ -77,6 +87,10 @@ def test_add_temperature_bias():
     glacier.progress_to_year(year)
     # Check the current temperature bias.
     assert glacier.mass_balance.temp_bias == bias / duration * year
+
+    # Adding a new temperature bias before the previous one is finished should fail.
+    with pytest.raises(Exception) as e_info:
+        glacier.add_temperature_bias(bias=2.5, duration=duration)
 
     # Progress a bit further
     year = 10
