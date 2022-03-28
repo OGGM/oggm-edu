@@ -25,19 +25,18 @@ have ``sphinx``, ``sphinx-book-theme``, ``numpydoc`` and ``ipython`` installed.
 
 We recommend to use conda (or mamba) to create an environment for oggm-edu. 
 Create a text file called `oggm_edu_docs.yaml` with the following content 
-in it:
+in it::
 
-```
-name: oggm_edu_docs
-channels:
-  - conda-forge
-dependencies:
-  - sphinx 
-  - sphinx-book-theme
-  - ipython
-  - numpydoc
-  - sphinx-intl
-```
+
+  name: oggm_edu_docs
+  channels:
+    - conda-forge
+  dependencies:
+    - sphinx 
+    - sphinx-book-theme
+    - ipython
+    - numpydoc
+    - sphinx-intl
 
 Then, from your `base` environment, do `mamba env create -f oggm_edu_docs.yml` 
 (or `conda env create -f oggm_edu_docs.yml`). To activate the environment,
