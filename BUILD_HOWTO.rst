@@ -23,15 +23,25 @@ Requirements
 There are some extra requirements to build the docs: you will need to
 have ``sphinx``, ``sphinx-book-theme``, ``numpydoc`` and ``ipython`` installed.
 
-If you have a conda environment, you can install the extra
-requirements with::
+We recommend to use conda (or mamba) to create an environment for oggm-edu. 
+Create a text file called `oggm_edu_docs.yaml` with the following content 
+in it:
 
-      conda install sphinx sphinx-book-theme ipython numpydoc sphinx-intl
+```
+name: oggm_edu_docs
+channels:
+  - conda-forge
+dependencies:
+  - sphinx 
+  - sphinx-book-theme
+  - ipython
+  - numpydoc
+  - sphinx-intl
+```
 
-If you use pip, activate your python environment and install the requirements
-with::
-
-      pip install sphinx sphinx-book-theme ipython numpydoc sphinx-intl
+Then, from your `base` environment, do `mamba env create -f oggm_edu_docs.yml` 
+(or `conda env create -f oggm_edu_docs.yml`). To activate the environment,
+type: `conda activate oggm_edu_docs`.
 
 
 Building the documentation
@@ -44,7 +54,7 @@ So how do you build the docs? Navigate to your local
 
 Then you can find the HTML output in the folder ``oggm-edu/docs/_build/html/``.
 
-The first time you build the docs, it will take quite a while because it has to
+The first time you build the docs, it might take a bit because it has to
 run all the code examples and build all the generated docstring pages.
 In subsequent evocations, sphinx will try to only build the pages that have
 been modified.
