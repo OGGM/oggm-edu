@@ -58,10 +58,10 @@ class Glacier:
         self._mass_balance = copy.deepcopy(mass_balance)
 
         # Initilaise the flowline
-        self.initial_state = self.init_flowline()
+        self._initial_state = self._init_flowline()
         # Set current and model state to None.
-        self.current_state = None
-        self.model_state = None
+        self._current_state = None
+        self._model_state = None
 
         # Ice dynamics parameters
         # Sane defaults
@@ -106,8 +106,8 @@ class Glacier:
     def reset(self):
         """Reset the glacier to initial state."""
         # Just force attributes to initials.
-        self.current_state = None
-        self.model_state = None
+        self._current_state = None
+        self._model_state = None
         # Surface height.
         self.surface_h = self.bed.bed_h
         # Forget history.
@@ -124,7 +124,7 @@ class Glacier:
 
     def _to_json(self):
         """Json represenation"""
-        state = self.state()
+        state = self._state()
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -141,7 +141,7 @@ class Glacier:
         new glaciers."""
         return copy.deepcopy(self)
 
-    def init_flowline(self):
+    def _init_flowline(self):
         # Initialise a RectangularBedFlowline for the glacier.
         return RectangularBedFlowline(
             surface_h=self.surface_h,
@@ -175,7 +175,7 @@ class Glacier:
         yr^-1.
         """
         # Only want data where there is ice.
-        mask = self.state().thick > 0
+        mask = self._state().thick > 0
 
         # Get the mb where there is ice.
         mb_s = self.annual_mass_balance[mask] * cfg.PARAMS["ice_density"]
@@ -185,12 +185,12 @@ class Glacier:
         # Return the m. w.e.
         return mb_s / 1000.0
 
-    def state(self):
+    def _state(self):
         """Glacier state logic"""
-        state = self.initial_state
+        state = self._initial_state
         # If we have a current state
-        if self.current_state:
-            state = self.current_state
+        if self._current_state:
+            state = self._current_state
         return state
 
     @property
@@ -344,7 +344,7 @@ class Glacier:
             # Do we have any years left to run?
             while year - self.age > 0:
                 # Check if we have a current state already.
-                state = self.state()
+                state = self._state()
                 # Initialise the model
                 model = FluxBasedModel(
                     state,
@@ -388,8 +388,8 @@ class Glacier:
                 # Update attributes.
                 self.history = out[0]
                 self.state_history = out[1][0]
-                self.current_state = model.fls[0]
-                self.model_state = model
+                self._current_state = model.fls[0]
+                self._model_state = model
                 self.age = model.yr
 
     def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
@@ -478,7 +478,7 @@ class Glacier:
                 self.progress_to_year(self.mass_balance._temp_bias_final_year)
             # Then we can find the eq. state.
             # Initialise the model
-            state = self.state()
+            state = self._state()
             model = FluxBasedModel(
                 state,
                 mb_model=self.mass_balance,
@@ -504,9 +504,9 @@ class Glacier:
             # Update attributes.
             self.history = out[0]
             self.state_history = out[1][0]
-            self.current_state = model.fls[0]
+            self._current_state = model.fls[0]
             self.age = model.yr
-            self.model_state = model
+            self._model_state = model
             # Remember the eq. year
             self._eq_states[self.age] = self.mass_balance.ela_h
 
@@ -516,9 +516,9 @@ class Glacier:
         _, ax1, ax2 = self.bed._create_base_plot()
 
         # If we have a current state, plot it.
-        if self.current_state is not None:
+        if self._current_state is not None:
             # Some masking shenanigans
-            diff = self.current_state.surface_h - self.bed.bed_h
+            diff = self._current_state.surface_h - self.bed.bed_h
             mask = diff > 0
             idx = diff.argmin()
             mask[: idx + 1] = True
@@ -526,7 +526,7 @@ class Glacier:
             ax1.fill_between(
                 self.bed.distance_along_glacier,
                 self.bed.bed_h,
-                self.current_state.surface_h,
+                self._current_state.surface_h,
                 where=mask,
                 color="white",
                 lw=2,
@@ -534,13 +534,13 @@ class Glacier:
             # Add outline
             ax1.plot(
                 self.bed.distance_along_glacier[mask],
-                self.current_state.surface_h[mask],
+                self._current_state.surface_h[mask],
                 lw=2,
                 label="Current glacier outline",
             )
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
-            filled = np.where(self.current_state.thick > 0, self.bed.widths, 0)
+            filled = np.where(self._current_state.thick > 0, self.bed.widths, 0)
             # Fill vetween them
             ax2.fill_between(
                 self.bed.distance_along_glacier,
@@ -551,7 +551,7 @@ class Glacier:
                 edgecolor="C0",
                 lw=2,
             )
-            ax1.set_ylim((self.bed.bottom, self.current_state.surface_h[0] + 200))
+            ax1.set_ylim((self.bed.bottom, self._current_state.surface_h[0] + 200))
 
         # ELA
         if self.ela is not None:
@@ -565,8 +565,8 @@ class Glacier:
             )
             # Where along the bed is the ELA? Convert height to
             # distance along glacier kind of.
-            if self.current_state is not None:
-                idx = (np.abs(self.current_state.surface_h - self.ela)).argmin()
+            if self._current_state is not None:
+                idx = (np.abs(self._current_state.surface_h - self.ela)).argmin()
                 # Plot the ELA in top down
                 ax2.vlines(
                     self.bed.distance_along_glacier[idx],
@@ -828,7 +828,7 @@ class SurgingGlacier(Glacier):
 
     def _to_json(self):
         """Json represenation"""
-        state = self.state()
+        state = self._state()
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -950,7 +950,7 @@ class SurgingGlacier(Glacier):
             # While we have years to run we do the following...
             while years_left:
                 # Check if we have a current state already.
-                state = self.state()
+                state = self._state()
                 # If in a normal period
                 if self._normal_period:
                     # How many years should we run?
@@ -1033,8 +1033,8 @@ class SurgingGlacier(Glacier):
                 # Update attributes.
                 self.history = out[0]
                 self.state_history = out[1][0]
-                self.current_state = model.fls[0]
-                self.model_state = model
+                self._current_state = model.fls[0]
+                self._model_state = model
                 self.age = model.yr
                 # Check where we are
                 years_left = year - self.age
