@@ -311,4 +311,3 @@ class GlacierBed:
         # Since we are not modifying the base here, we don't need to assign
         # any of the returns.
         self._create_base_plot()
-        plt.show()

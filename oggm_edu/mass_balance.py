@@ -194,7 +194,7 @@ class MassBalance(MassBalanceModel):
         else:
             raise ValueError("ELA below 0 not allowed.")
 
-    def get_monthly_mb(self, heights):
+    def get_monthly_mb(self, heights, **kwargs):
         """Calculate the monthly mass balance for the glacier.
 
         Parameters
@@ -225,7 +225,7 @@ class MassBalance(MassBalanceModel):
 
         return mb / SEC_IN_YEAR / self.rho
 
-    def get_annual_mb(self, heights):
+    def get_annual_mb(self, heights, **kwargs):
         """Get the annual mass balance.
 
         Parameters

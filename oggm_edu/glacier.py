@@ -715,7 +715,6 @@ class Glacier:
         """Plot the history of the glacier."""
         # Get the components
         fig, ax1, ax2, ax3 = self._create_history_plot_components()
-        plt.show()
 
     @edu_plotter
     def plot_state_history(self, interval=50, eq_states=False):
@@ -840,7 +839,6 @@ class Glacier:
                 )
             )
         )
-        plt.show()
 
 
 class SurgingGlacier(Glacier):
@@ -1117,5 +1115,3 @@ class SurgingGlacier(Glacier):
         # Legend entry
         patch = Patch(facecolor="tab:orange", alpha=0.3, label="Surging period")
         fig.legend(handles=[patch], loc="upper left", bbox_to_anchor=(0.9, 0.89))
-
-        plt.show()

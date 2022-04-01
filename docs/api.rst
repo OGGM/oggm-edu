@@ -7,23 +7,39 @@ oggm-edu python package
 This page lists all classes, their methods and attributes available in the
 ``oggm-edu`` python package.
 
+|badge_edu_notebooks|
+
+Open a MyBinder interactive session to try them yourself!
+
 .. important::
 
     This programming interface is relatively new (2022). It replaces a
-    much simpler previous interface which is now accessible via
-    ``from oggm_edu import legacy``.
+    much simpler previous interface, which is still accessible to our users
+    with::
+
+        from oggm_edu import legacy
 
     Don't hesitate to `let us know <https://github.com/OGGM/oggm-edu/issues>`_
-    if you find any mistakes!.
+    if you find any mistakes in the tool or in the docs!
 
-Glacier bed
------------
+GlacierBed
+----------
 
 .. autosummary::
    :toctree: generated/
 
    GlacierBed
    GlacierBed.plot
+
+GlacierBed example
+~~~~~~~~~~~~~~~~~~
+
+.. ipython:: python
+
+    from oggm_edu import GlacierBed
+    bed = GlacierBed(top=3400, bottom=1500, width=300)
+    @savefig plot_bed.png width=100%
+    bed.plot();
 
 MassBalance
 -----------
@@ -38,6 +54,15 @@ MassBalance
    MassBalance.gradient
    MassBalance.ela
    MassBalance.temp_bias
+
+MassBalance example
+~~~~~~~~~~~~~~~~~~~
+
+.. ipython:: python
+
+    from oggm_edu import MassBalance
+    mass_balance = MassBalance(ela=3000, gradient=4)
+    mass_balance
 
 Glacier
 -------
@@ -81,6 +106,22 @@ Glacier attributes
    Glacier.basal_sliding
    Glacier.eq_states
    Glacier.response_time
+
+Glacier example
+~~~~~~~~~~~~~~~
+
+.. ipython:: python
+
+    from oggm_edu import Glacier
+    glacier = Glacier(bed=bed, mass_balance=mass_balance)
+    glacier.progress_to_equilibrium()
+    @savefig plot_glacier.png width=100%
+    glacier.plot();
+
+.. ipython:: python
+
+    @savefig plot_glacier_equi.png width=100%
+    glacier.plot_history();
 
 SurgingGlacier
 --------------
@@ -131,3 +172,18 @@ GlacierCollection attributes
    GlacierCollection.annual_mass_balance
 
 
+GlacierCollection example
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. ipython:: python
+
+    from oggm_edu import GlacierCollection
+    wide_narrow_bed = GlacierBed(altitudes=[3400, 2800, 1500],
+                                 widths=[600, 300, 300])
+    wide_narrow_glacier = Glacier(bed=wide_narrow_bed,
+                                  mass_balance=mass_balance)
+    collection = GlacierCollection()
+    collection.add([glacier, wide_narrow_glacier])
+    collection.progress_to_year(600)
+    @savefig plot_glacier_collection.png width=100%
+    collection.plot()
