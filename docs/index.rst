@@ -138,6 +138,16 @@ recommendations and guidelines here.
     charter.rst
     roadmap.rst
 
+API Reference
+^^^^^^^^^^^^^
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: API Reference
+
+    api.rst
+
 .. _title_contact:
 
 Get in touch

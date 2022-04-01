@@ -31,10 +31,43 @@ from oggm import cfg
 
 
 class Glacier:
-    """The glacier object"""
+    """Provides the user with an easy way to create and perform experiments on
+    simulated glaciers.
+
+    It handles the progression and visualisation of the glacier. A glacier is constructed
+    with a GlacierBed and MassBalance.
+
+
+    Attributes
+    ----------
+    age : int
+        The age of the glacier.
+    annual_mass_balance : array
+        The annual mass balance at each grid point of the glacier.
+    basal_sliding : float
+        Basal sliding of the glacier.
+    bed : oggm_edu.GlacierBed
+        The bed of the glacier.
+    creep : float
+        Ice creep parameter (a in Glenns flow law).
+    eq_states : dict
+        Dictionary where key-value pairs represent the year and ELA height of the equilibrium states of
+        the glacier.
+    history : xArray dataset
+        Dataset containing the 1D history (time) of the glacier, notably length, area and volume.
+    mass_balance : oggm_edu.MassBalance
+        The mass balance of the glacier.
+    specific_mass_balance : float
+        Specific mass balance of the glacier [m w.e. yr^-1].
+    state_history : xArray dataset
+        Dataset containing the 2D state history (time, length) of the glacier, notably the surface height.
+    response_time : int
+        The time it takes for the glacier reach a new equilibrium state after a change in climate.
+        Calculates the volume response time from Oerlemans.
+    """
 
     def __init__(self, bed, mass_balance):
-        """Initialise a glacier object from a bed and a massbalance profile.
+        """Initialise a glacier object from a oggm_edu.GlacierBed and a oggm_edu.MassBalance.
 
         Parameters
         ----------
@@ -137,7 +170,7 @@ class Glacier:
         return json
 
     def copy(self):
-        """Return a deepcopy of the glacier. Useful for creating
+        """Return a copy of the glacier. Useful for quickly creating
         new glaciers."""
         return copy.deepcopy(self)
 
@@ -166,14 +199,12 @@ class Glacier:
 
     @property
     def annual_mass_balance(self):
-        "The annual mass balance is a property of the complete glacier."
+        """The annual mass balance at each grid point of the glacier."""
         return self.mass_balance.get_annual_mb(self.surface_h) * cfg.SEC_IN_YEAR
 
     @property
     def specific_mass_balance(self):
-        """Returns the specific mass balance of the glacier in m w.e.
-        yr^-1.
-        """
+        """The specific mass balance of the glacier [m w.e. yr^-1]."""
         # Only want data where there is ice.
         mask = self._state().thick > 0
 
@@ -204,11 +235,16 @@ class Glacier:
 
     @property
     def history(self):
-        """Return the glacier history dataset."""
+        """The history of the glacier. Contains the history of notably
+        the length, area and volume of the glacier.
+        """
         return self._history
 
     @property
     def state_history(self):
+        """The state history of the glacier, i.e. geometrical changes over time.
+        For instance ice thickness.
+        """
         return self._state_history
 
     @state_history.setter
@@ -278,7 +314,7 @@ class Glacier:
 
     @property
     def response_time(self):
-        """Returns the reponse time of the glacier.
+        """The reponse time of the glacier.
         Calculates the volume response time from Oerlemans based on the
         two latest eq. states."""
 
@@ -322,6 +358,7 @@ class Glacier:
 
     def progress_to_year(self, year):
         """Method to progress the glacier to year n.
+
         Parameters
         ----------
         year : int
@@ -512,7 +549,7 @@ class Glacier:
 
     @edu_plotter
     def plot(self):
-        """Plot the glacier"""
+        """Plot the current state of the glacier."""
         _, ax1, ax2 = self.bed._create_base_plot()
 
         # If we have a current state, plot it.
@@ -597,7 +634,7 @@ class Glacier:
 
     @edu_plotter
     def plot_mass_balance(self):
-        """Plot the mass balance profile of the glacier"""
+        """Plot the mass balance profile of the glacier."""
         plt.plot(
             self.annual_mass_balance,
             self.bed.bed_h,
@@ -668,7 +705,7 @@ class Glacier:
 
     @edu_plotter
     def plot_history(self):
-        """Plot the history of the glacier"""
+        """Plot the history of the glacier."""
         # Get the components
         fig, ax1, ax2, ax3 = self._create_history_plot_components()
         plt.show()

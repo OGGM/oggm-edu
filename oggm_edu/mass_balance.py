@@ -15,9 +15,22 @@ from oggm.cfg import SEC_IN_YEAR
 
 
 class MassBalance(MassBalanceModel):
-    """Oggm Edu mass balance. Can be initialised with either a single mass balance
-    gradient - resulting in a linear mass balance, or with multiple gradients - giving
-    a non-linear mass balance.
+    """Oggm Edu mass balance, used to construct the ``oggm_edu.Glacier``. The mass balance can be
+    constructed with either a single mass balance gradient  resulting in a linear mass balance,
+    or with multiple gradients - resulting in a non-linear mass balance profile.
+
+    Attributes
+    ----------
+    ela : int or float
+        Current equilibrium line altitude of the mass balance profile. Unit: m.
+    grad : int or float or list
+        Gradient of the mass balance profile. Single scalar if linear or multiple scalars if non-linear.
+        Unit: mm/m/yr
+    orig_ela_h : int or float
+        Original equilibrium line altitude of the mass balance profile. Unit: m.
+    temp_bias : float
+        Current temperature bias applied to the mass balance. Unit: C.
+
     """
 
     def __init__(
@@ -30,7 +43,7 @@ class MassBalance(MassBalanceModel):
         density=None,
     ):
         """Initialise the mass balance from the ELA and the gradient. Optionally pass breakpoints
-        in the case with multiple gradients.
+        in the case of multiple gradients.
 
         Parameters
         ----------
@@ -38,7 +51,7 @@ class MassBalance(MassBalanceModel):
             Equilibrium line altitude of the mass balance. Units: m.
         gradient : int or float or array_like(int or float)
             Mass balance gradient. Define the altitude relation of the mass balance.
-            If array like with int/float mass balance with multiple gradients will be
+            If array like with int/float, a mass balance with multiple gradients will be
             initialised.
         breakpoints : array_like(int or float) (Optional)
             Specify the altitude breakpoints between mass balance gradients.
@@ -276,7 +289,7 @@ class MassBalance(MassBalanceModel):
 
     @property
     def temp_bias(self):
-        """Temperature bias to add to the glacier"""
+        """Current temperature bias applied to the mass balance. Unit: °C"""
         return self._temp_bias
 
     @temp_bias.setter
