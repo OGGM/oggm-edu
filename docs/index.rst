@@ -95,8 +95,8 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     :caption: Interactive Notebooks
 
     notebooks_howto.rst
+    api.rst
     OGGM-Edu notebooks <https://oggm.org/oggm-edu-notebooks>
-
 
 .. _title_tuto:
 

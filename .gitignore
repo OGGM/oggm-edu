@@ -30,6 +30,7 @@ eggs
 *.lock
 *.mo
 docs/_build
+docs/_autosummary
 docs/_build_html
 docs/generated
 docs/_sources

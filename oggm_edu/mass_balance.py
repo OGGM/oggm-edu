@@ -15,9 +15,22 @@ from oggm.cfg import SEC_IN_YEAR
 
 
 class MassBalance(MassBalanceModel):
-    """Oggm Edu mass balance. Can be initialised with either a single mass balance
-    gradient - resulting in a linear mass balance, or with multiple gradients - giving
-    a non-linear mass balance.
+    """Oggm Edu mass balance, used to construct the ``oggm_edu.Glacier``. The mass balance can be
+    constructed with either a single mass balance gradient  resulting in a linear mass balance,
+    or with multiple gradients - resulting in a non-linear mass balance profile.
+
+    Attributes
+    ----------
+    ela : int or float
+        Current equilibrium line altitude of the mass balance profile. Unit: m.
+    grad : int or float or list
+        Gradient of the mass balance profile. Single scalar if linear or multiple scalars if non-linear.
+        Unit: mm/m/yr
+    orig_ela_h : int or float
+        Original equilibrium line altitude of the mass balance profile. Unit: m.
+    temp_bias : float
+        Current temperature bias applied to the mass balance. Unit: C.
+
     """
 
     def __init__(
@@ -30,7 +43,7 @@ class MassBalance(MassBalanceModel):
         density=None,
     ):
         """Initialise the mass balance from the ELA and the gradient. Optionally pass breakpoints
-        in the case with multiple gradients.
+        in the case of multiple gradients.
 
         Parameters
         ----------
@@ -38,7 +51,7 @@ class MassBalance(MassBalanceModel):
             Equilibrium line altitude of the mass balance. Units: m.
         gradient : int or float or array_like(int or float)
             Mass balance gradient. Define the altitude relation of the mass balance.
-            If array like with int/float mass balance with multiple gradients will be
+            If array like with int/float, a mass balance with multiple gradients will be
             initialised.
         breakpoints : array_like(int or float) (Optional)
             Specify the altitude breakpoints between mass balance gradients.
@@ -137,12 +150,13 @@ class MassBalance(MassBalanceModel):
 
     @property
     def gradient(self):
+        """Mass balance altitude gradient, mm/m. (only works for simple gradients)."""
         return self.grad
 
     # TODO create a gradient setter where we can also change complex gradients after init.
     @gradient.setter
     def gradient(self, value):
-        """Define the mass balance gradient. Only work for setting simple gradients.
+        """Define the mass balance gradient (only works for simple gradients).
 
         Parameters
         ----------
@@ -162,6 +176,7 @@ class MassBalance(MassBalanceModel):
 
     @property
     def ela(self):
+        """Altitude of the equilibrium line altitude (m)."""
         return self.ela_h
 
     @ela.setter
@@ -179,8 +194,18 @@ class MassBalance(MassBalanceModel):
         else:
             raise ValueError("ELA below 0 not allowed.")
 
-    def get_monthly_mb(self, heights, **kwargs):
-        """Calculate the monthly mass balance for the glacier."""
+    def get_monthly_mb(self, heights):
+        """Calculate the monthly mass balance for the glacier.
+
+        Parameters
+        ----------
+        heights : np.ndarray
+            altitudes at which to compute the MB
+
+        Returns
+        -------
+        the mass-balances (same size as heights)
+        """
 
         # Compute the mb
         # We use the _gradient_lookup to get an array of gradients matching the length of heights.
@@ -200,9 +225,19 @@ class MassBalance(MassBalanceModel):
 
         return mb / SEC_IN_YEAR / self.rho
 
-    def get_annual_mb(self, heights, **kwargs):
-        """Get the annual mass balance."""
-        return self.get_monthly_mb(heights, **kwargs)
+    def get_annual_mb(self, heights):
+        """Get the annual mass balance.
+
+        Parameters
+        ----------
+        heights : np.ndarray
+            altitudes at which to compute the MB
+
+        Returns
+        -------
+        the mass-balances (same size as heights)
+        """
+        return self.get_monthly_mb(heights)
 
     def _gradient_lookup(self, heights):
         """Compute the mass balance gradient for the given heights.
@@ -276,7 +311,7 @@ class MassBalance(MassBalanceModel):
 
     @property
     def temp_bias(self):
-        """Temperature bias to add to the glacier"""
+        """Current temperature bias applied to the mass balance (unit: °C)"""
         return self._temp_bias
 
     @temp_bias.setter
@@ -324,8 +359,3 @@ class MassBalance(MassBalanceModel):
 
         else:
             raise TypeError("Temperature bias and/or duration of wrong type")
-
-
-class ZeroMassBalance(ScalarMassBalance, MassBalance):
-    # TODO: yeah this is crap lets discuss in the PR
-    pass

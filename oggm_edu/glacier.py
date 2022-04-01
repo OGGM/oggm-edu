@@ -31,10 +31,43 @@ from oggm import cfg
 
 
 class Glacier:
-    """The glacier object"""
+    """Provides the user with an easy way to create and perform experiments on
+    simulated glaciers.
+
+    It handles the progression and visualisation of the glacier. A glacier is constructed
+    with a GlacierBed and MassBalance.
+
+
+    Attributes
+    ----------
+    age : int
+        The age of the glacier.
+    annual_mass_balance : array
+        The annual mass balance at each grid point of the glacier.
+    basal_sliding : float
+        Basal sliding of the glacier.
+    bed : oggm_edu.GlacierBed
+        The bed of the glacier.
+    creep : float
+        Ice creep parameter (a in Glenns flow law).
+    eq_states : dict
+        Dictionary where key-value pairs represent the year and ELA height of the equilibrium states of
+        the glacier.
+    history : xArray dataset
+        Dataset containing the 1D history (time) of the glacier, notably length, area and volume.
+    mass_balance : oggm_edu.MassBalance
+        The mass balance of the glacier.
+    specific_mass_balance : float
+        Specific mass balance of the glacier [m w.e. yr^-1].
+    state_history : xArray dataset
+        Dataset containing the 2D state history (time, length) of the glacier, notably the surface height.
+    response_time : int
+        The time it takes for the glacier reach a new equilibrium state after a change in climate.
+        Calculates the volume response time from Oerlemans.
+    """
 
     def __init__(self, bed, mass_balance):
-        """Initialise a glacier object from a bed and a massbalance profile.
+        """Initialise a glacier object from a oggm_edu.GlacierBed and a oggm_edu.MassBalance.
 
         Parameters
         ----------
@@ -58,10 +91,10 @@ class Glacier:
         self._mass_balance = copy.deepcopy(mass_balance)
 
         # Initilaise the flowline
-        self.initial_state = self.init_flowline()
+        self._initial_state = self._init_flowline()
         # Set current and model state to None.
-        self.current_state = None
-        self.model_state = None
+        self._current_state = None
+        self._model_state = None
 
         # Ice dynamics parameters
         # Sane defaults
@@ -106,8 +139,8 @@ class Glacier:
     def reset(self):
         """Reset the glacier to initial state."""
         # Just force attributes to initials.
-        self.current_state = None
-        self.model_state = None
+        self._current_state = None
+        self._model_state = None
         # Surface height.
         self.surface_h = self.bed.bed_h
         # Forget history.
@@ -124,7 +157,7 @@ class Glacier:
 
     def _to_json(self):
         """Json represenation"""
-        state = self.state()
+        state = self._state()
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -137,11 +170,11 @@ class Glacier:
         return json
 
     def copy(self):
-        """Return a deepcopy of the glacier. Useful for creating
+        """Return a copy of the glacier. Useful for quickly creating
         new glaciers."""
         return copy.deepcopy(self)
 
-    def init_flowline(self):
+    def _init_flowline(self):
         # Initialise a RectangularBedFlowline for the glacier.
         return RectangularBedFlowline(
             surface_h=self.surface_h,
@@ -162,20 +195,19 @@ class Glacier:
 
     @property
     def mass_balance(self):
+        "Glacier mass balance."
         return self._mass_balance
 
     @property
     def annual_mass_balance(self):
-        "The annual mass balance is a property of the complete glacier."
+        """The annual mass balance at each grid point of the glacier."""
         return self.mass_balance.get_annual_mb(self.surface_h) * cfg.SEC_IN_YEAR
 
     @property
     def specific_mass_balance(self):
-        """Returns the specific mass balance of the glacier in m w.e.
-        yr^-1.
-        """
+        """The specific mass balance of the glacier [m w.e. yr^-1]."""
         # Only want data where there is ice.
-        mask = self.state().thick > 0
+        mask = self._state().thick > 0
 
         # Get the mb where there is ice.
         mb_s = self.annual_mass_balance[mask] * cfg.PARAMS["ice_density"]
@@ -185,16 +217,17 @@ class Glacier:
         # Return the m. w.e.
         return mb_s / 1000.0
 
-    def state(self):
+    def _state(self):
         """Glacier state logic"""
-        state = self.initial_state
+        state = self._initial_state
         # If we have a current state
-        if self.current_state:
-            state = self.current_state
+        if self._current_state:
+            state = self._current_state
         return state
 
     @property
     def age(self):
+        """Set the age of the glacier."""
         return self._age
 
     @age.setter
@@ -204,11 +237,16 @@ class Glacier:
 
     @property
     def history(self):
-        """Return the glacier history dataset."""
+        """The history of the glacier. Contains the history of notably
+        the length, area and volume of the glacier.
+        """
         return self._history
 
     @property
     def state_history(self):
+        """The state history of the glacier, i.e. geometrical changes over time.
+        For instance ice thickness.
+        """
         return self._state_history
 
     @state_history.setter
@@ -227,6 +265,7 @@ class Glacier:
 
     @property
     def basal_sliding(self):
+        """Set the sliding parameter of the glacier"""
         return self._basal_sliding
 
     @basal_sliding.setter
@@ -242,6 +281,7 @@ class Glacier:
 
     @property
     def creep(self):
+        """Set the value for glen_a creep"""
         return self._creep
 
     @creep.setter
@@ -271,6 +311,7 @@ class Glacier:
 
     @property
     def eq_states(self):
+        """Glacier equilibrium states."""
         if not self._eq_states:
             print("The glacier have not reached equilibrium yet.")
         else:
@@ -278,9 +319,11 @@ class Glacier:
 
     @property
     def response_time(self):
-        """Returns the reponse time of the glacier.
+        """The response time of the glacier.
+
         Calculates the volume response time from Oerlemans based on the
-        two latest eq. states."""
+        two latest eq. states.
+        """
 
         # If we don't hace a eq. states yet
         if len(self._eq_states) < 2:
@@ -321,10 +364,11 @@ class Glacier:
         self.mass_balance._add_temp_bias(bias, duration, self.age)
 
     def progress_to_year(self, year):
-        """Method to progress the glacier to year n.
+        """Progress the glacier to year n.
+
         Parameters
         ----------
-        year : int
+        year: int
             Year until which to progress the glacier.
         """
         # Some checks on the year.
@@ -344,7 +388,7 @@ class Glacier:
             # Do we have any years left to run?
             while year - self.age > 0:
                 # Check if we have a current state already.
-                state = self.state()
+                state = self._state()
                 # Initialise the model
                 model = FluxBasedModel(
                     state,
@@ -388,8 +432,8 @@ class Glacier:
                 # Update attributes.
                 self.history = out[0]
                 self.state_history = out[1][0]
-                self.current_state = model.fls[0]
-                self.model_state = model
+                self._current_state = model.fls[0]
+                self._model_state = model
                 self.age = model.yr
 
     def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
@@ -478,7 +522,7 @@ class Glacier:
                 self.progress_to_year(self.mass_balance._temp_bias_final_year)
             # Then we can find the eq. state.
             # Initialise the model
-            state = self.state()
+            state = self._state()
             model = FluxBasedModel(
                 state,
                 mb_model=self.mass_balance,
@@ -504,21 +548,21 @@ class Glacier:
             # Update attributes.
             self.history = out[0]
             self.state_history = out[1][0]
-            self.current_state = model.fls[0]
+            self._current_state = model.fls[0]
             self.age = model.yr
-            self.model_state = model
+            self._model_state = model
             # Remember the eq. year
             self._eq_states[self.age] = self.mass_balance.ela_h
 
     @edu_plotter
     def plot(self):
-        """Plot the glacier"""
+        """Plot the current state of the glacier."""
         _, ax1, ax2 = self.bed._create_base_plot()
 
         # If we have a current state, plot it.
-        if self.current_state is not None:
+        if self._current_state is not None:
             # Some masking shenanigans
-            diff = self.current_state.surface_h - self.bed.bed_h
+            diff = self._current_state.surface_h - self.bed.bed_h
             mask = diff > 0
             idx = diff.argmin()
             mask[: idx + 1] = True
@@ -526,7 +570,7 @@ class Glacier:
             ax1.fill_between(
                 self.bed.distance_along_glacier,
                 self.bed.bed_h,
-                self.current_state.surface_h,
+                self._current_state.surface_h,
                 where=mask,
                 color="white",
                 lw=2,
@@ -534,13 +578,13 @@ class Glacier:
             # Add outline
             ax1.plot(
                 self.bed.distance_along_glacier[mask],
-                self.current_state.surface_h[mask],
+                self._current_state.surface_h[mask],
                 lw=2,
                 label="Current glacier outline",
             )
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
-            filled = np.where(self.current_state.thick > 0, self.bed.widths, 0)
+            filled = np.where(self._current_state.thick > 0, self.bed.widths, 0)
             # Fill vetween them
             ax2.fill_between(
                 self.bed.distance_along_glacier,
@@ -551,7 +595,7 @@ class Glacier:
                 edgecolor="C0",
                 lw=2,
             )
-            ax1.set_ylim((self.bed.bottom, self.current_state.surface_h[0] + 200))
+            ax1.set_ylim((self.bed.bottom, self._current_state.surface_h[0] + 200))
 
         # ELA
         if self.ela is not None:
@@ -565,8 +609,8 @@ class Glacier:
             )
             # Where along the bed is the ELA? Convert height to
             # distance along glacier kind of.
-            if self.current_state is not None:
-                idx = (np.abs(self.current_state.surface_h - self.ela)).argmin()
+            if self._current_state is not None:
+                idx = (np.abs(self._current_state.surface_h - self.ela)).argmin()
                 # Plot the ELA in top down
                 ax2.vlines(
                     self.bed.distance_along_glacier[idx],
@@ -597,7 +641,7 @@ class Glacier:
 
     @edu_plotter
     def plot_mass_balance(self):
-        """Plot the mass balance profile of the glacier"""
+        """Plot the mass balance profile of the glacier."""
         plt.plot(
             self.annual_mass_balance,
             self.bed.bed_h,
@@ -668,7 +712,7 @@ class Glacier:
 
     @edu_plotter
     def plot_history(self):
-        """Plot the history of the glacier"""
+        """Plot the history of the glacier."""
         # Get the components
         fig, ax1, ax2, ax3 = self._create_history_plot_components()
         plt.show()
@@ -828,7 +872,7 @@ class SurgingGlacier(Glacier):
 
     def _to_json(self):
         """Json represenation"""
-        state = self.state()
+        state = self._state()
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -916,8 +960,8 @@ class SurgingGlacier(Glacier):
         and not surging, specified by the `normal_years` and
         `surging_years` attributes.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         year : int
             Which year to progress the surging glacier.
         """
@@ -950,7 +994,7 @@ class SurgingGlacier(Glacier):
             # While we have years to run we do the following...
             while years_left:
                 # Check if we have a current state already.
-                state = self.state()
+                state = self._state()
                 # If in a normal period
                 if self._normal_period:
                     # How many years should we run?
@@ -1033,8 +1077,8 @@ class SurgingGlacier(Glacier):
                 # Update attributes.
                 self.history = out[0]
                 self.state_history = out[1][0]
-                self.current_state = model.fls[0]
-                self.model_state = model
+                self._current_state = model.fls[0]
+                self._model_state = model
                 self.age = model.yr
                 # Check where we are
                 years_left = year - self.age

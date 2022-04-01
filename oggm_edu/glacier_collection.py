@@ -18,8 +18,9 @@ from matplotlib import pyplot as plt
 
 
 class GlacierCollection:
-    """This is class for storing multiple glaciers, providing convenient
-    methods for comparing them.
+    """This is an object used to store multiple glaciers.
+
+    It provides methods to progress and compare the glaciers in the collection.
     """
 
     def __init__(self, glacier_list=None):
@@ -106,10 +107,12 @@ class GlacierCollection:
 
     @property
     def glaciers(self):
+        """Glaciers stored in the collection"""
         return self._glaciers
 
     @property
     def annual_mass_balance(self):
+        """Glaciers mass balances"""
         return [glacier.annual_mass_balance for glacier in self.glaciers]
 
     def fill(self, glacier, n, attributes_to_change=None):
@@ -124,7 +127,7 @@ class GlacierCollection:
         attributes_to_change : dict
             Dictionary where key value pairs correspond to the
             attribute and values to be assigned each glacier.
-            See GlacierCollection.change_attributes for more.
+            See ``GlacierCollection.change_attributes`` for more.
         """
         # Is original a valid glacier?
         if not isinstance(glacier, Glacier):
@@ -145,7 +148,7 @@ class GlacierCollection:
             self.change_attributes(attributes_to_change)
 
     def add(self, glacier):
-        """Add one or more glaciers to the collection. Glaciers have to have the same slope.
+        """Adds one or more glaciers to the collection. Glaciers have to have the same slope.
 
         Parameters
         ----------
@@ -184,21 +187,24 @@ class GlacierCollection:
         """Change the attribute(s) of the glaciers in the collection.
 
         Parameters
-        __________
+        ----------
+
         attributes_to_change : dict
             Dictionary where the key value pairs follow the structure:
-            {'key': [n values], ...}, where 'key' match an attribute
-            of the glacier and n match the length of the collection.
+            ``{"key": [n values], ...}``, where "key" matches an attribute
+            of the glacier and n matches the length of the collection.
             Valid keys are:
-            - gradient
-            - ela
-            - basal_sliding
-            - creep
-            - normal_years
-            - surging_years
-            - basal_sliding_surge
-            Values should be either numeric or a string of a partial
-            mathematical expression e.g. '* 10', which is evaluated
+
+            * ``gradient``
+            * ``ela``
+            * ``basal_sliding``
+            * ``creep``
+            * ``normal_years``
+            * ``surging_years``
+            * ``basal_sliding_surge``
+
+            Values should be either numeric or a partial
+            mathematical expression (string) e.g. ``"* 10"``: this would evaluate
             to multiplying the current value by a factor 10. Pass an empty
             string to leave the attribute unaffected.
         """
@@ -464,7 +470,7 @@ class GlacierCollection:
 
     @edu_plotter
     def plot_history(self):
-        """Plot the histories of the collection"""
+        """Plot the histories of the collection."""
 
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
@@ -536,7 +542,7 @@ class GlacierCollection:
 
     @edu_plotter
     def plot_mass_balance(self):
-        """Plot the mass balance(s) for the glaciers in the collection"""
+        """Plot the mass balance(s) for the glaciers in the collection."""
 
         fig, ax = plt.subplots()
 
