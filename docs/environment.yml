@@ -39,3 +39,5 @@ dependencies:
     - progressbar2
     - git+https://github.com/OGGM/pytest-mpl
     - oggm
+    # relative to this file. Needs to be editable to be accepted.
+    - -e ..

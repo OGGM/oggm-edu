@@ -14,34 +14,14 @@ Sphinx Documentation has an excellent `introduction to reST
 <http://sphinx.pocoo.org/rest.html>`__. Review the Sphinx docs to perform more
 complex changes to the documentation as well.
 
-How to build the documentation
-------------------------------
+Installation
+------------
 
-Requirements
-~~~~~~~~~~~~
-
-There are some extra requirements to build the docs: you will need to
-have ``sphinx``, ``sphinx-book-theme``, ``numpydoc`` and ``ipython`` installed.
-
-We recommend to use conda (or mamba) to create an environment for oggm-edu. 
-Create a text file called `oggm_edu_docs.yaml` with the following content 
-in it::
-
-
-  name: oggm_edu_docs
-  channels:
-    - conda-forge
-  dependencies:
-    - sphinx 
-    - sphinx-book-theme
-    - ipython
-    - numpydoc
-    - sphinx-intl
-
-Then, from your `base` environment, do `mamba env create -f oggm_edu_docs.yml` 
-(or `conda env create -f oggm_edu_docs.yml`). To activate the environment,
-type: `conda activate oggm_edu_docs`.
-
+Download (or clone) the latest version of the oggm-edu repository.
+From the repository's root folder, activate conda if necessary and then,
+from your `base` environment, run ``mamba env create -f docs/environment.yml``
+(or ``conda env create -f docs/environment.yml``). To activate the environment,
+type: ``conda activate oggm_edu_docs``.
 
 Building the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
