@@ -376,16 +376,16 @@ class GlacierCollection:
         # Loop over the collection.
         for i, glacier in enumerate(self._glaciers):
             # Plot the surface
-            if glacier.current_state is not None:
+            if glacier._current_state is not None:
                 # Masking shenanigans.
-                diff = glacier.current_state.surface_h - glacier.bed.bed_h
+                diff = glacier._current_state.surface_h - glacier.bed.bed_h
                 mask = diff > 0
                 idx = diff.argmin()
                 mask[: idx + 1] = True
                 # Fill the ice.
                 ax.fill_between(
                     glacier.bed.distance_along_glacier,
-                    glacier.current_state.surface_h,
+                    glacier._current_state.surface_h,
                     glacier.bed.bed_h,
                     where=mask,
                     facecolors="white",
@@ -395,11 +395,11 @@ class GlacierCollection:
                 # Plot outline
                 ax.plot(
                     glacier.bed.distance_along_glacier[mask],
-                    glacier.current_state.surface_h[mask],
+                    glacier._current_state.surface_h[mask],
                     label=f"Glacier {i} at year" + f" {glacier.age}",
                 )
                 # Ylim
-                ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0] + 200))
+                ax.set_ylim((gl1.bed.bottom, gl1._current_state.surface_h[0] + 200))
             elas.append(glacier.ela)
 
         # If all elas are equal.
