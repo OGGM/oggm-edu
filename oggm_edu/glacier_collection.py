@@ -18,8 +18,9 @@ from matplotlib import pyplot as plt
 
 
 class GlacierCollection:
-    """This is an object used to store multiple glaciers. It provides
-    methods to progress and compare the glaciers in the collection.
+    """This is an object used to store multiple glaciers.
+
+    It provides methods to progress and compare the glaciers in the collection.
     """
 
     def __init__(self, glacier_list=None):
@@ -106,10 +107,12 @@ class GlacierCollection:
 
     @property
     def glaciers(self):
+        """Glaciers stored in the collection"""
         return self._glaciers
 
     @property
     def annual_mass_balance(self):
+        """Glaciers mass balances"""
         return [glacier.annual_mass_balance for glacier in self.glaciers]
 
     def fill(self, glacier, n, attributes_to_change=None):
@@ -184,7 +187,8 @@ class GlacierCollection:
         """Change the attribute(s) of the glaciers in the collection.
 
         Parameters
-        __________
+        ----------
+
         attributes_to_change : dict
             Dictionary where the key value pairs follow the structure:
             ``{"key": [n values], ...}``, where "key" matches an attribute

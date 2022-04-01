@@ -1,7 +1,0 @@
-build:
-    image: latest
-conda:
-    file: docs/environment.yml
-python:
-    version: 3.7
-    setup_py_install: true

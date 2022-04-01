@@ -195,6 +195,7 @@ class Glacier:
 
     @property
     def mass_balance(self):
+        "Glacier mass balance."
         return self._mass_balance
 
     @property
@@ -226,6 +227,7 @@ class Glacier:
 
     @property
     def age(self):
+        """Set the age of the glacier."""
         return self._age
 
     @age.setter
@@ -263,6 +265,7 @@ class Glacier:
 
     @property
     def basal_sliding(self):
+        """Set the sliding parameter of the glacier"""
         return self._basal_sliding
 
     @basal_sliding.setter
@@ -278,6 +281,7 @@ class Glacier:
 
     @property
     def creep(self):
+        """Set the value for glen_a creep"""
         return self._creep
 
     @creep.setter
@@ -307,6 +311,7 @@ class Glacier:
 
     @property
     def eq_states(self):
+        """Glacier equilibrium states."""
         if not self._eq_states:
             print("The glacier have not reached equilibrium yet.")
         else:
@@ -314,9 +319,11 @@ class Glacier:
 
     @property
     def response_time(self):
-        """The reponse time of the glacier.
+        """The response time of the glacier.
+
         Calculates the volume response time from Oerlemans based on the
-        two latest eq. states."""
+        two latest eq. states.
+        """
 
         # If we don't hace a eq. states yet
         if len(self._eq_states) < 2:
@@ -357,11 +364,11 @@ class Glacier:
         self.mass_balance._add_temp_bias(bias, duration, self.age)
 
     def progress_to_year(self, year):
-        """Method to progress the glacier to year n.
+        """Progress the glacier to year n.
 
         Parameters
         ----------
-        year : int
+        year: int
             Year until which to progress the glacier.
         """
         # Some checks on the year.
@@ -953,8 +960,8 @@ class SurgingGlacier(Glacier):
         and not surging, specified by the `normal_years` and
         `surging_years` attributes.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         year : int
             Which year to progress the surging glacier.
         """
