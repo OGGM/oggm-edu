@@ -2,41 +2,24 @@ name: oggm_edu_docs
 channels:
   - conda-forge
 dependencies:
-  - jupyter
-  - jupyterlab
   - numpy
   - scipy
   - pandas
-  - shapely
   - matplotlib
-  - Pillow
-  - netcdf4
-  - scikit-image
-  - scikit-learn
+  - shapely
+  - requests
   - configobj
+  - netcdf4
   - xarray
-  - pytest
-  - dask
-  - bottleneck
-  - pyproj
-  - cartopy
-  - geopandas
-  - rasterio<1.2.10
-  - rioxarray
-  - seaborn
   - pytables
-  - salem
-  - motionless
+  - pytest
+  - seaborn
   - sphinx
   - sphinx-book-theme
   - ipython
   - numpydoc
-  - seaborn
   - sphinx-intl
   - pip:
-    - joblib
-    - progressbar2
-    - git+https://github.com/OGGM/pytest-mpl
     - git+https://github.com/OGGM/oggm
     # relative to this file. Needs to be editable to be accepted.
     - -e ..
