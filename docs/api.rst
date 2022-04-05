@@ -106,6 +106,7 @@ Glacier attributes
    Glacier.basal_sliding
    Glacier.eq_states
    Glacier.response_time
+   Glacier.current_state
 
 Glacier example
 ~~~~~~~~~~~~~~~
