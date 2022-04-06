@@ -221,9 +221,14 @@ class Glacier:
         """Glacier state logic"""
         state = self._initial_state
         # If we have a current state
-        if self._current_state:
-            state = self._current_state
+        if self.current_state:
+            state = self.current_state
         return state
+
+    @property
+    def current_state(self):
+        """For advanced users: get access to the current OGGM ``Flowline`` object."""
+        return self._current_state
 
     @property
     def age(self):
@@ -560,9 +565,9 @@ class Glacier:
         _, ax1, ax2 = self.bed._create_base_plot()
 
         # If we have a current state, plot it.
-        if self._current_state is not None:
+        if self.current_state is not None:
             # Some masking shenanigans
-            diff = self._current_state.surface_h - self.bed.bed_h
+            diff = self.current_state.surface_h - self.bed.bed_h
             mask = diff > 0
             idx = diff.argmin()
             mask[: idx + 1] = True
@@ -570,7 +575,7 @@ class Glacier:
             ax1.fill_between(
                 self.bed.distance_along_glacier,
                 self.bed.bed_h,
-                self._current_state.surface_h,
+                self.current_state.surface_h,
                 where=mask,
                 color="white",
                 lw=2,
@@ -578,13 +583,13 @@ class Glacier:
             # Add outline
             ax1.plot(
                 self.bed.distance_along_glacier[mask],
-                self._current_state.surface_h[mask],
+                self.current_state.surface_h[mask],
                 lw=2,
                 label="Current glacier outline",
             )
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
-            filled = np.where(self._current_state.thick > 0, self.bed.widths, 0)
+            filled = np.where(self.current_state.thick > 0, self.bed.widths, 0)
             # Fill vetween them
             ax2.fill_between(
                 self.bed.distance_along_glacier,
@@ -595,7 +600,7 @@ class Glacier:
                 edgecolor="C0",
                 lw=2,
             )
-            ax1.set_ylim((self.bed.bottom, self._current_state.surface_h[0] + 200))
+            ax1.set_ylim((self.bed.bottom, self.current_state.surface_h[0] + 200))
 
         # ELA
         if self.ela is not None:
@@ -609,8 +614,8 @@ class Glacier:
             )
             # Where along the bed is the ELA? Convert height to
             # distance along glacier kind of.
-            if self._current_state is not None:
-                idx = (np.abs(self._current_state.surface_h - self.ela)).argmin()
+            if self.current_state is not None:
+                idx = (np.abs(self.current_state.surface_h - self.ela)).argmin()
                 # Plot the ELA in top down
                 ax2.vlines(
                     self.bed.distance_along_glacier[idx],
