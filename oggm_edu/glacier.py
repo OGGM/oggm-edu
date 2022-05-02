@@ -390,56 +390,34 @@ class Glacier:
 
         # If all passes
         else:
-            # Do we have any years left to run?
-            while year - self.age > 0:
-                # Check if we have a current state already.
-                state = self._state()
-                # Initialise the model
-                model = FluxBasedModel(
-                    state,
-                    mb_model=self.mass_balance,
-                    y0=self.age,
-                    glen_a=self.creep,
-                    fs=self.basal_sliding,
+            # Check if we have a current state already.
+            state = self._state()
+            # Initialise the model
+            model = FluxBasedModel(
+                state,
+                mb_model=self.mass_balance,
+                y0=self.age,
+                glen_a=self.creep,
+                fs=self.basal_sliding,
+            )
+            # Run the model. Store the history.
+            try:
+                out = model.run_until_and_store(year, fl_diag_path=None)
+            # If it fails, see above.
+            except RuntimeError:
+                print(
+                    "Glacier grew out of its domain, stepping back five years"
                 )
-                # If we have temp evolution left to do.
-                if self.age < self.mass_balance._temp_bias_final_year:
-                    # Run the model. Store the history.
-                    # How big are the steps?
-                    run_to = int(self.age + 1)
-                    try:
-                        out = model.run_until_and_store(run_to, fl_diag_path=None)
-                    # If the glacier grows out of its bed, we try progressing again,
-                    # but five years shorter.
-                    except RuntimeError:
-                        print(
-                            "Glacier grew out of its domain, trying to step back five years"
-                        )
-                        # Recurse with five years less. Eventually we'll find the largest possible state.
-                        self.progress_to_year(year - 5)
-                        # Since we've already saved the new state we can just return here.
-                        return
-                    self.mass_balance._update_temp_bias(model.yr)
-                # If there is no temp evolution, do all the years.
-                else:
-                    # Run the model. Store the history.
-                    try:
-                        out = model.run_until_and_store(year, fl_diag_path=None)
-                    # If it fails, see above.
-                    except RuntimeError:
-                        print(
-                            "Glacier grew out of its domain, stepping back five years"
-                        )
-                        # Ohhh recursion
-                        self.progress_to_year(year - 5)
-                        return
+                # Ohhh recursion
+                self.progress_to_year(year - 5)
+                return
 
-                # Update attributes.
-                self.history = out[0]
-                self.state_history = out[1][0]
-                self._current_state = model.fls[0]
-                self._model_state = model
-                self.age = model.yr
+            # Update attributes.
+            self.history = out[0]
+            self.state_history = out[1][0]
+            self._current_state = model.fls[0]
+            self._model_state = model
+            self.age = model.yr
 
     def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
         """Progress the glacier to equilibrium.
@@ -511,53 +489,43 @@ class Glacier:
 
             return stop, previous_state
 
-        # Check if the glacier has a masss balance model
-        if not self.mass_balance:
-            string = (
-                "To grow the glacier it needs a mass balance."
-                + "\nMake sure the ELA and mass balance gradient"
-                + " are defined."
+        # Do we have a future temperature changes assigned?
+        if self.age < self.mass_balance._temp_bias_series.year.iloc[-1]:
+            # If so, progress normally until finished.
+            self.progress_to_year(self.mass_balance._temp_bias_series.year.iloc[-1])
+        # Then we can find the eq. state.
+        # Initialise the model
+        state = self._state()
+        model = FluxBasedModel(
+            state,
+            mb_model=self.mass_balance,
+            y0=self.age,
+            glen_a=self.creep,
+            fs=self.basal_sliding,
+        )
+        # Run the model.
+        try:
+            #  Run with a stopping criteria.
+            out = model.run_until_and_store(
+                years, fl_diag_path=None, stop_criterion=stop_function
             )
-            raise NotImplementedError(string)
 
-        else:
-            # Do we have a temp scenario which isn't passed yet?
-            if self.age < self.mass_balance._temp_bias_final_year:
-                # If so, progress normally.
-                self.progress_to_year(self.mass_balance._temp_bias_final_year)
-            # Then we can find the eq. state.
-            # Initialise the model
-            state = self._state()
-            model = FluxBasedModel(
-                state,
-                mb_model=self.mass_balance,
-                y0=self.age,
-                glen_a=self.creep,
-                fs=self.basal_sliding,
+        except RuntimeError:
+            # We chose to print and return instead of raising since the
+            # collection will then be able to continue.
+            print(
+                "Glacier grew out of its domain before reaching an equilibrium state."
             )
-            # Run the model.
-            try:
-                #  Run with a stopping criteria.
-                out = model.run_until_and_store(
-                    years, fl_diag_path=None, stop_criterion=stop_function
-                )
+            return
 
-            except RuntimeError:
-                # We chose to print and return instead of raising since the
-                # collection will then be able to continue.
-                print(
-                    "Glacier grew out of its domain before reaching an equilibrium state."
-                )
-                return
-
-            # Update attributes.
-            self.history = out[0]
-            self.state_history = out[1][0]
-            self._current_state = model.fls[0]
-            self.age = model.yr
-            self._model_state = model
-            # Remember the eq. year
-            self._eq_states[self.age] = self.mass_balance.ela_h
+        # Update attributes.
+        self.history = out[0]
+        self.state_history = out[1][0]
+        self._current_state = model.fls[0]
+        self.age = model.yr
+        self._model_state = model
+        # Remember the eq. year
+        self._eq_states[self.age] = self.mass_balance.ela_h
 
     @edu_plotter
     def plot(self):

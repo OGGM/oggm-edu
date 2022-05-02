@@ -103,10 +103,7 @@ class MassBalance(MassBalanceModel):
 
         # Temperature bias evolution
         self._temp_bias = 0
-        self._temp_bias_final = 0.0
-        self._temp_bias_grad = 0.0
-        self._temp_bias_intersect = 0.0
-        self._temp_bias_final_year = 0
+        self._temp_bias_series = pd.DataFrame({"year": [0], "bias": [self.temp_bias]})
 
     def _to_json(self):
         json = {
@@ -142,11 +139,8 @@ class MassBalance(MassBalanceModel):
         # ELA
         self.ela = self.orig_ela_h
         # Temperature bias evolution
+        self._temp_bias_series = pd.DataFrame({"year": [0], "bias": [self.temp_bias]})
         self._temp_bias = 0
-        self._temp_bias_final = 0.0
-        self._temp_bias_grad = 0.0
-        self._temp_bias_intersect = 0.0
-        self._temp_bias_final_year = 0
 
     @property
     def gradient(self):
@@ -194,18 +188,36 @@ class MassBalance(MassBalanceModel):
         else:
             raise ValueError("ELA below 0 not allowed.")
 
-    def get_monthly_mb(self, heights, **kwargs):
+    def get_monthly_mb(self, heights, year=None, **kwargs):
         """Calculate the monthly mass balance for the glacier.
 
         Parameters
         ----------
         heights : np.ndarray
             altitudes at which to compute the MB
+        year : float, optional
+            The current hydrological year. Used to evaluate if mass balance model should be updated.
 
         Returns
         -------
-        the mass-balances (same size as heights)
+        The monthly mass-balances for each height.
         """
+
+        # A year will always be provided during a model run, the only time we do this evaluation.
+        # In ohter cases i.e. plotting annual mb, we don't evaluate this.
+        if isinstance(year, float):
+            # "Remove" the 0-year.
+            year = year + 1
+            # If we have a future climate scenario essentially.
+            if year <= self._temp_bias_series.year.iloc[-1]:
+                # We get a temp bias from the series, update the ela of our mb.
+                # Uses the temp_bias setter.
+                self.temp_bias = self._temp_bias_series.bias[self._temp_bias_series.year == year].values[0]
+            # If there is no future climate scenario, we simply append the current bias to the history.
+            else:
+                # Add the current temperature bias (unchanged) to the history.
+                df = pd.DataFrame({"year": [year], "bias": [self.temp_bias]})
+                self._temp_bias_series = pd.concat([self._temp_bias_series, df]).reset_index(drop=True)
 
         # Compute the mb
         # We use the _gradient_lookup to get an array of gradients matching the length of heights.
@@ -225,7 +237,7 @@ class MassBalance(MassBalanceModel):
 
         return mb / SEC_IN_YEAR / self.rho
 
-    def get_annual_mb(self, heights, **kwargs):
+    def get_annual_mb(self, heights, year=None, **kwargs):
         """Get the annual mass balance.
 
         Parameters
@@ -237,7 +249,7 @@ class MassBalance(MassBalanceModel):
         -------
         the mass-balances (same size as heights)
         """
-        return self.get_monthly_mb(heights)
+        return self.get_monthly_mb(heights, year)
 
     def _gradient_lookup(self, heights):
         """Compute the mass balance gradient for the given heights.
@@ -320,11 +332,10 @@ class MassBalance(MassBalanceModel):
         self.ela_h = self.orig_ela_h + value * 150
         self._temp_bias = value
 
-    def _update_temp_bias(self, year):
-        """Updates the temperature bias internally during progression."""
-        # Change the temperature bias
-        new_temp_bias = self._temp_bias_grad * year + self._temp_bias_intersect
-        self.temp_bias = new_temp_bias
+    @property
+    def temp_bias_series(self):
+        """Dataframe of historical and possible future temperature biases of the glacier."""
+        return self._temp_bias_series
 
     def _add_temp_bias(self, temp_bias, duration, year):
         """Method to add a gradual temperature bias to the mass balance of the
@@ -339,23 +350,18 @@ class MassBalance(MassBalanceModel):
         year : int
             Current age of the glacier
         """
-        # Check that we don't have a temperature bias scenario already.
-        if self._temp_bias_final_year != 0 and year <= self._temp_bias_final_year:
-            raise RuntimeError(
-                "We can't add a new temperature bias while the previous one is\nstill being evaluated."
-            )
         # Check that criteria are met.
-        elif isinstance(temp_bias, float) and isinstance(duration, int):
-            # Set the temperature bias.
-            self._temp_bias_final = temp_bias
-            # Set the final year
-            self._temp_bias_final_year = year + duration
-            # Calculate the gradient, linear for now.
-            self._temp_bias_grad = (self._temp_bias_final - self.temp_bias) / duration
-            # And the intersect
-            self._temp_bias_intersect = self._temp_bias_final - (
-                self._temp_bias_grad * self._temp_bias_final_year
-            )
+        if isinstance(temp_bias, float) and isinstance(duration, int):
+            # Create dummy arrays for biases and years.
+            # From current bias to the new one during the duration..
+            temp_biases = np.linspace(self.temp_bias, temp_bias, duration + 1)[1:]
+            # Years from next year to next + duration.
+            years = np.arange(float(year + 1), float(year + duration + 1))
+
+            # Then we create a df.
+            df = pd.DataFrame({"year": years, "bias": temp_biases})
+
+            self._temp_bias_series = pd.concat([self._temp_bias_series, df]).reset_index(drop=True)
 
         else:
             raise TypeError("Temperature bias and/or duration of wrong type")
