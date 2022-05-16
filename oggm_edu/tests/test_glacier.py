@@ -120,6 +120,22 @@ def test_add_temperature_bias():
     assert glacier.ela == real_mb.ela + 150 * new_bias
 
 
+def test_add_random_climate():
+    """Test parts of the random climate."""
+    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
+
+    glacier.progress_to_year(100)
+    assert len(glacier.mass_balance.temp_bias_series.bias) == 101
+
+    # Add a random climate.
+    glacier.add_random_climate(duration=200, temperature_range=(-2.0, 2.0))
+    # Should now be of the length 301
+    assert len(glacier.mass_balance.temp_bias_series.bias) == 301
+    glacier.progress_to_year(300)
+    # Should still be of the length 301
+    assert len(glacier.mass_balance.temp_bias_series.bias) == 301
+
+
 def test_surging_glacier():
     """Some test on the surging glacier."""
 

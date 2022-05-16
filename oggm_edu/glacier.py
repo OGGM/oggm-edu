@@ -357,7 +357,10 @@ class Glacier:
             return response_time.values.item()
 
     def add_temperature_bias(self, bias, duration):
-        """Add a temperature bias to the mass balance of the glacier.
+        """Add a gradual temperature bias to the future mass balance of the
+        glacier. Note that the method is cumulative, i.e. calling it multiple
+        times will extend the prescribed climate.
+        glacier.
 
         Parameters
         ----------
@@ -366,7 +369,21 @@ class Glacier:
         duration: int
             Specify during how many years the bias will be applied.
         """
-        self.mass_balance._add_temp_bias(bias, duration, self.age)
+        self.mass_balance.add_temp_bias(bias, duration, self.age)
+
+    def add_random_climate(self, duration, temperature_range):
+        """Append a random climate to the future mass balance of the glacier.
+        Note that the method is cumulative, i.e. calling it multiple
+        times will extend the prescribed climate.
+
+        Parameters
+        ----------
+        duration : int
+            How many years should the random climate be.
+        temperature_range : array_like(float, float)
+            The range over which the climate should vary randomly.
+        """
+        self.mass_balance.add_random_climate(duration, temperature_range, self.age)
 
     def progress_to_year(self, year):
         """Progress the glacier to year n.
@@ -405,9 +422,7 @@ class Glacier:
                 out = model.run_until_and_store(year, fl_diag_path=None)
             # If it fails, see above.
             except RuntimeError:
-                print(
-                    "Glacier grew out of its domain, stepping back five years"
-                )
+                print("Glacier grew out of its domain, stepping back five years")
                 # Ohhh recursion
                 self.progress_to_year(year - 5)
                 return
@@ -631,10 +646,13 @@ class Glacier:
         plt.legend()
 
     @edu_plotter
-    def _create_history_plot_components(self):
+    def _create_history_plot_components(self, show_bias=False, smooth=None):
         """Create components for the history plot of the glacier."""
 
-        fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
+        if show_bias:
+            fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, sharex=True)
+        else:
+            fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
         # Plot the length, volume and area if we have a history.
         if self.history is not None:
@@ -681,13 +699,41 @@ class Glacier:
         ax2.grid(True)
         ax3.grid(True)
 
+        if show_bias and self.history:
+            if smooth:
+                self.mass_balance.temp_bias_series.bias.rolling(
+                    smooth, min_periods=0, center=True
+                ).mean().plot(ax=ax4)
+            else:
+                self.mass_balance.temp_bias_series.bias.plot(ax=ax4)
+            ax4.grid(True)
+            ax4.set_xlabel("Year")
+            ax4.set_ylabel("Bias [°C]")
+
+            ax4.annotate(
+                "Temperature bias",
+                (0.98, 0.1),
+                xycoords="axes fraction",
+                bbox={"boxstyle": "Round", "color": "lightgrey"},
+                ha="right",
+            )
+
+            return fig, ax1, ax2, ax3, ax4
+
         return fig, ax1, ax2, ax3
 
     @edu_plotter
-    def plot_history(self):
+    def plot_history(self, show_bias=False, smooth=None):
         """Plot the history of the glacier."""
         # Get the components
-        fig, ax1, ax2, ax3 = self._create_history_plot_components()
+        if show_bias:
+            fig, ax1, ax2, ax3, ax4 = self._create_history_plot_components(
+                show_bias=show_bias, smooth=smooth
+            )
+        else:
+            fig, ax1, ax2, ax3 = self._create_history_plot_components(
+                show_bias=show_bias, smooth=smooth
+            )
 
     @edu_plotter
     def plot_state_history(self, interval=50, eq_states=False):

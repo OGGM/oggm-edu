@@ -1,6 +1,7 @@
 from oggm.cfg import SEC_IN_YEAR
 from oggm_edu import MassBalance
 import numpy as np
+import pandas as pd
 from numpy.testing import assert_equal
 import pytest
 
@@ -91,3 +92,35 @@ def test_get_annual_mb():
     computed_mbs = mb.get_annual_mb(heights)
 
     assert_equal(corr_mbs, computed_mbs)
+
+
+def test_temp_bias_setter():
+    """Test the setter of the temp_bias_series."""
+    mb = MassBalance(ela=2000, gradient=10)
+    # Not a df
+    df = []
+    # Try adding this
+    with pytest.raises(Exception) as e_info:
+        mb.temp_bias_series = df
+
+    # Check that column names throws.
+    df = pd.DataFrame({"year": [0, 1, 2], "temp": [0.0, 0.5, 1.0]})
+    with pytest.raises(Exception) as e_info:
+        mb.temp_bias_series = df
+    # Check year logic. We cant add the zero year now.
+    df = pd.DataFrame({"year": [0, 1, 2], "bias": [0.0, 0.5, 1.0]})
+    with pytest.raises(Exception) as e_info:
+        mb.temp_bias_series = df
+    # Check year logic. years should increase monotonically.
+    df = pd.DataFrame({"year": [1, 2, 4], "bias": [0.0, 0.5, 1.0]})
+    with pytest.raises(Exception) as e_info:
+        mb.temp_bias_series = df
+    # Check year dtype
+    df = pd.DataFrame({"year": [1, 2, 3], "bias": [0.0, 0.5, "one"]})
+    with pytest.raises(Exception) as e_info:
+        mb.temp_bias_series = df
+
+    # Finally something that should work.
+    df = pd.DataFrame({"year": [1, 2, 3], "bias": [0.0, 0.5, 1.0]})
+    mb.temp_bias_series = df
+    assert len(mb.temp_bias_series.year) == 4

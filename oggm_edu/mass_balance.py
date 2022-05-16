@@ -9,7 +9,7 @@ import pandas as pd
 from collections.abc import Sequence
 
 # Import OGGM things.
-from oggm.core.massbalance import MassBalanceModel, ScalarMassBalance
+from oggm.core.massbalance import MassBalanceModel
 from oggm.utils import clip_max
 from oggm.cfg import SEC_IN_YEAR
 
@@ -139,8 +139,8 @@ class MassBalance(MassBalanceModel):
         # ELA
         self.ela = self.orig_ela_h
         # Temperature bias evolution
-        self._temp_bias_series = pd.DataFrame({"year": [0], "bias": [self.temp_bias]})
         self._temp_bias = 0
+        self._temp_bias_series = pd.DataFrame({"year": [0], "bias": [self.temp_bias]})
 
     @property
     def gradient(self):
@@ -205,19 +205,26 @@ class MassBalance(MassBalanceModel):
 
         # A year will always be provided during a model run, the only time we do this evaluation.
         # In ohter cases i.e. plotting annual mb, we don't evaluate this.
+        # We check if its a float instead of simply if year since this would miss the 0th year.
         if isinstance(year, float):
-            # "Remove" the 0-year.
+            # Since we are progressing the glacier we want the next year of the climate to update
+            # the mass balance.
             year = year + 1
             # If we have a future climate scenario essentially.
             if year <= self._temp_bias_series.year.iloc[-1]:
                 # We get a temp bias from the series, update the ela of our mb.
                 # Uses the temp_bias setter.
-                self.temp_bias = self._temp_bias_series.bias[self._temp_bias_series.year == year].values[0]
+                self.temp_bias = self.temp_bias_series.bias[
+                    self.temp_bias_series.year == year
+                ].values[0]
             # If there is no future climate scenario, we simply append the current bias to the history.
+            # e.g. when climate remains constant.
             else:
                 # Add the current temperature bias (unchanged) to the history.
                 df = pd.DataFrame({"year": [year], "bias": [self.temp_bias]})
-                self._temp_bias_series = pd.concat([self._temp_bias_series, df]).reset_index(drop=True)
+                self._temp_bias_series = pd.concat(
+                    [self._temp_bias_series, df]
+                ).reset_index(drop=True)
 
         # Compute the mb
         # We use the _gradient_lookup to get an array of gradients matching the length of heights.
@@ -334,11 +341,48 @@ class MassBalance(MassBalanceModel):
 
     @property
     def temp_bias_series(self):
-        """Dataframe of historical and possible future temperature biases of the glacier."""
+        """Dataframe of historical and possible future temperature biases of the glacier.
+        The user can create their own bias series through a pandas data frame.
+
+        Parameters
+        ----------
+        df : Pandas.DataFrame
+            Custom dataframe for temperature bias series.
+            This dataframe should have two columns: 'year' and 'bias'. 'year' should
+            start at the year after the current year of the glacier and increase monotonically.
+        """
         return self._temp_bias_series
 
-    def _add_temp_bias(self, temp_bias, duration, year):
-        """Method to add a gradual temperature bias to the mass balance of the
+    @temp_bias_series.setter
+    def temp_bias_series(self, df):
+        """Allow the user to set a custom bias series."""
+        # Need to perform some checks to make sure that the series fits the glacier.
+
+        if not isinstance(df, pd.DataFrame):
+            raise TypeError("The temp_bias_series should be a Pandas dataframe.")
+        elif not np.all(df.columns == ["year", "bias"]):
+            raise ValueError(
+                "The columns of the dataframe should be 'year' and 'bias'."
+            )
+        elif not df.year.iloc[0] == self.temp_bias_series.year.iloc[0] + 1:
+            raise ValueError(
+                "User supplied series should start after the current year."
+            )
+        elif not np.all(
+            np.equal(df.year, np.arange(df.year.iloc[0], df.year.iloc[-1] + 1))
+        ):
+            raise ValueError("'year' should increase monotonically.")
+        elif not pd.api.types.is_float_dtype(df["bias"]):
+            raise ValueError("'bias' dtype should be float.")
+        # If this passes we can add it.
+        else:
+            # Concat to the old series.
+            self._temp_bias_series = pd.concat(
+                [self._temp_bias_series, df]
+            ).reset_index(drop=True)
+
+    def add_temp_bias(self, temp_bias, duration, year):
+        """Add a gradual temperature bias to the mass balance of the
         glacier.
 
         Parameters
@@ -353,15 +397,66 @@ class MassBalance(MassBalanceModel):
         # Check that criteria are met.
         if isinstance(temp_bias, float) and isinstance(duration, int):
             # Create dummy arrays for biases and years.
-            # From current bias to the new one during the duration..
+            # From current bias to the new one during the duration.
+            # Have to add one year for linspace to include the last year.
+            # At the same time we don't need the first year.
             temp_biases = np.linspace(self.temp_bias, temp_bias, duration + 1)[1:]
+            # If we already have a future, we append the climate from this year.
+            # Otherwise start from the current year.
+            year = np.max([year, self._temp_bias_series.year.iloc[-1]])
             # Years from next year to next + duration.
             years = np.arange(float(year + 1), float(year + duration + 1))
 
             # Then we create a df.
             df = pd.DataFrame({"year": years, "bias": temp_biases})
 
-            self._temp_bias_series = pd.concat([self._temp_bias_series, df]).reset_index(drop=True)
+            # Add the new bias series to the one we already have.
+            self._temp_bias_series = pd.concat(
+                [self._temp_bias_series, df]
+            ).reset_index(drop=True)
 
         else:
             raise TypeError("Temperature bias and/or duration of wrong type")
+
+    def add_random_climate(self, duration, temperature_range, year):
+        """Append a random climate to future of the mass balance of the glacier.
+
+        Parameters
+        ----------
+        duration : int
+            How many years should the random climate be.
+        temperature_range : array_like(float, float)
+            The range over which the climate should vary randomly.
+        year : int
+            Current age of the glacier.
+        """
+
+        # Check arges
+        if not isinstance(int(duration), int):
+            raise TypeError("duration should be the type integer.")
+        elif not isinstance(temperature_range, Sequence) or len(temperature_range) != 2:
+            raise TypeError("temp_range should be a sequence of two floats.")
+        elif temperature_range[0] >= temperature_range[1]:
+            raise ValueError(
+                "Entries in temperature_range should be in increasing order."
+            )
+        else:
+            # Create a random array of selected length.
+            random_vals = np.random.rand(duration)
+            # Transform to the selected range.
+            random_temp_biases = (
+                (temperature_range[1] - temperature_range[0]) * random_vals
+            ) + temperature_range[0]
+
+            # If we already have a future, we append the climate from this year.
+            # Otherwise start from the current year.
+            year = np.max([year, self._temp_bias_series.year.iloc[-1]])
+            # Need some years.
+            years = np.arange(float(year + 1), float(year + duration + 1))
+
+            # Then we create a df.
+            df = pd.DataFrame({"year": years, "bias": random_temp_biases})
+            # And add it to the series.
+            self._temp_bias_series = pd.concat(
+                [self._temp_bias_series, df]
+            ).reset_index(drop=True)
