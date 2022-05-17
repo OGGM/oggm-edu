@@ -20,6 +20,7 @@ import warnings
 import copy
 from itertools import cycle
 import re
+from collections.abc import Sequence
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -646,7 +647,9 @@ class Glacier:
         plt.legend()
 
     @edu_plotter
-    def _create_history_plot_components(self, show_bias=False, smooth=None):
+    def _create_history_plot_components(
+        self, show_bias=False, window=None, time_range=None
+    ):
         """Create components for the history plot of the glacier."""
 
         if show_bias:
@@ -654,11 +657,27 @@ class Glacier:
         else:
             fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
+        # First point to all data.
+        data = self.history
+        bias_series = self.mass_balance.temp_bias_series
+        # If the user supplied a time_range.
+        if isinstance(time_range, Sequence):
+            if time_range[0] >= self.age:
+                raise ValueError(
+                    "Lower end of time_range should be before age of glacier."
+                )
+            # Select data from time range only.
+            data = self.history.sel(time=slice(time_range[0], time_range[1]))
+            bias_series = bias_series.loc[
+                (bias_series["year"] >= time_range[0])
+                & (bias_series["year"] <= time_range[1])
+            ]
+
         # Plot the length, volume and area if we have a history.
         if self.history is not None:
-            self.history.length_m.plot(ax=ax1)
-            self.history.volume_m3.plot(ax=ax2)
-            self.history.area_m2.plot(ax=ax3)
+            data.length_m.plot(ax=ax1)
+            data.volume_m3.plot(ax=ax2)
+            data.area_m2.plot(ax=ax3)
         # If not, we print a message along with the empty plot.
         else:
             print("Glacier has no history yet, try progressing the glacier.")
@@ -700,18 +719,20 @@ class Glacier:
         ax3.grid(True)
 
         if show_bias and self.history:
-            if smooth:
-                self.mass_balance.temp_bias_series.bias.rolling(
-                    smooth, min_periods=0, center=True
+            window_str = ""
+            if window:
+                bias_series.bias.rolling(
+                    window, min_periods=0, center=True
                 ).mean().plot(ax=ax4)
+                window_str = f", {window} yr. mean"
             else:
-                self.mass_balance.temp_bias_series.bias.plot(ax=ax4)
+                bias_series.bias.plot(ax=ax4)
             ax4.grid(True)
             ax4.set_xlabel("Year")
             ax4.set_ylabel("Bias [°C]")
 
             ax4.annotate(
-                "Temperature bias",
+                "Temperature bias" + window_str,
                 (0.98, 0.1),
                 xycoords="axes fraction",
                 bbox={"boxstyle": "Round", "color": "lightgrey"},
@@ -723,16 +744,28 @@ class Glacier:
         return fig, ax1, ax2, ax3
 
     @edu_plotter
-    def plot_history(self, show_bias=False, smooth=None):
-        """Plot the history of the glacier."""
+    def plot_history(self, show_bias=False, window=None, time_range=None):
+        """Plot the history of the glacier.
+
+        Parameters
+        ----------
+        show_bias : bool, optional
+            Add a fourth axis, showing the history of the temperature bias.
+            False by default.
+        window : int, optional
+            Controls the size (year) of the rolling window used to smooth the
+            temperature bias.
+        time_range : array_like(int, int), optional
+            Select a subset of the data to plot.
+        """
         # Get the components
         if show_bias:
             fig, ax1, ax2, ax3, ax4 = self._create_history_plot_components(
-                show_bias=show_bias, smooth=smooth
+                show_bias=show_bias, window=window, time_range=time_range
             )
         else:
             fig, ax1, ax2, ax3 = self._create_history_plot_components(
-                show_bias=show_bias, smooth=smooth
+                window=window, time_range=time_range
             )
 
     @edu_plotter
