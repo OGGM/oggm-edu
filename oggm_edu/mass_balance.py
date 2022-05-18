@@ -364,7 +364,7 @@ class MassBalance(MassBalanceModel):
             raise ValueError(
                 "The columns of the dataframe should be 'year' and 'bias'."
             )
-        elif not df.year.iloc[0] == self.temp_bias_series.year.iloc[0] + 1:
+        elif not df.year.iloc[0] == self.temp_bias_series.year.iloc[-1] + 1:
             raise ValueError(
                 "User supplied series should start after the current year."
             )
