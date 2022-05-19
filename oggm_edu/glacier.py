@@ -129,13 +129,19 @@ class Glacier:
 
     def _repr_html_(self):
         """HTML representations"""
+        # Return the html representation of the summary df,
+        return self.summary()._repr_html_()
+
+    def summary(self):
+        """A summary of the glacier, in the form of a pandas dataframe."""
         # Get attris
         attrs = self._to_json()
+        # Create the dataframe.
         df = pd.DataFrame.from_dict(attrs, orient="index")
         df.columns = [""]
         df.index.name = "Attribute"
-
-        return df._repr_html_()
+        # Return the df.
+        return df
 
     def reset(self):
         """Reset the glacier to initial state."""

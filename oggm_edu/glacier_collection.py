@@ -45,6 +45,15 @@ class GlacierCollection:
 
     def _repr_html_(self):
         # Pretty representation for notebooks.
+        # Return the html representation of the summary dataframe.
+        if len(self._glaciers) > 0:
+            return self.summary()._repr_html_()
+        else:
+            pass
+
+    def summary(self):
+        """Returns a summary of the collection in the form of a pandas dataframe."""
+
         # Get the first glacier and base the creation of the dataframe of this.
         # If we have glaciers in the collection.
         if len(self._glaciers) > 0:
@@ -66,10 +75,11 @@ class GlacierCollection:
                 # Add it to the df.
                 df2 = pd.DataFrame(json)
                 df = pd.concat([df, df2], ignore_index=True)
+                # Set the index name.
             df.index.name = "Glacier"
-            # Return the html representation of the dataframe.
-            return df._repr_html_()
-        # If empty.
+
+            return df
+
         else:
             pass
 
