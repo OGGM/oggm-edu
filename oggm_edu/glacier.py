@@ -648,7 +648,7 @@ class Glacier:
 
     @edu_plotter
     def _create_history_plot_components(
-        self, show_bias=False, window=None, time_range=None
+        self, show_bias=False, window=None, time_range=None, invert=False
     ):
         """Create components for the history plot of the glacier."""
 
@@ -738,13 +738,15 @@ class Glacier:
                 bbox={"boxstyle": "Round", "color": "lightgrey"},
                 ha="right",
             )
+            if invert:
+                ax4.invert_yaxis()
 
             return fig, ax1, ax2, ax3, ax4
 
         return fig, ax1, ax2, ax3
 
     @edu_plotter
-    def plot_history(self, show_bias=False, window=None, time_range=None):
+    def plot_history(self, show_bias=False, window=None, time_range=None, invert=False):
         """Plot the history of the glacier.
 
         Parameters
@@ -757,11 +759,13 @@ class Glacier:
             temperature bias.
         time_range : array_like(int, int), optional
             Select a subset of the data to plot.
+        invert : bool, optional
+            Chose to invert the y-axis on the bias plot. False by default.
         """
         # Get the components
         if show_bias:
             fig, ax1, ax2, ax3, ax4 = self._create_history_plot_components(
-                show_bias=show_bias, window=window, time_range=time_range
+                show_bias=show_bias, window=window, time_range=time_range, invert=invert
             )
         else:
             fig, ax1, ax2, ax3 = self._create_history_plot_components(
