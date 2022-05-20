@@ -202,7 +202,7 @@ html_theme_options = {
 # This is necessary to have an optional footer
 html_sidebars = {
     "**": ["sidebar-logo.html", "search-field.html",
-           "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
+           "sbt-sidebar-nav.html"]
 }
 
 
