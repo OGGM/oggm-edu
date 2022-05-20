@@ -201,7 +201,7 @@ To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
 From there, run this command into a terminal::
 
-    docker run -e BOKEH_ALLOW_WS_ORIGIN=0.0.0.0:8080 -p 8080:8080 oggm/bokeh:20211010 git+https://github.com/OGGM/mb_simulator.git@stable app.ipynb
+    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8084:8080 ghcr.io/oggm/bokeh:20220520 git+https://github.com/OGGM/mb_simulator.git@stable app.ipynb
 
 Once running, you should be able to start the app in your browser at this
-address: `http://0.0.0.0:8080/app <http://0.0.0.0:8080/app>`_.
+address: `http://127.0.0.1:8084/app <http://127.0.0.1:8084/app>`_.
