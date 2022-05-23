@@ -341,8 +341,8 @@ class MassBalance(MassBalanceModel):
         """Dataframe of historical and possible future temperature biases of the glacier.
         The user can create their own bias series through a pandas data frame.
 
-        Parameters
-        ----------
+        Returns
+        -------
         df : Pandas.DataFrame
             Custom dataframe for temperature bias series.
             This dataframe should have two columns: 'year' and 'bias'. 'year' should
@@ -381,7 +381,7 @@ class MassBalance(MassBalanceModel):
                 [self._temp_bias_series, df]
             ).reset_index(drop=True)
 
-    def add_temp_bias(self, temp_bias, duration, year):
+    def add_temp_bias(self, temp_bias, duration, noise=None):
         """Add a gradual temperature bias to the mass balance of the
         glacier.
 
@@ -391,8 +391,9 @@ class MassBalance(MassBalanceModel):
             Final temperature bias to apply after the specified duration
         duration : int
             Number of year during which to apply the temperature bias.
-        year : int
-            Current age of the glacier
+        noise : list(float, float) (Optional)
+            Sequence of floats which defines the lower and upper boundary of
+            the random noise to add to the trend.
         """
         # Check that criteria are met.
         if isinstance(temp_bias, float) and isinstance(duration, int):
@@ -401,6 +402,22 @@ class MassBalance(MassBalanceModel):
             # Have to add one year for linspace to include the last year.
             # At the same time we don't need the first year.
             temp_biases = np.linspace(self.temp_bias, temp_bias, duration + 1)[1:]
+
+            # Check if we should add noise.
+            if isinstance(noise, list) or isinstance(noise, tuple):
+                # Is the order correct
+                if not noise[0] < noise[1]:
+                    raise ValueError("Elements of noise should be increasing.")
+
+                # Generate random array and scale to the correct range.
+                noisy_data = np.random.rand(duration) * (noise[1] - noise[0]) + noise[0]
+
+                # Add the noisty data to the trend.
+                temp_biases = temp_biases + noisy_data
+
+            # If we have noise but above fails.
+            elif noise:
+                raise TypeError("noise supplied but of the wrong type.")
 
             # Setter handles year logic.
             self.temp_bias_series = temp_biases

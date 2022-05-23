@@ -363,7 +363,7 @@ class Glacier:
             response_time = all_vol_diff.time.isel(time=idx) - year_initial
             return response_time.values.item()
 
-    def add_temperature_bias(self, bias, duration):
+    def add_temperature_bias(self, bias, duration, noise=None):
         """Add a gradual temperature bias to the future mass balance of the
         glacier. Note that the method is cumulative, i.e. calling it multiple
         times will extend the prescribed climate.
@@ -375,8 +375,11 @@ class Glacier:
             Temperature bias to apply
         duration: int
             Specify during how many years the bias will be applied.
+        noise : list(float, float)
+            Sequence of floats which defines the lower and upper boundary of
+            the random noise to add to the trend.
         """
-        self.mass_balance.add_temp_bias(bias, duration, self.age)
+        self.mass_balance.add_temp_bias(bias, duration, noise)
 
     def add_random_climate(self, duration, temperature_range):
         """Append a random climate to the future mass balance of the glacier.
