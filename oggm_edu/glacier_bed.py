@@ -75,7 +75,8 @@ class GlacierBed:
             Length should match altitudes.
         slopes : array_like(int)
             Define the slope of the bed, degrees. One or multiple values. For the latter,
-            slope sections are required.
+            slope sections are required. Possible values range from -90 to 90 degrees.
+            To create a hole, there has to be an increase in the altitude in slope_section.
         slope_sections : array_like(int)
             Defines the altitude spans for the slopes. Should start with the top altitude and
             end with the bottom altitude. The number of altitudes need to be one greater then
@@ -136,8 +137,8 @@ class GlacierBed:
                 slopes = [slopes]
 
             # Make sure that the provided slopes are reasonable.
-            if (np.asarray(slopes) < 1).any() or (np.asarray(slopes) > 80).any():
-                raise ValueError("Slopes should be above 0 and below 80 degrees.")
+            if (np.asarray(slopes) < -90).any() or (np.asarray(slopes) > 90).any():
+                raise ValueError("Slopes should be above -85 and below 80 degrees.")
             #  Do we have sequence of both slopes and breakpoints?
             if isinstance(slopes, Sequence) and isinstance(slope_sections, Sequence):
                 # Are they compatible?
