@@ -165,6 +165,12 @@ class Glacier:
     def _to_json(self):
         """Json represenation"""
         state = self._state()
+
+        # Do we have a state history yet?
+        if self.state_history:
+            ice_vel = self.state_history.ice_velocity_myr.max().values
+        else:
+            ice_vel = None
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -172,6 +178,7 @@ class Glacier:
             "Area [km2]": state.area_km2,
             "Volume [km3]": state.volume_km3,
             "Max ice thickness [m]": state.thick.max(),
+            "Max ice velocity [m/yr]": ice_vel,
             "Response time [yrs]": self.response_time,
         }
         return json
