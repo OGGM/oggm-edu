@@ -1,6 +1,7 @@
 from oggm.cfg import SEC_IN_YEAR
 from oggm_edu import MassBalance
 import numpy as np
+import pandas as pd
 from numpy.testing import assert_equal
 import pytest
 
@@ -91,3 +92,19 @@ def test_get_annual_mb():
     computed_mbs = mb.get_annual_mb(heights)
 
     assert_equal(corr_mbs, computed_mbs)
+
+
+def test_temp_bias_setter():
+    """Test the setter of the temp_bias_series."""
+    mb = MassBalance(ela=2000, gradient=10)
+
+    # Check year dtype
+    data = ["1", "hello", "2"]
+    with pytest.raises(Exception) as e_info:
+        mb.temp_bias_series = data
+
+    # Finally something that should work.
+    data = [1, 1.5, 1]
+    mb.temp_bias_series = data
+    assert len(mb.temp_bias_series.year) == 4
+    assert_equal(mb.temp_bias_series.bias, np.array([0, 1, 1.5, 1]))

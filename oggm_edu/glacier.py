@@ -20,6 +20,7 @@ import warnings
 import copy
 from itertools import cycle
 import re
+from collections.abc import Sequence
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -128,13 +129,19 @@ class Glacier:
 
     def _repr_html_(self):
         """HTML representations"""
+        # Return the html representation of the summary df,
+        return self.summary()._repr_html_()
+
+    def summary(self):
+        """A summary of the glacier, in the form of a pandas dataframe."""
         # Get attris
         attrs = self._to_json()
+        # Create the dataframe.
         df = pd.DataFrame.from_dict(attrs, orient="index")
         df.columns = [""]
         df.index.name = "Attribute"
-
-        return df._repr_html_()
+        # Return the df.
+        return df
 
     def reset(self):
         """Reset the glacier to initial state."""
@@ -158,6 +165,12 @@ class Glacier:
     def _to_json(self):
         """Json represenation"""
         state = self._state()
+
+        # Do we have a state history yet?
+        if self.state_history:
+            ice_vel = self.state_history.ice_velocity_myr.max().values
+        else:
+            ice_vel = None
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -165,6 +178,7 @@ class Glacier:
             "Area [km2]": state.area_km2,
             "Volume [km3]": state.volume_km3,
             "Max ice thickness [m]": state.thick.max(),
+            "Max ice velocity [m/yr]": ice_vel,
             "Response time [yrs]": self.response_time,
         }
         return json
@@ -356,8 +370,11 @@ class Glacier:
             response_time = all_vol_diff.time.isel(time=idx) - year_initial
             return response_time.values.item()
 
-    def add_temperature_bias(self, bias, duration):
-        """Add a temperature bias to the mass balance of the glacier.
+    def add_temperature_bias(self, bias, duration, noise=None):
+        """Add a gradual temperature bias to the future mass balance of the
+        glacier. Note that the method is cumulative, i.e. calling it multiple
+        times will extend the prescribed climate.
+        glacier.
 
         Parameters
         ----------
@@ -365,8 +382,25 @@ class Glacier:
             Temperature bias to apply
         duration: int
             Specify during how many years the bias will be applied.
+        noise : list(float, float)
+            Sequence of floats which defines the lower and upper boundary of
+            the random noise to add to the trend.
         """
-        self.mass_balance._add_temp_bias(bias, duration, self.age)
+        self.mass_balance.add_temp_bias(bias, duration, noise)
+
+    def add_random_climate(self, duration, temperature_range):
+        """Append a random climate to the future mass balance of the glacier.
+        Note that the method is cumulative, i.e. calling it multiple
+        times will extend the prescribed climate.
+
+        Parameters
+        ----------
+        duration : int
+            How many years should the random climate be.
+        temperature_range : array_like(float, float)
+            The range over which the climate should vary randomly.
+        """
+        self.mass_balance.add_random_climate(duration, temperature_range, self.age)
 
     def progress_to_year(self, year):
         """Progress the glacier to year n.
@@ -390,56 +424,32 @@ class Glacier:
 
         # If all passes
         else:
-            # Do we have any years left to run?
-            while year - self.age > 0:
-                # Check if we have a current state already.
-                state = self._state()
-                # Initialise the model
-                model = FluxBasedModel(
-                    state,
-                    mb_model=self.mass_balance,
-                    y0=self.age,
-                    glen_a=self.creep,
-                    fs=self.basal_sliding,
-                )
-                # If we have temp evolution left to do.
-                if self.age < self.mass_balance._temp_bias_final_year:
-                    # Run the model. Store the history.
-                    # How big are the steps?
-                    run_to = int(self.age + 1)
-                    try:
-                        out = model.run_until_and_store(run_to, fl_diag_path=None)
-                    # If the glacier grows out of its bed, we try progressing again,
-                    # but five years shorter.
-                    except RuntimeError:
-                        print(
-                            "Glacier grew out of its domain, trying to step back five years"
-                        )
-                        # Recurse with five years less. Eventually we'll find the largest possible state.
-                        self.progress_to_year(year - 5)
-                        # Since we've already saved the new state we can just return here.
-                        return
-                    self.mass_balance._update_temp_bias(model.yr)
-                # If there is no temp evolution, do all the years.
-                else:
-                    # Run the model. Store the history.
-                    try:
-                        out = model.run_until_and_store(year, fl_diag_path=None)
-                    # If it fails, see above.
-                    except RuntimeError:
-                        print(
-                            "Glacier grew out of its domain, stepping back five years"
-                        )
-                        # Ohhh recursion
-                        self.progress_to_year(year - 5)
-                        return
+            # Check if we have a current state already.
+            state = self._state()
+            # Initialise the model
+            model = FluxBasedModel(
+                state,
+                mb_model=self.mass_balance,
+                y0=self.age,
+                glen_a=self.creep,
+                fs=self.basal_sliding,
+            )
+            # Run the model. Store the history.
+            try:
+                out = model.run_until_and_store(year, fl_diag_path=None)
+            # If it fails, see above.
+            except RuntimeError:
+                print("Glacier grew out of its domain, stepping back five years")
+                # Ohhh recursion
+                self.progress_to_year(year - 5)
+                return
 
-                # Update attributes.
-                self.history = out[0]
-                self.state_history = out[1][0]
-                self._current_state = model.fls[0]
-                self._model_state = model
-                self.age = model.yr
+            # Update attributes.
+            self.history = out[0]
+            self.state_history = out[1][0]
+            self._current_state = model.fls[0]
+            self._model_state = model
+            self.age = model.yr
 
     def progress_to_equilibrium(self, years=2500, t_rate=0.0001):
         """Progress the glacier to equilibrium.
@@ -511,53 +521,43 @@ class Glacier:
 
             return stop, previous_state
 
-        # Check if the glacier has a masss balance model
-        if not self.mass_balance:
-            string = (
-                "To grow the glacier it needs a mass balance."
-                + "\nMake sure the ELA and mass balance gradient"
-                + " are defined."
+        # Do we have a future temperature changes assigned?
+        if self.age < self.mass_balance._temp_bias_series.year.iloc[-1]:
+            # If so, progress normally until finished.
+            self.progress_to_year(self.mass_balance._temp_bias_series.year.iloc[-1])
+        # Then we can find the eq. state.
+        # Initialise the model
+        state = self._state()
+        model = FluxBasedModel(
+            state,
+            mb_model=self.mass_balance,
+            y0=self.age,
+            glen_a=self.creep,
+            fs=self.basal_sliding,
+        )
+        # Run the model.
+        try:
+            #  Run with a stopping criteria.
+            out = model.run_until_and_store(
+                years, fl_diag_path=None, stop_criterion=stop_function
             )
-            raise NotImplementedError(string)
 
-        else:
-            # Do we have a temp scenario which isn't passed yet?
-            if self.age < self.mass_balance._temp_bias_final_year:
-                # If so, progress normally.
-                self.progress_to_year(self.mass_balance._temp_bias_final_year)
-            # Then we can find the eq. state.
-            # Initialise the model
-            state = self._state()
-            model = FluxBasedModel(
-                state,
-                mb_model=self.mass_balance,
-                y0=self.age,
-                glen_a=self.creep,
-                fs=self.basal_sliding,
+        except RuntimeError:
+            # We chose to print and return instead of raising since the
+            # collection will then be able to continue.
+            print(
+                "Glacier grew out of its domain before reaching an equilibrium state."
             )
-            # Run the model.
-            try:
-                #  Run with a stopping criteria.
-                out = model.run_until_and_store(
-                    years, fl_diag_path=None, stop_criterion=stop_function
-                )
+            return
 
-            except RuntimeError:
-                # We chose to print and return instead of raising since the
-                # collection will then be able to continue.
-                print(
-                    "Glacier grew out of its domain before reaching an equilibrium state."
-                )
-                return
-
-            # Update attributes.
-            self.history = out[0]
-            self.state_history = out[1][0]
-            self._current_state = model.fls[0]
-            self.age = model.yr
-            self._model_state = model
-            # Remember the eq. year
-            self._eq_states[self.age] = self.mass_balance.ela_h
+        # Update attributes.
+        self.history = out[0]
+        self.state_history = out[1][0]
+        self._current_state = model.fls[0]
+        self.age = model.yr
+        self._model_state = model
+        # Remember the eq. year
+        self._eq_states[self.age] = self.mass_balance.ela_h
 
     @edu_plotter
     def plot(self):
@@ -663,16 +663,37 @@ class Glacier:
         plt.legend()
 
     @edu_plotter
-    def _create_history_plot_components(self):
+    def _create_history_plot_components(
+        self, show_bias=False, window=None, time_range=None, invert=False
+    ):
         """Create components for the history plot of the glacier."""
 
-        fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
+        if show_bias:
+            fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, sharex=True)
+        else:
+            fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
+
+        # First point to all data.
+        data = self.history
+        bias_series = self.mass_balance.temp_bias_series
+        # If the user supplied a time_range.
+        if isinstance(time_range, Sequence):
+            if time_range[0] >= self.age:
+                raise ValueError(
+                    "Lower end of time_range should be before age of glacier."
+                )
+            # Select data from time range only.
+            data = self.history.sel(time=slice(time_range[0], time_range[1]))
+            bias_series = bias_series.loc[
+                (bias_series["year"] >= time_range[0])
+                & (bias_series["year"] <= time_range[1])
+            ]
 
         # Plot the length, volume and area if we have a history.
         if self.history is not None:
-            self.history.length_m.plot(ax=ax1)
-            self.history.volume_m3.plot(ax=ax2)
-            self.history.area_m2.plot(ax=ax3)
+            data.length_m.plot(ax=ax1)
+            data.volume_m3.plot(ax=ax2)
+            data.area_m2.plot(ax=ax3)
         # If not, we print a message along with the empty plot.
         else:
             print("Glacier has no history yet, try progressing the glacier.")
@@ -713,13 +734,59 @@ class Glacier:
         ax2.grid(True)
         ax3.grid(True)
 
+        if show_bias and self.history:
+            window_str = ""
+            if window:
+                bias_series.bias.rolling(
+                    window, min_periods=0, center=True
+                ).mean().plot(ax=ax4)
+                window_str = f", {window} yr. mean"
+            else:
+                bias_series.bias.plot(ax=ax4)
+            ax4.grid(True)
+            ax4.set_xlabel("Year")
+            ax4.set_ylabel("Bias [°C]")
+
+            ax4.annotate(
+                "Temperature bias" + window_str,
+                (0.98, 0.1),
+                xycoords="axes fraction",
+                bbox={"boxstyle": "Round", "color": "lightgrey"},
+                ha="right",
+            )
+            if invert:
+                ax4.invert_yaxis()
+
+            return fig, ax1, ax2, ax3, ax4
+
         return fig, ax1, ax2, ax3
 
     @edu_plotter
-    def plot_history(self):
-        """Plot the history of the glacier."""
+    def plot_history(self, show_bias=False, window=None, time_range=None, invert=False):
+        """Plot the history of the glacier.
+
+        Parameters
+        ----------
+        show_bias : bool, optional
+            Add a fourth axis, showing the history of the temperature bias.
+            False by default.
+        window : int, optional
+            Controls the size (year) of the rolling window used to smooth the
+            temperature bias.
+        time_range : array_like(int, int), optional
+            Select a subset of the data to plot.
+        invert : bool, optional
+            Chose to invert the y-axis on the bias plot. False by default.
+        """
         # Get the components
-        fig, ax1, ax2, ax3 = self._create_history_plot_components()
+        if show_bias:
+            fig, ax1, ax2, ax3, ax4 = self._create_history_plot_components(
+                show_bias=show_bias, window=window, time_range=time_range, invert=invert
+            )
+        else:
+            fig, ax1, ax2, ax3 = self._create_history_plot_components(
+                window=window, time_range=time_range
+            )
 
     @edu_plotter
     def plot_state_history(self, interval=50, eq_states=False):

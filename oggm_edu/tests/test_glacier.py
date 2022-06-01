@@ -88,10 +88,6 @@ def test_add_temperature_bias():
     # Check the current temperature bias.
     assert glacier.mass_balance.temp_bias == bias / duration * year
 
-    # Adding a new temperature bias before the previous one is finished should fail.
-    with pytest.raises(Exception) as e_info:
-        glacier.add_temperature_bias(bias=2.5, duration=duration)
-
     # Progress a bit further
     year = 10
     glacier.progress_to_year(year)
@@ -122,6 +118,22 @@ def test_add_temperature_bias():
     glacier.progress_to_year(year)
     assert glacier.mass_balance.temp_bias == new_bias
     assert glacier.ela == real_mb.ela + 150 * new_bias
+
+
+def test_add_random_climate():
+    """Test parts of the random climate."""
+    glacier = Glacier(bed=real_bed, mass_balance=real_mb)
+
+    glacier.progress_to_year(100)
+    assert len(glacier.mass_balance.temp_bias_series.bias) == 101
+
+    # Add a random climate.
+    glacier.add_random_climate(duration=200, temperature_range=(-2.0, 2.0))
+    # Should now be of the length 301
+    assert len(glacier.mass_balance.temp_bias_series.bias) == 301
+    glacier.progress_to_year(300)
+    # Should still be of the length 301
+    assert len(glacier.mass_balance.temp_bias_series.bias) == 301
 
 
 def test_surging_glacier():
