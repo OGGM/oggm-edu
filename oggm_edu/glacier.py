@@ -91,6 +91,15 @@ class Glacier:
 
         self._mass_balance = copy.deepcopy(mass_balance)
 
+        if self._mass_balance.ela_h > self.bed.top:
+            warnings.warn(
+                "The ELA is above the top of the glacier. This will prevent the glacier from gaining mass."
+            )
+        elif self._mass_balance.ela_h < self.bed.bottom:
+            warnings.warn(
+                "The ELA is below the bottom of the glacier. It is likely that the glacier will grow out of its domain."
+            )
+
         # Initilaise the flowline
         self._initial_state = self._init_flowline()
         # Set current and model state to None.
@@ -294,8 +303,17 @@ class Glacier:
         Parameters
         ----------
         value : float
-            Value fo the glacier sliding
+            Value setting the basal sliding.
         """
+        # Old default fs of oggm.
+        fs_def = 5.7e-20
+
+        if value > fs_def * 10:
+            warnings.warn("Basal sliding is very high.")
+        # Note that an edu glacier by default has zero basal sliding.
+        elif value < fs_def / 10:
+            warnings.warn("Basal sliding is very low.")
+
         self._basal_sliding = value
 
     @property
@@ -311,6 +329,12 @@ class Glacier:
         ----------
         value : float
         """
+        # Use 2.6e-27 as a rec. min for Glen A, from Physics of Glacier: Table 3.4
+        if value < 2.6e-27:
+            warnings.warn("Creep parameter (Glen A) is very small.")
+        elif value > cfg.PARAMS["glen_a"] * 10:
+            warnings.warn("Creep parameter (Glen A) is very large.")
+
         self._creep = value
 
     @history.setter
