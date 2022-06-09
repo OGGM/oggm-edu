@@ -10,7 +10,7 @@ two other classes: the GlacierBed and the MassBalance.
 # Internals
 from oggm_edu.glacier_bed import GlacierBed
 from oggm_edu.mass_balance import MassBalance
-from oggm_edu.funcs import edu_plotter
+from oggm_edu.funcs import edu_plotter, cp_glen_a
 
 # Other libraries
 import numpy as np
@@ -188,6 +188,8 @@ class Glacier:
             "Volume [km3]": state.volume_km3,
             "Max ice thickness [m]": state.thick.max(),
             "Max ice velocity [m/yr]": ice_vel,
+            "Creep factor": self.creep,
+            "Basal sliding": self.basal_sliding,
             "Response time [yrs]": self.response_time,
         }
         return json
@@ -293,7 +295,13 @@ class Glacier:
 
     @property
     def basal_sliding(self):
-        """Set the sliding parameter of the glacier"""
+        """Set the sliding parameter of the glacier
+
+        Parameters
+        ----------
+        value : float
+            Value setting the basal sliding.
+        """
         return self._basal_sliding
 
     @basal_sliding.setter
@@ -318,17 +326,37 @@ class Glacier:
 
     @property
     def creep(self):
-        """Set the value for glen_a creep"""
-        return self._creep
-
-    @creep.setter
-    def creep(self, value):
-        """Set the value for glen_a creep
+        """Set the value for the creep parameter A in Glens equation.
+        A value in the range 0 to -50 will be interpreted as a temperature
+        and converted to a creep factor using equation 3.35 in The physics of Glaciers (Cuffey & Paterson).
+        A value above 0 will be interpreted as a creep factor and assigned directly.
 
         Parameters
         ----------
         value : float
+            Temperature in degrees or creep parameter.
         """
+        return self._creep
+
+    @creep.setter
+    def creep(self, value):
+        """Set the value for the creep parameter A in Glens equation.
+        A value in the range 0 to -50 will be interpreted as a temperature
+        and converted to a creep factor using equation 3.35 in The physics of Glaciers (Cuffey & Paterson).
+        A value above 0 will be interpreted as a creep factor and assigned directly.
+
+        Parameters
+        ----------
+        value : float
+            Temperature in degrees or creep parameter.
+        """
+
+        if value > 0:
+            print("Value interpreted as a creep factor.")
+        # Convert temp to A.
+        else:
+            print("Value interpreted as a temperature and converted to a creep factor.")
+            value = cp_glen_a(value)
         # Use 2.6e-27 as a rec. min for Glen A, from Physics of Glacier: Table 3.4
         if value < 2.6e-27:
             warnings.warn("Creep parameter (Glen A) is very small.")

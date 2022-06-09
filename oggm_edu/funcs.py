@@ -1,6 +1,7 @@
 """oggm-edu package: useful functions diffult to place elsewhere"""
 import urllib
 from functools import wraps
+import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -130,3 +131,36 @@ def expression_parser(expression, numeric):
         }
 
         return expression_dict[operator]
+
+
+def cp_glen_a(t):
+    """This implements the conversion between temperature and Glen's A,
+       as eq. 3.35 in  The physics of glaciers by Cuffey and Paterson.
+
+    Parameters
+    ----------
+    t : int, float
+        Temperature in degrees Celsius. Should be below 0.
+    """
+
+    # Constants.
+    a_star = 3.5 * 1e-25
+    q_plus = 115_000
+    t_star = 263 + 7 * 1e-8
+    q_minus = 60_000
+    r = 8.314
+
+    # Check if temp is below 0.
+    if t > 0:
+        raise ValueError("Supplied temperature should be below 0.")
+
+    # Convert to Kelvin
+    t = t + 273
+    t_h = t + 7 * 1e-8
+
+    if t < t_star:
+        q_c = q_minus
+    else:
+        q_c = q_plus
+
+    return a_star * np.exp(-(q_c / r) * (1 / t_h - 1 / t_star))
