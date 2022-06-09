@@ -188,8 +188,7 @@ class Glacier:
             "Volume [km3]": state.volume_km3,
             "Max ice thickness [m]": state.thick.max(),
             "Max ice velocity [m/yr]": ice_vel,
-            "Creep factor": self.creep,
-            "Basal sliding": self.basal_sliding,
+            "AAR [%]": self.accumulation_area_ratio * 100,
             "Response time [yrs]": self.response_time,
         }
         return json
@@ -421,6 +420,29 @@ class Glacier:
             # Reponse time
             response_time = all_vol_diff.time.isel(time=idx) - year_initial
             return response_time.values.item()
+
+    @property
+    def accumulation_area_ratio(self):
+        """The accumulation area ratio. As calculated in the GlacierExplorer app."""
+        if not self.current_state:
+            return np.nan
+        # What is the area of the glacier?
+        total_area = self.current_state.area_m2
+        # Can calculate AAR if there is an accumulation area
+        if np.any(self.current_state.surface_h > self.mass_balance.ela_h):
+            # How large is the accumulation area.
+            accumulation_area = np.sum(
+                np.where(
+                    self.current_state.surface_h > self.mass_balance.ela_h,
+                    self.current_state.bin_area_m2,
+                    0,
+                )
+            )
+
+            return accumulation_area / total_area
+        # if there is no accumulation area we return nan
+        else:
+            return np.nan
 
     def add_temperature_bias(self, bias, duration, noise=None):
         """Add a gradual temperature bias to the future mass balance of the
