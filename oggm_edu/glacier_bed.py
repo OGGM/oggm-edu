@@ -8,6 +8,7 @@ from collections.abc import Sequence
 # Other libraries.
 import numpy as np
 import pandas as pd
+import warnings
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -129,6 +130,10 @@ class GlacierBed:
                 + " Bottom also has to be above 0"
             )
         # Set the resolution.
+        if map_dx <= 50:
+            warnings.warn(
+                "Setting the map resolution below 50 meters might lead to numerical instabilities."
+            )
         self.map_dx = map_dx
         # Do we have a specified slope?
         if slopes:

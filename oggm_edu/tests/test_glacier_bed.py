@@ -117,7 +117,7 @@ def test_non_linear_bed_constructor():
 
     # Make sure we cant provide strange slop angles.
     with pytest.raises(Exception) as e_info:
-        bed = GlacierBed(top=3600, bottom=3000, width=300, slopes=[90])
+        bed = GlacierBed(top=3600, bottom=3000, width=300, slopes=[110])
 
     with pytest.raises(Exception) as e_info:
         _ = GlacierBed(

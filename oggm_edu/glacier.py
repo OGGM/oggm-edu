@@ -10,7 +10,7 @@ two other classes: the GlacierBed and the MassBalance.
 # Internals
 from oggm_edu.glacier_bed import GlacierBed
 from oggm_edu.mass_balance import MassBalance
-from oggm_edu.funcs import edu_plotter
+from oggm_edu.funcs import edu_plotter, cp_glen_a
 
 # Other libraries
 import numpy as np
@@ -90,6 +90,15 @@ class Glacier:
             raise TypeError("mass_balance should be of the type oggm_edu.MassBalance.")
 
         self._mass_balance = copy.deepcopy(mass_balance)
+
+        if self._mass_balance.ela_h > self.bed.top:
+            warnings.warn(
+                "The ELA is above the top of the glacier. This will prevent the glacier from gaining mass."
+            )
+        elif self._mass_balance.ela_h < self.bed.bottom:
+            warnings.warn(
+                "The ELA is below the bottom of the glacier. It is likely that the glacier will grow out of its domain."
+            )
 
         # Initilaise the flowline
         self._initial_state = self._init_flowline()
@@ -179,6 +188,7 @@ class Glacier:
             "Volume [km3]": state.volume_km3,
             "Max ice thickness [m]": state.thick.max(),
             "Max ice velocity [m/yr]": ice_vel,
+            "AAR [%]": self.accumulation_area_ratio * 100,
             "Response time [yrs]": self.response_time,
         }
         return json
@@ -284,7 +294,13 @@ class Glacier:
 
     @property
     def basal_sliding(self):
-        """Set the sliding parameter of the glacier"""
+        """Set the sliding parameter of the glacier
+
+        Parameters
+        ----------
+        value : float
+            Value setting the basal sliding.
+        """
         return self._basal_sliding
 
     @basal_sliding.setter
@@ -294,23 +310,58 @@ class Glacier:
         Parameters
         ----------
         value : float
-            Value fo the glacier sliding
+            Value setting the basal sliding.
         """
+        # Old default fs of oggm.
+        fs_def = 5.7e-20
+
+        if value > fs_def * 10:
+            warnings.warn("Basal sliding is very high.")
+        # Note that an edu glacier by default has zero basal sliding.
+        elif value < fs_def / 10:
+            warnings.warn("Basal sliding is very low.")
+
         self._basal_sliding = value
 
     @property
     def creep(self):
-        """Set the value for glen_a creep"""
-        return self._creep
-
-    @creep.setter
-    def creep(self, value):
-        """Set the value for glen_a creep
+        """Set the value for the creep parameter A in Glens equation.
+        A value in the range 0 to -50 will be interpreted as a temperature
+        and converted to a creep factor using equation 3.35 in The physics of Glaciers (Cuffey & Paterson).
+        A value above 0 will be interpreted as a creep factor and assigned directly.
 
         Parameters
         ----------
         value : float
+            Temperature in degrees or creep parameter.
         """
+        return self._creep
+
+    @creep.setter
+    def creep(self, value):
+        """Set the value for the creep parameter A in Glens equation.
+        A value in the range 0 to -50 will be interpreted as a temperature
+        and converted to a creep factor using equation 3.35 in The physics of Glaciers (Cuffey & Paterson).
+        A value above 0 will be interpreted as a creep factor and assigned directly.
+
+        Parameters
+        ----------
+        value : float
+            Temperature in degrees or creep parameter.
+        """
+
+        if value > 0:
+            print("Value interpreted as a creep factor.")
+        # Convert temp to A.
+        else:
+            print("Value interpreted as a temperature and converted to a creep factor.")
+            value = cp_glen_a(value)
+        # Use 2.6e-27 as a rec. min for Glen A, from Physics of Glacier: Table 3.4
+        if value < 2.6e-27:
+            warnings.warn("Creep parameter (Glen A) is very small.")
+        elif value > cfg.PARAMS["glen_a"] * 10:
+            warnings.warn("Creep parameter (Glen A) is very large.")
+
         self._creep = value
 
     @history.setter
@@ -369,6 +420,29 @@ class Glacier:
             # Reponse time
             response_time = all_vol_diff.time.isel(time=idx) - year_initial
             return response_time.values.item()
+
+    @property
+    def accumulation_area_ratio(self):
+        """The accumulation area ratio. As calculated in the GlacierExplorer app."""
+        if not self.current_state:
+            return np.nan
+        # What is the area of the glacier?
+        total_area = self.current_state.area_m2
+        # Can calculate AAR if there is an accumulation area
+        if np.any(self.current_state.surface_h > self.mass_balance.ela_h):
+            # How large is the accumulation area.
+            accumulation_area = np.sum(
+                np.where(
+                    self.current_state.surface_h > self.mass_balance.ela_h,
+                    self.current_state.bin_area_m2,
+                    0,
+                )
+            )
+
+            return accumulation_area / total_area
+        # if there is no accumulation area we return nan
+        else:
+            return np.nan
 
     def add_temperature_bias(self, bias, duration, noise=None):
         """Add a gradual temperature bias to the future mass balance of the
