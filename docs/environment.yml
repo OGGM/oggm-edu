@@ -15,7 +15,7 @@ dependencies:
   - pytest
   - seaborn
   - sphinx
-  - sphinx-book-theme
+  - sphinx-book-theme>=0.3.2
   - ipython
   - numpydoc
   - sphinx-intl
