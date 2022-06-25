@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-25 18:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../<rst_prolog>:1
+msgid "badge_bokeh_en"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_intro_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_tutorial_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_hub"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_classroom_tutos"
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:4
+msgid "Debris-covered glaciers"
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:10
+msgid ""
+"A collection of free glacier graphics that can be used for education and "
+"outreach."
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:14
+msgid ""
+"**License**: `Creative Commons Attribution-ShareAlike 4.0 International "
+"License <https://creativecommons.org/licenses/by-sa/4.0/>`_"
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:20
+msgid ""
+"Feel free to use / adapt the graphics, but always refer to the original "
+"author and share them with a compatible license."
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:23
+msgid ""
+"**Author**: Lindsey Nicholson (adapted from Anne Maussion, `Atelier les "
+"Gros yeux <http://atelierlesgrosyeux.com>`_)"
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:25
+msgid ""
+"This graphic was designed for the paper from `Nicholson et al., 2021 "
+"<https://doi.org/10.3389/feart.2021.662695>`_. It illustrates the "
+"processes of debris flux through a mountain glacier."
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:28
+msgid ""
+"**Download**: `zip file <https://github.com/OGGM/glacier-"
+"graphics/blob/master/glacier_debriscovered/glacier_debriscovered.zip?raw=true>`_"
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:31
+msgid "Image with english labels"
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:36
+msgid ""
+"Rock debris from the surrounding landscape is transported by glacier ice "
+"motion, and some glaciers can develop into debris covered glaciers, with "
+"a layer of rock rubble covering part of their ablation zone. This debris "
+"cover alters the ablation rate of the glacier, and therefore its overall "
+"interaction with a forcing climate. Here is a schematic of the control "
+"and processes affecting debris covered glacier systems as presented in "
+"`Nicholson et al., 2021 <https://doi.org/10.3389/feart.2021.662695>`_."
+msgstr ""
+
+#: ../../glacier_debriscovered.rst:45
+msgid "Image with no labels"
+msgstr ""
+

@@ -47,12 +47,9 @@ rather do the latter.
 Prepare activity sheets for schools
 -----------------------------------
 
-Let's face it: right now, OGGM-Edu is of limited use for teachers, who have only
-little time to prepare their class. It would be very useful to prepare concrete
-"activity sheets" which explain how to spend one, two, or four hours with
-OGGM-Edu, at various levels of difficulty and level of detail. Such
-documents could also live on the website (e.g. in :ref:`examples`) and be
-updated as people report their experiences with the tool.
+If you are creating educational resources based on OGGM-Edu,
+please :ref:`get in touch <title_contact>` so that we can advertise them!
+See :ref:`classes_howto` for available examples.
 
 
 Help translate OGGM-Edu

@@ -126,7 +126,9 @@ recommendations and guidelines here.
 
 * :doc:`why_oggmedu`
 * :doc:`classes_howto`
-* :doc:`examples`
+* :doc:`user_content`
+* :doc:`technical_details`
+* :doc:`other_resources`
 * :doc:`charter`
 * :doc:`roadmap`
 
@@ -137,6 +139,8 @@ recommendations and guidelines here.
 
     why_oggmedu.rst
     classes_howto.rst
+    user_content.rst
+    technical_details.rst
     other_resources.rst
     charter.rst
     roadmap.rst

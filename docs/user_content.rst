@@ -11,8 +11,8 @@ Fortunately, this is very easy to do! All you need to do is to provide the
 notebooks you would like to run in an online git repository
 (e.g. GitHub, Gitlab, Bitbucket). For example, we have created an
 `oggm-edu-contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single
-notebook to get you started. See also :ref:`examples` for existing classes
-making use of this system.
+notebook to get you started. See also :ref:`existing-classes` for examples of
+application.
 
 Ideally, we would like all OGGM-Edu related content to be bundled here on this
 open platform: if you are creating educational resources based on OGGM-Edu,
@@ -59,7 +59,7 @@ On classroom.oggm.org
 
 Since August 2021, we provide a dedicated OGGM JupyterLab server running on
 a dedicated machine in Bremen. `classroom.oggm.org <https://classroom.oggm.org>`_
-(that's it's name!) is like `OGGM-Hub <https://docs.oggm.org/en/stable/cloud.html#oggm-hub>`_,
+(that's its name!) is like `OGGM-Hub <https://docs.oggm.org/en/stable/cloud.html#oggm-hub>`_,
 but tailored for instructors and their classes.
 
 The advantages of OGGM-classroom over Binder are:
