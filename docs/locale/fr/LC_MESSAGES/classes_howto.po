@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 18:58+0200\n"
+"POT-Creation-Date: 2022-06-26 17:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,33 +158,18 @@ msgstr ""
 msgid "See also the two OGGM-Edu lab activities hosted on SERC:"
 msgstr ""
 
-#: ../../classes_howto.rst:57
-msgid ""
-"These activites have been tested in class and will be developed further. "
-"If you want more ideas, here are suggested activities writen by Josie "
-"Iino, a high school student who realized a short internship with us:"
-msgstr ""
-
-#: ../../classes_howto.rst:61
-msgid ":ref:`as_gallery`"
-msgstr ""
-
-#: ../../classes_howto.rst:62
-msgid ":ref:`as_simulator`"
-msgstr ""
-
-#: ../../classes_howto.rst:65
+#: ../../classes_howto.rst:59
 #, fuzzy
 msgid "Using the OGGM-Edu notebooks at university"
 msgstr "Utiliser les notebooks OGGM-Edu au niveau universitaire"
 
-#: ../../classes_howto.rst:67
+#: ../../classes_howto.rst:61
 msgid ""
 "For students with programming knowledge (or willing to learn!), the OGGM-"
 "Edu notebooks add a layer of depth and interactivity to the apps."
 msgstr ""
 
-#: ../../classes_howto.rst:70
+#: ../../classes_howto.rst:64
 msgid ""
 "The use of notebooks in classes is expanding rapidly (see for example the"
 " great resource `Teaching and Learning with Jupyter "
@@ -196,18 +181,18 @@ msgid ""
 "learning."
 msgstr ""
 
-#: ../../classes_howto.rst:77
+#: ../../classes_howto.rst:71
 msgid ""
 "Visit the `OGGM-Edu-Notebooks <https://oggm.org/oggm-edu-notebooks>`_ "
 "webpage to see them in action! And our :ref:`nbs_in_class` will help you "
 "to get started with your class."
 msgstr ""
 
-#: ../../classes_howto.rst:84
+#: ../../classes_howto.rst:78
 msgid "Existing classes based on OGGM-Edu"
 msgstr ""
 
-#: ../../classes_howto.rst:86
+#: ../../classes_howto.rst:80
 msgid ""
 "Here are some known applications of OGGM-Edu in classes. You can use them"
 " \"as is\", or as templates for your own classes. We would love to hear "
@@ -216,21 +201,21 @@ msgid ""
 "them!"
 msgstr ""
 
-#: ../../classes_howto.rst:91
+#: ../../classes_howto.rst:85
 msgid ""
 "`Middlebury College glaciology-labs notebooks <https://github.com/ehultee"
 "/glaciology-labs>`_, adapted (and enhanced) OGGM-Edu notebooks. By `Lizz "
 "Ultee <https://ehultee.github.io/>`_."
 msgstr ""
 
-#: ../../classes_howto.rst:93
+#: ../../classes_howto.rst:87
 msgid ""
 "`University of Michigan CLaSP 474 Ice and Climate notebooks "
 "<https://github.com/skachuck/clasp474_w2021>`_, adapted (and enhanced) "
 "OGGM-Edu notebooks. By `Samuel Kachuck <http://georei.com/>`_."
 msgstr ""
 
-#: ../../classes_howto.rst:95
+#: ../../classes_howto.rst:89
 msgid ""
 "`Three-day workshop <https://github.com/ehultee/CdeC-glaciologia>`_ for "
 "university students without prior glacier experience (in spanish). By "
@@ -421,4 +406,19 @@ msgstr ""
 #~ "OGGM-Edu ? Vous trouverez plus "
 #~ "d'informations dans les pages  ci-"
 #~ "dessous :"
+
+#~ msgid ""
+#~ "These activites have been tested in "
+#~ "class and will be developed further. "
+#~ "If you want more ideas, here are"
+#~ " suggested activities writen by Josie "
+#~ "Iino, a high school student who "
+#~ "realized a short internship with us:"
+#~ msgstr ""
+
+#~ msgid ":ref:`as_gallery`"
+#~ msgstr ""
+
+#~ msgid ":ref:`as_simulator`"
+#~ msgstr ""
 

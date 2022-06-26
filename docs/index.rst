@@ -12,7 +12,7 @@ OGGM-Edu is an educational website about glaciers.
 Our main goal is to **provide tools and materials for instructors** who
 want to teach about glaciers at school, in workshops or at the university.
 
-For a general introduction and an overview, visit this recent 
+For a general introduction and an overview, visit this recent
 `EGU cryoblog post <https://blogs.egu.eu/divisions/cr/2021/03/12/do-you-know-about-oggm-edu-an-open-source-educational-platform-about-glaciers-and-glacier-modelling/>`_!
 
 **OGGM-Edu has four independent and complementary components**:
@@ -31,8 +31,8 @@ For a general introduction and an overview, visit this recent
    to learn how the model works.
 
 OGGM-Edu focuses on interactive content and numerical glacier experiments.
-We do not provide teaching resources about fundamentals in glaciology or
-climate science: for fundamental textbook material, refer to
+We do not provide resources about fundamentals in glaciology, climate science,
+or numerical methods: for more traditional textbook material, refer to
 :ref:`other_resources`, which OGGM-Edu intends to complement.
 
 .. _title_apps:
@@ -86,11 +86,23 @@ Interactive Notebooks
 ^^^^^^^^^^^^^^^^^^^^^
 
 Collection of notebooks with simple experiments explaining one or more
-glaciological concepts. They are relatively easy to follow and adapt with some
-background in programming, and we are working to make them as accessible as
-possible. Read our :ref:`notebooks_howto` first if you are new to these things.
+glaciological concepts. The :ref:`api` provides an intuitive and expressive
+interface to the `OGGM model <https://docs.oggm.org>`_, highly simplifying
+the development of glacier evolution experiments.
+Read our :ref:`notebooks_howto` first if you are new to these things.
 
 |badge_edu_notebooks|
+
+.. admonition:: New! Run your class on classroom.oggm.org
+
+    Since 2021, OGGM-Edu offers a new service for instructors:
+    `classroom.oggm.org <https://classroom.oggm.org>`_ is a JupyterHub server
+    where you and your students can use OGGM-Edu without the burden of installing
+    anything. See `this blog post <https://oggm.org/2022/03/19/classroom/>`_
+    for an introduction.
+
+    |badge_classroom_tutos|
+
 
 .. toctree::
     :maxdepth: 1
@@ -124,10 +136,14 @@ For instructors and teachers
 Thanks for considering OGGM-Edu for your classes! We've gathered some
 recommendations and guidelines here.
 
+.. admonition:: New! Teaching materials for glaciology labs now available.
+
+    If you are an instructor, visit our new resources especially for teachers
+    on the :ref:`classes_howto` page.
+
 * :doc:`why_oggmedu`
 * :doc:`classes_howto`
 * :doc:`user_content`
-* :doc:`technical_details`
 * :doc:`other_resources`
 * :doc:`charter`
 * :doc:`roadmap`
@@ -140,7 +156,6 @@ recommendations and guidelines here.
     why_oggmedu.rst
     classes_howto.rst
     user_content.rst
-    technical_details.rst
     other_resources.rst
     charter.rst
     roadmap.rst

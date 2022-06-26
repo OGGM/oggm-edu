@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 18:58+0200\n"
+"POT-Creation-Date: 2022-06-26 17:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,31 +92,44 @@ msgstr ""
 
 #: ../../other_resources.rst:22
 msgid ""
+"The `PHET glaciers app "
+"<https://phet.colorado.edu/en/simulations/glaciers>`_, a simpler but "
+"clickable glacier flow app."
+msgstr ""
+
+#: ../../other_resources.rst:23
+msgid ""
+"`Ice Flows Game <http://iceflowsgame.com>`_: a game about ice flows in "
+"the Antarctic (including penguins)"
+msgstr ""
+
+#: ../../other_resources.rst:24
+msgid ""
 "Hans Oerlemans's `Minimal Glacier Models "
 "<http://www.staff.science.uu.nl/~oerle102/MM2011-all.pdf>`_ book: a "
 "strong inspiration for this website"
 msgstr ""
 
-#: ../../other_resources.rst:24
+#: ../../other_resources.rst:26
 msgid ""
 "`SwissEduc Glaciers online <https://www.swisseduc.ch/glaciers/>`_: a "
 "collection of glacier facts and photos."
 msgstr ""
 
-#: ../../other_resources.rst:26
+#: ../../other_resources.rst:28
 msgid ""
 "`World glacier monitoring service <https://wgms.ch/>`_: the reference for"
 " glacier observations and monitoring."
 msgstr ""
 
-#: ../../other_resources.rst:28
+#: ../../other_resources.rst:30
 msgid ""
 "`Cryosphere Software, Data and Tools <https://github.com/awesome-"
 "cryosphere/cryosphere-links>`_: This is a link list with awesome data, "
 "models, and tools around the cryosphere."
 msgstr ""
 
-#: ../../other_resources.rst:30
+#: ../../other_resources.rst:32
 msgid ":ref:`title_contact` if you'd like to add some more to this list!"
 msgstr ""
 

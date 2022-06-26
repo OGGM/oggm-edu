@@ -1,7 +1,7 @@
 .. _user_content:
 
-Use your own notebooks with OGGM-Edu
-====================================
+Run your own notebooks
+======================
 
 You might be interested in running your own notebooks
 in an OGGM-Edu environment, for example during the development phase or
@@ -11,8 +11,9 @@ Fortunately, this is very easy to do! All you need to do is to provide the
 notebooks you would like to run in an online git repository
 (e.g. GitHub, Gitlab, Bitbucket). For example, we have created an
 `oggm-edu-contrib <https://github.com/OGGM/oggm-edu-contrib>`_ with one single
-notebook to get you started. See also :ref:`existing-classes` for examples of
-application.
+notebook to get you started. We use the same principle for the official
+`OGGM-Edu notebooks <https://github.com/OGGM/oggm-edu-notebooks>`_ repository.
+See also :ref:`existing-classes` for examples from other instructors.
 
 Ideally, we would like all OGGM-Edu related content to be bundled here on this
 open platform: if you are creating educational resources based on OGGM-Edu,
@@ -33,7 +34,7 @@ For example, a link to our contrib repository looks like:
 
 What is happening here? The first part of the link (up to the question mark)
 is telling MyBinder to use the OGGM environment we are maintaining
-`here <https://github.com/OGGM/binder>`_ (we use the stable branch here).
+`here <https://github.com/OGGM/binder>`_ (we use the stable branch).
 The second part of the link
 is using `nbgitpuller <https://jupyterhub.github.io/nbgitpuller/>`_ to fetch
 the provided online repository and its content. That's all!
@@ -69,7 +70,8 @@ The advantages of OGGM-classroom over Binder are:
 - persistent sessions: work can be saved between sessions and log-ins (this is by far the main advantage)
 
 We are currently in the testing phase, and it is unclear how many students we
-can allow to run their notebooks at the same time. If you are willing to try
+can allow to run their notebooks at the same time. We managed to run classes with more than
+20 students logged in at the same time. If you are willing to try
 it out, please :ref:`get in touch <title_contact>` and we will do our best
 to let you use it with your class!
 
@@ -87,3 +89,20 @@ Again, hiding the links
 |badge_classroom_tutos|
 
 Enjoy!
+
+.. _technical_details:
+
+Technical details
+-----------------
+
+The computing environments available via MyBinder are
+`Docker containers <https://www.docker.com/resources/what-container>`_,
+or "software capsules" that can be created, pushed and pulled online. We create
+these containers using a few simple configuration files specifying the
+software packages and python libraries we would like to used in OGGM-Edu.
+These configurations files are found in these repositories:
+`<https://github.com/OGGM/r2d>`_ (for JupyterHub),
+`<https://github.com/OGGM/binder>`_ (for MyBinder).
+
+Working images are available `on ghcr.io <https://github.com/OGGM/OGGM-Docker/pkgs/container/r2d>`_ to
+form the base of the Binder environments.

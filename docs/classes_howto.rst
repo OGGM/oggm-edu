@@ -54,12 +54,6 @@ See also the two OGGM-Edu lab activities hosted on SERC:
 - `OGGM-Edu Glaciology Lab 1 - What Makes a Glacier?`_
 - `OGGM-Edu Glaciology Lab 2 - Exploring glacier data`_
 
-These activites have been tested in class and will be developed further.
-If you want more ideas, here are suggested activities writen by Josie Iino, a
-high school student who realized a short internship with us:
-
-- :ref:`as_gallery`
-- :ref:`as_simulator`
 
 Using the OGGM-Edu notebooks at university
 ------------------------------------------
