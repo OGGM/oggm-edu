@@ -3,16 +3,17 @@
 Contribute to OGGM-Edu
 ======================
 
-As of January 2021, the OGGM-Edu platform features:
+As of June 2022, the OGGM-Edu platform features:
 
 - 4 interactive web apps
-- 8 jupyter notebooks templates in various complexity levels
-- a series of glacier graphics
+- several jupyter notebooks templates in various complexity levels
+- three series of glacier graphics
 - bits of documentation for teachers about how to use the notebooks and MyBinder
 
 We are proud of simple things, such as the the use of OGGM-Edu for a
 class in Peru (`blog post <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_),
-or the positive feedback about the web applications and the use of MyBinder
+or the positive feedback about the web applications and the use of
+`classroom.oggm.org <https://classroom.oggm.org>`_
 as a viable platform to run workshops and tutorials online.
 
 This is great! But we also see that there is room for improvement, and we would
@@ -77,36 +78,6 @@ we can read (spanish, french, german).
 If you want to build the OGGM-Edu website locally to see your changes 
 before publishing them online, see 
 `these instructions <https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst>`_.
-
-Refactoring of the oggm-edu python package
-------------------------------------------
-
-This is probably the most involved change.
-
-As it is now, oggm-edu relies mostly on the models and syntax provided by the
-core OGGM. They provides the functionality we need, but at the same time the
-OGGM numerical models have several issues in the educational context:
-
-- their functionality is tailored for modelers, not students. I.e. certain
-  variables are not available and/or hidden, the syntax is clumsy, optimisations
-  in code make it less readable
-- it is very difficult to change things in OGGM itself because of backwards
-  compatibility
-- it is complex for new users to find the information in the cluttered OGGM
-  namespace
-
-For these reasons, we suggest to **redesign and refactor the OGGM objects in a
-more user-friendly, intuitive oggm-edu namespace**.
-
-This will require some thinking, but in short: we should think about (1)
-how to name things (very hard) and (2) how do we want the new objects
-to behave.
-
-The vision is that people have a one stop shop (the OGGM-Edu documentation)
-to learn about the flowline models and what they can do with them, without
-having to struggle with OGGM itself. The models
-will be more expressive, use rich output in the notebooks, with the goal to
-make using the models more fun, intuitive and quantitative.
 
 Website design
 --------------
