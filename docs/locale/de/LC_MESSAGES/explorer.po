@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../../explorer.rst:15
 msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
-msgstr ""
+msgstr "Um die App zu starten, klicke auf folgenden Link: |badge_bokeh_en|_"
 
 #: ../../explorer.rst:19
 msgid ""
