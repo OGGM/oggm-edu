@@ -29,6 +29,11 @@ msgid ""
 " all glaciers outside of the two continental ice sheets (Greenland and "
 "Antarctica)."
 msgstr ""
+"Der World Glacier Explorer is eine **interaktive Web Applikation** "
+"mit der man über die weltweiten Gletscher, deren Lage, Klima und Eis Masse "
+"lernen und lehren kann. Mit \"Gletscher\" meinem wir alle Gletscher, die "
+"sich außerhalb der beiden kontinentalen Eisschlide (Grönland und Antarktis) "
+"befinden."
 
 #: ../../explorer.rst:15
 msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
@@ -52,11 +57,11 @@ msgstr  ""
 
 #: ../../explorer.rst:23
 msgid "**The app contains five elements**:"
-msgstr ""
+msgstr "**Die App enthält fünf Elemente**:"
 
 #: ../../explorer.rst:25
 msgid ""
-"the **world map** (upper right) displays thg glaciers' location, with the"
+"the **world map** (upper right) displays the glaciers' location, with the"
 " color shading indicating the total glacier area in each pixel. Moving "
 "the mouse over a glacier pixel displays its exact glaciated area. When "
 "selecting a box on the map, the other elements in the app will update "
@@ -66,6 +71,16 @@ msgid ""
 "that the map projection is slightly misleading: high latitudes appear "
 "much bigger on the map than they really are.*"
 msgstr ""
+"Die **Weltkarte** (oben rechts) zeigt die Lage der Gletscher, wobei die "
+"Schattierung die Gesamtfläche des Gletschers pro Pixel anzeigt. Mit der "
+"Maus kann der genaue Wert jedes Pixels angezeigt werden. Wenn eine Ausschnitt "
+"der Karte ausgewählt wird, updaten die anderen Elemente der App automatisch. "
+"Über der Karte befinden sich weitere Werkzeuge: Mit dem \"Box Zoom\" Button, "
+" kann ebenfalls in eine bestimmte Region der Karte gezoomt werden. Mit "
+"\"Reset\" kann die Karte in den Ursprungszustand zurückversetzt werden "
+"(Siehe Video unten für eine Demonstration). *Achtung: Die Projektion der "
+"Karte ist etwas irreführend, da die Pixel in hohen Breiten viel größer "
+"erscheinen als sie tatsächlich sind.*"
 
 #: ../../explorer.rst:34
 msgid ""
