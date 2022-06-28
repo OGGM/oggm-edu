@@ -31,6 +31,8 @@ right. The box has a second tab that shows information about glaciers in general
 If you want to choose a different glacier, click anywhere in the map to clear your
 selection, and choose a new marker.
 
+For an idea of how to use the Glacier Gallery app in your teaching, check out `OGGM-Edu Glaciology Lab 1 - What Makes a Glacier? <https://serc.carleton.edu/teachearth/activities/250452.html>`_.
+
 Authors
 -------
 
