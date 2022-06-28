@@ -5,7 +5,7 @@ Contribute to OGGM-Edu
 
 As of June 2022, the OGGM-Edu platform features:
 
-- 4 interactive web apps
+- 5 interactive web apps
 - several jupyter notebooks templates in various complexity levels
 - three series of glacier graphics
 - bits of documentation for teachers about how to use the notebooks and MyBinder
@@ -17,10 +17,9 @@ or the positive feedback about the web applications and the use of
 as a viable platform to run workshops and tutorials online.
 
 This is great! But we also see that there is room for improvement, and we would
-like to use this page to keep track of our
-goals for the years to come. OGGM-Edu is meant to be a collaborative platform,
-and we welcome any kind of contribution, from a typo correction to a new fully
-fledged web app!
+like to use this page to keep track of our goals for the years to come.
+OGGM-Edu is meant to be a collaborative platform, and we welcome any kind of
+contribution, from a typo correction to a new fully fledged web app!
 
 **If you want to participate**, here are some pointers to get you started.
 Thanks so much for your help!

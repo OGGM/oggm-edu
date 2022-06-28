@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-26 17:05+0200\n"
+"POT-Creation-Date: 2022-06-28 18:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,16 +111,17 @@ msgstr ""
 
 #: ../../index.rst:25
 msgid ""
-":ref:`title_notebooks`, for students willing to run and develop their own"
-" experiments. The targeted audience are students at the undergrad or "
-"graduate level with some programming experience, or under the supervision"
-" of an instructor who can show them how to run the experiments."
+":ref:`title_notebooks`, providing guidance to run and develop simple "
+"modelling experiments. The targeted audience are students at the "
+"undergrad or graduate level with some programming experience, or under "
+"the supervision of an instructor who can show them how to run the "
+"experiments."
 msgstr ""
 
 #: ../../index.rst:29
 msgid ""
 ":ref:`title_tuto`, for current and future users of the Open Global "
-"Glacier Model. These notebooks are targetting graduate students or "
+"Glacier Model. These notebooks are targeting graduate students or "
 "scientists aiming to learn how the model works."
 msgstr ""
 
@@ -208,7 +209,9 @@ msgid "|badge_classroom_tutos|"
 msgstr ""
 
 #: ../../index.rst:121
-msgid "These are more advanced notebooks, for users of the OGGM model."
+msgid ""
+"These are more advanced notebooks, for those who want to use the OGGM "
+"model for research."
 msgstr ""
 
 #: ../../index.rst:123
@@ -389,5 +392,27 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ":doc:`technical_details`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":ref:`title_notebooks`, for students willing "
+#~ "to run and develop their own "
+#~ "experiments. The targeted audience are "
+#~ "students at the undergrad or graduate"
+#~ " level with some programming experience,"
+#~ " or under the supervision of an "
+#~ "instructor who can show them how "
+#~ "to run the experiments."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":ref:`title_tuto`, for current and future "
+#~ "users of the Open Global Glacier "
+#~ "Model. These notebooks are targetting "
+#~ "graduate students or scientists aiming "
+#~ "to learn how the model works."
+#~ msgstr ""
+
+#~ msgid "These are more advanced notebooks, for users of the OGGM model."
 #~ msgstr ""
 

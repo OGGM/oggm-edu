@@ -70,8 +70,8 @@ The advantages of OGGM-classroom over Binder are:
 - persistent sessions: work can be saved between sessions and log-ins (this is by far the main advantage)
 
 We are currently in the testing phase, and it is unclear how many students we
-can allow to run their notebooks at the same time. We managed to run classes with more than
-20 students logged in at the same time. If you are willing to try
+can allow to run their notebooks at the same time. However, we managed to run
+classes with more than 20 students logged in at the same time already! If you are willing to try
 it out, please :ref:`get in touch <title_contact>` and we will do our best
 to let you use it with your class!
 
