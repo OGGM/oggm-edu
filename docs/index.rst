@@ -22,12 +22,12 @@ For a general introduction and an overview, visit this recent
    broad, from school children to adults, with or without scientific background.
 2. :ref:`title_graphics`, open access images and graphics that can be used
    for lectures or presentations.
-3. :ref:`title_notebooks`, for students willing to run and develop
-   their own experiments. The targeted audience are students at the undergrad
+3. :ref:`title_notebooks`, providing guidance to run and develop
+   simple modelling experiments. The targeted audience are students at the undergrad
    or graduate level with some programming experience, or under the supervision
    of an instructor who can show them how to run the experiments.
 4. :ref:`title_tuto`, for current and future users of the Open Global Glacier
-   Model. These notebooks are targetting graduate students or scientists aiming
+   Model. These notebooks are targeting graduate students or scientists aiming
    to learn how the model works.
 
 OGGM-Edu focuses on interactive content and numerical glacier experiments.
@@ -118,7 +118,7 @@ Read our :ref:`notebooks_howto` first if you are new to these things.
 OGGM tutorials
 ^^^^^^^^^^^^^^
 
-These are more advanced notebooks, for users of the OGGM model.
+These are more advanced notebooks, for those who want to use the OGGM model for research.
 
 |badge_tutorial_notebooks|
 
@@ -212,7 +212,7 @@ also had support from various sources:
     <img src="https://discourse.holoviz.org/uploads/default/original/1X/59aba5e11167d6b8742e01fc9d6bb60ddd4df55e.png" alt="Image missing" width="40%" />
     </a>
     <a href="https://jupyter.org" >
-    <img src="https://jupyter.org/assets/hublogo.svg" alt="Jupyter logo" width="40%" />
+    <img src="https://jupyter.org/assets/share.png" alt="Jupyter logo" width="40%" />
     </a>
     <a href="https://mybinder.org" >
     <img src="https://mybinder.org/static/logo.svg" alt="MyBinder logo" width="40%" />
