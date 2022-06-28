@@ -57,10 +57,15 @@ msgid ""
 " all glaciers outside of the two continental ice sheets (Greenland and "
 "Antarctica)."
 msgstr ""
+"Der World Glacier Explorer is eine **interaktive Web Applikation** "
+"mit der man über die weltweiten Gletscher, deren Lage, Klima und Eis Masse "
+"lernen und lehren kann. Mit \"Gletscher\" meinem wir alle Gletscher, die "
+"sich außerhalb der beiden kontinentalen Eisschilde (Grönland und Antarktis) "
+"befinden."
 
 #: ../../explorer.rst:15
 msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
-msgstr ""
+msgstr "Um die App zu starten, klicke auf folgenden Link: |badge_bokeh_en|_"
 
 #: ../../explorer.rst:19
 msgid ""
@@ -69,15 +74,22 @@ msgid ""
 "explorer/master?urlpath=panel/app>`_ (slightly slower in general, but a "
 "good alternative if our server is saturated). If you want to run the app "
 "on your own computer, see :ref:`docker-launch` below."
-msgstr ""
+msgstr  ""
+"Alternativ kann die App über `mybinder "
+"<https://mybinder.org/v2/gh/OGGM/world-glacier-"
+"explorer/master?urlpath=panel/app>`_ gestartet werden "
+"(generell etwas langsamer aber eine gute Alternative, "
+"wenn unser Server ausgelastet ist). Wenn du die App "
+"auf deinem eigenen Computer laufen lasse möchtest, siehe "
+":ref:`docker-launch`."
 
 #: ../../explorer.rst:23
 msgid "**The app contains five elements**:"
-msgstr ""
+msgstr "**Die App enthält fünf Elemente**:"
 
 #: ../../explorer.rst:25
 msgid ""
-"the **world map** (upper right) displays thg glaciers' location, with the"
+"the **world map** (upper right) displays the glaciers' location, with the"
 " color shading indicating the total glacier area in each pixel. Moving "
 "the mouse over a glacier pixel displays its exact glaciated area. When "
 "selecting a box on the map, the other elements in the app will update "
@@ -87,12 +99,23 @@ msgid ""
 "that the map projection is slightly misleading: high latitudes appear "
 "much bigger on the map than they really are.*"
 msgstr ""
+"Die **Weltkarte** (oben rechts) zeigt die Lage der Gletscher, wobei die "
+"Schattierung die Gesamtfläche des Gletschers pro Pixel anzeigt. Mit der "
+"Maus kann der genaue Wert jedes Pixels angezeigt werden. Wenn eine Ausschnitt "
+"der Karte ausgewählt wird, updaten die anderen Elemente der App automatisch. "
+"Über der Karte befinden sich weitere Werkzeuge: Mit dem \"Box Zoom\" Button, "
+"kann ebenfalls in eine bestimmte Region der Karte gezoomt werden. Mit "
+"\"Reset\" kann die Karte in den Ursprungszustand zurückversetzt werden "
+"(Siehe Video unten für eine Demonstration). *Achtung: Die Projektion der "
+"Karte ist etwas irreführend, da die Pixel in hohen Breiten viel größer "
+"erscheinen als sie tatsächlich sind.*"
 
 #: ../../explorer.rst:34
 msgid ""
 "the **clear selection button** on the left resets the current glacier "
 "selection."
 msgstr ""
+"Der **Clear selection Button** links setzt die aktuelle Auswahl zurück."
 
 #: ../../explorer.rst:35
 msgid ""
@@ -107,6 +130,17 @@ msgid ""
 " *bsl* (below sea-level). See the demo and explanations below on how to "
 "use this information."
 msgstr ""
+"Das **Balkendiagramm** (links von der Karte) zeigt verschiedene Statistiken "
+"über die aktuelle Gletscherauswahl (Standardauswahl: alle Gletscher). Der "
+"obere blaue Balken zeigt die Anzahl der ausgewählten Gletscher an, der "
+"mittlere blaue Balken ihre Gesamtfläche und der untere blaue Balken ihr "
+"geschätztes Volumen. Dieses Volumen kann in ein *Meeresspiegelanstiegsäquivalent* "
+"(in mm) umgerechnet werden, d. h. den globalen Meeresspiegelanstieg, der zu "
+"erwarten wäre, wenn alle Gletscher verschwinden würden. Nur Gletscher, die "
+"*über* dem Meeresspiegel liegen, tragen zu dieser Zahl bei, daher gibt es "
+"zwei vertikale orangefarbene Balken: *asl* (oberhalb des Meeresspiegels) und "
+"*bsl* (unterhalb des Meeresspiegels). Siehe die Demo und die Erklärungen unten, "
+"wie diese Informationen zu verwenden sind."
 
 #: ../../explorer.rst:45
 msgid ""
@@ -118,6 +152,12 @@ msgid ""
 "these plots also actualizes the map and the rest of the plots (see demo "
 "below)."
 msgstr ""
+"Die drei **Klima-Histogramme** (untere Reihe) zeigen die Verteilung der "
+"klimatischen Bedingungen der ausgewählten Gletscher. Die y-Achse ist in der "
+"Anzahl der Gletscher pro Bin angegeben, die x-Achse in der Einheit der "
+"Zielvariablen (Temperaturtrend, Durchschnittstemperatur, Durchschnittsniederschlag "
+"am Gletscherstandort). Durch die Auswahl eines Wertebereichs in diesen Diagrammen "
+"werden auch die Karte und die übrigen Diagramme aktualisiert (siehe Demo unten)."
 
 #: ../../explorer.rst:51
 msgid ""
@@ -125,92 +165,113 @@ msgid ""
 "the average elevation of the glaciers on the map as a function of "
 "latitude (y-axis)."
 msgstr ""
+"Das **(Gletscher-)Höhenstreudiagramm** (unten rechts) zeigt die durchschnittliche "
+"Höhe der Gletscher auf der Karte in Abhängigkeit von der geografischen Breite "
+"(y-Achse)."
 
 #: ../../explorer.rst:56
 msgid "Video tutorials"
-msgstr ""
+msgstr "Video Tutorials"
 
 #: ../../explorer.rst:59
 msgid "Part 1: app functionalities"
-msgstr ""
+msgstr "Teil 1: App Funktionen"
 
 #: ../../explorer.rst:67
 msgid "Part 2: example questions"
-msgstr ""
+msgstr "Teil 2: Beispielfragen"
 
 #: ../../explorer.rst:76
 msgid "Questions to explore with this app"
-msgstr ""
+msgstr "Fragen, die mit dieser App bearbeitet werden können"
 
 #: ../../explorer.rst:78
 msgid ""
 "With this app, you can address many questions, by yourself or in class! "
 "For example:"
 msgstr ""
+"Mit dieser App kannst du viele verscheidene Fragen bearbeiten - alleine "
+"oder in deiner Klasse. Zum Beispiel:"
 
 #: ../../explorer.rst:80
 msgid "How many glaciers are there on Earth? How much volume do they represent?"
-msgstr ""
+msgstr "Wie viele Gletscher gibt es auf der Erde? Wie groß ist ihr Volumen?"
 
 #: ../../explorer.rst:81
 msgid ""
 "How much would the sea-level rise if all glaciers melted? All glaciers in"
 " the Alps? In the Himalayas? etc."
 msgstr ""
+"Um wie viel würde der Meeresspiegel ansteigen, wenn alle Gletscher schmelzen "
+"würden? Wenn alle Gletscher in den Alpen schmelzen würden? Alle im Himalaya? ..."
 
 #: ../../explorer.rst:83
 msgid "What is the relationship between latitude and glacier elevation? Why?"
 msgstr ""
+"Welcher Zusammenhang besteht zwischen Geographischer Breite und Höhe des "
+"Gletschers? Warum?"
 
 #: ../../explorer.rst:84
 msgid "Where are the locations with highest precipitation? And the driests?"
-msgstr ""
+msgstr "Welche Orte bekommen am meisten Niederschlag? Welche am wenigsten?"
 
 #: ../../explorer.rst:85
 msgid ""
 "Is there a relationship between average temperature and average "
 "precipitation?"
 msgstr ""
+"Gibt es einen Zusammanhang zwischen mittlerer Temperature und "
+"mittlerer Niderschlagsmenge?"
 
 #: ../../explorer.rst:86
 msgid ""
 "How much glacier area is found on Greenland? In the European Alps? How "
 "does these number compare to, say, the area of Berlin, France, Mexico?"
 msgstr ""
+"Wie viele Gletscher gibt es auf Grönland? Wie viele in den Alpen? Wie groß "
+"ist diese Fläche verglichen mit der Fläche von Berlin, Frankreich oder "
+"Mexiko?"
 
 #: ../../explorer.rst:88
 msgid ""
 "Does the number of glaciers in a region always correlate with their total"
 " volume?"
 msgstr ""
+"Hängt die Anzahl an Gletschern in einer Region immer mit ihrem Gesamtvolumen "
+"zusammen?"
 
 #: ../../explorer.rst:89
 msgid ""
 "What regions are most likely to contribute to sea-level rise? Where do we"
 " find glaciers with ice below sea-level?"
 msgstr ""
+"Welche Regionen tragen am wahrscheinlichsten zum Meeresspiegelanstieg bei? "
+"Wo gibt es Gletscher, deren Eis unter dem Meeresspiegel gelegen ist?"
 
 #: ../../explorer.rst:91
 msgid "Where are the glaciers which are warming the fastest? Why?"
-msgstr ""
+msgstr "Welche Gletscher erwärmen sich am schnellsten? Warum?"
 
 #: ../../explorer.rst:92
 msgid ""
 "Where are the wettest glaciers in the Himalayas? (select all Himalayan "
 "glaciers first, then the wettest). Can you explain why?"
 msgstr ""
+"Wo befinden sich die feuchtesten Gletscher des Himalayas (wähle erst "
+"alle Himalaya Gletscher aus, befor du den feuchtesten auswählst). Kannst "
+"du erklären warum?"
 
 #: ../../explorer.rst:94
 msgid "Repeat the excercise above with other regions: Greenland, the Alps, etc."
-msgstr ""
+msgstr "Wiederhole die obere Aufgabe mit anderen Regionen: Grönland, die Alpen, ..."
 
 #: ../../explorer.rst:95
 msgid "And many more!"
-msgstr ""
+msgstr "Und viele mehr!"
 
 #: ../../explorer.rst:98
 msgid "Resources"
-msgstr ""
+msgstr "Ressourcen"
 
 #: ../../explorer.rst:100
 msgid ""
@@ -218,6 +279,9 @@ msgid ""
 "<http://www.antarcticglaciers.org/glaciers-and-climate/>`_ on "
 "`antarcticglaciers.org`_ are highly relevant here"
 msgstr ""
+"Mehrere Seiten aus `Glaciers and Climate "
+"<http://www.antarcticglaciers.org/glaciers-and-climate/>`_ on "
+"`antarcticglaciers.org`_ sind hier höchst relevant."
 
 #: ../../explorer.rst:101
 msgid ""
@@ -225,6 +289,9 @@ msgid ""
 "<https://fabienmaussion.info/2019/08/29/era5/>`_, a blog post by Fabien "
 "Maussion"
 msgstr ""
+"`Warming trends at glaciers locations "
+"<https://fabienmaussion.info/2019/08/29/era5/>`_, ein Blog Post von Fabien "
+"Maussion"
 
 #: ../../explorer.rst:102
 msgid ""
@@ -232,10 +299,13 @@ msgid ""
 "<https://eos.org/articles/glacial-census-reveals-ice-thicknesses-around-"
 "the-world>`_, EOS"
 msgstr ""
+"`Glacial Census Reveals Ice Thicknesses Around the World "
+"<https://eos.org/articles/glacial-census-reveals-ice-thicknesses-around-"
+"the-world>`_, EOS"
 
 #: ../../explorer.rst:108
 msgid "Authors"
-msgstr ""
+msgstr "Authoren"
 
 #: ../../explorer.rst:110
 msgid ""
@@ -261,20 +331,28 @@ msgid ""
 " provided by `Farinotti et al., (2019) "
 "<https://www.nature.com/articles/s41561-019-0300-3>`_"
 msgstr ""
+"Gletscher Lage, Höhe und Größe stammen von `Randolph "
+"Glacier Inventory version 6 <https://www.glims.org/RGI/>`_. Die Klimadaten "
+"(Temperatur, Niederschlag, Trends) wurden aus den `ERA5 data "
+"<https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>`_ "
+"von `ECMWF <https://www.ecmwf.int/>`_ entnommen. Das Gletscher Volume enspricht "
+"`Farinotti et al., (2019) <https://www.nature.com/articles/s41561-019-0300-3>`_"
 
 #: ../../explorer.rst:129
 msgid "Source code"
-msgstr ""
+msgstr "Quellcode"
 
 #: ../../explorer.rst:131
 msgid ""
 "Code and data are on `GitHub <https://github.com/OGGM/world-glacier-"
 "explorer>`_, MIT licensed."
 msgstr ""
+"Code und Daten sind auf `GitHub <https://github.com/OGGM/world-glacier-"
+"explorer>`_, MIT lizensiert."
 
 #: ../../explorer.rst:136
 msgid "Launching from Docker"
-msgstr ""
+msgstr "Starten aus Docker"
 
 #: ../../explorer.rst:138
 msgid ""
@@ -283,6 +361,11 @@ msgid ""
 "faster and less dependent on an internet connection (although you still "
 "need one to download the app, display the logos and the map)."
 msgstr ""
+"Diese Anwendung sollte recht gut online funktionieren, entweder auf unserem "
+"Server oder auf mybinder. Sie können die Anwendung aber auch lokal starten, "
+"was sie schneller und weniger abhängig von einer Internetverbindung macht "
+"(obwohl Sie eine solche immer noch benötigen, um die Anwendung herunterzuladen,"
+" die Logos und die Karte anzuzeigen)"
 
 #: ../../explorer.rst:143
 msgid ""
@@ -290,16 +373,21 @@ msgid ""
 "<https://www.docker.com/>`_ installed on your computer. From there, run "
 "this command into a terminal::"
 msgstr ""
+"Um die Anwendung lokal zu starten, müssen Sie lediglich `Docker "
+"<https://www.docker.com/>`_ auf Ihrem Computer installiert haben. Führen Sie "
+"dann diesen Befehl in einem Terminal aus::"
 
 #: ../../explorer.rst:149
 msgid ""
 "Once running, you should be able to start the app in your browser at this"
 " address: `http://127.0.0.1:8083/ <http://127.0.0.1:8083/>`_."
 msgstr ""
+"Sobald die Anwendung läuft, sollten Sie sie in Ihrem Browser unter dieser "
+"Adresse starten können: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_."
 
 #: ../../explorer.rst:153
 msgid "Possible future improvements"
-msgstr ""
+msgstr "Mögliche künftige Verbesserungen"
 
 #: ../../explorer.rst:155
 msgid ""
@@ -307,17 +395,14 @@ msgid ""
 "glaciers from ice-caps or marine terminating glaciers from land-"
 "terminating ones."
 msgstr ""
+"Mit einer Kategoriewahlleiste wäre es möglich, zwischen Gletschern "
+"und Eiskappen oder zwischen Gletschern, die im Meer enden, und solchen, "
+"die an Land enden, zu unterscheiden."
 
 #: ../../explorer.rst:157
 msgid ""
 "We could also simplify the app for younger target audiences, with less "
 "panels and less distraction."
 msgstr ""
-
-#~ msgid ""
-#~ "Once running, you should be able "
-#~ "to start the app in your browser"
-#~ " at this address: `http://127.0.0.1:8080/ "
-#~ "<http://127.0.0.1:8080/>`_."
-#~ msgstr ""
-
+"Wir könnten die App auch für jüngere Zielgruppen vereinfachen, mit weniger "
+"Panels und weniger Ablenkung."
