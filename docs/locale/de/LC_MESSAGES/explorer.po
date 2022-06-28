@@ -189,7 +189,7 @@ msgstr "Fragen, die mit dieser App bearbeitet werden können"
 msgid ""
 "We suggest motivating the app with a question to be answered in class. "
 "For example:"
-msgstr ""
+msgstr "Wir empfehlen, die Anwendung mit ein paar Fragen zu motivieren. Zum Beispiel:"
 
 #: ../../explorer.rst:80
 msgid "How many glaciers are there on Earth? How much volume do they represent?"
@@ -311,6 +311,8 @@ msgid ""
 "a lesson plan and materials to use the World Glacier Explorer in a 1.5-2 "
 "hour class or lab session"
 msgstr ""
+"`OGGM-Edu Glaciology Lab 2 - Exploring glacier data "
+"<https://serc.carleton.edu/teachearth/activities/250446.html>`_ (in englisher Sprache) "
 
 #: ../../explorer.rst:109
 msgid "Authors"
