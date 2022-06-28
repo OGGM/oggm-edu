@@ -8,14 +8,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 16:34+0100\n"
+"POT-Creation-Date: 2022-06-25 18:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../<rst_prolog>:1
+msgid "badge_bokeh_en"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_intro_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_tutorial_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_hub"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_classroom_tutos"
+msgstr ""
 
 #: ../../explorer.rst:4
 msgid "World Glaciers Explorer"
@@ -352,7 +380,7 @@ msgstr ""
 #: ../../explorer.rst:149
 msgid ""
 "Once running, you should be able to start the app in your browser at this"
-" address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_."
+" address: `http://127.0.0.1:8083/ <http://127.0.0.1:8083/>`_."
 msgstr ""
 "Sobald die Anwendung läuft, sollten Sie sie in Ihrem Browser unter dieser "
 "Adresse starten können: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_."

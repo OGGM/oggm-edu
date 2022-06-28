@@ -19,6 +19,8 @@ check out these great online resources:
 - `All about glaciers <https://nsidc.org/cryosphere/glaciers>`_ from NSIDC
 - `GRANTISM <http://homepages.ulb.ac.be/~fpattyn/grantism/>`_, an ice-sheet
   model written in excel (`online interactive version <http://www.martinoleary.com/jsism>`_)
+- The `PHET glaciers app <https://phet.colorado.edu/en/simulations/glaciers>`_, a simpler but clickable glacier flow app.
+- `Ice Flows Game <http://iceflowsgame.com>`_: a game about ice flows in the Antarctic (including penguins)
 - Hans Oerlemans's `Minimal Glacier Models <http://www.staff.science.uu.nl/~oerle102/MM2011-all.pdf>`_
   book: a strong inspiration for this website
 - `SwissEduc Glaciers online <https://www.swisseduc.ch/glaciers/>`_: a collection

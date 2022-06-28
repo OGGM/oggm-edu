@@ -35,6 +35,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'numpydoc',
+    'IPython.sphinxext.ipython_console_highlighting',
+    'IPython.sphinxext.ipython_directive'
 ]
 
 autosummary_generate = True
@@ -199,8 +201,9 @@ html_theme_options = {
 
 # This is necessary to have an optional footer
 html_sidebars = {
-    "**": ["sidebar-logo.html", "search-field.html",
-           "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
+    "**": ["sidebar-logo.html",
+           "search-field.html",
+           "sbt-sidebar-nav.html"]
 }
 
 

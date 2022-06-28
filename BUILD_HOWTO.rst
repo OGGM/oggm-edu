@@ -14,25 +14,14 @@ Sphinx Documentation has an excellent `introduction to reST
 <http://sphinx.pocoo.org/rest.html>`__. Review the Sphinx docs to perform more
 complex changes to the documentation as well.
 
-How to build the documentation
-------------------------------
+Installation
+------------
 
-Requirements
-~~~~~~~~~~~~
-
-There are some extra requirements to build the docs: you will need to
-have ``sphinx``, ``sphinx-book-theme``, ``numpydoc`` and ``ipython`` installed.
-
-If you have a conda environment, you can install the extra
-requirements with::
-
-      conda install sphinx sphinx-book-theme ipython numpydoc sphinx-intl
-
-If you use pip, activate your python environment and install the requirements
-with::
-
-      pip install sphinx sphinx-book-theme ipython numpydoc sphinx-intl
-
+Download (or clone) the latest version of the oggm-edu repository.
+From the repository's root folder, activate conda if necessary and then,
+from your `base` environment, run ``mamba env create -f docs/environment.yml``
+(or ``conda env create -f docs/environment.yml``). To activate the environment,
+type: ``conda activate oggm_edu_docs``.
 
 Building the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,7 +33,7 @@ So how do you build the docs? Navigate to your local
 
 Then you can find the HTML output in the folder ``oggm-edu/docs/_build/html/``.
 
-The first time you build the docs, it will take quite a while because it has to
+The first time you build the docs, it might take a bit because it has to
 run all the code examples and build all the generated docstring pages.
 In subsequent evocations, sphinx will try to only build the pages that have
 been modified.

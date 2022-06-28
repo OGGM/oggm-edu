@@ -4,9 +4,9 @@ Why OGGM-Edu?
 =============
 
 OGGM-Edu was created as an educational branch of the Open Global Glacier
-Model (`OGGM <http://oggm.org>`_) project. It is now largely independent and,
-we hope, can become a useful educational website as we engage more
-content creators and users! Here is what motivates us:
+Model (`OGGM <http://oggm.org>`_) project. It is now largely independent from the
+main project and, we hope, has become a useful educational website!
+Here is what motivates us:
 
 - OGGM-Edu offers **"hands-on" and practical activities**, but only very little
   textbook content: we see the platform as an **interactive complement** to

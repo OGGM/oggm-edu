@@ -1,0 +1,470 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-25 18:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../<rst_prolog>:1
+msgid "badge_bokeh_en"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_intro_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_tutorial_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_hub"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_classroom_tutos"
+msgstr ""
+
+#: ../../mb_simulator.rst:4
+msgid "Mass-Balance Simulator"
+msgstr ""
+
+#: ../../mb_simulator.rst:10
+msgid ""
+"The Mass-Balance simulator is an **interactive web application** with "
+"which you can learn (and teach) about glacier climatic mass-balance (MB),"
+" including the influence of different climate environments and different "
+"MB model parameter settings."
+msgstr ""
+
+#: ../../mb_simulator.rst:12
+msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
+msgstr ""
+
+#: ../../mb_simulator.rst:18
+msgid ""
+"The app uses computer resources on the cloud. It is quite heavy in "
+"graphical resources, which makes updates to the plot a bit slow (several "
+"seconds). If the app is *very* slow when many people use it at the same "
+"time (in a class), we recommend to also use the app `on MyBinder "
+"<https://mybinder.org/v2/gh/OGGM/mb_simulator/stable?urlpath=panel/app>`_"
+" or even locally on your own computer (see :ref:`docker-launch-mb-"
+"simulator` below)."
+msgstr ""
+
+#: ../../mb_simulator.rst:26
+msgid "Getting started with the app"
+msgstr ""
+
+#: ../../mb_simulator.rst:28
+msgid "The MB simulator is structured in three parts:"
+msgstr ""
+
+#: ../../mb_simulator.rst:30
+msgid ""
+"under 'Mass Balance 1' and 'Mass Balance 2', individual MB models can be "
+"defined (with their particular climates and model parameter settings) and"
+" explored (up to the monthly contributions)."
+msgstr ""
+
+#: ../../mb_simulator.rst:31
+msgid ""
+"under 'Compare mass balances', the two individual MB models are compared "
+"to each other."
+msgstr ""
+
+#: ../../mb_simulator.rst:33
+msgid ""
+"For an introduction on how to interact with the app and what the "
+"individual figures, watch the tutorial video below!"
+msgstr ""
+
+#: ../../mb_simulator.rst:36
+msgid "Video tutorial"
+msgstr ""
+
+#: ../../mb_simulator.rst:44
+msgid "Theoretical Background"
+msgstr ""
+
+#: ../../mb_simulator.rst:46
+msgid ""
+"The MB describes the ice gain and loss of a glacier system. For a general"
+" introduction, visit `antarcticglaciers.org (mass-balance)`_."
+msgstr ""
+
+#: ../../mb_simulator.rst:49
+msgid "MB model"
+msgstr ""
+
+#: ../../mb_simulator.rst:51
+msgid ""
+"The actual equation in the background of the app is a so-called \"monthly"
+" temperature-index model\", as explained in the `OGGM Docs`_. In short:"
+msgstr ""
+
+#: ../../mb_simulator.rst:53
+msgid ""
+"The model estimates the ablation (mass loss) only as a function of "
+"monthly mean temperature. Whenever the temperature is above a certain "
+"threshold (``T_melt``) ice melt is assumed. How much ice melt is "
+"determined by the temperature sensitivity parameter (μ) multiplied by the"
+" number of degrees above ``T_melt``."
+msgstr ""
+
+#: ../../mb_simulator.rst:54
+msgid ""
+"The daily/monthly temperature cycle isn't taken into account, but ice "
+"melt may occur (e.g. around noon) also on days/months with a negative "
+"mean temperature. Therefore the monthly melt threshold (``T_melt``) is "
+"often set to negative temperatures to account for this."
+msgstr ""
+
+#: ../../mb_simulator.rst:55
+msgid ""
+"The model estimates the accumulation (mass gain) as a function of "
+"precipitation and temperature, where the temperature determines the "
+"fraction of solid precipitation."
+msgstr ""
+
+#: ../../mb_simulator.rst:56
+msgid ""
+"For real-world applications, the sensitivity parameter (μ) needs to be "
+"calibrated against observation and inherently will account also for all "
+"other processes and properties not directly considered by the model (e.g."
+" slope aspect, wind-blown snow, avalanching, ...)."
+msgstr ""
+
+#: ../../mb_simulator.rst:58
+msgid "More details"
+msgstr ""
+
+#: ../../mb_simulator.rst:61
+msgid ""
+"One should keep in mind that the actual ice melt is described by the "
+"whole surface energy balance (including shortwave/longwave radiation, "
+"latent/sensible heat flux, surface properties,...) and not the "
+"temperature alone. This model clearly is a simplification! Numerous "
+"studies have shown that it is quite a good one, but its accuracy varies "
+"with the climate settings. The purpose of this app is not to discuss "
+"this, but rather to illustrate how this MB model works."
+msgstr ""
+
+#: ../../mb_simulator.rst:67
+msgid "Dataset"
+msgstr ""
+
+#: ../../mb_simulator.rst:69
+msgid ""
+"The temperature and precipitation data is extracted from the `CRU TS v4 "
+"Dataset`_. In short:"
+msgstr ""
+
+#: ../../mb_simulator.rst:71
+msgid ""
+"CRU TS v4 is a global gridded dataset (0.5° regular grid) derived from "
+"weather station observations. It covers the period 1901 - 2020 (updated "
+"annually) and provides mean monthly values for each year."
+msgstr ""
+
+#: ../../mb_simulator.rst:72
+msgid ""
+"Whenever there are no observations available for a certain period, the "
+"variables are set to their 1961 - 1990 monthly average."
+msgstr ""
+
+#: ../../mb_simulator.rst:73
+msgid ""
+"We extract the nearest grid point to each glacier location - the "
+"reference elevation of the climate timeseries therefore often does not "
+"correspond to the glacier elevation. The temperature is corrected with "
+"the ``T_grad`` parameter."
+msgstr ""
+
+#: ../../mb_simulator.rst:77
+msgid "Questions to explore with this app"
+msgstr ""
+
+#: ../../mb_simulator.rst:79
+msgid ""
+"With this app, you can address many questions, by yourself or in class! "
+"This list will grow in the future (documentation takes time!)."
+msgstr ""
+
+#: ../../mb_simulator.rst:82
+msgid "Monthly contributions to annual MB"
+msgstr ""
+
+#: ../../mb_simulator.rst:84 ../../mb_simulator.rst:119
+#: ../../mb_simulator.rst:141
+msgid "**Experiment:**"
+msgstr ""
+
+#: ../../mb_simulator.rst:86
+msgid ""
+"Choose as a base climate 'Hintereisferner (Alps, continental)' and leave "
+"all the other settings unchanged."
+msgstr ""
+
+#: ../../mb_simulator.rst:87
+msgid ""
+"Now look at the climograph (showing precipitation and temperature at each"
+" month) and try to answer the questions below."
+msgstr ""
+
+#: ../../mb_simulator.rst:89 ../../mb_simulator.rst:124
+#: ../../mb_simulator.rst:168
+msgid "**Questions to answer:**"
+msgstr ""
+
+#: ../../mb_simulator.rst:91
+msgid ""
+"By only looking at (or moving with your mouse over) the climograph, try "
+"to guess:"
+msgstr ""
+
+#: ../../mb_simulator.rst:93
+msgid "In which month do you think the accumulation is largest at 4000 m?"
+msgstr ""
+
+#: ../../mb_simulator.rst:94
+msgid "In which month do you think the ablation is largest at 2000 m?"
+msgstr ""
+
+#: ../../mb_simulator.rst:95
+msgid ""
+"Which month has the lowest altitude with a MB of 0 kg m⁻² month⁻¹ (lowest"
+" monthly Transient Equilibrium Line Altitude, T-ELA)?"
+msgstr ""
+
+#: ../../mb_simulator.rst:97
+msgid ""
+"After you made your guesses, you can compare the different months by "
+"switching them on and off at the left of the accumulation plot. Tip: Move"
+" your mouse over the plots to get exact values."
+msgstr ""
+
+#: ../../mb_simulator.rst:100 ../../mb_simulator.rst:130
+#: ../../mb_simulator.rst:153
+msgid "Take home messages"
+msgstr ""
+
+#: ../../mb_simulator.rst:103
+msgid ""
+"Largest accumulation at 4500 m in June, the month with the largest "
+"precipitation amount - Largest ablation at 2000m in July, the month with "
+"the highest temperature"
+msgstr ""
+
+#: ../../mb_simulator.rst:105
+msgid ""
+"Lowest monthly T-ELA is in December. Indeed, January has the lowest "
+"temperature, but December has more precipitation"
+msgstr ""
+
+#: ../../mb_simulator.rst:107
+msgid ""
+"Advanced comment: comparing ablation values in December and January at "
+"1600 m shows slightly more negative values in January than December. But "
+"from the definition of the ablation we would expect a more negative value"
+" for December when only looking at the mean temperature shown in the "
+"climograph (the lower the temperature the smaller the ablation). This is "
+"an example showing the difference of calculating the monthly MB FOR each "
+"month and then calculating the mean (as it is done here), or first "
+"calculating a mean temperature for a month and then using this for the "
+"calculation of the monthly MB. For more information, look at this `OGGM "
+"Blogpost`_."
+msgstr ""
+
+#: ../../mb_simulator.rst:117
+msgid "Compare different locations/climates"
+msgstr ""
+
+#: ../../mb_simulator.rst:121
+msgid ""
+"Define two different base climates for 'Mass Balance 1' ('Hintereisferner"
+" (Alps, continental)') and 'Mass Balance 2' ('Echaurren Norte (Andes, "
+"mediterranean)') for the period 1990 - 2020, with the default MB "
+"settings."
+msgstr ""
+
+#: ../../mb_simulator.rst:122
+msgid "Go to 'Compare mass balances' and compare them ;)."
+msgstr ""
+
+#: ../../mb_simulator.rst:126
+msgid ""
+"Compare the accumulation and ablation at the average Equilibrium Line "
+"Altitude (ELA)."
+msgstr ""
+
+#: ../../mb_simulator.rst:127
+msgid "Compare the total MB profile and the position of the ELA."
+msgstr ""
+
+#: ../../mb_simulator.rst:128
+msgid "*Advanced*: How will these differences influence glacier ice flow?"
+msgstr ""
+
+#: ../../mb_simulator.rst:133
+msgid ""
+"Accumulation and ablation at ELA appr. two times larger at "
+"Hintereisferner compared to Echaurren Norte."
+msgstr ""
+
+#: ../../mb_simulator.rst:134
+msgid ""
+"*Advanced*: This results in a larger MB gradient around the ELA for "
+"Hintereisferner. How this influences the glacier flow can be explored "
+"with the `Glacier Simulator (Mass-balance gradient)`_."
+msgstr ""
+
+#: ../../mb_simulator.rst:135
+msgid ""
+"Higher ELA for Echauren Norte is a result of less annual precipitation "
+"and higher temperatures."
+msgstr ""
+
+#: ../../mb_simulator.rst:139
+msgid "Compare different periods of the same base climate"
+msgstr ""
+
+#: ../../mb_simulator.rst:143
+msgid ""
+"Go to 'Mass Balance 1' and choose as base climate 'Lewis (Mount Kenya, "
+"tropical)' with period 1902 - 1932."
+msgstr ""
+
+#: ../../mb_simulator.rst:144
+msgid ""
+"Now go to 'Mass Balance 2' and choose the same base climate with the "
+"period 1990 - 2020."
+msgstr ""
+
+#: ../../mb_simulator.rst:145
+msgid ""
+"Additionally, you can go to 'Base climate timeseries' to explore the "
+"underlying climate dataset periods visually."
+msgstr ""
+
+#: ../../mb_simulator.rst:146
+msgid "For the comparison now switch to 'Compare mass balances'."
+msgstr ""
+
+#: ../../mb_simulator.rst:148
+msgid "**Question to answer:**"
+msgstr ""
+
+#: ../../mb_simulator.rst:150
+msgid "Interpret the resulting differences by comparing the climographs."
+msgstr ""
+
+#: ../../mb_simulator.rst:151
+msgid "How are glaciers affected by these differences?"
+msgstr ""
+
+#: ../../mb_simulator.rst:156
+msgid ""
+"higher Temperatures results in a higher ELA in 1990 - 2020 compared to "
+"1902 - 1932"
+msgstr ""
+
+#: ../../mb_simulator.rst:157
+msgid ""
+"but due to the larger total precipitation amount, the mass gain is larger"
+" at high elevations (>5100 m) in 1990 - 2020 compared to 1902 - 1932"
+msgstr ""
+
+#: ../../mb_simulator.rst:161
+msgid "Influence of model settings"
+msgstr ""
+
+#: ../../mb_simulator.rst:163
+msgid "**Experiment (suggestion):**"
+msgstr ""
+
+#: ../../mb_simulator.rst:165
+msgid ""
+"Choose the same base climate for 'Mass Balance 1' and 'Mass Balance 2' "
+"with the same climate periods."
+msgstr ""
+
+#: ../../mb_simulator.rst:166
+msgid ""
+"Now go to 'MB settings' and change one of the settings for 'Mass Balance "
+"2'."
+msgstr ""
+
+#: ../../mb_simulator.rst:170
+msgid "What is the influence on the accumulation, ablation, MB or ELA height?"
+msgstr ""
+
+#: ../../mb_simulator.rst:171
+msgid "Is the influences the same for different base climates?"
+msgstr ""
+
+#: ../../mb_simulator.rst:180
+msgid "Authors"
+msgstr ""
+
+#: ../../mb_simulator.rst:182
+msgid ""
+"`Patrick Schmitt <https://github.com/pat-schmitt>`_ and `Fabien Maussion "
+"<https://fabienmaussion.info/>`_."
+msgstr ""
+
+#: ../../mb_simulator.rst:186
+msgid "Source code"
+msgstr ""
+
+#: ../../mb_simulator.rst:188
+msgid ""
+"Code and data are on `GitHub <https://github.com/OGGM/mb_simulator>`_, "
+"BSD3 licensed."
+msgstr ""
+
+#: ../../mb_simulator.rst:193
+msgid "Launching from Docker"
+msgstr ""
+
+#: ../../mb_simulator.rst:195
+msgid ""
+"This application can keep a single processor quite busy when running. "
+"Fortunately, you can also start the app locally, which will make it "
+"faster and less dependent on an internet connection (although you still "
+"need one to download the app and display the logos)."
+msgstr ""
+
+#: ../../mb_simulator.rst:200
+msgid ""
+"To start the app locally, all you'll need is to have `Docker "
+"<https://www.docker.com/>`_ installed on your computer. From there, run "
+"this command into a terminal::"
+msgstr ""
+
+#: ../../mb_simulator.rst:206
+msgid ""
+"Once running, you should be able to start the app in your browser at this"
+" address: `http://127.0.0.1:8084/app <http://127.0.0.1:8084/app>`_."
+msgstr ""
+

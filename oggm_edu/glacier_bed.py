@@ -8,13 +8,36 @@ from collections.abc import Sequence
 # Other libraries.
 import numpy as np
 import pandas as pd
+import warnings
 
 # Plotting
 from matplotlib import pyplot as plt
 
 
 class GlacierBed:
-    """The glacier bed"""
+    """The glacier bed used to construct a ``oggm_edu.Glacier``.
+
+
+    Attributes
+    ----------
+    bed_h : array(float)
+        Array of the bed surface heights. [m]
+    bottom : int or float
+        Bottom altitude of the glacier domain. [m]
+    distance_along_glacier : array(float)
+        Horisontal distance along the glacier bed. [km]
+    map_dx :  int
+        Grid resolution. [m]
+    nx : int
+        Number of gridpoints.
+    top : int or float
+        Top altitude of the glacier domain. [m]
+    width : int or list(int)
+        Width of the glacier (single scalar) or list of widths defining the
+        width-profile of the glacier.
+    widths : array(float)
+        Interpolated widths along the distance of the glacier.
+    """
 
     def __init__(
         self,
@@ -30,11 +53,11 @@ class GlacierBed:
     ):
         """Initialise the bed. Pass single scalars for top, bottom and width
         to create a square glacier bed. For finer control of the width pass
-        altitudes and widths as lists or tuples for custom geometry. This will linearly
+        ``altitudes`` and ``widths`` as lists or tuples for custom geometry. This will linearly
         intepolate between the altitude/width pairs.
 
-        To contol the slope of the glacier provide a single value to slopes. For even finer contol
-        pass a sequence of values to slopes along with a sequence of altitudes to slope_sections.
+        To contol the slope of the glacier provide a single value to ``slopes``. For even finer contol
+        pass a sequence of values to ``slopes`` along with a sequence of altitudes to ``slope_sections``.
 
         Parameters
         ----------
@@ -53,7 +76,8 @@ class GlacierBed:
             Length should match altitudes.
         slopes : array_like(int)
             Define the slope of the bed, degrees. One or multiple values. For the latter,
-            slope sections are required.
+            slope sections are required. Possible values range from -90 to 90 degrees.
+            To create a hole, there has to be an increase in the altitude in slope_section.
         slope_sections : array_like(int)
             Defines the altitude spans for the slopes. Should start with the top altitude and
             end with the bottom altitude. The number of altitudes need to be one greater then
@@ -106,6 +130,10 @@ class GlacierBed:
                 + " Bottom also has to be above 0"
             )
         # Set the resolution.
+        if map_dx <= 50:
+            warnings.warn(
+                "Setting the map resolution below 50 meters might lead to numerical instabilities."
+            )
         self.map_dx = map_dx
         # Do we have a specified slope?
         if slopes:
@@ -114,8 +142,8 @@ class GlacierBed:
                 slopes = [slopes]
 
             # Make sure that the provided slopes are reasonable.
-            if (np.asarray(slopes) < 1).any() or (np.asarray(slopes) > 80).any():
-                raise ValueError("Slopes should be above 0 and below 80 degrees.")
+            if (np.asarray(slopes) < -90).any() or (np.asarray(slopes) > 90).any():
+                raise ValueError("Slopes should be above -85 and below 80 degrees.")
             #  Do we have sequence of both slopes and breakpoints?
             if isinstance(slopes, Sequence) and isinstance(slope_sections, Sequence):
                 # Are they compatible?
@@ -289,4 +317,3 @@ class GlacierBed:
         # Since we are not modifying the base here, we don't need to assign
         # any of the returns.
         self._create_base_plot()
-        plt.show()

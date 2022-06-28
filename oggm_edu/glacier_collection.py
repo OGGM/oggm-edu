@@ -18,8 +18,9 @@ from matplotlib import pyplot as plt
 
 
 class GlacierCollection:
-    """This is class for storing multiple glaciers, providing convenient
-    methods for comparing them.
+    """This is an object used to store multiple glaciers.
+
+    It provides methods to progress and compare the glaciers in the collection.
     """
 
     def __init__(self, glacier_list=None):
@@ -44,6 +45,15 @@ class GlacierCollection:
 
     def _repr_html_(self):
         # Pretty representation for notebooks.
+        # Return the html representation of the summary dataframe.
+        if len(self._glaciers) > 0:
+            return self.summary()._repr_html_()
+        else:
+            pass
+
+    def summary(self):
+        """Returns a summary of the collection in the form of a pandas dataframe."""
+
         # Get the first glacier and base the creation of the dataframe of this.
         # If we have glaciers in the collection.
         if len(self._glaciers) > 0:
@@ -65,10 +75,11 @@ class GlacierCollection:
                 # Add it to the df.
                 df2 = pd.DataFrame(json)
                 df = pd.concat([df, df2], ignore_index=True)
+                # Set the index name.
             df.index.name = "Glacier"
-            # Return the html representation of the dataframe.
-            return df._repr_html_()
-        # If empty.
+
+            return df
+
         else:
             pass
 
@@ -106,10 +117,12 @@ class GlacierCollection:
 
     @property
     def glaciers(self):
+        """Glaciers stored in the collection"""
         return self._glaciers
 
     @property
     def annual_mass_balance(self):
+        """Glaciers mass balances"""
         return [glacier.annual_mass_balance for glacier in self.glaciers]
 
     def fill(self, glacier, n, attributes_to_change=None):
@@ -124,7 +137,7 @@ class GlacierCollection:
         attributes_to_change : dict
             Dictionary where key value pairs correspond to the
             attribute and values to be assigned each glacier.
-            See GlacierCollection.change_attributes for more.
+            See ``GlacierCollection.change_attributes`` for more.
         """
         # Is original a valid glacier?
         if not isinstance(glacier, Glacier):
@@ -145,7 +158,7 @@ class GlacierCollection:
             self.change_attributes(attributes_to_change)
 
     def add(self, glacier):
-        """Add one or more glaciers to the collection. Glaciers have to have the same slope.
+        """Adds one or more glaciers to the collection. Glaciers have to have the same slope.
 
         Parameters
         ----------
@@ -184,21 +197,24 @@ class GlacierCollection:
         """Change the attribute(s) of the glaciers in the collection.
 
         Parameters
-        __________
+        ----------
+
         attributes_to_change : dict
             Dictionary where the key value pairs follow the structure:
-            {'key': [n values], ...}, where 'key' match an attribute
-            of the glacier and n match the length of the collection.
+            ``{"key": [n values], ...}``, where "key" matches an attribute
+            of the glacier and n matches the length of the collection.
             Valid keys are:
-            - gradient
-            - ela
-            - basal_sliding
-            - creep
-            - normal_years
-            - surging_years
-            - basal_sliding_surge
-            Values should be either numeric or a string of a partial
-            mathematical expression e.g. '* 10', which is evaluated
+
+            * ``gradient``
+            * ``ela``
+            * ``basal_sliding``
+            * ``creep``
+            * ``normal_years``
+            * ``surging_years``
+            * ``basal_sliding_surge``
+
+            Values should be either numeric or a partial
+            mathematical expression (string) e.g. ``"* 10"``: this would evaluate
             to multiplying the current value by a factor 10. Pass an empty
             string to leave the attribute unaffected.
         """
@@ -464,7 +480,7 @@ class GlacierCollection:
 
     @edu_plotter
     def plot_history(self):
-        """Plot the histories of the collection"""
+        """Plot the histories of the collection."""
 
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, sharex=True)
 
@@ -536,7 +552,7 @@ class GlacierCollection:
 
     @edu_plotter
     def plot_mass_balance(self):
-        """Plot the mass balance(s) for the glaciers in the collection"""
+        """Plot the mass balance(s) for the glaciers in the collection."""
 
         fig, ax = plt.subplots()
 

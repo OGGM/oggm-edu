@@ -30,10 +30,12 @@ eggs
 *.lock
 *.mo
 docs/_build
+docs/_autosummary
 docs/_build_html
 docs/generated
 docs/_sources
 docs/_images
+docs/savefig
 docs/.doctrees
 
 # Etc.

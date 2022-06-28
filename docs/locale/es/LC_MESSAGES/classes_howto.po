@@ -8,14 +8,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 16:34+0100\n"
+"POT-Creation-Date: 2022-06-26 17:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../<rst_prolog>:1
+msgid "badge_bokeh_en"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_intro_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_tutorial_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_hub"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_classroom_tutos"
+msgstr ""
 
 #: ../../classes_howto.rst:4
 msgid "OGGM-Edu in classes and workshops"
@@ -33,38 +61,69 @@ msgstr ""
 msgid ""
 "Currently, we are working on making OGGM-Edu suitable for classes at the "
 "high school level (using the web applications) and at the university "
-"level (using the programmable notebooks). You will find some help to get "
-"you started below."
+"level (using the web applications and the programmable notebooks)."
+msgstr ""
+
+#: ../../classes_howto.rst:15
+msgid "You will find some help to get you started below!"
 msgstr ""
 
 #: ../../classes_howto.rst:17
-msgid "Using the OGGM-Edu web apps at the high school level"
+msgid "New since June 2022! Teaching materials for your glaciology labs"
 msgstr ""
 
 #: ../../classes_howto.rst:19
 msgid ""
-"OGGM-Edu can be used to organize a 2 to 4 hours class, possibly even "
-"longer. It could be organized as such:"
+"We recently created two activities based on the OGGM-Edu web apps that "
+"are suitable for high-school or university students with no previous "
+"knowledge about glaciers. These activities have been tested in class and "
+"provide a well defined activity schedule and instructor materials. Check "
+"them out on the SERC platform:"
 msgstr ""
 
-#: ../../classes_howto.rst:22
+#: ../../classes_howto.rst:25 ../../classes_howto.rst:54
+msgid "`OGGM-Edu Glaciology Lab 1 - What Makes a Glacier?`_"
+msgstr ""
+
+#: ../../classes_howto.rst:26 ../../classes_howto.rst:55
+msgid "`OGGM-Edu Glaciology Lab 2 - Exploring glacier data`_"
+msgstr ""
+
+#: ../../classes_howto.rst:32
+msgid "Using the OGGM-Edu web apps in high school"
+msgstr ""
+
+#: ../../classes_howto.rst:34
+msgid ""
+"The OGGM-Edu web apps are well suited for high-school activities. See for"
+" example this `blog post by PhD students Lilian Schuster and Zora "
+"Schirmeister <https://oggm.org/2021/10/04/erasmus-project-obergurgl/>`_ "
+"about the 3-day long excursion they organized for a class, with help of "
+"OGGM-Edu."
+msgstr ""
+
+#: ../../classes_howto.rst:39
+msgid "The apps are meant to be used in order:"
+msgstr ""
+
+#: ../../classes_howto.rst:41
 msgid ""
 "General introduction to glaciers: what is a glacier, where do we find "
 "them, why are they important?"
 msgstr ""
 
-#: ../../classes_howto.rst:24
+#: ../../classes_howto.rst:43
 msgid "Learn about different glacier types in the :ref:`gallery`."
 msgstr ""
 
-#: ../../classes_howto.rst:25
+#: ../../classes_howto.rst:44
 msgid ""
 "Learn about the glaciers location and their climate with the "
 ":ref:`explorer` app. Use the sample questions to encourage the students "
 "to explore the app by themselves or in small groups."
 msgstr ""
 
-#: ../../classes_howto.rst:28
+#: ../../classes_howto.rst:47
 msgid ""
 "For more advanced classes, learn about glacier flow with the "
 ":ref:`simulator`. This app can be used for a number of different "
@@ -72,96 +131,211 @@ msgid ""
 "<https://www.youtube.com/watch?v=DUdeN5CpsW0>`_ experiment."
 msgstr ""
 
-#: ../../classes_howto.rst:35
-msgid "Using the OGGM-Edu notebooks at the university level"
-msgstr ""
-
-#: ../../classes_howto.rst:37
-msgid ""
-"We use notebooks frequently for our own `lectures "
-"<https://fabienmaussion.info/teaching/>`_, and we are big fans! They "
-"allow to convey knowledge in interactive, \"try as you learn\" "
-"practicals, and they encourage active learning."
-msgstr ""
-
-#: ../../classes_howto.rst:41
-msgid "Here are a few recommendations based on our own experience:"
-msgstr ""
-
-#: ../../classes_howto.rst:43
-msgid ""
-"**Spend at least two hours explaining the notebook and jupyterlab "
-"environments**. Showing their basic features first, then let the students"
-" play with a simple and short notebook. In a second session (after an "
-"hour or so), summarize the usual pitfalls:"
-msgstr ""
-
-#: ../../classes_howto.rst:48
-msgid ""
-"recognize that notebooks are actual files (not something magical on "
-"browser)"
-msgstr ""
-
-#: ../../classes_howto.rst:49
-msgid "acknowledge that the order of execution of cells matter"
-msgstr ""
-
-#: ../../classes_howto.rst:50
-msgid "acknowledge that errors in cell execution are OK and can be recovered from"
-msgstr ""
-
-#: ../../classes_howto.rst:51
-msgid "show how to restart with a fresh notebook"
-msgstr ""
-
 #: ../../classes_howto.rst:52
-msgid ""
-"encourage the use of keyboard shortcuts (such as `[shift+enter]` and "
-"`[ctrl+m] + key`)"
-msgstr ""
-
-#: ../../classes_howto.rst:55
-msgid ""
-"**On MyBinder: avoid bad surprises by explaining to your class that the "
-"sessions are temporary**. Show your students how to download and upload "
-"files to JupyterLab so that they feel comfortable saving their work from "
-"time to time."
+msgid "See also the two OGGM-Edu lab activities hosted on SERC:"
 msgstr ""
 
 #: ../../classes_howto.rst:59
+msgid "Using the OGGM-Edu notebooks at university"
+msgstr ""
+
+#: ../../classes_howto.rst:61
 msgid ""
-"Whatever your learning goals are, **always plan less than that**. You "
-"might find `this blog <https://medium.com/@jasonjwilliamsny/4-practical-"
-"suggestions-for-using-jupyter-notebooks-in-tutorials-9c478c8c0032>`_ and "
-"this `free online book <https://jupyter4edu.github.io/jupyter-edu-"
-"book/>`_ about teaching with jupyter notebooks useful as well."
+"For students with programming knowledge (or willing to learn!), the OGGM-"
+"Edu notebooks add a layer of depth and interactivity to the apps."
 msgstr ""
 
 #: ../../classes_howto.rst:64
 msgid ""
-"If you plan to teach about programming aspects as well as about "
-"glaciology, **focus on the content** more than on the method. "
-"Unfortunately (or fortunately), the \"fun\" aspect of notebooks and the "
-"programming challenges often distract students from what they are "
-"actually doing: glaciology and climatology. We've seen students googling "
-"about how to change a colormap before even trying to analyse the plot "
-"they just produced."
+"The use of notebooks in classes is expanding rapidly (see for example the"
+" great resource `Teaching and Learning with Jupyter "
+"<https://jupyter4edu.github.io/jupyter-edu-book/>`_ for an in-depth "
+"introduction). At OGGM, we use notebooks frequently for our own `lectures"
+" <https://fabienmaussion.info/teaching/>`_ or `tutorials "
+"<https://oggm.org/tutorials>`_, and we are big fans! They allow to convey"
+" knowledge in an interactive and fun way, and they encourage active "
+"learning."
 msgstr ""
 
 #: ../../classes_howto.rst:71
 msgid ""
-"If you have the chance to have more experienced students in the room, "
-"**organize peer-mentoring in groups of 2 or 3**. Students are often "
-"better in mentoring each other than we are."
+"Visit the `OGGM-Edu-Notebooks <https://oggm.org/oggm-edu-notebooks>`_ "
+"webpage to see them in action! And our :ref:`nbs_in_class` will help you "
+"to get started with your class."
 msgstr ""
 
-#: ../../classes_howto.rst:77
-msgid "Implementation"
+#: ../../classes_howto.rst:78
+msgid "Existing classes based on OGGM-Edu"
 msgstr ""
 
-#: ../../classes_howto.rst:79
+#: ../../classes_howto.rst:80
 msgid ""
-"Ready to give OGGM-Edu a go? You will find more information in the pages "
-"below:"
+"Here are some known applications of OGGM-Edu in classes. You can use them"
+" \"as is\", or as templates for your own classes. We would love to hear "
+"back from you: if you are creating educational resources based on OGGM-"
+"Edu, please :ref:`get in touch <title_contact>` so that we can advertise "
+"them!"
 msgstr ""
+
+#: ../../classes_howto.rst:85
+msgid ""
+"`Middlebury College glaciology-labs notebooks <https://github.com/ehultee"
+"/glaciology-labs>`_, adapted (and enhanced) OGGM-Edu notebooks. By `Lizz "
+"Ultee <https://ehultee.github.io/>`_."
+msgstr ""
+
+#: ../../classes_howto.rst:87
+msgid ""
+"`University of Michigan CLaSP 474 Ice and Climate notebooks "
+"<https://github.com/skachuck/clasp474_w2021>`_, adapted (and enhanced) "
+"OGGM-Edu notebooks. By `Samuel Kachuck <http://georei.com/>`_."
+msgstr ""
+
+#: ../../classes_howto.rst:89
+msgid ""
+"`Three-day workshop <https://github.com/ehultee/CdeC-glaciologia>`_ for "
+"university students without prior glacier experience (in spanish). By "
+"`Lizz Ultee <https://ehultee.github.io/>`_. More context about her class "
+"`here <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_."
+msgstr ""
+
+#~ msgid ""
+#~ "Currently, we are working on making "
+#~ "OGGM-Edu suitable for classes at "
+#~ "the high school level (using the "
+#~ "web applications) and at the university"
+#~ " level (using the programmable notebooks)."
+#~ " You will find some help to get"
+#~ " you started below."
+#~ msgstr ""
+
+#~ msgid "Using the OGGM-Edu web apps at the high school level"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "OGGM-Edu can be used to organize"
+#~ " a 2 to 4 hours class, possibly"
+#~ " even longer. It could be organized"
+#~ " as such:"
+#~ msgstr ""
+
+#~ msgid "Using the OGGM-Edu notebooks at the university level"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We use notebooks frequently for our "
+#~ "own `lectures <https://fabienmaussion.info/teaching/>`_,"
+#~ " and we are big fans! They "
+#~ "allow to convey knowledge in "
+#~ "interactive, \"try as you learn\" "
+#~ "practicals, and they encourage active "
+#~ "learning."
+#~ msgstr ""
+
+#~ msgid "Here are a few recommendations based on our own experience:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Spend at least two hours explaining"
+#~ " the notebook and jupyterlab "
+#~ "environments**. Showing their basic features"
+#~ " first, then let the students play"
+#~ " with a simple and short notebook."
+#~ " In a second session (after an "
+#~ "hour or so), summarize the usual "
+#~ "pitfalls:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "recognize that notebooks are actual "
+#~ "files (not something magical on browser)"
+#~ msgstr ""
+
+#~ msgid "acknowledge that the order of execution of cells matter"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "acknowledge that errors in cell "
+#~ "execution are OK and can be "
+#~ "recovered from"
+#~ msgstr ""
+
+#~ msgid "show how to restart with a fresh notebook"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "encourage the use of keyboard shortcuts"
+#~ " (such as `[shift+enter]` and `[ctrl+m] "
+#~ "+ key`)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**On MyBinder: avoid bad surprises by"
+#~ " explaining to your class that the"
+#~ " sessions are temporary**. Show your "
+#~ "students how to download and upload "
+#~ "files to JupyterLab so that they "
+#~ "feel comfortable saving their work from"
+#~ " time to time."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Whatever your learning goals are, "
+#~ "**always plan less than that**. You "
+#~ "might find `this blog "
+#~ "<https://medium.com/@jasonjwilliamsny/4-practical-"
+#~ "suggestions-for-using-jupyter-notebooks-"
+#~ "in-tutorials-9c478c8c0032>`_ and this `free"
+#~ " online book <https://jupyter4edu.github.io/jupyter-"
+#~ "edu-book/>`_ about teaching with jupyter"
+#~ " notebooks useful as well."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you plan to teach about "
+#~ "programming aspects as well as about "
+#~ "glaciology, **focus on the content** "
+#~ "more than on the method. Unfortunately"
+#~ " (or fortunately), the \"fun\" aspect "
+#~ "of notebooks and the programming "
+#~ "challenges often distract students from "
+#~ "what they are actually doing: glaciology"
+#~ " and climatology. We've seen students "
+#~ "googling about how to change a "
+#~ "colormap before even trying to analyse"
+#~ " the plot they just produced."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you have the chance to have "
+#~ "more experienced students in the room,"
+#~ " **organize peer-mentoring in groups "
+#~ "of 2 or 3**. Students are often"
+#~ " better in mentoring each other than"
+#~ " we are."
+#~ msgstr ""
+
+#~ msgid "Implementation"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Ready to give OGGM-Edu a go? "
+#~ "You will find more information in "
+#~ "the pages below:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "These activites have been tested in "
+#~ "class and will be developed further. "
+#~ "If you want more ideas, here are"
+#~ " suggested activities writen by Josie "
+#~ "Iino, a high school student who "
+#~ "realized a short internship with us:"
+#~ msgstr ""
+
+#~ msgid ":ref:`as_gallery`"
+#~ msgstr ""
+
+#~ msgid ":ref:`as_simulator`"
+#~ msgstr ""
 
