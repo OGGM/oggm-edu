@@ -2,13 +2,13 @@
 
 .. _api_detailed:
 
-#####################
-package documentation
-#####################
+##############################
+oggm-edu package documentation
+##############################
  
 .. currentmodule:: oggm_edu
 
-Here follows a list of the `oggm-edu` classes and their functionality. The best
+Here follows a list of the ``oggm-edu`` classes and their functionality. The best
 way to learn is to navigate between this static documentation and the
 `rendered notebooks <https://oggm.org/oggm-edu-notebooks>`_ or the interactive version on MyBinder!
 

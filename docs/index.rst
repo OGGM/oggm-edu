@@ -160,6 +160,13 @@ recommendations and guidelines here.
     charter.rst
     roadmap.rst
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Package documentation
+
+    api_detailed.rst
+
 .. _title_contact:
 
 Get in touch
