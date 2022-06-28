@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-28 18:30+0200\n"
+"POT-Creation-Date: 2022-06-28 18:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,12 +46,12 @@ msgid "badge_classroom_tutos"
 msgstr ""
 
 #: ../../api_detailed.rst:7
-msgid "package documentation"
+msgid "oggm-edu package documentation"
 msgstr ""
 
 #: ../../api_detailed.rst:11
 msgid ""
-"Here follows a list of the `oggm-edu` classes and their functionality. "
+"Here follows a list of the ``oggm-edu`` classes and their functionality. "
 "The best way to learn is to navigate between this static documentation "
 "and the `rendered notebooks <https://oggm.org/oggm-edu-notebooks>`_ or "
 "the interactive version on MyBinder!"
@@ -582,4 +582,17 @@ msgstr ""
 #: ../../api_detailed.rst:169
 msgid "GlacierCollection example"
 msgstr ""
+
+#~ msgid "package documentation"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here follows a list of the "
+#~ "`oggm-edu` classes and their functionality."
+#~ " The best way to learn is to"
+#~ " navigate between this static documentation"
+#~ " and the `rendered notebooks "
+#~ "<https://oggm.org/oggm-edu-notebooks>`_ or the"
+#~ " interactive version on MyBinder!"
+#~ msgstr ""
 
