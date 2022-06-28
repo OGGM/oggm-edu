@@ -33,6 +33,7 @@ docs/_build
 docs/_autosummary
 docs/_build_html
 docs/generated
+docs/locale/*/LC_MESSAGES/generated/
 docs/_sources
 docs/_images
 docs/savefig

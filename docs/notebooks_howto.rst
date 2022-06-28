@@ -3,8 +3,15 @@
 Introduction to interactive notebooks
 =====================================
 
+The `OGGM-Edu notebooks <https://oggm.org/oggm-edu-notebooks>`_ offer a programmatic
+interface to a glacier model (OGGM). They are developed for university students
+with some experience with programming, or who are willing to learn!
+
+We use them in several classes already, and we hope that you will find them
+useful too!
+
 If you plan to use OGGM-Edu's educational notebooks (either on your own or in
-a class), we strongly recommend to read this short information page.
+a class), we recommend to read this short information page first.
 
 Jupyter notebooks
 -----------------
@@ -96,7 +103,6 @@ these rare cases, the builds can take up to 15 minutes**. Be patient!
     to event stream". When this happens, simply refresh your browser (or
     click on the OGGM-Edu link again)
 
-
 JupyterLab
 ~~~~~~~~~~
 
@@ -126,7 +132,6 @@ The three main areas highlighted above are:
   panel to move the tab to the panel. Subdivide a tab panel by dragging a tab
   to the left, right, top, or bottom of the panel
 
-
 Download and upload files to MyBinder/JupyterLab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -148,6 +153,31 @@ sidebar**: you can upload any file - text or data.
     :width: 70%
 
     The JupyterLab's upload button (red box)
+
+
+classroom.oggm.org
+------------------
+
+Since August 2021, we provide a dedicated OGGM JupyterLab server running on
+a dedicated machine in Bremen. `classroom.oggm.org <https://classroom.oggm.org>`_
+(that's its name!) is like `OGGM-Hub <https://docs.oggm.org/en/stable/cloud.html#oggm-hub>`_,
+but tailored for instructors and their classes.
+
+The advantages of classroom.oggm.org over Binder are:
+
+- more resources for your students, faster launches
+- user management: you can set passwords and user names at wish
+- persistent sessions: work can be saved between sessions and log-ins (this is by far the main advantage)
+
+If you are willing to try it out, please :ref:`get in touch <title_contact>` and we will do our best
+to let you use it with your class!
+
+Similarly to MyBinder, you can create a link for your students to download
+the content of your notebooks repository very easily:
+
+|badge_classroom_tutos|
+
+Enjoy!
 
 .. _nbs_in_class:
 

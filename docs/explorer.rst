@@ -125,7 +125,6 @@ The climate data (temperature, precipitation, trends) is extracted from
 provided by the `ECMWF <https://www.ecmwf.int/>`_.
 The glacier volume was provided by `Farinotti et al., (2019) <https://www.nature.com/articles/s41561-019-0300-3>`_
 
-
 Source code
 -----------
 
@@ -149,11 +148,3 @@ From there, run this command into a terminal::
 
 Once running, you should be able to start the app in your browser at this
 address: `http://127.0.0.1:8083/ <http://127.0.0.1:8083/>`_.
-
-Possible future improvements
-----------------------------
-
-- With a category choice bar, it would be possible to differentiate glaciers
-  from ice-caps or marine terminating glaciers from land-terminating ones.
-- We could also simplify the app for younger target audiences, with less
-  panels and less distraction.

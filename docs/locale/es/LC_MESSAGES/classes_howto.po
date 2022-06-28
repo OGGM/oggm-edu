@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-26 17:05+0200\n"
+"POT-Creation-Date: 2022-06-28 18:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,20 +59,21 @@ msgstr ""
 
 #: ../../classes_howto.rst:11
 msgid ""
-"Currently, we are working on making OGGM-Edu suitable for classes at the "
-"high school level (using the web applications) and at the university "
-"level (using the web applications and the programmable notebooks)."
+"Currently, we are working on developing course materials suitable for "
+"classes at the high school level (using the OGGM-Edu web applications) "
+"and at the university level (using the web applications and the "
+"programmable notebooks)."
+msgstr ""
+
+#: ../../classes_howto.rst:13
+msgid "You will find some help to get you started below."
 msgstr ""
 
 #: ../../classes_howto.rst:15
-msgid "You will find some help to get you started below!"
-msgstr ""
-
-#: ../../classes_howto.rst:17
 msgid "New since June 2022! Teaching materials for your glaciology labs"
 msgstr ""
 
-#: ../../classes_howto.rst:19
+#: ../../classes_howto.rst:17
 msgid ""
 "We recently created two activities based on the OGGM-Edu web apps that "
 "are suitable for high-school or university students with no previous "
@@ -81,19 +82,19 @@ msgid ""
 "them out on the SERC platform:"
 msgstr ""
 
-#: ../../classes_howto.rst:25 ../../classes_howto.rst:54
+#: ../../classes_howto.rst:23 ../../classes_howto.rst:52
 msgid "`OGGM-Edu Glaciology Lab 1 - What Makes a Glacier?`_"
 msgstr ""
 
-#: ../../classes_howto.rst:26 ../../classes_howto.rst:55
+#: ../../classes_howto.rst:24 ../../classes_howto.rst:53
 msgid "`OGGM-Edu Glaciology Lab 2 - Exploring glacier data`_"
 msgstr ""
 
-#: ../../classes_howto.rst:32
+#: ../../classes_howto.rst:30
 msgid "Using the OGGM-Edu web apps in high school"
 msgstr ""
 
-#: ../../classes_howto.rst:34
+#: ../../classes_howto.rst:32
 msgid ""
 "The OGGM-Edu web apps are well suited for high-school activities. See for"
 " example this `blog post by PhD students Lilian Schuster and Zora "
@@ -102,28 +103,28 @@ msgid ""
 "OGGM-Edu."
 msgstr ""
 
-#: ../../classes_howto.rst:39
+#: ../../classes_howto.rst:37
 msgid "The apps are meant to be used in order:"
 msgstr ""
 
-#: ../../classes_howto.rst:41
+#: ../../classes_howto.rst:39
 msgid ""
 "General introduction to glaciers: what is a glacier, where do we find "
 "them, why are they important?"
 msgstr ""
 
-#: ../../classes_howto.rst:43
+#: ../../classes_howto.rst:41
 msgid "Learn about different glacier types in the :ref:`gallery`."
 msgstr ""
 
-#: ../../classes_howto.rst:44
+#: ../../classes_howto.rst:42
 msgid ""
 "Learn about the glaciers location and their climate with the "
 ":ref:`explorer` app. Use the sample questions to encourage the students "
 "to explore the app by themselves or in small groups."
 msgstr ""
 
-#: ../../classes_howto.rst:47
+#: ../../classes_howto.rst:45
 msgid ""
 "For more advanced classes, learn about glacier flow with the "
 ":ref:`simulator`. This app can be used for a number of different "
@@ -131,72 +132,73 @@ msgid ""
 "<https://www.youtube.com/watch?v=DUdeN5CpsW0>`_ experiment."
 msgstr ""
 
-#: ../../classes_howto.rst:52
+#: ../../classes_howto.rst:50
 msgid "See also the two OGGM-Edu lab activities hosted on SERC:"
 msgstr ""
 
-#: ../../classes_howto.rst:59
+#: ../../classes_howto.rst:57
 msgid "Using the OGGM-Edu notebooks at university"
 msgstr ""
 
-#: ../../classes_howto.rst:61
+#: ../../classes_howto.rst:59
 msgid ""
 "For students with programming knowledge (or willing to learn!), the OGGM-"
 "Edu notebooks add a layer of depth and interactivity to the apps."
 msgstr ""
 
-#: ../../classes_howto.rst:64
+#: ../../classes_howto.rst:62
 msgid ""
 "The use of notebooks in classes is expanding rapidly (see for example the"
 " great resource `Teaching and Learning with Jupyter "
 "<https://jupyter4edu.github.io/jupyter-edu-book/>`_ for an in-depth "
 "introduction). At OGGM, we use notebooks frequently for our own `lectures"
 " <https://fabienmaussion.info/teaching/>`_ or `tutorials "
-"<https://oggm.org/tutorials>`_, and we are big fans! They allow to convey"
-" knowledge in an interactive and fun way, and they encourage active "
+"<https://oggm.org/tutorials>`_, and we are big fans! They help convey "
+"knowledge in an interactive and fun way, and they encourage active "
 "learning."
 msgstr ""
 
-#: ../../classes_howto.rst:71
+#: ../../classes_howto.rst:69
 msgid ""
 "Visit the `OGGM-Edu-Notebooks <https://oggm.org/oggm-edu-notebooks>`_ "
-"webpage to see them in action! And our :ref:`nbs_in_class` will help you "
-"to get started with your class."
+"webpage to see them in action! Our :ref:`nbs_in_class` page will help you"
+" to get started with your class."
 msgstr ""
 
-#: ../../classes_howto.rst:78
+#: ../../classes_howto.rst:76
 msgid "Existing classes based on OGGM-Edu"
 msgstr ""
 
-#: ../../classes_howto.rst:80
+#: ../../classes_howto.rst:78
 msgid ""
 "Here are some known applications of OGGM-Edu in classes. You can use them"
 " \"as is\", or as templates for your own classes. We would love to hear "
 "back from you: if you are creating educational resources based on OGGM-"
-"Edu, please :ref:`get in touch <title_contact>` so that we can advertise "
+"Edu, please :ref:`get in touch <title_contact>` so that we can highlight "
 "them!"
 msgstr ""
 
-#: ../../classes_howto.rst:85
+#: ../../classes_howto.rst:83
 msgid ""
 "`Middlebury College glaciology-labs notebooks <https://github.com/ehultee"
 "/glaciology-labs>`_, adapted (and enhanced) OGGM-Edu notebooks. By `Lizz "
 "Ultee <https://ehultee.github.io/>`_."
 msgstr ""
 
-#: ../../classes_howto.rst:87
+#: ../../classes_howto.rst:85
 msgid ""
 "`University of Michigan CLaSP 474 Ice and Climate notebooks "
 "<https://github.com/skachuck/clasp474_w2021>`_, adapted (and enhanced) "
 "OGGM-Edu notebooks. By `Samuel Kachuck <http://georei.com/>`_."
 msgstr ""
 
-#: ../../classes_howto.rst:89
+#: ../../classes_howto.rst:87
 msgid ""
 "`Three-day workshop <https://github.com/ehultee/CdeC-glaciologia>`_ for "
 "university students without prior glacier experience (in spanish). By "
-"`Lizz Ultee <https://ehultee.github.io/>`_. More context about her class "
-"`here <https://oggm.org/2019/12/06/OGGM-Edu-AGU/>`_."
+"`Lizz Ultee <https://ehultee.github.io/>`_ and Tatiana León Rojas. More "
+"context about their class `here <https://oggm.org/2019/12/06/OGGM-Edu-"
+"AGU/>`_."
 msgstr ""
 
 #~ msgid ""
@@ -337,5 +339,63 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ":ref:`as_simulator`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Currently, we are working on making "
+#~ "OGGM-Edu suitable for classes at "
+#~ "the high school level (using the "
+#~ "web applications) and at the university"
+#~ " level (using the web applications "
+#~ "and the programmable notebooks)."
+#~ msgstr ""
+
+#~ msgid "You will find some help to get you started below!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The use of notebooks in classes is"
+#~ " expanding rapidly (see for example "
+#~ "the great resource `Teaching and "
+#~ "Learning with Jupyter <https://jupyter4edu.github.io"
+#~ "/jupyter-edu-book/>`_ for an in-depth"
+#~ " introduction). At OGGM, we use "
+#~ "notebooks frequently for our own "
+#~ "`lectures <https://fabienmaussion.info/teaching/>`_ or "
+#~ "`tutorials <https://oggm.org/tutorials>`_, and we"
+#~ " are big fans! They allow to "
+#~ "convey knowledge in an interactive and"
+#~ " fun way, and they encourage active"
+#~ " learning."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Visit the `OGGM-Edu-Notebooks "
+#~ "<https://oggm.org/oggm-edu-notebooks>`_ webpage "
+#~ "to see them in action! And our "
+#~ ":ref:`nbs_in_class` will help you to get"
+#~ " started with your class."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here are some known applications of "
+#~ "OGGM-Edu in classes. You can use"
+#~ " them \"as is\", or as templates "
+#~ "for your own classes. We would "
+#~ "love to hear back from you: if "
+#~ "you are creating educational resources "
+#~ "based on OGGM-Edu, please :ref:`get "
+#~ "in touch <title_contact>` so that we "
+#~ "can advertise them!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Three-day workshop <https://github.com/ehultee"
+#~ "/CdeC-glaciologia>`_ for university students "
+#~ "without prior glacier experience (in "
+#~ "spanish). By `Lizz Ultee "
+#~ "<https://ehultee.github.io/>`_. More context about"
+#~ " her class `here <https://oggm.org/2019/12/06"
+#~ "/OGGM-Edu-AGU/>`_."
 #~ msgstr ""
 

@@ -52,10 +52,6 @@ Source code
 
 Code and data are on `GitHub <https://github.com/OGGM/glacier-gallery>`_, BSD licensed.
 
-
-Possible future improvements
-----------------------------
-
 The application would benefit from additional glaciers in regions that are not yet well
 covered. If you are interested to contribute, you can add a glacier and an
 image of it into this `list <https://github.com/OGGM/glacier-gallery/blob/master/glacier_data.py>`_.
