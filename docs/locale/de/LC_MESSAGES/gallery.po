@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../../gallery.rst:4
 msgid "Glacier Gallery"
-msgstr ""
+msgstr "Gletschergalerie"
 
 #: ../../gallery.rst:10
 msgid ""
@@ -56,6 +56,10 @@ msgid ""
 "introduces different glacier types with pictures and explanations. It "
 "includes example glaciers from nearly all glaciated regions of the world."
 msgstr ""
+"Die Gletschergalerie ist eine **interaktive Webanwendung**, mit der man "
+"über die verschiedenen Gletscher der Welt lernen (und lehren) kann. Sie "
+"stellt verschiedene Gletschertypen mit Bildern und Erklärungen vor. Sie "
+"enthält typische Gletscher aus fast allen vergletscherten Regionen der Welt."
 
 #: ../../gallery.rst:15
 msgid ""
@@ -71,7 +75,7 @@ msgstr ""
 
 #: ../../gallery.rst:24
 msgid "How to use it"
-msgstr ""
+msgstr "Benutzeranleitung"
 
 #: ../../gallery.rst:26
 msgid ""
@@ -84,6 +88,19 @@ msgid ""
 "to choose a different glacier, click anywhere in the map to clear your "
 "selection, and choose a new marker."
 msgstr ""
+"Die App enthält eine interaktive **Karte** mit markierten Gletschern. Die Markierungen "
+"sind je nach Gletschertyp farblich gekennzeichnet. Wenn man mit der Maus "
+"über einen Gletscher fährt, erscheinen Informationen, sowie ein Bild dieses Gletschers. "
+"Durch klicken auf die Markierung, erscheinen Informationen über den Gletschertyp in "
+"der **Infobox** auf der rechten Seite. In der Box gibt es einen zweiten Reiter, der "
+"Informationen über Gletscher im Allgemeinen gibt. Um einen anderen Gletscher auszuwählen, "
+"klicke in die Karte. Dadurch wird die derzeitige Auswahl gelöscht und es kann ein neuer Marker "
+"ausgewählt werden."
+
+
+#: ../../gallery.rst:35
+msgid "Authors"
+msgstr "Autoren"
 
 #: ../../gallery.rst:34
 msgid ""
@@ -91,6 +108,9 @@ msgid ""
 " out `OGGM-Edu Glaciology Lab 1 - What Makes a Glacier? "
 "<https://serc.carleton.edu/teachearth/activities/250452.html>`_."
 msgstr ""
+"Ideen, wie die Gletschergalerie App im Unterricht eingesetzt werden kann, findet man unter "
+"`OGGM-Edu Glaciology Lab 1 - Was definiert einen Gletscher? "
+"<https://serc.carleton.edu/teachearth/activities/250452.html>`_."
 
 #: ../../gallery.rst:37
 msgid "Authors"
@@ -102,36 +122,54 @@ msgstr ""
 
 #: ../../gallery.rst:43
 msgid "Data sources"
-msgstr ""
+msgstr "Datenquellen"
 
 #: ../../gallery.rst:45
 msgid ""
 "Glacier locations and sizes come from the `Randolph Glacier Inventory "
 "version 6 <https://www.glims.org/RGI/>`_."
 msgstr ""
+"Lage und Größe der Gletscher sind dem "Randolph Glacier Inventory "
+"version 6 <https://www.glims.org/RGI/>`_. entnommen"
+
 
 #: ../../gallery.rst:47
 msgid "See the app for links to other data sources and pictures."
-msgstr ""
+msgstr "In der App findet man Links zu weiteren Datenquellen und Bildern"
 
 #: ../../gallery.rst:51
 msgid "Source code"
-msgstr ""
+msgstr "Quellcode"
 
 #: ../../gallery.rst:53
 msgid ""
 "Code and data are on `GitHub <https://github.com/OGGM/glacier-gallery>`_,"
 " BSD licensed."
 msgstr ""
+"Code und Daten sind auf `GitHub <https://github.com/OGGM/glacier-gallery>`_,"
+"unter BSD lizensiert."
 
 #: ../../gallery.rst:55
+
+msgid "Possible future improvements"
+msgstr "Mögliche künftige Verbesserungen"
+
+#: ../../gallery.rst:57
 msgid ""
 "The application would benefit from additional glaciers in regions that "
 "are not yet well covered. If you are interested to contribute, you can "
 "add a glacier and an image of it into this `list <https://github.com/OGGM"
 "/glacier-gallery/blob/master/glacier_data.py>`_. You can send us the "
 "edited file by email or with a GitHub pull request. Thanks!"
+
 msgstr ""
+"Die Anwendung würde von zusätzlichen Gletschern in Regionen profitieren, die "
+"noch nicht gut bedeckt sind. Bei Interesse, etwas beizutragen, kann ein "
+"Gletscher und ein Bild davon in dieser `Liste <https://github.com/OGGM"
+"/glacier-gallery/blob/master/glacier_data.py>`_ hinzugefügt werden. Die "
+"bearbeitete Datei kann uns per Mail oder mit einem GitHub Pull-Request geschickt werden. Danke!"
+
+
 
 #~ msgid ""
 #~ "The glacier gallery is an **interactive"
@@ -194,4 +232,3 @@ msgstr ""
 #~ " us the edited file per mail or"
 #~ " with a pull-request. Thanks!"
 #~ msgstr ""
-
