@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../gallery.rst:4
 msgid "Glacier Gallery"
-msgstr ""
+msgstr "Gletschergalerie"
 
 #: ../../gallery.rst:10
 msgid ""
@@ -28,6 +28,10 @@ msgid ""
 "introduces different glacier types with pictures and explanations. It "
 "includes typical glaciers from nearly all glaciated regions of the world."
 msgstr ""
+"Die Gletschergalerie ist eine **interaktive Webanwendung**, mit der man "
+"über die verschiedenen Gletscher der Welt lernen (und lehren) kann. Sie "
+"stellt verschiedene Gletschertypen mit Bildern und Erklärungen vor. Sie "
+"enthält typische Gletscher aus fast allen vergletscherten Regionen der Welt."
 
 #: ../../gallery.rst:15
 msgid ""
@@ -43,7 +47,7 @@ msgstr ""
 
 #: ../../gallery.rst:24
 msgid "How to use it"
-msgstr ""
+msgstr "Benutzeranleitung"
 
 #: ../../gallery.rst:26
 msgid ""
@@ -56,10 +60,18 @@ msgid ""
 "glacier click into the map to delete your selection and choose a new "
 "marker."
 msgstr ""
+"Die App enthält eine interaktive **Karte** mit markierten Gletschern. Die Markierungen "
+"sind je nach Gletschertyp farblich gekennzeichnet. Wenn man mit der Maus "
+"über einen Gletscher fährt, erscheinen Informationen, sowie ein Bild dieses Gletschers. "
+"Durch klicken auf die Markierung, erscheinen Informationen über den Gletschertyp in "
+"der **Infobox** auf der rechten Seite. In der Box gibt es einen zweiten Reiter, der "
+"Informationen über Gletscher im Allgemeinen gibt. Um einen anderen Gletscher auszuwählen, "
+"klicke in die Karte. Dadurch wird die derzeitige Auswahl gelöscht und es kann ein neuer Marker "
+"ausgewählt werden."
 
 #: ../../gallery.rst:35
 msgid "Authors"
-msgstr ""
+msgstr "Autoren"
 
 #: ../../gallery.rst:37
 msgid "`Zora Schirmeister <https://github.com/zschirmeister>`_"
@@ -67,38 +79,47 @@ msgstr ""
 
 #: ../../gallery.rst:41
 msgid "Data sources"
-msgstr ""
+msgstr "Datenquellen"
 
 #: ../../gallery.rst:43
 msgid ""
 "Glacier location and sizes are obtained from the `Randolph Glacier "
 "Inventory version 6 <https://www.glims.org/RGI/>`_."
 msgstr ""
+"Lage und Größe der Gletscher sind dem "Randolph Glacier Inventory "
+"version 6 <https://www.glims.org/RGI/>`_. entnommen"
+
 
 #: ../../gallery.rst:45
 msgid "See the app for links to other data sources and pictures."
-msgstr ""
+msgstr "In der App findet man Links zu weiteren Datenquellen und Bildern"
 
 #: ../../gallery.rst:49
 msgid "Source code"
-msgstr ""
+msgstr "Quellcode"
 
 #: ../../gallery.rst:51
 msgid ""
 "Code and data are on `GitHub <https://github.com/OGGM/glacier-gallery>`_,"
 " BSD licensed."
 msgstr ""
+"Code und Daten sind auf `GitHub <https://github.com/OGGM/glacier-gallery>`_,"
+"unter BSD lizensiert."
 
 #: ../../gallery.rst:55
 msgid "Possible future improvements"
-msgstr ""
+msgstr "Mögliche künftige Verbesserungen"
 
 #: ../../gallery.rst:57
 msgid ""
-"The application would profit from additional glaciers in regions that are"
-" not covered yet. If you are interested to contribute you can add a "
+"The application would profit from additional glaciers in regions that are "
+"not covered yet. If you are interested to contribute you can add a "
 "glacier and an image of it into this `list <https://github.com/OGGM"
 "/glacier-gallery/blob/master/glacier_data.py>`_. You can send us the "
 "edited file per mail or with a pull-request. Thanks!"
 msgstr ""
-
+"Die Anwendung würde von zusätzlichen Gletschern in Regionen profitieren, die "
+"noch nicht abgedeckt sind. Bei Interesse, etwas beizutragen, kann ein "
+"Gletscher und ein Bild davon in dieser `Liste <https://github.com/OGGM"
+"/glacier-gallery/blob/master/glacier_data.py>`_ hinzugefügt werden. Die "
+"bearbeitete Datei kann uns per Mail oder mit einem Pull-Request geschickt werden. Danke!"
