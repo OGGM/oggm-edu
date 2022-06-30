@@ -1,3 +1,10 @@
-__version__ = '0.0.1'
+__version__ = "0.1.0b"
 
-from .funcs import *
+from oggm_edu.funcs import plot_glacier_graphics, initalize_oggm
+from oggm_edu.glacier import Glacier, SurgingGlacier
+from oggm_edu.glacier_bed import GlacierBed
+from oggm_edu.glacier_collection import GlacierCollection
+from oggm_edu.mass_balance import MassBalance
+
+# Initialize on import
+initalize_oggm()

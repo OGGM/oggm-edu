@@ -15,7 +15,7 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
 
 .. _badge_bokeh_en: https://bokeh.oggm.org/simulator/app
 
-.. important::
+.. note::
 
   The glacier simulator app runs a numerical glacier model in the background,
   using computer resources on the cloud. If several people are using the app at
@@ -49,7 +49,7 @@ for an introduction about glacier mass-balance and the ELA, or our
 **Experiment:**
 
 - In "Beginner mode", start by setting the ELA to 3000m a.s.l, and note on a piece of paper: the equilibrium volume of the glacier, its length and maximal thickness.
-- Now choose the "wider top" glacier shape and run the model again.
+- Now choose the "Wide top, narrow bottom" glacier shape and run the model again.
 
 **Question to answer:**
 
@@ -405,7 +405,7 @@ To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
 From there, run this command into a terminal::
 
-    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:8080 oggm/bokeh:20210130 git+https://github.com/OGGM/glacier_simulator.git@stable app.ipynb
+    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8085:8080 oggm/bokeh:20210130 git+https://github.com/OGGM/glacier_simulator.git@stable app.ipynb
 
 Once running, you should be able to start the app in your browser at this
-address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_.
+address: `http://127.0.0.1:8085/app <http://127.0.0.1:8080/app>`_.

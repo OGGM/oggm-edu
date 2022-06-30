@@ -75,7 +75,7 @@ Part 2: example questions
 Questions to explore with this app
 ----------------------------------
 
-With this app, you can address many questions, by yourself or in class! For example:
+We suggest motivating the app with a question to be answered in class. For example:
 
 - How many glaciers are there on Earth? How much volume do they represent?
 - How much would the sea-level rise if all glaciers melted? All glaciers in the
@@ -100,6 +100,7 @@ Resources
 - Several pages from `Glaciers and Climate <http://www.antarcticglaciers.org/glaciers-and-climate/>`_ on `antarcticglaciers.org`_ are highly relevant here
 - `Warming trends at glaciers locations <https://fabienmaussion.info/2019/08/29/era5/>`_, a blog post by Fabien Maussion
 - `Glacial Census Reveals Ice Thicknesses Around the World <https://eos.org/articles/glacial-census-reveals-ice-thicknesses-around-the-world>`_, EOS
+- `OGGM-Edu Glaciology Lab 2 - Exploring glacier data <https://serc.carleton.edu/teachearth/activities/250446.html>`_ provides a lesson plan and materials to use the World Glacier Explorer in a 1.5-2 hour class or lab session 
 
 .. _antarcticglaciers.org: http://www.antarcticglaciers.org/
 
@@ -124,7 +125,6 @@ The climate data (temperature, precipitation, trends) is extracted from
 provided by the `ECMWF <https://www.ecmwf.int/>`_.
 The glacier volume was provided by `Farinotti et al., (2019) <https://www.nature.com/articles/s41561-019-0300-3>`_
 
-
 Source code
 -----------
 
@@ -144,15 +144,7 @@ To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
 From there, run this command into a terminal::
 
-    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8080:80 oggm/bokeh:20191210 git+https://github.com/OGGM/world-glacier-explorer.git app.ipynb
+    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8083:8080 ghcr.io/oggm/bokeh:20220520 git+https://github.com/OGGM/world-glacier-explorer.git app.ipynb
 
 Once running, you should be able to start the app in your browser at this
-address: `http://127.0.0.1:8080/ <http://127.0.0.1:8080/>`_.
-
-Possible future improvements
-----------------------------
-
-- With a category choice bar, it would be possible to differentiate glaciers
-  from ice-caps or marine terminating glaciers from land-terminating ones.
-- We could also simplify the app for younger target audiences, with less
-  panels and less distraction.
+address: `http://127.0.0.1:8083/ <http://127.0.0.1:8083/>`_.

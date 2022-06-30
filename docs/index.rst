@@ -1,5 +1,8 @@
 .. figure:: _static/oggm.gif
-   :align: left
+   :align: right
+   :width: 80%
+
+|
 
 Welcome to OGGM-Edu!
 ====================
@@ -9,7 +12,7 @@ OGGM-Edu is an educational website about glaciers.
 Our main goal is to **provide tools and materials for instructors** who
 want to teach about glaciers at school, in workshops or at the university.
 
-For a general introduction and an overview, visit this recent 
+For a general introduction and an overview, visit this recent
 `EGU cryoblog post <https://blogs.egu.eu/divisions/cr/2021/03/12/do-you-know-about-oggm-edu-an-open-source-educational-platform-about-glaciers-and-glacier-modelling/>`_!
 
 **OGGM-Edu has four independent and complementary components**:
@@ -19,17 +22,17 @@ For a general introduction and an overview, visit this recent
    broad, from school children to adults, with or without scientific background.
 2. :ref:`title_graphics`, open access images and graphics that can be used
    for lectures or presentations.
-3. :ref:`title_notebooks`, for students willing to run and develop
-   their own experiments. The targeted audience are students at the undergrad
+3. :ref:`title_notebooks`, providing guidance to run and develop
+   simple modelling experiments. The targeted audience are students at the undergrad
    or graduate level with some programming experience, or under the supervision
    of an instructor who can show them how to run the experiments.
 4. :ref:`title_tuto`, for current and future users of the Open Global Glacier
-   Model. These notebooks are targetting graduate students or scientists aiming
+   Model. These notebooks are targeting graduate students or scientists aiming
    to learn how the model works.
 
 OGGM-Edu focuses on interactive content and numerical glacier experiments.
-We do not provide teaching resources about fundamentals in glaciology or
-climate science: for fundamental textbook material, refer to
+We do not provide resources about fundamentals in glaciology, climate science,
+or numerical methods: for more traditional textbook material, refer to
 :ref:`other_resources`, which OGGM-Edu intends to complement.
 
 .. _title_apps:
@@ -42,6 +45,7 @@ These interactive apps can be run on any computer with an internet connection.
 * :doc:`gallery`
 * :doc:`explorer`
 * :doc:`simulator`
+* :doc:`mb_simulator`
 * :doc:`alps_future`
 
 .. toctree::
@@ -52,6 +56,7 @@ These interactive apps can be run on any computer with an internet connection.
     gallery.rst
     explorer.rst
     simulator.rst
+    mb_simulator.rst
     alps_future.rst
 
 .. _title_graphics:
@@ -62,6 +67,7 @@ Graphics
 Open access images and graphics that can be used for lectures or presentations.
 
 * :doc:`glacier_basics`
+* :doc:`glacier_debriscovered`
 * :doc:`glacier_lowpass`
 
 .. toctree::
@@ -70,6 +76,7 @@ Open access images and graphics that can be used for lectures or presentations.
     :caption: Graphics
 
     glacier_basics.rst
+    glacier_debriscovered.rst
     glacier_lowpass.rst
 
 
@@ -79,11 +86,23 @@ Interactive Notebooks
 ^^^^^^^^^^^^^^^^^^^^^
 
 Collection of notebooks with simple experiments explaining one or more
-glaciological concepts. They are relatively easy to follow and adapt with some
-background in programming, and we are working to make them as accessible as
-possible. Read our :ref:`notebooks_howto` first if you are new to these things.
+glaciological concepts. The :ref:`api` provides an intuitive and expressive
+interface to the `OGGM model <https://docs.oggm.org>`_, highly simplifying
+the development of glacier evolution experiments.
+Read our :ref:`notebooks_howto` first if you are new to these things.
 
 |badge_edu_notebooks|
+
+.. admonition:: New! Run your class on classroom.oggm.org
+
+    Since 2021, OGGM-Edu offers a new service for instructors:
+    `classroom.oggm.org <https://classroom.oggm.org>`_ is a JupyterHub server
+    where you and your students can use OGGM-Edu without the burden of installing
+    anything. See `this blog post <https://oggm.org/2022/03/19/classroom/>`_
+    for an introduction.
+
+    |badge_classroom_tutos|
+
 
 .. toctree::
     :maxdepth: 1
@@ -91,15 +110,15 @@ possible. Read our :ref:`notebooks_howto` first if you are new to these things.
     :caption: Interactive Notebooks
 
     notebooks_howto.rst
+    api.rst
     OGGM-Edu notebooks <https://oggm.org/oggm-edu-notebooks>
-
 
 .. _title_tuto:
 
 OGGM tutorials
 ^^^^^^^^^^^^^^
 
-These are more advanced notebooks, for users of the OGGM model.
+These are more advanced notebooks, for those who want to use the OGGM model for research.
 
 |badge_tutorial_notebooks|
 
@@ -117,9 +136,15 @@ For instructors and teachers
 Thanks for considering OGGM-Edu for your classes! We've gathered some
 recommendations and guidelines here.
 
+.. admonition:: New! Teaching materials for glaciology labs now available.
+
+    If you are an instructor, visit our new resources especially for teachers
+    on the :ref:`classes_howto` page.
+
 * :doc:`why_oggmedu`
 * :doc:`classes_howto`
-* :doc:`examples`
+* :doc:`user_content`
+* :doc:`other_resources`
 * :doc:`charter`
 * :doc:`roadmap`
 
@@ -130,9 +155,17 @@ recommendations and guidelines here.
 
     why_oggmedu.rst
     classes_howto.rst
+    user_content.rst
     other_resources.rst
     charter.rst
     roadmap.rst
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Package documentation
+
+    api_detailed.rst
 
 .. _title_contact:
 
@@ -186,7 +219,7 @@ also had support from various sources:
     <img src="https://discourse.holoviz.org/uploads/default/original/1X/59aba5e11167d6b8742e01fc9d6bb60ddd4df55e.png" alt="Image missing" width="40%" />
     </a>
     <a href="https://jupyter.org" >
-    <img src="https://jupyter.org/assets/hublogo.svg" alt="Jupyter logo" width="40%" />
+    <img src="https://jupyter.org/assets/share.png" alt="Jupyter logo" width="40%" />
     </a>
     <a href="https://mybinder.org" >
     <img src="https://mybinder.org/static/logo.svg" alt="MyBinder logo" width="40%" />

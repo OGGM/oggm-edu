@@ -1,11 +1,25 @@
-name: edudocs
+name: oggm_edu_docs
 channels:
   - conda-forge
 dependencies:
-  - python
-  - numpydoc
-  - ipython
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - shapely
+  - requests
+  - configobj
+  - netcdf4
+  - xarray
+  - pytables
+  - pytest
+  - seaborn
   - sphinx
-  - pip
+  - sphinx-book-theme>=0.3.2
+  - ipython
+  - numpydoc
+  - sphinx-intl
   - pip:
-      - sphinx-book-theme==0.0.42
+    - git+https://github.com/OGGM/oggm
+    # relative to this file. Needs to be editable to be accepted.
+    - -e ..

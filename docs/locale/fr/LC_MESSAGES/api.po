@@ -1,0 +1,557 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) OGGM-Edu Developers 2018-2021
+# This file is distributed under the same license as the OGGM-Edu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OGGM-Edu 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-28 18:30+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../<rst_prolog>:1
+msgid "badge_bokeh_en"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_intro_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_tutorial_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_hub"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_classroom_tutos"
+msgstr ""
+
+#: ../../api.rst:5
+msgid "The oggm-edu python package"
+msgstr ""
+
+#: ../../api.rst:9
+msgid ""
+"The ``oggm-edu`` python package is a \"simplification layer\" meant to "
+"hide many of the complex OGGM internals to the students. In fact, it can "
+"be seen as a fully functional glacier flow model optimized for education."
+msgstr ""
+
+#: ../../api.rst:13
+msgid ""
+"To see it in action, visit our dedicated `oggm-edu notebooks website "
+"<https://oggm.org/oggm-edu-notebooks/oggm-edu/edu_intro.html>`_, or run "
+"them yourself on MyBinder:"
+msgstr ""
+
+#: ../../api.rst:17
+msgid "|badge_edu_notebooks|"
+msgstr ""
+
+#: ../../api.rst:19 ../../api.rst:80
+msgid "For a complete documentation, visit the full :ref:`api_detailed`."
+msgstr ""
+
+#: ../../api.rst:23
+msgid ""
+"This programming interface is relatively new (2022). It replaces a much "
+"simpler previous interface, which is still accessible to our users with::"
+msgstr ""
+
+#: ../../api.rst:29
+msgid ""
+"Don't hesitate to `let us know <https://github.com/OGGM/oggm-"
+"edu/issues>`_ if you encounter any problem with the change!"
+msgstr ""
+
+#: ../../api.rst:33
+msgid "A 2 minutes introduction to the package"
+msgstr ""
+
+#: ../../api.rst:35
+msgid ""
+"The main objective of package is to propose an expressive syntax and "
+"preconfigured plotting functions:"
+msgstr ""
+
+#: ../../api.rst:52
+msgid ""
+"To grow the glacier we can either progress the glacier to a specified "
+"year:"
+msgstr ""
+
+#: ../../api.rst:61
+msgid "Or progress the glacier to equilibrium:"
+msgstr ""
+
+#: ../../api.rst:70
+msgid ""
+"It is just as easy to inspect the history of the length, volume and area "
+"of the glacier:"
+msgstr ""
+
+#: ../../api.rst:78
+msgid "This is just a small part of what is possible with the new interface."
+msgstr ""
+
+#: ../../api.rst:82
+msgid ""
+"We hope that you will find this interesting, and are waiting for your "
+"feedback!"
+msgstr ""
+
+#~ msgid "oggm-edu python package"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This page lists all classes, their "
+#~ "methods and attributes available in the"
+#~ " ``oggm-edu`` python package."
+#~ msgstr ""
+
+#~ msgid "Open a MyBinder interactive session to try them yourself!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Don't hesitate to `let us know "
+#~ "<https://github.com/OGGM/oggm-edu/issues>`_ if you"
+#~ " find any mistakes in the tool "
+#~ "or in the docs!"
+#~ msgstr ""
+
+#~ msgid "GlacierBed"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierBed <oggm_edu.GlacierBed>`\\ \\(\\[top\\,"
+#~ " bottom\\, width\\, altitudes\\, ...\\]\\)"
+#~ msgstr ""
+
+#~ msgid "The glacier bed used to construct a ``oggm_edu.Glacier``."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`GlacierBed.plot <oggm_edu.GlacierBed.plot>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the bed"
+#~ msgstr ""
+
+#~ msgid "GlacierBed example"
+#~ msgstr ""
+
+#~ msgid "MassBalance"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`MassBalance <oggm_edu.MassBalance>`\\ \\(ela\\,"
+#~ " gradient\\[\\, breakpoints\\, ...\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Oggm Edu mass balance, used to construct the ``oggm_edu.Glacier``."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`MassBalance.reset <oggm_edu.MassBalance.reset>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Reset the mass balance to initial state."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`MassBalance.get_monthly_mb "
+#~ "<oggm_edu.MassBalance.get_monthly_mb>`\\ \\(heights\\[\\, "
+#~ "year\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Calculate the monthly mass balance for the glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`MassBalance.get_annual_mb "
+#~ "<oggm_edu.MassBalance.get_annual_mb>`\\ \\(heights\\[\\, "
+#~ "year\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Get the annual mass balance."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`MassBalance.gradient <oggm_edu.MassBalance.gradient>`\\"
+#~ msgstr ""
+
+#~ msgid "Mass balance altitude gradient, mm/m."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`MassBalance.ela <oggm_edu.MassBalance.ela>`\\"
+#~ msgstr ""
+
+#~ msgid "Altitude of the equilibrium line altitude (m)."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`MassBalance.temp_bias <oggm_edu.MassBalance.temp_bias>`\\"
+#~ msgstr ""
+
+#~ msgid "Current temperature bias applied to the mass balance (unit: °C)"
+#~ msgstr ""
+
+#~ msgid "MassBalance example"
+#~ msgstr ""
+
+#~ msgid "Glacier"
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier <oggm_edu.Glacier>`\\ \\(bed\\, mass\\_balance\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Provides the user with an easy way"
+#~ " to create and perform experiments on"
+#~ " simulated glaciers."
+#~ msgstr ""
+
+#~ msgid "Glacier methods"
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.reset <oggm_edu.Glacier.reset>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Reset the glacier to initial state."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.copy <oggm_edu.Glacier.copy>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Return a copy of the glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.progress_to_year "
+#~ "<oggm_edu.Glacier.progress_to_year>`\\ \\(year\\)"
+#~ msgstr ""
+
+#~ msgid "Progress the glacier to year n."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.progress_to_equilibrium "
+#~ "<oggm_edu.Glacier.progress_to_equilibrium>`\\ \\(\\[years\\, "
+#~ "t\\_rate\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Progress the glacier to equilibrium."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.plot <oggm_edu.Glacier.plot>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the current state of the glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.plot_mass_balance "
+#~ "<oggm_edu.Glacier.plot_mass_balance>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the mass balance profile of the glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.plot_history <oggm_edu.Glacier.plot_history>`\\"
+#~ " \\(\\[show\\_bias\\, window\\, ...\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the history of the glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.plot_state_history "
+#~ "<oggm_edu.Glacier.plot_state_history>`\\ \\(\\[interval\\, "
+#~ "eq\\_states\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Plot the state history of the "
+#~ "glacier (thicknesses) at specified intervals."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.add_temperature_bias "
+#~ "<oggm_edu.Glacier.add_temperature_bias>`\\ \\(bias\\, "
+#~ "duration\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Add a gradual temperature bias to "
+#~ "the future mass balance of the "
+#~ "glacier."
+#~ msgstr ""
+
+#~ msgid "Glacier attributes"
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.ela <oggm_edu.Glacier.ela>`\\"
+#~ msgstr ""
+
+#~ msgid "Expose the mass balance ela for the glacier."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.mb_gradient <oggm_edu.Glacier.mb_gradient>`\\"
+#~ msgstr ""
+
+#~ msgid "Expose the mass balance gradient."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.mass_balance <oggm_edu.Glacier.mass_balance>`\\"
+#~ msgstr ""
+
+#~ msgid "Glacier mass balance."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.annual_mass_balance "
+#~ "<oggm_edu.Glacier.annual_mass_balance>`\\"
+#~ msgstr ""
+
+#~ msgid "The annual mass balance at each grid point of the glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`Glacier.specific_mass_balance "
+#~ "<oggm_edu.Glacier.specific_mass_balance>`\\"
+#~ msgstr ""
+
+#~ msgid "The specific mass balance of the glacier [m w.e."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.age <oggm_edu.Glacier.age>`\\"
+#~ msgstr ""
+
+#~ msgid "Set the age of the glacier."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.history <oggm_edu.Glacier.history>`\\"
+#~ msgstr ""
+
+#~ msgid "The history of the glacier."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.state_history <oggm_edu.Glacier.state_history>`\\"
+#~ msgstr ""
+
+#~ msgid "The state history of the glacier, i.e. geometrical changes over time."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.creep <oggm_edu.Glacier.creep>`\\"
+#~ msgstr ""
+
+#~ msgid "Set the value for the creep parameter A in Glens equation."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.basal_sliding <oggm_edu.Glacier.basal_sliding>`\\"
+#~ msgstr ""
+
+#~ msgid "Set the sliding parameter of the glacier"
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.eq_states <oggm_edu.Glacier.eq_states>`\\"
+#~ msgstr ""
+
+#~ msgid "Glacier equilibrium states."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.response_time <oggm_edu.Glacier.response_time>`\\"
+#~ msgstr ""
+
+#~ msgid "The response time of the glacier."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`Glacier.current_state <oggm_edu.Glacier.current_state>`\\"
+#~ msgstr ""
+
+#~ msgid "For advanced users: get access to the current OGGM ``Flowline`` object."
+#~ msgstr ""
+
+#~ msgid "Glacier example"
+#~ msgstr ""
+
+#~ msgid "SurgingGlacier"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`SurgingGlacier <oggm_edu.SurgingGlacier>`\\ "
+#~ "\\(\\[bed\\, mass\\_balance\\]\\)"
+#~ msgstr ""
+
+#~ msgid "A surging glacier."
+#~ msgstr ""
+
+#~ msgid ":py:obj:`SurgingGlacier.reset <oggm_edu.SurgingGlacier.reset>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Reset the state of the surging glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`SurgingGlacier.progress_to_year "
+#~ "<oggm_edu.SurgingGlacier.progress_to_year>`\\ \\(year\\)"
+#~ msgstr ""
+
+#~ msgid "Progress the surging glacier to specified year."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`SurgingGlacier.plot_history "
+#~ "<oggm_edu.SurgingGlacier.plot_history>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the history of the surging glacier."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`SurgingGlacier.normal_years "
+#~ "<oggm_edu.SurgingGlacier.normal_years>`\\"
+#~ msgstr ""
+
+#~ msgid "Number of years that the glacier progress without surging."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`SurgingGlacier.surging_years "
+#~ "<oggm_edu.SurgingGlacier.surging_years>`\\"
+#~ msgstr ""
+
+#~ msgid "Number of years that the glacier progress during surges."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`SurgingGlacier.basal_sliding_surge "
+#~ "<oggm_edu.SurgingGlacier.basal_sliding_surge>`\\"
+#~ msgstr ""
+
+#~ msgid "GlacierCollection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection <oggm_edu.GlacierCollection>`\\ "
+#~ "\\(\\[glacier\\_list\\]\\)"
+#~ msgstr ""
+
+#~ msgid "This is an object used to store multiple glaciers."
+#~ msgstr ""
+
+#~ msgid "GlacierCollection methods"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.reset "
+#~ "<oggm_edu.GlacierCollection.reset>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Reset all glaciers in the collection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.fill "
+#~ "<oggm_edu.GlacierCollection.fill>`\\ \\(glacier\\, n\\[\\,"
+#~ " ...\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Fill the collection with a desired number of glaciers."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.add "
+#~ "<oggm_edu.GlacierCollection.add>`\\ \\(glacier\\)"
+#~ msgstr ""
+
+#~ msgid "Adds one or more glaciers to the collection."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.change_attributes "
+#~ "<oggm_edu.GlacierCollection.change_attributes>`\\ \\(...\\)"
+#~ msgstr ""
+
+#~ msgid "Change the attribute(s) of the glaciers in the collection."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.progress_to_year "
+#~ "<oggm_edu.GlacierCollection.progress_to_year>`\\ \\(year\\)"
+#~ msgstr ""
+
+#~ msgid "Progress the glaciers within the collection to the specified year."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.progress_to_equilibrium "
+#~ "<oggm_edu.GlacierCollection.progress_to_equilibrium>`\\ "
+#~ "\\(\\[...\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Progress the glaciers to equilibrium."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.plot "
+#~ "<oggm_edu.GlacierCollection.plot>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the glaciers in the collection to compare them."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.plot_history "
+#~ "<oggm_edu.GlacierCollection.plot_history>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the histories of the collection."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.plot_mass_balance "
+#~ "<oggm_edu.GlacierCollection.plot_mass_balance>`\\ \\(\\)"
+#~ msgstr ""
+
+#~ msgid "Plot the mass balance(s) for the glaciers in the collection."
+#~ msgstr ""
+
+#~ msgid "GlacierCollection attributes"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.glaciers "
+#~ "<oggm_edu.GlacierCollection.glaciers>`\\"
+#~ msgstr ""
+
+#~ msgid "Glaciers stored in the collection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":py:obj:`GlacierCollection.annual_mass_balance "
+#~ "<oggm_edu.GlacierCollection.annual_mass_balance>`\\"
+#~ msgstr ""
+
+#~ msgid "Glaciers mass balances"
+#~ msgstr ""
+
+#~ msgid "GlacierCollection example"
+#~ msgstr ""
+

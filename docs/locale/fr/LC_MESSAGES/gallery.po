@@ -8,14 +8,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-27 16:34+0100\n"
+"POT-Creation-Date: 2022-06-28 18:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../<rst_prolog>:1
+msgid "badge_bokeh_en"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_edu_intro_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_tutorial_notebooks"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_hub"
+msgstr ""
+
+#: ../../<rst_prolog>
+msgid "badge_classroom_tutos"
+msgstr ""
 
 #: ../../gallery.rst:4
 msgid "Glacier Gallery"
@@ -26,18 +54,18 @@ msgid ""
 "The glacier gallery is an **interactive web application** with which you "
 "can learn (and teach) about the diverse glaciers of the world. It "
 "introduces different glacier types with pictures and explanations. It "
-"includes typical glaciers from nearly all glaciated regions of the world."
+"includes example glaciers from nearly all glaciated regions of the world."
 msgstr ""
 
 #: ../../gallery.rst:15
 msgid ""
-"start the **english version** of the app by clicking on this link: "
+"Start the **english version** of the app by clicking on this link: "
 "|badge_bokeh_en|_"
 msgstr ""
 
 #: ../../gallery.rst:16
 msgid ""
-"um die **deutsche Version** der App zu starten, klicke auf den folgenden "
+"Um die **deutsche Version** der App zu starten, klicke auf den folgenden "
 "Link: |badge_bokeh_de|_"
 msgstr ""
 
@@ -48,57 +76,122 @@ msgstr ""
 #: ../../gallery.rst:26
 msgid ""
 "The app contains an interactive **map** with marked glaciers. The markers"
-" are color-coded according to the glacier’s type. When the mouse hovers "
-"above one, information about that glacier and a picture of it appears. "
-"When you click on the marker information about the glaciertype pop up in "
-"the **infobox** on the right. The box has a second tap that shows "
-"information about glaciers in general. If you want to choose a different "
-"glacier click into the map to delete your selection and choose a new "
-"marker."
+" are color-coded according to the glacier’s type. When you hover the "
+"mouse over a marker, information about that glacier and a picture of it "
+"appears. When you click on the marker, information about the relevant "
+"glacier type pops up in the **infobox** on the right. The box has a "
+"second tab that shows information about glaciers in general. If you want "
+"to choose a different glacier, click anywhere in the map to clear your "
+"selection, and choose a new marker."
 msgstr ""
 
-#: ../../gallery.rst:35
-msgid "Authors"
+#: ../../gallery.rst:34
+msgid ""
+"For an idea of how to use the Glacier Gallery app in your teaching, check"
+" out `OGGM-Edu Glaciology Lab 1 - What Makes a Glacier? "
+"<https://serc.carleton.edu/teachearth/activities/250452.html>`_."
 msgstr ""
 
 #: ../../gallery.rst:37
+msgid "Authors"
+msgstr ""
+
+#: ../../gallery.rst:39
 msgid "`Zora Schirmeister <https://github.com/zschirmeister>`_"
 msgstr ""
 
-#: ../../gallery.rst:41
+#: ../../gallery.rst:43
 msgid "Data sources"
 msgstr ""
 
-#: ../../gallery.rst:43
+#: ../../gallery.rst:45
 msgid ""
-"Glacier location and sizes are obtained from the `Randolph Glacier "
-"Inventory version 6 <https://www.glims.org/RGI/>`_."
+"Glacier locations and sizes come from the `Randolph Glacier Inventory "
+"version 6 <https://www.glims.org/RGI/>`_."
 msgstr ""
 
-#: ../../gallery.rst:45
+#: ../../gallery.rst:47
 msgid "See the app for links to other data sources and pictures."
 msgstr ""
 
-#: ../../gallery.rst:49
+#: ../../gallery.rst:51
 msgid "Source code"
 msgstr ""
 
-#: ../../gallery.rst:51
+#: ../../gallery.rst:53
 msgid ""
 "Code and data are on `GitHub <https://github.com/OGGM/glacier-gallery>`_,"
 " BSD licensed."
 msgstr ""
 
 #: ../../gallery.rst:55
-msgid "Possible future improvements"
+msgid ""
+"The application would benefit from additional glaciers in regions that "
+"are not yet well covered. If you are interested to contribute, you can "
+"add a glacier and an image of it into this `list <https://github.com/OGGM"
+"/glacier-gallery/blob/master/glacier_data.py>`_. You can send us the "
+"edited file by email or with a GitHub pull request. Thanks!"
 msgstr ""
 
-#: ../../gallery.rst:57
-msgid ""
-"The application would profit from additional glaciers in regions that are"
-" not covered yet. If you are interested to contribute you can add a "
-"glacier and an image of it into this `list <https://github.com/OGGM"
-"/glacier-gallery/blob/master/glacier_data.py>`_. You can send us the "
-"edited file per mail or with a pull-request. Thanks!"
-msgstr ""
+#~ msgid ""
+#~ "The glacier gallery is an **interactive"
+#~ " web application** with which you can"
+#~ " learn (and teach) about the diverse"
+#~ " glaciers of the world. It introduces"
+#~ " different glacier types with pictures "
+#~ "and explanations. It includes typical "
+#~ "glaciers from nearly all glaciated "
+#~ "regions of the world."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "start the **english version** of the "
+#~ "app by clicking on this link: "
+#~ "|badge_bokeh_en|_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "um die **deutsche Version** der App "
+#~ "zu starten, klicke auf den folgenden "
+#~ "Link: |badge_bokeh_de|_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The app contains an interactive **map**"
+#~ " with marked glaciers. The markers "
+#~ "are color-coded according to the "
+#~ "glacier’s type. When the mouse hovers"
+#~ " above one, information about that "
+#~ "glacier and a picture of it "
+#~ "appears. When you click on the "
+#~ "marker information about the glaciertype "
+#~ "pop up in the **infobox** on the"
+#~ " right. The box has a second "
+#~ "tap that shows information about "
+#~ "glaciers in general. If you want "
+#~ "to choose a different glacier click "
+#~ "into the map to delete your "
+#~ "selection and choose a new marker."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Glacier location and sizes are obtained"
+#~ " from the `Randolph Glacier Inventory "
+#~ "version 6 <https://www.glims.org/RGI/>`_."
+#~ msgstr ""
+
+#~ msgid "Possible future improvements"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The application would profit from "
+#~ "additional glaciers in regions that are"
+#~ " not covered yet. If you are "
+#~ "interested to contribute you can add "
+#~ "a glacier and an image of it "
+#~ "into this `list <https://github.com/OGGM/glacier-"
+#~ "gallery/blob/master/glacier_data.py>`_. You can send"
+#~ " us the edited file per mail or"
+#~ " with a pull-request. Thanks!"
+#~ msgstr ""
 
