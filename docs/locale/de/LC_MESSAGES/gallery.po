@@ -129,7 +129,7 @@ msgid ""
 "Glacier locations and sizes come from the `Randolph Glacier Inventory "
 "version 6 <https://www.glims.org/RGI/>`_."
 msgstr ""
-"Lage und Größe der Gletscher sind dem 'Randolph Glacier Inventory "
+"Lage und Größe der Gletscher sind dem `Randolph Glacier Inventory "
 "version 6 <https://www.glims.org/RGI/>`_. entnommen"
 
 
