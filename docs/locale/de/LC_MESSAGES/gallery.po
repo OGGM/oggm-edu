@@ -114,7 +114,7 @@ msgstr ""
 
 #: ../../gallery.rst:37
 msgid "Authors"
-msgstr ""
+msgstr "Autoren"
 
 #: ../../gallery.rst:39
 msgid "`Zora Schirmeister <https://github.com/zschirmeister>`_"
@@ -129,7 +129,7 @@ msgid ""
 "Glacier locations and sizes come from the `Randolph Glacier Inventory "
 "version 6 <https://www.glims.org/RGI/>`_."
 msgstr ""
-"Lage und Größe der Gletscher sind dem "Randolph Glacier Inventory "
+"Lage und Größe der Gletscher sind dem 'Randolph Glacier Inventory "
 "version 6 <https://www.glims.org/RGI/>`_. entnommen"
 
 
@@ -164,11 +164,10 @@ msgid ""
 
 msgstr ""
 "Die Anwendung würde von zusätzlichen Gletschern in Regionen profitieren, die "
-"noch nicht gut bedeckt sind. Bei Interesse, etwas beizutragen, kann ein "
+"noch nicht gut abgedeckt sind. Bei Interesse, etwas beizutragen, kann ein "
 "Gletscher und ein Bild davon in dieser `Liste <https://github.com/OGGM"
 "/glacier-gallery/blob/master/glacier_data.py>`_ hinzugefügt werden. Die "
 "bearbeitete Datei kann uns per Mail oder mit einem GitHub Pull-Request geschickt werden. Danke!"
-
 
 
 #~ msgid ""
