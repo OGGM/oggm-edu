@@ -408,4 +408,4 @@ From there, run this command into a terminal::
     docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8085:8080 oggm/bokeh:20210130 git+https://github.com/OGGM/glacier_simulator.git@stable app.ipynb
 
 Once running, you should be able to start the app in your browser at this
-address: `http://127.0.0.1:8085/app <http://127.0.0.1:8080/app>`_.
+address: `http://127.0.0.1:8085/app <http://127.0.0.1:8085/app>`_.
