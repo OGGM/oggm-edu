@@ -16,7 +16,7 @@ You can start the app by clicking on this link: |badge_bokeh_en|_
 
 .. _badge_bokeh_en: https://bokeh.oggm.org/explorer/app
 
-Alternatively, you can start the app `on mybinder <https://mybinder.org/v2/gh/OGGM/world-glacier-explorer/master?urlpath=panel/app>`_
+Alternatively, you can start the app `on mybinder <https://mybinder.org/v2/gh/OGGM/world-glacier-explorer/stable?urlpath=panel/app>`_
 (slightly slower in general, but a good alternative if our server is saturated).
 If you want to run the app on your own computer, see :ref:`docker-launch` below.
 
@@ -144,7 +144,7 @@ To start the app locally, all you'll need is to
 have `Docker <https://www.docker.com/>`_ installed on your computer.
 From there, run this command into a terminal::
 
-    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8083:8080 ghcr.io/oggm/bokeh:20220520 git+https://github.com/OGGM/world-glacier-explorer.git app.ipynb
+    docker run -e BOKEH_ALLOW_WS_ORIGIN=127.0.0.1 -p 8083:8080 ghcr.io/oggm/bokeh:20220520 git+https://github.com/OGGM/world-glacier-explorer.git@stable app.ipynb
 
 Once running, you should be able to start the app in your browser at this
 address: `http://127.0.0.1:8083/ <http://127.0.0.1:8083/>`_.
