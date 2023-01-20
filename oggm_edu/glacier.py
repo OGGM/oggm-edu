@@ -27,7 +27,12 @@ from matplotlib import pyplot as plt
 from matplotlib.patches import Patch
 
 # Import OGGM things
-from oggm.core.flowline import FluxBasedModel, RectangularBedFlowline
+try:
+    from oggm.core.flowline import SemiImplicitModel as flowline_model
+except ImportError:
+    from oggm.core.flowline import FluxBasedModel as flowline_model
+
+from oggm.core.flowline import RectangularBedFlowline
 from oggm import cfg
 
 
@@ -92,15 +97,15 @@ class Glacier:
         self._mass_balance = copy.deepcopy(mass_balance)
 
         if self._mass_balance.ela_h > self.bed.top:
-            warnings.warn(
-                "The ELA is above the top of the glacier. This will prevent the glacier from gaining mass."
-            )
+            msg = ("The ELA is above the top of the glacier. This will prevent "
+                   "the glacier from gaining mass.")
+            warnings.warn(msg)
         elif self._mass_balance.ela_h < self.bed.bottom:
-            warnings.warn(
-                "The ELA is below the bottom of the glacier. It is likely that the glacier will grow out of its domain."
-            )
+            msg = ("The ELA is below the bottom of the glacier. It is likely "
+                   "that the glacier will grow out of its domain.")
+            warnings.warn(msg)
 
-        # Initilaise the flowline
+        # Initialise the flowline
         self._initial_state = self._init_flowline()
         # Set current and model state to None.
         self._current_state = None
@@ -317,10 +322,6 @@ class Glacier:
 
         if value > fs_def * 10:
             warnings.warn("Basal sliding is very high.")
-        # Note that an edu glacier by default has zero basal sliding.
-        elif value < fs_def / 10:
-            warnings.warn("Basal sliding is very low.")
-
         self._basal_sliding = value
 
     @property
@@ -489,19 +490,17 @@ class Glacier:
             raise ValueError("Year has to be above zero")
 
         elif year <= self.age:
-            warnings.warn(
-                "Year has to be above the current age of"
-                + " the glacier. It is not possible to"
-                + " de-age the glacier."
-                + " Geometry will remain."
-            )
+            msg = ("Year has to be above the current age of the glacier. It "
+                   "is not possible to de-age the glacier. Geometry will "
+                   "remain the same.")
+            warnings.warn(msg)
 
         # If all passes
         else:
             # Check if we have a current state already.
             state = self._state()
             # Initialise the model
-            model = FluxBasedModel(
+            model = flowline_model(
                 state,
                 mb_model=self.mass_balance,
                 y0=self.age,
@@ -513,10 +512,7 @@ class Glacier:
                 out = model.run_until_and_store(year, fl_diag_path=None)
             # If it fails, see above.
             except RuntimeError:
-                print("Glacier grew out of its domain, stepping back five years")
-                # Ohhh recursion
-                self.progress_to_year(year - 5)
-                return
+                raise RuntimeError("Glacier outgrew its domain and had to stop.")
 
             # Update attributes.
             self.history = out[0]
@@ -602,7 +598,7 @@ class Glacier:
         # Then we can find the eq. state.
         # Initialise the model
         state = self._state()
-        model = FluxBasedModel(
+        model = flowline_model(
             state,
             mb_model=self.mass_balance,
             y0=self.age,
@@ -619,9 +615,8 @@ class Glacier:
         except RuntimeError:
             # We chose to print and return instead of raising since the
             # collection will then be able to continue.
-            print(
-                "Glacier grew out of its domain before reaching an equilibrium state."
-            )
+            msg = "Glacier grew out of its domain before reaching an equilibrium state."
+            warnings.warn(msg)
             return
 
         # Update attributes.
@@ -633,10 +628,20 @@ class Glacier:
         # Remember the eq. year
         self._eq_states[self.age] = self.mass_balance.ela_h
 
+    def _decide_xlim(self):
+        return self.bed._decide_xlim()
+
+    def _decide_ylim(self):
+        return self.bed.bottom, self.current_state.surface_h[0] + 200
+
     @edu_plotter
-    def plot(self):
+    def plot(self, axes=None, title_number=None):
         """Plot the current state of the glacier."""
-        _, ax1, ax2 = self.bed._create_base_plot()
+
+        title = None
+        if title_number is not None:
+            title = ''
+        _, ax1, ax2 = self.bed._create_base_plot(axes=axes, title=title)
 
         # If we have a current state, plot it.
         if self.current_state is not None:
@@ -674,7 +679,7 @@ class Glacier:
                 edgecolor="C0",
                 lw=2,
             )
-            ax1.set_ylim((self.bed.bottom, self.current_state.surface_h[0] + 200))
+            ax1.set_ylim(self._decide_ylim())
 
         # ELA
         if self.ela is not None:
@@ -714,29 +719,33 @@ class Glacier:
                 )
 
         # Decorations
-        ax1.set_title(f"Glacier state at year {int(self.age)}")
+        if title_number is None:
+            title = f"Glacier state at year {int(self.age)}"
+        else:
+            title = f"Glacier {title_number}: state at year {int(self.age)}"
+        ax1.set_title(title, loc='left')
         ax1.legend(loc="lower left")
         ax2.set_xlabel("Distance along glacier [km]")
 
     @edu_plotter
     def plot_mass_balance(self):
         """Plot the mass balance profile of the glacier."""
-        plt.plot(
+        f, ax = plt.subplots()
+        ax.plot(
             self.annual_mass_balance,
             self.bed.bed_h,
             label="Mass balance",
             c="tab:orange",
         )
-        plt.xlabel("Annual mass balance [m yr-1]")
-        plt.ylabel("Altitude [m]")
+        ax.set_xlabel("Annual mass balance [m yr-1]")
+        ax.set_ylabel("Altitude [m]")
 
         # Add ELA and 0 lines.
-        plt.axvline(x=0, ls="--", lw=0.8, label="Mass balance = 0", c="tab:green")
-        plt.axhline(y=self.ela, ls="--", lw=0.8, label="ELA", c="tab:blue")
-        plt.title("Mass balance profile")
-        plt.legend()
+        ax.axvline(x=0, ls="--", lw=0.8, label="Mass balance = 0", c="tab:green")
+        ax.axhline(y=self.ela, ls="--", lw=0.8, label="ELA", c="tab:blue")
+        ax.set_title("Mass balance profile")
+        ax.legend()
 
-    @edu_plotter
     def _create_history_plot_components(
         self, show_bias=False, window=None, time_range=None, invert=False
     ):
@@ -1124,12 +1133,10 @@ class SurgingGlacier(Glacier):
             raise ValueError("Year has to be above zero")
 
         elif year <= self.age:
-            warnings.warn(
-                "Year has to be above the current age of"
-                + " the glacier. It is not possible to"
-                + " de-age the glacier."
-                + " Geometry will remain."
-            )
+            msg = ("Year has to be above the current age of the glacier. It "
+                   "is not possible to de-age the glacier. Geometry will "
+                   "remain the same.")
+            warnings.warn(msg)
 
         # If all passes
         else:
@@ -1164,7 +1171,7 @@ class SurgingGlacier(Glacier):
                         self._normal_period = not self._normal_period
 
                     # Initialise the model, width the normal basal_slidng
-                    model = FluxBasedModel(
+                    model = flowline_model(
                         state,
                         mb_model=self.mass_balance,
                         y0=self.age,
@@ -1175,7 +1182,7 @@ class SurgingGlacier(Glacier):
                     try:
                         out = model.run_until_and_store(years_to_run, fl_diag_path=None)
                     except RuntimeError:
-                        print("Glacier outgrew its domain and had to stop.")
+                        warnings.warn("Glacier outgrew its domain and had to stop.")
                         # We should break here.
                         break
 
@@ -1203,7 +1210,7 @@ class SurgingGlacier(Glacier):
                         self._normal_period = not self._normal_period
 
                     # Initialise the model, with the surging basal_sliding
-                    model = FluxBasedModel(
+                    model = flowline_model(
                         state,
                         mb_model=self.mass_balance,
                         y0=self.age,
@@ -1214,7 +1221,7 @@ class SurgingGlacier(Glacier):
                     try:
                         out = model.run_until_and_store(years_to_run, fl_diag_path=None)
                     except RuntimeError:
-                        print("Glacier outgrew its domain and had to stop.")
+                        warnings.warn("Glacier outgrew its domain and had to stop.")
                         # We should break here.
                         break
 
