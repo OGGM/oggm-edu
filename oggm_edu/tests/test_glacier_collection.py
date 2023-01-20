@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 from oggm_edu import GlacierBed, Glacier, MassBalance, GlacierCollection
 import pytest
 
@@ -22,6 +24,7 @@ def test_constructor():
 
     # Should have length 2.
     assert len(collection.glaciers) == 2
+    assert collection.summary().loc[1].Age == 0
 
 
 def test_check_collection():
@@ -154,3 +157,16 @@ def test_progress_to_equilibrium():
 
     collection.progress_to_equilibrium()
     assert collection.glaciers[0].age == collection.glaciers[1].age
+
+
+def test_plot_side_by_side():
+    mb = MassBalance(ela=3000, gradient=8)
+    bed1 = GlacierBed(top=3700, bottom=1500, width=600)
+    bed2 = GlacierBed(top=3700, bottom=2300, width=600)
+    bed3 = GlacierBed(top=3700, bottom=2900, width=600)
+    glacier1 = Glacier(bed=bed1, mass_balance=mb)
+    glacier2 = Glacier(bed=bed2, mass_balance=mb)
+    glacier3 = Glacier(bed=bed3, mass_balance=mb)
+    collection = GlacierCollection([glacier1, glacier2, glacier3][::-1])
+    collection.progress_to_year(10)
+    collection.plot_side_by_side(figsize=(12, 5))

@@ -75,9 +75,11 @@ class GlacierCollection:
                 # Add it to the df.
                 df2 = pd.DataFrame(json)
                 df = pd.concat([df, df2], ignore_index=True)
-                # Set the index name.
-            df.index.name = "Glacier"
 
+            # Set the index name.
+            df = df.reindex()
+            df.index += 1
+            df.index.name = "Glacier"
             return df
 
         else:
@@ -188,10 +190,6 @@ class GlacierCollection:
                 raise AttributeError("Glacier is already in collection")
             # If no throws, add it.
             self._glaciers.append(glacier)
-
-        # We save this as an attribute. Re-compute when we add something to the collection.
-        # Then we can check the attribute from e.g. plot methods.
-        self._collection_ok = self._check_collection()
 
     def change_attributes(self, attributes_to_change):
         """Change the attribute(s) of the glaciers in the collection.
@@ -354,10 +352,11 @@ class GlacierCollection:
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
 
-        elif not self._collection_ok:
-            raise ValueError(
-                "We can only plot glacier surfaces if the glaciers all have the same bed."
-            )
+        elif not self._check_collection():
+            msg = ("We can only plot glacier surfaces if the glaciers "
+                   "all have the same bed. Try .plot_side_by_side() "
+                   "instead.")
+            raise ValueError(msg)
 
         # We use this to plot the bedrock etc.
         gl1 = self._glaciers[0]
@@ -406,7 +405,7 @@ class GlacierCollection:
                 ax.plot(
                     glacier.bed.distance_along_glacier[mask],
                     glacier.current_state.surface_h[mask],
-                    label=f"Glacier {i} at year" + f" {glacier.age}",
+                    label=f"Glacier {i+1} at year" + f" {glacier.age}",
                 )
                 # Ylim
                 ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0] + 200))
@@ -430,7 +429,7 @@ class GlacierCollection:
             elas_d = {key: "" for key in set(elas)}
             # Fill it.
             for i, key in enumerate(elas):
-                elas_d[key] += f"{i}, "
+                elas_d[key] += f"{i+1}, "
 
             # Loop the unique ELAs.
             for ela, string in elas_d.items():
@@ -438,7 +437,7 @@ class GlacierCollection:
                 ax.text(
                     glacier.bed.distance_along_glacier[-1],
                     ela + 10,
-                    f"ELA  glacier {string[:-2]}",
+                    f"ELA glacier {string[:-2]}",
                     ha="right",
                     va="bottom",
                 )
@@ -479,6 +478,43 @@ class GlacierCollection:
         )
 
     @edu_plotter
+    def plot_side_by_side(self):
+        """Plot the collection but side by side.
+
+        Useful for glaciers with different beds
+        """
+        if len(self._glaciers) < 1:
+            raise ValueError("Collection is empty")
+
+        # Get the axes
+        fig, axes = plt.subplots(
+            nrows=2, ncols=len(self._glaciers),
+            gridspec_kw={"height_ratios": [2, 1]},
+            sharex=True,
+        )
+
+        # Loop over the collection.
+        if len(self._glaciers) == 1:
+            self._glaciers[0].plot(axes=axes)
+        else:
+            ax0 = None
+            for i, (axs, glacier) in enumerate(zip(axes.T, self._glaciers)):
+                glacier.plot(axes=axs, title_number=i+1)
+                if ax0 is None:
+                    xr = glacier._decide_xlim()
+                    yr = glacier._decide_ylim()
+                    ax0 = axs[0]
+                    ax1 = axs[1]
+                else:
+                    xr = np.append(xr, glacier._decide_xlim())
+                    yr = np.append(yr, glacier._decide_ylim())
+                    axs[0].sharey(ax0)
+                    axs[1].sharey(ax1)
+            ax0.set_xlim(np.min(xr), np.max(xr))
+            ax0.set_ylim(np.min(yr), np.max(yr))
+        plt.tight_layout()
+
+    @edu_plotter
     def plot_history(self):
         """Plot the histories of the collection."""
 
@@ -495,7 +531,7 @@ class GlacierCollection:
                 glacier.history.area_m2.plot(
                     ax=ax3,
                     label=(
-                        f"Glacier {i}\n"
+                        f"Glacier {i+1}\n"
                         f"Type: {type(glacier).__name__}\n"
                         f"ELA: {glacier.ela}\n"
                         f"MB grad: {glacier.mb_gradient}\n"
@@ -564,7 +600,7 @@ class GlacierCollection:
             ax.plot(
                 glacier.annual_mass_balance,
                 glacier.bed.bed_h,
-                label=f"Glacier {i}, " + f"gradient {glacier.mass_balance.gradient}",
+                label=f"Glacier {i+1}, " + f"gradient {glacier.mass_balance.gradient}",
             )
             # Add each ELA.
             elas.append(glacier.mass_balance.ela)
@@ -590,7 +626,7 @@ class GlacierCollection:
             elas_d = {key: "" for key in set(elas)}
             # Fill it.
             for i, key in enumerate(elas):
-                elas_d[key] += f"{i}, "
+                elas_d[key] += f"{i+1}, "
 
             # Loop the unique ELAs.
             for ela, string in elas_d.items():

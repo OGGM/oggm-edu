@@ -130,12 +130,15 @@ class GlacierBed:
                 + " Bottom also has to be above 0"
             )
         # Set the resolution.
-        if map_dx <= 50:
-            warnings.warn(
-                "Setting the map resolution below 50 meters might lead to numerical instabilities."
-            )
+        if map_dx <= 10:
+            msg = ("Setting the map resolution below 10 meters may lead to "
+                  "very long runtimes.")
+            warnings.warn(msg)
         self.map_dx = map_dx
+
         # Do we have a specified slope?
+        self.slopes = None
+        self.slope_sections = None
         if slopes:
             # If slopes is not a sequence, then make it one.
             if not isinstance(slopes, Sequence):
@@ -160,6 +163,7 @@ class GlacierBed:
             # If we passed a single slope, we can assign slope sections to still make use of our fancy algo.
             elif len(slopes) == 1:
                 slope_sections = [self.top, self.bottom]
+
             # What is the height difference between the sections?
             slope_sections = np.asarray(slope_sections)
             slope_sections_diff = np.abs(np.diff(slope_sections))
@@ -187,6 +191,10 @@ class GlacierBed:
 
             # Assign the heights.
             self.bed_h = heights
+
+            # store readonly
+            self.slopes = slopes
+            self.slope_sections = slope_sections
 
         # Otherwise we just make a simple bed profile.
         else:
@@ -267,13 +275,19 @@ class GlacierBed:
         }
         return json
 
-    @edu_plotter
-    def _create_base_plot(self):
+    def _decide_xlim(self):
+        return 0, self.distance_along_glacier[-1] * 1.02
+
+    def _create_base_plot(self, axes=None, title=None):
         """Create the base plot the glacier bed"""
 
-        fig, (ax1, ax2) = plt.subplots(
-            nrows=2, gridspec_kw={"height_ratios": [2, 1]}, sharex=True
-        )
+        if axes is not None:
+            fig = plt.gcf()
+            ax1, ax2 = axes
+        else:
+            fig, (ax1, ax2) = plt.subplots(
+                nrows=2, gridspec_kw={"height_ratios": [2, 1]}, sharex=True
+            )
 
         # Plot the bed
         ax1.plot(
@@ -286,7 +300,8 @@ class GlacierBed:
             zorder=3,
         )
         # And fill it.
-        ax1.fill_betweenx(self.bed_h, self.distance_along_glacier, color="lightgrey")
+        ax1.fill_between(self.distance_along_glacier, -100, self.bed_h,
+                         color="lightgrey")
         # Some labels etc.
         ax1.set_ylabel("Altitude [m]")
         ax1.set_facecolor("#ADD8E6")
@@ -303,10 +318,13 @@ class GlacierBed:
         ax2.set_facecolor("darkgrey")
         ax2.axhline(0, c="k")
         # We add 2% of the bed length to the plot to have some space.
-        plt.xlim((0, self.distance_along_glacier[-1] * 1.02))
-        plt.xlabel("Distance along glacier [km]")
-        plt.ylabel("Distance from centerline [m]")
-        ax1.set_title("Glacier domain")
+        ax2.set_xlim(self._decide_xlim())
+        ax2.set_xlabel("Distance along glacier [km]")
+        ax2.set_ylabel("Width [m]")
+        if title is None:
+            ax1.set_title("Glacier domain")
+        else:
+            ax1.set_title(title)
         ax1.legend()
 
         return fig, ax1, ax2

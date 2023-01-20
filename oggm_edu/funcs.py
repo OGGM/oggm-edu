@@ -13,6 +13,22 @@ graphics_url = (
     "glacier_intro/png/glacier_{:02d}.png"
 )
 
+PARAMS = {'figsize': (9, 6)}
+
+
+class mpl_figsize:
+    """Homegrown context manager to avoid a bug
+
+    https://github.com/matplotlib/matplotlib/issues/25041
+    """
+    def __init__(self, figsize):
+        self.figsize = plt.rcParams['figure.figsize']
+        plt.rcParams['figure.figsize'] = figsize
+    def __enter__(self):
+        return None
+    def __exit__(self, type, value, traceback):
+        plt.rcParams['figure.figsize'] = self.figsize
+
 
 def plot_glacier_graphics(num="01", title=False, ax=None):
     """Add one of the OGGM-edu glacier graphics to the current jupyter cell.
@@ -59,6 +75,10 @@ def initalize_oggm(logging_level="CRITICAL"):
     cfg.initialize_minimal(logging_level=logging_level)
 
 
+def set_params(figsize=(9, 6)):
+    PARAMS['figsize'] = figsize
+
+
 def edu_plotter(func):
     """Decorator to apply to all plotting functions in OGGM-Edu.
 
@@ -75,16 +95,18 @@ def edu_plotter(func):
     @wraps(func)
     def context_wrapper(
         *args,
+        figsize=None,
         sns_context="notebook",
         sns_axes_style="ticks",
-        figsize=(12, 9),
         **kwargs,
     ):
-        with mpl.rc_context({"figure.figsize": figsize}), sns.plotting_context(
-            sns_context
-        ), sns.axes_style(sns_axes_style):
-            return func(*args, **kwargs)
+        if not figsize:
+            figsize = PARAMS['figsize']
 
+        with mpl_figsize(figsize), \
+                sns.plotting_context(sns_context), \
+                sns.axes_style(sns_axes_style):
+            return func(*args, **kwargs)
     return context_wrapper
 
 
