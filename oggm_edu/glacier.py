@@ -185,6 +185,7 @@ class Glacier:
             ice_vel = self.state_history.ice_velocity_myr.max().values
         else:
             ice_vel = None
+
         json = {
             "Type": type(self).__name__,
             "Age": int(self.age),
@@ -195,6 +196,8 @@ class Glacier:
             "Max ice velocity [m/yr]": ice_vel,
             "AAR [%]": self.accumulation_area_ratio * 100,
             "Response time [yrs]": self.response_time,
+            "Creep (Glen A)": self.creep_str,
+            "Basal sliding": self.basal_sliding_str,
         }
         return json
 
@@ -325,6 +328,19 @@ class Glacier:
         self._basal_sliding = value
 
     @property
+    def basal_sliding_str(self):
+        if self.basal_sliding == 0:
+            return '0'
+        else:
+            fac = self.basal_sliding / 1e-20
+            if np.isclose(round(fac), fac):
+                return f'{int(fac)}e-20'
+            elif np.isclose(round(fac, 1), fac):
+                return f'{fac:.1f}e-20'
+            else:
+                return f'{fac:.2f}e-20'
+
+    @property
     def creep(self):
         """Set the value for the creep parameter A in Glens equation.
         A value in the range 0 to -50 will be interpreted as a temperature
@@ -337,6 +353,16 @@ class Glacier:
             Temperature in degrees or creep parameter.
         """
         return self._creep
+
+    @property
+    def creep_str(self):
+        fac = self.creep / 1e-24
+        if np.isclose(round(fac), fac):
+            return f'{int(fac)}e-24'
+        elif np.isclose(round(fac, 1), fac):
+            return f'{fac:.1f}e-24'
+        else:
+            return f'{fac:.2f}e-24'
 
     @creep.setter
     def creep(self, value):

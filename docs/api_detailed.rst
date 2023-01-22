@@ -152,6 +152,7 @@ GlacierCollection methods
    GlacierCollection.progress_to_year
    GlacierCollection.progress_to_equilibrium
    GlacierCollection.plot
+   GlacierCollection.plot_side_by_side
    GlacierCollection.plot_history
    GlacierCollection.plot_mass_balance
 

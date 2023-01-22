@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
 from oggm_edu import GlacierBed, Glacier, MassBalance, GlacierCollection
+import numpy as np
 import pytest
 
 mb = MassBalance(ela=3000, gradient=8)
@@ -24,7 +25,8 @@ def test_constructor():
 
     # Should have length 2.
     assert len(collection.glaciers) == 2
-    assert collection.summary().loc[1].Age == 0
+    df = collection.summary()
+    assert df.loc[1].Age == 0
 
 
 def test_check_collection():
@@ -154,7 +156,6 @@ def test_progress_to_equilibrium():
 
     # Since the glaciers in the collection have the same attributes, they should
     # reach the same equilibrium state.
-
     collection.progress_to_equilibrium()
     assert collection.glaciers[0].age == collection.glaciers[1].age
 
@@ -170,3 +171,16 @@ def test_plot_side_by_side():
     collection = GlacierCollection([glacier1, glacier2, glacier3][::-1])
     collection.progress_to_year(10)
     collection.plot_side_by_side(figsize=(12, 5))
+
+
+def test_str_collection():
+    collection = GlacierCollection()
+    collection.fill(glacier1, n=3)
+    df = collection.summary()
+    np.testing.assert_allclose(df['Creep (Glen A)'].astype(float), 2.4e-24)
+
+    collection.change_attributes({"creep": ["* 10", "", "/ 10"]})
+    assert [g.creep_str for g in collection.glaciers] == ['24e-24', '2.4e-24', '0.24e-24']
+
+    collection.change_attributes({'basal_sliding':[0, 5.7e-20, 10*5.7e-20]})
+    assert [g.basal_sliding_str for g in collection.glaciers] == ['0', '5.7e-20', '57e-20']

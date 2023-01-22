@@ -111,8 +111,8 @@ class MassBalance(MassBalanceModel):
             "Original ELA [m]": self.orig_ela_h,
             "Temperature bias [C]": self.temp_bias,
             "Gradient [mm/m/yr]": [self.grad],
-            "Hemisphere": self.hemisphere,
-            "Ice density [kg/m3]": self.rho,
+            # "Hemisphere": self.hemisphere,
+            # "Ice density [kg/m3]": self.rho,
         }
         return json
 
