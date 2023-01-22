@@ -461,8 +461,8 @@ class GlacierCollection:
                 f"ELA: {glacier.ela} \n"
                 f"MB grad: {glacier.mb_gradient} \n"
                 f"Age: {glacier.age} \n"
-                f"Creep: {glacier.creep:.2e} \n"
-                f"Sliding: {glacier.basal_sliding}"
+                f"Creep: {glacier.creep_str} \n"
+                f"Sliding: {glacier.basal_sliding_str}"
             )
             # Append the label to the list.
             labels.append(label)
@@ -481,7 +481,7 @@ class GlacierCollection:
     def plot_side_by_side(self):
         """Plot the collection but side by side.
 
-        Useful for glaciers with different beds
+        Useful for glaciers with different bed slopes for example.
         """
         if len(self._glaciers) < 1:
             raise ValueError("Collection is empty")
@@ -536,8 +536,8 @@ class GlacierCollection:
                         f"ELA: {glacier.ela}\n"
                         f"MB grad: {glacier.mb_gradient}\n"
                         f"Age: {glacier.age}\n"
-                        f"Creep: {glacier.creep:.2e}\n"
-                        f"Sliding: {glacier.basal_sliding}"
+                        f"Creep: {glacier.creep_str}\n"
+                        f"Sliding: {glacier.basal_sliding_str}"
                     ),
                 )
             else:
