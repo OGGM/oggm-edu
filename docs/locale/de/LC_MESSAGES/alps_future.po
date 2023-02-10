@@ -46,22 +46,37 @@ msgid "badge_classroom_tutos"
 msgstr ""
 
 #: ../../alps_future.rst:4
-msgid "Future evolution of glaciers in the European Alps"
-msgstr "Zukünftige Evolution der Alpengletschern"
+msgid "Future evolution of glaciers"
+msgstr "Die Zukunft aller Gletscher"
+
+#: ../../alps_future.rst:6
+msgid "Globally or regionally:"
+msgstr "Global oder regional:"
+
+
+#: ../../alps_future.rst:13
+msgid ""
+"Find out about the global future evolution of glaciers! This "
+"interactive graphic displays the volume change of all glaciers worldwide under "
+"four different global warming scenarios between +1.5°C and +4°C until 2100. You can also compare "
+"the global evolution to single glacier regions. "
+msgstr ""
+"Hier könnt ihr herausfinden wie Gletscher weltweit und regional in der Zukunft auf den Klimawandel reagieren werden."
+"Die interaktive Grafik zeigt die Volumenänderung der Gletscher unter verschiedenen Erwärmungsszenarien zwischen +1.5°C und +4°C bis 2100."
+"Ihr könnt auch die globale Entwicklung mit einzelnen Gletscherregionen vergleichen."
+""
+
+#: ../../alps_future.rst:23
+msgid "European Alps:"
+msgstr "Europäische Alpen:"
 
 #: ../../alps_future.rst:10
 msgid ""
-"Find out about the future evolution of glaciers in the European Alps! "
-"This interactive graphic displays the volume change of all alpine "
-"glaciers under three different `RCP-scenarios "
-"<https://www.skepticalscience.com/rcp.php>`_. In addition, the glacier "
-"evolution of the different alpine countries can be compared."
+"You can also only look at the evolution of glaciers in the European Alps"
+"and compare the different alpine countries"
 msgstr ""
-"Informieren Sie sich über die zukünftige Entwicklung der Gletscher in den"
-" europäischen Alpen! Diese interaktive Grafik zeigt die Volumenänderung "
-"aller Alpengletscher unter drei verschiedenen `RCP-Szenarien "
-"<https://www.skepticalscience.com/rcp.php>`_. Darüber hinaus kann die "
-"Gletscherentwicklung der verschiedenen Alpenländer verglichen werden."
+"Hier könnt ihr auch erfahren wie Gletscher in den"
+"europäischen Alpen in der Zukunft schmelzen werden! Ihr könnt auch verschiedene Alpenländer mit Gletschern vergleichen."
 
 #: ../../alps_future.rst:16
 msgid "To start the app, click on this link: |badge_bokeh_en|_"
@@ -73,11 +88,11 @@ msgstr "Autoren"
 
 #: ../../alps_future.rst:23
 msgid ""
-"`Fabien Maussion <https://fabienmaussion.info/>`_ and `Zora Schirmeister "
-"<https://github.com/zschirmeister>`_"
+"`Fabien Maussion <https://fabienmaussion.info/>`_, `Zora Schirmeister <https://github.com/zschirmeister>`_"
+" and `Lilian Schuster <https://github.com/lilianschuster>`_"
 msgstr ""
-"`Fabien Maussion <https://fabienmaussion.info/>`_ und `Zora Schirmeister "
-"<https://github.com/zschirmeister>`_"
+"`Fabien Maussion <https://fabienmaussion.info/>`_, `Zora Schirmeister <https://github.com/zschirmeister>`_"
+" und `Lilian Schuster <https://github.com/lilianschuster>`_"
 
 #: ../../alps_future.rst:26
 msgid "Data sources"
@@ -85,11 +100,9 @@ msgstr "Datenquellen"
 
 #: ../../alps_future.rst:28
 msgid ""
-"Data: `Zekollari et al. (2019) <https://www.the-"
-"cryosphere.net/13/1125/2019/>`_"
+"Data: `Rounce et al. (2022) <https://doi.org/10.5067/P8BN9VO9N5C7>`_"
 msgstr ""
-"Daten: `Zekollari et al. (2019) <https://www.the-"
-"cryosphere.net/13/1125/2019/>`_"
+"Daten: `Rounce et al. (2022) <https://doi.org/10.5067/P8BN9VO9N5C7>`_"
 
 #: ../../alps_future.rst:31
 msgid "Source code"
@@ -97,17 +110,15 @@ msgstr "Quellcode"
 
 #: ../../alps_future.rst:33
 msgid ""
-"Code and data are on `GitHub <https://github.com/OGGM/alps_future>`_, "
-"BSD3 licensed."
+"Code and data are on GitHub for the `Global App <https://github.com/OGGM/science_2023_app>`_,"
+"and the `European Alps App <https://github.com/OGGM/alps_future>`_, BSD3 licensed."
 msgstr ""
-"Code und Daten befinden sich auf `GitHub "
-"<https://github.com/OGGM/alps_future>`_, BSD3 lizenziert."
+"Code und Daten befinden sich auf GitHub für die`Globale App <https://github.com/OGGM/science_2023_app>`_,"
+"und für die `Europäische Alpen App <https://github.com/OGGM/alps_future>`_, BSD3 lizenziert."
 
 #: ../../alps_future.rst:35
 msgid ""
-"Possible future app improvements: see `this issue "
-"<https://github.com/OGGM/alps_future/issues/5>`_"
+"We welcome any app improvements. Just write us a mail with the jupyter-notebook or send us a pull request!"
 msgstr ""
-"Mögliche App Verbesserungen: siehe `GitHub "
-"<https://github.com/OGGM/alps_future/issues/5>`_"
+"Wir freuen uns über jegliche Verbesserungen der Apps. Schreibt uns einfach eine Mail mit dem Jupyter-Notebook oder schickt uns einen pull request!"
 
