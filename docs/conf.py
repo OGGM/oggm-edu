@@ -237,7 +237,8 @@ html_css_files = ['custom.css']
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
 html_extra_path = ['gallery-app_en.html', 'gallery-app_de.html', 
-                    'alps_future-app_rounce_delta_T_en.html', 'alps_future-app_rounce_delta_T_de.html',
+                    'alps_future-app_rounce_delta_T_en.html',
+                    'alps_future-app_rounce_delta_T_de.html',
                     'global_future_glacier-app_rounce_delta_T_en.html',
                     'global_future_glacier-app_rounce_delta_T_de.html']
 
