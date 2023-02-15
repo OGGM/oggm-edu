@@ -18,7 +18,7 @@ the global evolution to single glacier regions.
 To start the app, click on this link: |badge_bokeh_en|_
 
 .. _badge_bokeh_en: global_future_glacier-app_rounce_delta_T_en.html
-
+.. _badge_bokeh_de: global_future_glacier-app_rounce_delta_T_de.html
 
 European Alps:
 --------------
@@ -30,10 +30,10 @@ European Alps:
 You can also only look at the evolution of glaciers in the European Alps and compare 
 the different alpine countries
 
-To start the app, click on this link: |badge_bokeh_en|_
+To start the app, click on this link: |badge_bokeh_en_alps|_
 
-.. _badge_bokeh_en: alps_future-app_rounce_delta_T_en.html
-
+.. _badge_bokeh_en_alps: alps_future-app_rounce_delta_T_en.html
+.. _badge_bokeh_de_alps: alps_future-app_rounce_delta_T_de.html
 
 
 Authors

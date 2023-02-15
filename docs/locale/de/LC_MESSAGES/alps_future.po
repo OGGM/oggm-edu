@@ -25,6 +25,14 @@ msgstr ""
 msgid "badge_bokeh_de"
 msgstr ""
 
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_en_alps"
+msgstr ""
+
+#: ../../<rst_prolog>:3
+msgid "badge_bokeh_de_alps"
+msgstr ""
+
 #: ../../<rst_prolog>
 msgid "badge_edu_notebooks"
 msgstr ""
@@ -80,7 +88,12 @@ msgstr ""
 
 #: ../../alps_future.rst:16
 msgid "To start the app, click on this link: |badge_bokeh_en|_"
-msgstr "Um die App zu starten klicke auf folgendem Link: |badge_bokeh_en|_"
+msgstr "Um die App zu starten klicke auf folgendem Link: |badge_bokeh_de|_"
+
+#: ../../alps_future.rst:16
+msgid "To start the app, click on this link: |badge_bokeh_en_alps|_"
+msgstr "Um die App zu starten klicke auf folgendem Link: |badge_bokeh_en_alps|_"
+
 
 #: ../../alps_future.rst:21
 msgid "Authors"
