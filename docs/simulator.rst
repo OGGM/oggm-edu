@@ -53,7 +53,7 @@ for an introduction about glacier mass-balance and the ELA, or our
 
 **Question to answer:**
 
-- Is the new glacier larger or smaller than before? Why?
+- Is the new glacier longer or shorter than before? Why?
 
 ..  admonition:: Take home messages
     :class: toggle
@@ -255,7 +255,7 @@ around the world. Here, we will now discover how different mass-balance gradient
   For this, use the "Beginner mode" (*ELA* = 3000, *Width* = *Constant* and *Slope* = 11°) and let the 
   glacier grow until it reaches equilibrium and note on a piece of paper: 
   the equilibrium *Time*, *Length*, *Area*, *Volume*, *Max ice thickness* and *Max ice velocity* of the glacier.
-- Next, simulate a glacier in a continental climate in polar latitudes (smaller Mass Balance gradient, e.g. 3) 
+- Next, simulate a glacier in a continental climate in polar latitudes (lower Mass Balance gradient, e.g. 3)
   and take some notes again.
 
 **Questions to answer:**
