@@ -61,7 +61,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OGGM-Edu'
-copyright = u'OGGM-Edu Developers 2018-2021'
+copyright = u'OGGM-Edu Developers 2018-2023'
 author = u'OGGM-Edu Developers'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -143,46 +143,16 @@ pygments_style = 'sphinx'
 html_theme = 'sphinx_book_theme'
 
 if READTHEDOCS_LANGUAGE == 'de':
-    extra_navbar = """<p align="left"><strong>Licenz</strong></p>
-    <p align="left">
-    <a href="default.asp">
-      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
-    </a> 
-    </p>
-    <p align="left">Falls nicht anders festgelegt, ist der Inhalt von OGGM-Edu unter einer 
-    <a href="https://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Attribution 4.0 International</a>-Lizenz geteilt.</p>
-    """
+    extra_footer = "footer_de.html"
     toc_title = "Auf dieser Seite"
 elif READTHEDOCS_LANGUAGE == 'fr':
-    extra_navbar = """<p align="left"><strong>License</strong></p>
-    <p align="left">
-    <a href="default.asp">
-      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
-    </a> 
-    </p>
-    <p align="left">Sauf indication contraire, le contenu de OGGM-Edu est partagé avec une license <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">Creative Commons Attribution 4.0 International</a>.</p>
-    """
+    extra_footer = "footer_fr.html"
     toc_title = "Sur cette page"
 elif READTHEDOCS_LANGUAGE == 'es':
-    extra_navbar = """<p align="left"><strong>Licencia</strong></p>
-    <p align="left">
-    <a href="default.asp">
-      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
-    </a> 
-    </p>
-    <p align="left">A menos que se especifique lo contrario, el contenido de OGGM-Edu se comparte con una licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Creative Commons Attribution 4.0 International</a>.</p>
-    """
+    extra_footer = "footer_es.html"
     toc_title = "En esta página"
 else:
-    extra_navbar = """<p align="left"><strong>License</strong></p>
-    <p align="left">
-    <a href="default.asp">
-      <img alt="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg">
-    </a> 
-    </p>
-    <p align="left">Unless specified otherwise, the content of OGGM-Edu is shared 
-    under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</p>
-    """
+    extra_footer = "footer_en.html"
     toc_title = "On this page"
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -191,21 +161,15 @@ else:
 html_theme_options = {
     "repository_url": "https://github.com/OGGM/oggm-edu",
     "use_repository_button": True,
+    "repository_branch": 'master',
     "use_issues_button": True,
     "use_edit_page_button": True,
     "path_to_docs": "docs",
     "home_page_in_toc": True,
     "toc_title": toc_title,
-    "extra_navbar": extra_navbar,
+    "footer_start": [extra_footer],
+    "footer_end": [extra_footer],
 }
-
-# This is necessary to have an optional footer
-html_sidebars = {
-    "**": ["sidebar-logo.html",
-           "search-field.html",
-           "sbt-sidebar-nav.html"]
-}
-
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
