@@ -21,6 +21,7 @@ import copy
 from itertools import cycle
 import re
 from collections.abc import Sequence
+import uuid
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -46,6 +47,8 @@ class Glacier:
 
     Attributes
     ----------
+    id : str
+        String identifying the glacier.
     age : int
         The age of the glacier.
     annual_mass_balance : array
@@ -72,13 +75,15 @@ class Glacier:
         Calculates the volume response time from Oerlemans.
     """
 
-    def __init__(self, bed, mass_balance):
+    def __init__(self, bed, mass_balance, id=None):
         """Initialise a glacier object from a oggm_edu.GlacierBed and a oggm_edu.MassBalance.
 
         Parameters
         ----------
         bed : oggm_edu.GlacierBed
         mass_balance : oggm_edu.MassBalance
+        id : str
+            String identifying the glacier.
         """
         # Check input
         if not isinstance(bed, GlacierBed):
@@ -104,6 +109,14 @@ class Glacier:
             msg = ("The ELA is below the bottom of the glacier. It is likely "
                    "that the glacier will grow out of its domain.")
             warnings.warn(msg)
+
+        if id is None:
+            self._id = str(uuid.uuid4())[-5:]
+        else:
+            if isinstance(id, str):
+                self._id = id
+            else:
+                raise TypeError("Id should be a string")
 
         # Initialise the flowline
         self._initial_state = self._init_flowline()
@@ -177,7 +190,7 @@ class Glacier:
         self._mass_balance.reset()
 
     def _to_json(self):
-        """Json represenation"""
+        """Json representation"""
         state = self._state()
 
         # Do we have a state history yet?
@@ -187,6 +200,7 @@ class Glacier:
             ice_vel = None
 
         json = {
+            "Id": self.id,
             "Type": type(self).__name__,
             "Age": int(self.age),
             "Length [m]": state.length_m,
@@ -203,8 +217,10 @@ class Glacier:
 
     def copy(self):
         """Return a copy of the glacier. Useful for quickly creating
-        new glaciers."""
-        return copy.deepcopy(self)
+        new glaciers. It does assign a new id to the glacier."""
+        copied_glacier = copy.deepcopy(self)
+        copied_glacier.id = str(uuid.uuid4())[-5:]
+        return copied_glacier
 
     def _init_flowline(self):
         # Initialise a RectangularBedFlowline for the glacier.
@@ -214,6 +230,17 @@ class Glacier:
             widths=self.bed.widths,
             map_dx=self.bed.map_dx,
         )
+    @property
+    def id(self):
+        """The id property."""
+        return self._id
+
+    @id.setter
+    def id(self, value):
+        if isinstance(value, str):
+            self._id = value
+        else:
+            raise TypeError("Id should be a string")
 
     @property
     def ela(self):
@@ -422,11 +449,11 @@ class Glacier:
         two latest eq. states.
         """
 
-        # If we don't hace a eq. states yet
+        # If we don't have a eq. states yet
         if len(self._eq_states) < 2:
             return np.nan
         else:
-            # We calcuate the response time when we need it.
+            # We calculate the response time when we need it.
             # Not sure if this is stupid but.
             # Get the eq state years.
             year_final = list(self.eq_states)[-1]
@@ -444,7 +471,7 @@ class Glacier:
             )
             # Get the index
             idx = all_vol_diff.argmin()
-            # Reponse time
+            # Response time
             response_time = all_vol_diff.time.isel(time=idx) - year_initial
             return response_time.values.item()
 
@@ -566,7 +593,7 @@ class Glacier:
             run_until_equilibrium."""
             # We don't stop unless
             stop = False
-            # Ambigous rate, basically how fast is the glacier
+            # Ambiguous rate, basically how fast is the glacier
             # changing every step.
             rate = t_rate
             # How many times to we try
@@ -695,7 +722,7 @@ class Glacier:
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
             filled = np.where(self.current_state.thick > 0, self.bed.widths, 0)
-            # Fill vetween them
+            # Fill between them
             ax2.fill_between(
                 self.bed.distance_along_glacier,
                 -filled / 2 * self.bed.map_dx,
@@ -934,7 +961,7 @@ class Glacier:
             len_states = self.history.length_m.isel(time=slice(interval, -1, interval))
             # Title
             title = "Glacier states"
-        # If we wan't eq. states
+        # If we want eq. states
         else:
             if self.eq_states:
                 # Get the states.
@@ -994,7 +1021,7 @@ class Glacier:
             # Fill in the glacier in the topdown view.
             # Where does the glacier have thickness?
             filled = np.where(state > 0, self.bed.widths, 0)
-            # Fill vetween them
+            # Fill between them
             # Modify the zorder to get lines to show up nice.
             ax2.fill_between(
                 self.bed.distance_along_glacier,
@@ -1050,7 +1077,7 @@ class SurgingGlacier(Glacier):
         self._surging_years_left = self.surging_years
 
     def _to_json(self):
-        """Json represenation"""
+        """Json representation"""
         state = self._state()
         json = {
             "Type": type(self).__name__,

@@ -383,7 +383,7 @@ class GlacierCollection:
 
         elas = []
         # Loop over the collection.
-        for i, glacier in enumerate(self._glaciers):
+        for glacier in self._glaciers:
             # Plot the surface
             if glacier.current_state is not None:
                 # Masking shenanigans.
@@ -405,7 +405,7 @@ class GlacierCollection:
                 ax.plot(
                     glacier.bed.distance_along_glacier[mask],
                     glacier.current_state.surface_h[mask],
-                    label=f"Glacier {i+1} at year" + f" {glacier.age}",
+                    label=f"Glacier {glacier.id} at year" + f" {glacier.age}",
                 )
                 # Ylim
                 ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0] + 200))
@@ -457,6 +457,7 @@ class GlacierCollection:
         for glacier in self._glaciers:
             # Create the label
             label = (
+                f"Id: {(glacier).id}\n"
                 f"Type: {type(glacier).__name__}\n"
                 f"ELA: {glacier.ela} \n"
                 f"MB grad: {glacier.mb_gradient} \n"
@@ -531,6 +532,7 @@ class GlacierCollection:
                 glacier.history.area_m2.plot(
                     ax=ax3,
                     label=(
+                        f"Id: {(glacier).id}\n"
                         f"Glacier {i+1}\n"
                         f"Type: {type(glacier).__name__}\n"
                         f"ELA: {glacier.ela}\n"
@@ -576,9 +578,9 @@ class GlacierCollection:
         ax2.grid(True)
         ax3.grid(True)
 
-        handels, labels = ax3.get_legend_handles_labels()
+        handles, labels = ax3.get_legend_handles_labels()
         fig.legend(
-            handels,
+            handles,
             labels,
             loc="upper left",
             ncol=1,
@@ -596,11 +598,11 @@ class GlacierCollection:
         elas = []
 
         # Plot annual mass balance for each glacier.
-        for i, glacier in enumerate(self.glaciers):
+        for glacier in self.glaciers:
             ax.plot(
                 glacier.annual_mass_balance,
                 glacier.bed.bed_h,
-                label=f"Glacier {i+1}, " + f"gradient {glacier.mass_balance.gradient}",
+                label=f"Glacier {glacier.id}, " + f"gradient {glacier.mass_balance.gradient}",
             )
             # Add each ELA.
             elas.append(glacier.mass_balance.ela)
