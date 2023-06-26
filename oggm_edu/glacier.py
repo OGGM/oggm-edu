@@ -18,10 +18,9 @@ import xarray as xr
 import pandas as pd
 import warnings
 import copy
-from itertools import cycle
+from itertools import cycle, count
 import re
 from collections.abc import Sequence
-import uuid
 
 # Plotting
 from matplotlib import pyplot as plt
@@ -75,6 +74,8 @@ class Glacier:
         Calculates the volume response time from Oerlemans.
     """
 
+    _id_count = count(1)
+
     def __init__(self, bed, mass_balance, id=None):
         """Initialise a glacier object from a oggm_edu.GlacierBed and a oggm_edu.MassBalance.
 
@@ -111,7 +112,7 @@ class Glacier:
             warnings.warn(msg)
 
         if id is None:
-            self._id = str(uuid.uuid4())[-5:]
+            self._id = str(next(self._id_count))
         else:
             if isinstance(id, str):
                 self._id = id
@@ -219,7 +220,7 @@ class Glacier:
         """Return a copy of the glacier. Useful for quickly creating
         new glaciers. It does assign a new id to the glacier."""
         copied_glacier = copy.deepcopy(self)
-        copied_glacier.id = str(uuid.uuid4())[-5:]
+        copied_glacier.id = str(next(self._id_count))
         return copied_glacier
 
     def _init_flowline(self):
