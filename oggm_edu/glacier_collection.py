@@ -127,7 +127,7 @@ class GlacierCollection:
         """Glaciers mass balances"""
         return [glacier.annual_mass_balance for glacier in self.glaciers]
 
-    def fill(self, glacier, n, attributes_to_change=None):
+    def fill(self, glacier, n, attributes_to_change=None, ids=None):
         """Fill the collection with a desired number of glaciers.
 
         Parameters
@@ -140,6 +140,8 @@ class GlacierCollection:
             Dictionary where key value pairs correspond to the
             attribute and values to be assigned each glacier.
             See ``GlacierCollection.change_attributes`` for more.
+        ids : list
+            List of ids for the new glaciers.
         """
         # Is original a valid glacier?
         if not isinstance(glacier, Glacier):
@@ -147,13 +149,20 @@ class GlacierCollection:
         # Check n.
         elif not isinstance(n, int):
             raise TypeError("n should be an integer.")
+        elif ids and not isinstance(ids, list):
+            raise TypeError("ids should be a list.")
+        elif ids and len(ids) != n:
+            raise ValueError("Number of ids should be the same as n.")
 
         else:
             # The bread and butter of the function,
             # Fill the collection.
-            for _ in range(n):
+            for i in range(n):
                 # Add a copy of the glacier.
-                self.add(glacier.copy())
+                if ids:
+                    self.add(glacier.copy(id=ids[i]))
+                else:
+                    self.add(glacier.copy())
 
         # Do we change some vars?
         if attributes_to_change:

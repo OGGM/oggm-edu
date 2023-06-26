@@ -216,11 +216,20 @@ class Glacier:
         }
         return json
 
-    def copy(self):
+    def copy(self, id=None):
         """Return a copy of the glacier. Useful for quickly creating
-        new glaciers. It does assign a new id to the glacier."""
+        new glaciers. It does assign a new id to the glacier.
+
+        Parameters
+        ----------
+        id : str, optional
+            The id of the new glacier.
+        """
         copied_glacier = copy.deepcopy(self)
-        copied_glacier.id = str(next(self._id_count))
+        if id is None:
+            copied_glacier.id = str(next(self._id_count))
+        else:
+            copied_glacier.id = id
         return copied_glacier
 
     def _init_flowline(self):
