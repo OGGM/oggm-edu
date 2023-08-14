@@ -127,7 +127,7 @@ class GlacierCollection:
         """Glaciers mass balances"""
         return [glacier.annual_mass_balance for glacier in self.glaciers]
 
-    def fill(self, glacier, n, attributes_to_change=None):
+    def fill(self, glacier, n, attributes_to_change=None, ids=None):
         """Fill the collection with a desired number of glaciers.
 
         Parameters
@@ -140,6 +140,8 @@ class GlacierCollection:
             Dictionary where key value pairs correspond to the
             attribute and values to be assigned each glacier.
             See ``GlacierCollection.change_attributes`` for more.
+        ids : list
+            List of ids for the new glaciers.
         """
         # Is original a valid glacier?
         if not isinstance(glacier, Glacier):
@@ -147,13 +149,20 @@ class GlacierCollection:
         # Check n.
         elif not isinstance(n, int):
             raise TypeError("n should be an integer.")
+        elif ids and not isinstance(ids, list):
+            raise TypeError("ids should be a list.")
+        elif ids and len(ids) != n:
+            raise ValueError("Number of ids should be the same as n.")
 
         else:
             # The bread and butter of the function,
             # Fill the collection.
-            for _ in range(n):
+            for i in range(n):
                 # Add a copy of the glacier.
-                self.add(glacier.copy())
+                if ids:
+                    self.add(glacier.copy(id=ids[i]))
+                else:
+                    self.add(glacier.copy())
 
         # Do we change some vars?
         if attributes_to_change:
@@ -383,7 +392,7 @@ class GlacierCollection:
 
         elas = []
         # Loop over the collection.
-        for i, glacier in enumerate(self._glaciers):
+        for glacier in self._glaciers:
             # Plot the surface
             if glacier.current_state is not None:
                 # Masking shenanigans.
@@ -405,7 +414,7 @@ class GlacierCollection:
                 ax.plot(
                     glacier.bed.distance_along_glacier[mask],
                     glacier.current_state.surface_h[mask],
-                    label=f"Glacier {i+1} at year" + f" {glacier.age}",
+                    label=f"Glacier {glacier.id} at year" + f" {glacier.age}",
                 )
                 # Ylim
                 ax.set_ylim((gl1.bed.bottom, gl1.current_state.surface_h[0] + 200))
@@ -457,6 +466,7 @@ class GlacierCollection:
         for glacier in self._glaciers:
             # Create the label
             label = (
+                f"Id: {(glacier).id}\n"
                 f"Type: {type(glacier).__name__}\n"
                 f"ELA: {glacier.ela} \n"
                 f"MB grad: {glacier.mb_gradient} \n"
@@ -531,6 +541,7 @@ class GlacierCollection:
                 glacier.history.area_m2.plot(
                     ax=ax3,
                     label=(
+                        f"Id: {(glacier).id}\n"
                         f"Glacier {i+1}\n"
                         f"Type: {type(glacier).__name__}\n"
                         f"ELA: {glacier.ela}\n"
@@ -576,9 +587,9 @@ class GlacierCollection:
         ax2.grid(True)
         ax3.grid(True)
 
-        handels, labels = ax3.get_legend_handles_labels()
+        handles, labels = ax3.get_legend_handles_labels()
         fig.legend(
-            handels,
+            handles,
             labels,
             loc="upper left",
             ncol=1,
@@ -596,11 +607,11 @@ class GlacierCollection:
         elas = []
 
         # Plot annual mass balance for each glacier.
-        for i, glacier in enumerate(self.glaciers):
+        for glacier in self.glaciers:
             ax.plot(
                 glacier.annual_mass_balance,
                 glacier.bed.bed_h,
-                label=f"Glacier {i+1}, " + f"gradient {glacier.mass_balance.gradient}",
+                label=f"Glacier {glacier.id}, " + f"gradient {glacier.mass_balance.gradient}",
             )
             # Add each ELA.
             elas.append(glacier.mass_balance.ela)
