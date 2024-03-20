@@ -8,28 +8,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-25 18:58+0200\n"
+"POT-Creation-Date: 2024-03-20 14:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.1\n"
+"Generated-By: Babel 2.12.1\n"
 
 #: ../../<rst_prolog>:1
 msgid "badge_bokeh_en"
 msgstr ""
 
 #: ../../<rst_prolog>:3
-msgid "badge_bokeh_de"
-msgstr ""
-
-#: ../../<rst_prolog>:3
 msgid "badge_bokeh_en_alps"
 msgstr ""
 
-#: ../../<rst_prolog>:3
+#: ../../<rst_prolog>:5
+msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>:7
 msgid "badge_bokeh_de_alps"
 msgstr ""
 
@@ -57,81 +57,89 @@ msgstr ""
 msgid "Future evolution of glaciers"
 msgstr "Die Zukunft aller Gletscher"
 
-#: ../../alps_future.rst:6
+#: ../../alps_future.rst:7
 msgid "Globally or regionally:"
 msgstr "Global oder regional:"
 
-
 #: ../../alps_future.rst:13
+#, fuzzy
 msgid ""
-"Find out about the global future evolution of glaciers! This "
-"interactive graphic displays the volume change of all glaciers worldwide under "
-"four different global warming scenarios between +1.5°C and +4°C until 2100. You can also compare "
-"the global evolution to single glacier regions. "
+"Find out about the global future evolution of glaciers! This interactive "
+"graphic displays the volume change of all glaciers worldwide under four "
+"different global warming scenarios between +1.5°C and +4°C until 2100. "
+"You can also compare the global evolution to single glacier regions."
 msgstr ""
-"Hier könnt ihr herausfinden wie Gletscher weltweit und regional in der Zukunft auf den Klimawandel reagieren werden."
-"Die interaktive Grafik zeigt die Volumenänderung der Gletscher unter verschiedenen Erwärmungsszenarien zwischen +1.5°C und +4°C bis 2100."
-"Ihr könnt auch die globale Entwicklung mit einzelnen Gletscherregionen vergleichen."
-""
+"Hier könnt ihr herausfinden wie Gletscher weltweit und regional in der "
+"Zukunft auf den Klimawandel reagieren werden.Die interaktive Grafik zeigt"
+" die Volumenänderung der Gletscher unter verschiedenen "
+"Erwärmungsszenarien zwischen +1.5°C und +4°C bis 2100.Ihr könnt auch die "
+"globale Entwicklung mit einzelnen Gletscherregionen vergleichen."
 
-#: ../../alps_future.rst:23
-msgid "European Alps:"
-msgstr "Europäische Alpen:"
-
-#: ../../alps_future.rst:10
-msgid ""
-"You can also only look at the evolution of glaciers in the European Alps"
-"and compare the different alpine countries"
-msgstr ""
-"Hier könnt ihr auch erfahren wie Gletscher in den"
-"europäischen Alpen in der Zukunft schmelzen werden! Ihr könnt auch verschiedene Alpenländer mit Gletschern vergleichen."
-
-#: ../../alps_future.rst:16
+#: ../../alps_future.rst:18
 msgid "To start the app, click on this link: |badge_bokeh_en|_"
 msgstr "Um die App zu starten klicke auf folgendem Link: |badge_bokeh_de|_"
 
-#: ../../alps_future.rst:16
+#: ../../alps_future.rst:24
+msgid "European Alps:"
+msgstr "Europäische Alpen:"
+
+#: ../../alps_future.rst:30
+#, fuzzy
+msgid ""
+"You can also only look at the evolution of glaciers in the European Alps "
+"and compare the different alpine countries"
+msgstr ""
+"Hier könnt ihr auch erfahren wie Gletscher in deneuropäischen Alpen in "
+"der Zukunft schmelzen werden! Ihr könnt auch verschiedene Alpenländer mit"
+" Gletschern vergleichen."
+
+#: ../../alps_future.rst:33
 msgid "To start the app, click on this link: |badge_bokeh_en_alps|_"
 msgstr "Um die App zu starten klicke auf folgendem Link: |badge_bokeh_en_alps|_"
 
-
-#: ../../alps_future.rst:21
+#: ../../alps_future.rst:40
 msgid "Authors"
 msgstr "Autoren"
 
-#: ../../alps_future.rst:23
+#: ../../alps_future.rst:42
 msgid ""
-"`Fabien Maussion <https://fabienmaussion.info/>`_, `Zora Schirmeister <https://github.com/zschirmeister>`_"
-" and `Lilian Schuster <https://github.com/lilianschuster>`_"
+"`Fabien Maussion <https://fabienmaussion.info/>`_, `Zora Schirmeister "
+"<https://github.com/zschirmeister>`_ and `Lilian Schuster "
+"<https://github.com/lilianschuster>`_"
 msgstr ""
-"`Fabien Maussion <https://fabienmaussion.info/>`_, `Zora Schirmeister <https://github.com/zschirmeister>`_"
-" und `Lilian Schuster <https://github.com/lilianschuster>`_"
+"`Fabien Maussion <https://fabienmaussion.info/>`_, `Zora Schirmeister "
+"<https://github.com/zschirmeister>`_ und `Lilian Schuster "
+"<https://github.com/lilianschuster>`_"
 
-#: ../../alps_future.rst:26
+#: ../../alps_future.rst:45
 msgid "Data sources"
 msgstr "Datenquellen"
 
-#: ../../alps_future.rst:28
-msgid ""
-"Data: `Rounce et al. (2022) <https://doi.org/10.5067/P8BN9VO9N5C7>`_"
-msgstr ""
-"Daten: `Rounce et al. (2022) <https://doi.org/10.5067/P8BN9VO9N5C7>`_"
+#: ../../alps_future.rst:47
+msgid "Data: `Rounce et al. (2022) <https://doi.org/10.5067/P8BN9VO9N5C7>`_"
+msgstr "Daten: `Rounce et al. (2022) <https://doi.org/10.5067/P8BN9VO9N5C7>`_"
 
-#: ../../alps_future.rst:31
+#: ../../alps_future.rst:50
 msgid "Source code"
 msgstr "Quellcode"
 
-#: ../../alps_future.rst:33
+#: ../../alps_future.rst:52
+#, fuzzy
 msgid ""
-"Code and data are on GitHub for the `Global App <https://github.com/OGGM/science_2023_app>`_,"
-"and the `European Alps App <https://github.com/OGGM/alps_future>`_, BSD3 licensed."
+"Code and data are on GitHub for the `Global App "
+"<https://github.com/OGGM/science_2023_app>`_, and the `European Alps App "
+"<https://github.com/OGGM/alps_future>`_, BSD3 licensed."
 msgstr ""
-"Code und Daten befinden sich auf GitHub für die`Globale App <https://github.com/OGGM/science_2023_app>`_,"
-"und für die `Europäische Alpen App <https://github.com/OGGM/alps_future>`_, BSD3 lizenziert."
+"Code und Daten befinden sich auf GitHub für die`Globale App "
+"<https://github.com/OGGM/science_2023_app>`_,und für die `Europäische "
+"Alpen App <https://github.com/OGGM/alps_future>`_, BSD3 lizenziert."
 
-#: ../../alps_future.rst:35
+#: ../../alps_future.rst:54
 msgid ""
-"We welcome any app improvements. Just write us a mail with the jupyter-notebook or send us a pull request!"
+"We welcome any app improvements. Just write us a mail with the jupyter-"
+"notebook or send us a pull request!"
 msgstr ""
-"Wir freuen uns über jegliche Verbesserungen der Apps. Schreibt uns einfach eine Mail mit dem Jupyter-Notebook oder schickt uns einen pull request!"
+"Wir freuen uns über jegliche Verbesserungen der Apps. Schreibt uns "
+"einfach eine Mail mit dem Jupyter-Notebook oder schickt uns einen pull "
+"request!"
 
