@@ -13,6 +13,7 @@ dependencies:
   - xarray
   - pytables
   - pytest
+  - salem
   - seaborn
   - sphinx
   - sphinx-book-theme>=0.3.2
@@ -21,6 +22,5 @@ dependencies:
   - sphinx-intl
   - pip:
     - git+https://github.com/OGGM/oggm
-    - git+https://github.com/OGGM/oggm-edu
     # relative to this file. Needs to be editable to be accepted.
-    # - -e ..
+    - -e ..
