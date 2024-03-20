@@ -8,21 +8,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OGGM-Edu 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-28 18:30+0200\n"
+"POT-Creation-Date: 2024-03-20 14:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.1\n"
+"Generated-By: Babel 2.12.1\n"
 
 #: ../../<rst_prolog>:1
 msgid "badge_bokeh_en"
 msgstr ""
 
 #: ../../<rst_prolog>:3
+msgid "badge_bokeh_en_alps"
+msgstr ""
+
+#: ../../<rst_prolog>:5
 msgid "badge_bokeh_de"
+msgstr ""
+
+#: ../../<rst_prolog>:7
+msgid "badge_bokeh_de_alps"
 msgstr ""
 
 #: ../../<rst_prolog>
@@ -68,10 +76,11 @@ msgid "You can start the app by clicking on this link: |badge_bokeh_en|_"
 msgstr "Um die App zu starten, klicke auf folgenden Link: |badge_bokeh_en|_"
 
 #: ../../explorer.rst:19
+#, fuzzy
 msgid ""
 "Alternatively, you can start the app `on mybinder "
 "<https://mybinder.org/v2/gh/OGGM/world-glacier-"
-"explorer/master?urlpath=panel/app>`_ (slightly slower in general, but a "
+"explorer/stable?urlpath=panel/app>`_ (slightly slower in general, but a "
 "good alternative if our server is saturated). If you want to run the app "
 "on your own computer, see :ref:`docker-launch` below."
 msgstr ""
@@ -189,7 +198,9 @@ msgstr "Fragen, die mit dieser App bearbeitet werden können"
 msgid ""
 "We suggest motivating the app with a question to be answered in class. "
 "For example:"
-msgstr "Wir empfehlen, die Anwendung mit ein paar Fragen zu motivieren. Zum Beispiel:"
+msgstr ""
+"Wir empfehlen, die Anwendung mit ein paar Fragen zu motivieren. Zum "
+"Beispiel:"
 
 #: ../../explorer.rst:80
 msgid "How many glaciers are there on Earth? How much volume do they represent?"
@@ -312,7 +323,8 @@ msgid ""
 "hour class or lab session"
 msgstr ""
 "`OGGM-Edu Glaciology Lab 2 - Exploring glacier data "
-"<https://serc.carleton.edu/teachearth/activities/250446.html>`_ (in englisher Sprache) "
+"<https://serc.carleton.edu/teachearth/activities/250446.html>`_ (in "
+"englisher Sprache) "
 
 #: ../../explorer.rst:109
 msgid "Authors"
