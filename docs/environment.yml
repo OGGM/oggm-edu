@@ -23,4 +23,4 @@ dependencies:
     - git+https://github.com/OGGM/oggm
     - git+https://github.com/OGGM/oggm-edu
     # relative to this file. Needs to be editable to be accepted.
-    - -e ..
+    # - -e ..
