@@ -36,6 +36,12 @@ To start the app, click on this link: |badge_bokeh_en_alps|_
 .. _badge_bokeh_de_alps: alps_future-app_rounce_delta_T_de.html
 
 
+.. admonition:: Further interested in climate risks and future glacier changes?
+
+   To explore detailed insights into climate risks and glacier changes at the country level, go to our `Climate Risk Dashboard <provide_dashboard.html>`_ site
+
+
+
 Authors
 -------
 

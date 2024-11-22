@@ -123,9 +123,9 @@ Select the Mean Temperature indicator (see instructions in the :ref:`geography_a
 - How is the mean temperature defined? (Hint: Check the description when selecting the indicator.)
 - How much warming has your country experienced since pre-industrial times up to 2020? (Hint: Use the :ref:`timing_plot` plot and set the reference period to pre-industrial as explained in :ref:`geography_and_indicator`.)
 - What do the two scenarios represent? How are they different (e.g., maximum warming in the period 2020 to 2100 or by 2100)? (Hint: Check the scenario descriptions when selecting or use the :ref:`timing_plot` plot.)
-- How does your country’s temperature change compare to global averages for the two scenarios? (Hint: Use the :ref:`timing_plot` plot and set the reference to pre-industrial as explained in :ref:`geography_and_indicator`.)
+- How does your country’s temperature change compare to global averages for the two scenarios? (Hint: Use the :ref:`timing_plot` plot, set the reference to pre-industrial as explained in :ref:`geography_and_indicator`, and hover over the lines.)
 - Where is the strongest temperature change in your country? What are the spatial differences between the scenarios? (Hint: Look at the :ref:`location_plot` plot.)
-- What is the unavoidable risk of exceeding +2.0°C by 2100? How does it differ between scenarios? (Hint: Check the :ref:`risk_plot` plot.)
+- What is the unavoidable risk of exceeding +2.0°C by 2100 in your country? How does it differ between scenarios? (Hint: Check the :ref:`risk_plot` plot.)
 
 Explore glacier volume projections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,7 +212,7 @@ With the dashboard open in two tabs, compare the changes in mean temperature and
 **Questions to answer:**
 
 - What is the relationship between temperature and glacier volume? Why does this happen?
-- What patterns do you notice in overshoot scenarios? What could be an explanation for this?
+- What patterns do you notice in overshoot scenarios? What could be an explanation for this? Change to another country and see whether the pattern changes! 
 
 
 Authors
