@@ -200,7 +200,7 @@ html_css_files = ['custom.css']
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-html_extra_path = ['gallery-app_en.html', 'gallery-app_de.html', 
+html_extra_path = ['gallery-app_en.html', 'gallery-app_de.html',
                     'alps_future-app_rounce_delta_T_en.html',
                     'alps_future-app_rounce_delta_T_de.html',
                     'global_future_glacier-app_rounce_delta_T_en.html',
@@ -343,6 +343,14 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+# Analytics
+html_theme_options["analytics"] = {
+    # The domain you'd like to use for this analytics instance
+    "plausible_analytics_domain": "edu.oggm.org",
+    # The analytics script that is served by Plausible
+    "plausible_analytics_url": "https://plausible.oggm.org/js/script.js",
+}
 
 
 # Example configuration for intersphinx: refer to the Python standard library.

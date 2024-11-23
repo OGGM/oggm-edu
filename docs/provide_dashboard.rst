@@ -7,9 +7,26 @@ Climate Risk Dashboard
     :width: 100%
     :target: https://climate-risk-dashboard.climateanalytics.org/
 
-The Climate Risk Dashboard (`climate-risk-dashboard.climateanalytics.org <https://climate-risk-dashboard.climateanalytics.org/>`_) is an online platform offering detailed insights into climate overshoot scenarios, their impacts, and reversibility, with sector-specific data (e.g., extreme events, biodiversity, sea level rise, glaciers) across global, national, and city levels, and is the main outcome of the `Horizon 2020 PROVIDE Project <https://www.provide-h2020.eu/>`_. Overshoot scenarios refer to pathways where temperature, greenhouse gas concentrations, or radiative forcing exceed a stabilization target (e.g., Paris Agreement thresholds) within a specific timeframe (e.g., before 2100) and then return to the target level by the end of that period, typically requiring the removal of greenhouse gases through natural or technological sinks.
+The PROVIDE Climate Risk Dashboard
+(`climate-risk-dashboard.climateanalytics.org <https://climate-risk-dashboard.climateanalytics.org/>`_)
+is an online platform that offers detailed insights into climate overshoot scenarios, their impacts,
+and their reversibility. It provides sector-specific data (e.g., extreme events, biodiversity, sea level rise, glaciers)
+at global, national, and city levels. This dashboard is the primary outcome of the
+`Horizon 2020 PROVIDE Project <https://www.provide-h2020.eu/>`_.
 
-Here, we provide instructions and examples focused specifically on glaciers. You will learn how to analyze temperature changes alongside glacier changes directly on the dashboard and how to download data for creating your own plots or conducting deeper analyses. If this is your first visit, a general tutorial video below will guide you on navigating the dashboard. In the following sections, after the introductory video, you’ll find examples on glacier changes, starting with simple ones and progressing to more complex analyses.
+Overshoot scenarios refer to pathways in which temperature, greenhouse gas concentrations,
+or radiative forcing exceed a stabilization target (e.g., the Paris Agreement thresholds)
+within a specific timeframe (e.g., before 2100) but return to the target level by the end of that period.
+Achieving this typically requires the removal of greenhouse gases through natural or technological sinks.
+
+Here, we provide instructions and examples specifically focused on glaciers.
+You will learn how to analyze temperature changes in relation to glacier changes
+directly on the dashboard, as well as how to download data for creating your own plots
+or conducting more in-depth analyses.
+
+If this is your first visit, a general tutorial video below will guide you through navigating the dashboard.
+In the sections that follow the introductory video, you'll find examples related to glacier changes,
+starting with simple analyses and gradually moving on to more advanced ones.
 
 .. _video_tutorial:
 
@@ -18,22 +35,28 @@ Video tutorial
 
 .. raw:: html
 
-  <iframe 
-    width="640" 
-    height="357" 
-    src="https://www.youtube.com/embed/5ucDMJ6wyaM" 
-    title="PROVIDE Climate Risk Dashboard tutorial on YouTube" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  <iframe
+    width="640"
+    height="357"
+    src="https://www.youtube.com/embed/5ucDMJ6wyaM"
+    title="PROVIDE Climate Risk Dashboard tutorial on YouTube"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
   <p><a href="https://www.youtube.com/watch?v=5ucDMJ6wyaM">PROVIDE Climate Risk Dashboard tutorial on YouTube</a></p>
 
 
-Navigation inside the Dashboard
+Navigation within the Dashboard
 -------------------------------
 
-This section explains how to find the data used in our exercises (mean temperature and glacier volume). The dashboard also includes many other indicators (e.g., urban climate, biodiversity), so feel free to explore beyond what we cover here. Let’s start by locating the data we’re focusing on. When you open the Climate Risk Dashboard (`climate-risk-dashboard.climateanalytics.org <https://climate-risk-dashboard.climateanalytics.org/>`_), first click on ``Explore`` in the top-right corner (as shown in the video tutorial above).
+This section explains how to locate the data used in our exercises, such as mean temperature and glacier volume.
+The dashboard also includes many other indicators (e.g., urban climate, biodiversity), so we encourage you
+to explore beyond the scope of this guide.
+
+To get started, let’s find the data we’re focusing on. Open the
+`Climate Risk Dashboard <https://climate-risk-dashboard.climateanalytics.org/>`_
+and click on ``Explore`` in the top-right corner, as demonstrated in the video tutorial above.
 
 .. _geography_and_indicator:
 
@@ -43,14 +66,18 @@ Geography and Indicator
 .. figure:: _static/provide_geography_indicator.png
     :width: 100%
 
-The first step is to choose a ``GEOGRAPHY``. For our exercises, we’ll focus on countries with glaciers, using Austria as an example. To see where glaciers are located worldwide, check out our :ref:`explorer` app.
+The first step is to choose a ``GEOGRAPHY``. For our exercises, we'll focus on countries with glaciers,
+using Austria as an example. To see where glaciers are located worldwide, check out our :ref:`explorer` app.
 
 Next, select the Indicator.
 
 - To find mean temperature: go to ``Indicator > Terrestrial Climate > Mean Temperature``.
 - To find glacier volume: go to ``Indicator > Glaciers > Glacier Volume``.
 
-When selecting an indicator, a short explanation will appear, and additional options may be available. For example, for mean temperature, you can choose the ``Season`` (default: ``Annual mean``) or defining a reference period in ``Changes compared to`` (default ``2011-2020 (present-day)``, for comparing to pre-industrial you should select ``1850-1900 (pre-industrial)`` here).
+When selecting an indicator, a short explanation will appear, and additional options may be
+available. For example, for mean temperature, you can choose the ``Season`` (default: ``Annual mean``)
+or defining a reference period in ``Changes compared to`` (default ``2011-2020 (present-day)``,
+for comparing to pre-industrial you should select ``1850-1900 (pre-industrial)`` here).
 
 Scenarios
 ~~~~~~~~~
@@ -58,7 +85,9 @@ Scenarios
 .. figure:: _static/provide_scenarios.png
     :width: 100%
 
-After selecting geography and indicators, choose a ``SCENARIO`` to analyze. Up to three scenarios can be selected at once for comparison. Hover over a scenario for more information. In the example above, we have selected ``Shifting pathway`` and ``2020 climate policies``.
+After selecting geography and indicators, choose a ``SCENARIO`` to analyze. Up to three scenarios
+can be selected at once for comparison. Hover over a scenario for more information.
+In the example above, we have selected ``Shifting pathway`` and ``2020 climate policies``.
 
 Plots
 ~~~~~
@@ -212,7 +241,7 @@ With the dashboard open in two tabs, compare the changes in mean temperature and
 **Questions to answer:**
 
 - What is the relationship between temperature and glacier volume? Why does this happen?
-- What patterns do you notice in overshoot scenarios? What could be an explanation for this? Change to another country and see whether the pattern changes! 
+- What patterns do you notice in overshoot scenarios? What could be an explanation for this? Change to another country and see whether the pattern changes!
 
 
 Authors
