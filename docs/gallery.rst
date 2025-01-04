@@ -3,7 +3,7 @@
 Glacier Gallery
 ===============
 
-.. figure:: _static/gallery_thumbnail.png
+.. figure:: _static/gallery_thumbnail.jpg
     :width: 100%
     :target: gallery-app_en.html
 
