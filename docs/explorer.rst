@@ -3,7 +3,7 @@
 World Glaciers Explorer
 =======================
 
-.. figure:: _static/explorer_thumbnail.png
+.. figure:: _static/explorer_thumbnail.jpg
     :width: 100%
     :target: https://bokeh.oggm.org/explorer/app
 
@@ -100,7 +100,7 @@ Resources
 - Several pages from `Glaciers and Climate <http://www.antarcticglaciers.org/glaciers-and-climate/>`_ on `antarcticglaciers.org`_ are highly relevant here
 - `Warming trends at glaciers locations <https://fabienmaussion.info/2019/08/29/era5/>`_, a blog post by Fabien Maussion
 - `Glacial Census Reveals Ice Thicknesses Around the World <https://eos.org/articles/glacial-census-reveals-ice-thicknesses-around-the-world>`_, EOS
-- `OGGM-Edu Glaciology Lab 2 - Exploring glacier data <https://serc.carleton.edu/teachearth/activities/250446.html>`_ provides a lesson plan and materials to use the World Glacier Explorer in a 1.5-2 hour class or lab session 
+- `OGGM-Edu Glaciology Lab 2 - Exploring glacier data <https://serc.carleton.edu/teachearth/activities/250446.html>`_ provides a lesson plan and materials to use the World Glacier Explorer in a 1.5-2 hour class or lab session
 
 .. _antarcticglaciers.org: http://www.antarcticglaciers.org/
 

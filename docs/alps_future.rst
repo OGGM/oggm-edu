@@ -13,7 +13,7 @@ Globally or regionally:
 Find out about the global future evolution of glaciers! This
 interactive graphic displays the volume change of all glaciers worldwide under
 four different global warming scenarios between +1.5°C and +4°C until 2100. You can also compare
-the global evolution to single glacier regions. 
+the global evolution to single glacier regions.
 
 To start the app, click on this link: |badge_bokeh_en|_
 
@@ -27,7 +27,7 @@ European Alps:
     :width: 100%
     :target: alps_future-app_rounce_delta_T_en.html
 
-You can also only look at the evolution of glaciers in the European Alps and compare 
+You can also only look at the evolution of glaciers in the European Alps and compare
 the different alpine countries
 
 To start the app, click on this link: |badge_bokeh_en_alps|_
@@ -36,11 +36,9 @@ To start the app, click on this link: |badge_bokeh_en_alps|_
 .. _badge_bokeh_de_alps: alps_future-app_rounce_delta_T_de.html
 
 
-.. admonition:: Further interested in climate risks and future glacier changes?
+.. admonition:: Interested in climate risks and future glacier changes?
 
-   To explore detailed insights into climate risks and glacier changes at the country level, go to our `Climate Risk Dashboard <provide_dashboard.html>`_ site
-
-
+    For detailed insights into climate risks and glacier changes at the country level, visit our `Climate Risk Dashboard <provide_dashboard.html>`_.
 
 Authors
 -------
