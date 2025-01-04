@@ -7,32 +7,37 @@
 Welcome to OGGM-Edu!
 ====================
 
+|
+
 OGGM-Edu is an educational website about glaciers.
 
 Our main goal is to **provide tools and materials for instructors** who
-want to teach about glaciers at school, in workshops or at the university.
-
-For a general introduction and an overview, visit this recent
-`EGU cryoblog post <https://blogs.egu.eu/divisions/cr/2021/03/12/do-you-know-about-oggm-edu-an-open-source-educational-platform-about-glaciers-and-glacier-modelling/>`_!
+want to teach about glaciers at school, in workshops or at the university. We have been featured in
+this
+`EGU blog post <https://blogs.egu.eu/divisions/cr/2021/03/12/do-you-know-about-oggm-edu-an-open-source-educational-platform-about-glaciers-and-glacier-modelling/>`_!
 
 **OGGM-Edu has four independent and complementary components**:
 
-1. :ref:`title_apps`, to illustrate glaciological processes with the
-   help of interactive graphics on the web. The targeted audience is very
-   broad, from school children to adults, with or without scientific background.
-2. :ref:`title_graphics`, open access images and graphics that can be used
-   for lectures or presentations.
-3. :ref:`title_notebooks`, providing guidance to run and develop
-   simple modelling experiments. The targeted audience are students at the undergrad
-   or graduate level with some programming experience, or under the supervision
-   of an instructor who can show them how to run the experiments.
-4. :ref:`title_tuto`, for current and future users of the Open Global Glacier
-   Model. These notebooks are targeting graduate students or scientists aiming
-   to learn how the model works.
+📱 :ref:`title_apps`
+    | Illustrate glaciological processes with the help of interactive web applications.
+    | 🌎 *Targeted audience*: Everyone! From school children to adults, with or without a scientific background.
+
+📈 :ref:`title_graphics`
+    | Access open images and graphics that can be used for lectures or presentations.
+    | 🎓 *Targeted audience*: Educators, researchers, and presenters looking to use visual materials.
+
+📓 :ref:`title_notebooks`
+    | Guidance to run and develop from simple to complex glacier modelling experiments.
+    | 💻 *Targeted audience*: Undergraduate or graduate students with some programming experience, or anyone working with an instructor for hands-on learning.
+
+📖 :ref:`title_tuto`
+    | For current and future users of the Open Global Glacier Model.
+    | 🔬 *Targeted audience*: Graduate students or scientists seeking to understand and use the model effectively.
+
 
 OGGM-Edu focuses on interactive content and numerical glacier experiments.
-We do not provide resources about fundamentals in glaciology, climate science,
-or numerical methods: for more traditional textbook material, refer to
+We do not provide textbook resources about fundamentals in glaciology, climate science,
+or numerical methods: for textbook material, refer to
 :ref:`other_resources`, which OGGM-Edu intends to complement.
 
 .. _title_apps:
@@ -187,7 +192,6 @@ Interested in OGGM-Edu? We would love to hear from you!
 .. _on GitHub: https://github.com/OGGM/oggm-edu
 .. _issue tracker: https://github.com/OGGM/oggm-edu/issues
 .. _pull request: https://github.com/OGGM/oggm-edu/pulls
-.. _Twitter: https://twitter.com/OGGM_org
 
 Acknowledgements
 ^^^^^^^^^^^^^^^^

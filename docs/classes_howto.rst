@@ -22,9 +22,11 @@ You will find some help to get you started below.
 
    - `OGGM-Edu Glaciology Lab 1 - What Makes a Glacier?`_
    - `OGGM-Edu Glaciology Lab 2 - Exploring glacier data`_
+   - `OGGM-Edu Glaciology Lab 3 - Simulating glacier flow`_
 
 .. _OGGM-Edu Glaciology Lab 1 - What Makes a Glacier?: https://serc.carleton.edu/teachearth/activities/250452.html
 .. _OGGM-Edu Glaciology Lab 2 - Exploring glacier data: https://serc.carleton.edu/teachearth/activities/250446.html
+.. _OGGM-Edu Glaciology Lab 3 - Simulating glacier flow: https://serc.carleton.edu/teachearth/activities/281855.html
 
 Using the OGGM-Edu web apps in high school
 ------------------------------------------
@@ -51,6 +53,7 @@ See also the two OGGM-Edu lab activities hosted on SERC:
 
 - `OGGM-Edu Glaciology Lab 1 - What Makes a Glacier?`_
 - `OGGM-Edu Glaciology Lab 2 - Exploring glacier data`_
+- `OGGM-Edu Glaciology Lab 3 - Simulating glacier flow`_
 
 
 Using the OGGM-Edu notebooks at university
