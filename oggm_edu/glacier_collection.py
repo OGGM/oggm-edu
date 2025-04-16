@@ -7,6 +7,7 @@ from oggm_edu.glacier import Glacier
 from oggm_edu.funcs import edu_plotter, expression_parser
 
 # Other libraries.
+import warnings
 import pandas as pd
 import numpy as np
 from collections.abc import Sequence
@@ -74,7 +75,9 @@ class GlacierCollection:
                 }
                 # Add it to the df.
                 df2 = pd.DataFrame(json)
-                df = pd.concat([df, df2], ignore_index=True)
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore", FutureWarning)
+                    df = pd.concat([df, df2], ignore_index=True)
 
             # Set the index name.
             df = df.reindex()
