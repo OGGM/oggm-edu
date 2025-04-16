@@ -42,3 +42,4 @@ docs/.doctrees
 
 # Etc.
 .vim
+ignore/
