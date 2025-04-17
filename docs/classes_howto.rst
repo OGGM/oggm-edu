@@ -8,13 +8,14 @@ try it out! Depending on your own knowledge about glaciers, this can require
 some preparation. Check out :ref:`other_resources` if you are interested in
 the fundamentals and online textbook materials.
 
-Currently, we are working on developing course materials suitable for classes at the high school level (using the OGGM-Edu web applications) and at the university level (using the web applications and the programmable notebooks).
+Currently, we are working on developing course materials suitable for classes at the high school level (using the OGGM-Edu web applications)
+ and at the university level (using the web applications and the programmable notebooks).
 
 You will find some help to get you started below.
 
-.. admonition:: New since June 2022! Teaching materials for your glaciology labs
+.. admonition:: Teaching activities for your glaciology labs
 
-   We recently created two activities based on the OGGM-Edu web apps that
+   We recently created three activities based on the OGGM-Edu web apps that
    are suitable for high-school or university students with no previous
    knowledge about glaciers. These activities have been tested in class and
    provide a well defined activity schedule and instructor materials.
@@ -65,11 +66,11 @@ notebooks add a layer of depth and interactivity to the apps.
 The use of notebooks in classes is expanding rapidly (see for example the
 great resource `Teaching and Learning with Jupyter <https://jupyter4edu.github.io/jupyter-edu-book/>`_
 for an in-depth introduction). At OGGM, we use notebooks frequently
-for our own `lectures <https://fabienmaussion.info/teaching/>`_ or `tutorials <https://oggm.org/tutorials>`_,
+for our own `lectures <https://fabienmaussion.info/teaching/>`_ or `tutorials <https://tutorials.oggm.org>`_,
 and we are big fans! They help convey knowledge in an interactive and fun way,
 and they encourage active learning.
 
-Visit the `OGGM-Edu-Notebooks <https://oggm.org/oggm-edu-notebooks>`_ webpage
+Visit the `OGGM-Edu-Notebooks <https://edu-notebooks.oggm.org>`_ webpage
 to see them in action! Our :ref:`nbs_in_class` page will help you to get
 started with your class.
 
@@ -79,10 +80,16 @@ Existing classes based on OGGM-Edu
 ----------------------------------
 
 Here are some known applications of OGGM-Edu in classes. You can
-use them "as is", or as templates for your own classes. We would love to hear
-back from you: if you are creating educational resources based on OGGM-Edu,
-please :ref:`get in touch <title_contact>` so that we can highlight them!
+use them "as is", or as templates for your own classes.
 
+We know of at least 12 classes running OGGM-Edu activities each year - but we
+don't have access to all of them. If you are using OGGM-Edu in your class, we would love to hear
+back from you: please :ref:`get in touch <title_contact>` so that we can highlight them!
+
+- `1 day workshop focussing on OGGM output <https://fabienmaussion.info/climate_risks/ws07/01-lesson-glaciers.html>`_,
+  By `Fabien Maussion <https://fabienmaussion.info/>`_.
+- `Cryosphere Class at University of Innsbruck <https://pat-schmitt.github.io/the_cryosphere_in_the_climate_system>`_
+  By `Patrick Schmitt <https://www.uibk.ac.at/en/acinn/people/patrick-schmitt/>`_.
 - `Middlebury College glaciology-labs notebooks <https://github.com/ehultee/glaciology-labs>`_,
   adapted (and enhanced) OGGM-Edu notebooks. By `Lizz Ultee <https://ehultee.github.io/>`_.
 - `University of Michigan CLaSP 474 Ice and Climate notebooks <https://github.com/skachuck/clasp474_w2021>`_,

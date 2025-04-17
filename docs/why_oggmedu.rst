@@ -41,7 +41,7 @@ Here is what motivates us:
   css, javascript or html for example. That way, we hope to engage more
   people to use and develop the website further.
 
-If you want to know more, you can watch our recent seminar presentation
+If you want to know more, you can watch our 2021 seminar presentation
 explaining these points into more detail and demonstrating some of OGGM-Edu's
 applications:
 
