@@ -34,10 +34,14 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
+    'sphinx_togglebutton',
     'numpydoc',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive'
 ]
+
+# Keep legacy ``:class: toggle`` admonitions working via sphinx-togglebutton.
+togglebutton_selector = '.toggle, .admonition.dropdown'
 
 autosummary_generate = True
 
@@ -61,8 +65,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OGGM-Edu'
-copyright = u'OGGM-Edu Contributors 2018-2026. <a href="https://community.oggm.org/legal.html" target="_blank" rel="noopener noreferrer">Legal & Privacy</a>'
-author = u'OGGM-Edu Developers'
+copyright = u'OGGM-Edu Contributors 2018-2026'
+author = u''
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -143,17 +147,22 @@ pygments_style = 'sphinx'
 html_theme = 'sphinx_book_theme'
 
 if READTHEDOCS_LANGUAGE == 'de':
-    extra_footer = "footer_de.html"
+    extra_footer_file = "footer_de.html"
     toc_title = "Auf dieser Seite"
 elif READTHEDOCS_LANGUAGE == 'fr':
-    extra_footer = "footer_fr.html"
+    extra_footer_file = "footer_fr.html"
     toc_title = "Sur cette page"
 elif READTHEDOCS_LANGUAGE == 'es':
-    extra_footer = "footer_es.html"
+    extra_footer_file = "footer_es.html"
     toc_title = "En esta página"
 else:
-    extra_footer = "footer_en.html"
+    extra_footer_file = "footer_en.html"
     toc_title = "On this page"
+
+with open(os.path.join("_templates", extra_footer_file), "r", encoding="utf-8") as myfile:
+    extra_footer = myfile.read()
+
+html_last_updated_fmt = ""
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -167,8 +176,9 @@ html_theme_options = {
     "path_to_docs": "docs",
     "home_page_in_toc": True,
     "toc_title": toc_title,
-    "footer_start": [extra_footer],
-    "footer_end": [extra_footer],
+    "extra_footer": extra_footer,
+    # "footer_start": [],
+    # "footer_end": [],
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -364,7 +374,7 @@ with open("epilog.rst", "r") as myfile:
     rst_epilog = myfile.read()
 
 
-# Add toggle container
+# Expose current language for ifconfig directives.
 def setup(app):
     # In sphinx, you can use .. ifconfig:: READTHEDOCS_LANGUAGE == 'en' to
     # hide content if necessary
