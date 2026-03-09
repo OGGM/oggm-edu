@@ -61,7 +61,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OGGM-Edu'
-copyright = u'OGGM-Edu Developers 2018-2023'
+copyright = u'OGGM-Edu Contributors 2018-2026. <a href="https://community.oggm.org/legal.html" target="_blank" rel="noopener noreferrer">Legal & Privacy</a>'
 author = u'OGGM-Edu Developers'
 
 # The version info for the project you're documenting, acts as replacement for
