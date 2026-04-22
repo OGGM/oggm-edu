@@ -40,9 +40,6 @@ extensions = [
     'IPython.sphinxext.ipython_directive'
 ]
 
-# Keep legacy ``:class: toggle`` admonitions working via sphinx-togglebutton.
-togglebutton_selector = '.toggle, .admonition.dropdown'
-
 autosummary_generate = True
 
 numpydoc_class_members_toctree = True
