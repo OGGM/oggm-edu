@@ -178,8 +178,8 @@ html_theme_options = {
     # "footer_end": [],
     "announcement": (
         '<p>How do you use OGGM-Edu? Tell us by filling '
-        '<a href="https://forms.office.com/e/ZDBCwj3vFb" target="_blank">this short survey</a> '
-        '(open until May 17). Thanks for your contribution!</p>'
+        '<a href="https://forms.office.com/e/ZDBCwj3vFb" target="_blank">this short survey</a>.'
+        'Thanks for your contribution!</p>'
     ),
 }
 
