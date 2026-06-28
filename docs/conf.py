@@ -176,11 +176,11 @@ html_theme_options = {
     "extra_footer": extra_footer,
     # "footer_start": [],
     # "footer_end": [],
-    "announcement": (
-        '<p>How do you use OGGM-Edu? Tell us by filling '
-        '<a href="https://forms.office.com/e/ZDBCwj3vFb" target="_blank">this short survey</a>.'
-        'Thanks for your contribution!</p>'
-    ),
+    # "announcement": (
+    #     '<p>How do you use OGGM-Edu? Tell us by filling '
+    #     '<a href="https://forms.office.com/e/ZDBCwj3vFb" target="_blank">this short survey</a>.'
+    #     'Thanks for your contribution!</p>'
+    # ),
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
